@@ -6,6 +6,11 @@ img {
 	display: none;
 }
 
+header {
+	align-items: center;
+	justify-content: center;
+}
+
 header img {
 	padding: 160px 20px;
 	width: 680px;
