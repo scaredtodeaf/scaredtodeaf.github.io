@@ -5,3 +5,9 @@ img {
 #Zelda {
 	display: none;
 }
+
+header img {
+	padding: 160px 20px;
+	width: 680px;
+	box-sizing: border-box;
+}
