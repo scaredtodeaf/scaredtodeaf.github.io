@@ -10,6 +10,18 @@ img {
 	display: none;
 }
 
+#Daytona {
+	display: none;
+}
+
+#KungFuPanda {
+	display: none;
+}
+
+#SegaRally {
+	display: none;
+}
+
 header {
 	align-items: center;
 	justify-content: center;
