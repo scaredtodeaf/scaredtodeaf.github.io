@@ -6,6 +6,10 @@ img {
 	display: none;
 }
 
+#Muppets {
+	display: none;
+}
+
 header {
 	align-items: center;
 	justify-content: center;
