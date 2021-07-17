@@ -18,6 +18,26 @@
 	display: none;
 }
 
+#Office {
+	display: none;
+}
+
+#Youtube {
+	display: none;
+}
+
+#MassEffect {
+	display: none;
+}
+
+#DukeNukem {
+	display: none;
+}
+
+#CastlevaniaSOTN {
+	display: none;
+}
+
 /* The sidebar menu */
 .sidenav {
 	height: 100%; /* Full-height: remove this if you want "auto" height */
