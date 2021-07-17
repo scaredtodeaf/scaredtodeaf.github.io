@@ -66,13 +66,6 @@ header {
 	align-items: center;
 	justify-content: center;
 }
-
-header img {
-	padding: 160px 20px;
-	width: 680px;
-	box-sizing: border-box;
-}
-
 pre {
     display: inline-block;
     margin: 0;
