@@ -1,0 +1,24 @@
+span {
+    font-style: italic;
+    color: rgba(24, 10, 10, 0.75);
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 32px;
+}
+
+li {
+    padding: 4px;
+}
+
+li:nth-of-type(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sfx-group > div {
+    display: none;
+}
