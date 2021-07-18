@@ -73,7 +73,11 @@
     width:160px;
 	height:auto;
 }
-  
+
+html, body {
+	min-height: 100vh;
+}
+
 body {
 	margin-left: 180px; /* Same as the width of the sidebar */
     padding: 0px 10px;
