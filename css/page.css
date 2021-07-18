@@ -22,3 +22,8 @@ li:nth-of-type(even) {
 .sfx-group > div {
     display: none;
 }
+
+a {
+    color: #f1f1f1;
+    text-shadow: 2px 2px #b954f8;
+}
