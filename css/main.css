@@ -54,6 +54,14 @@
 	display: none;
 }
 
+#Portal {
+	display: none;
+}
+
+#Mario {
+	display: none;
+}
+
 /* The sidebar menu */
 .sidenav {
 	height: 100%; /* Full-height: remove this if you want "auto" height */
