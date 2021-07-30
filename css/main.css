@@ -42,6 +42,18 @@
 	display: none;
 }
 
+#Banjo {
+	display: none;
+}
+
+#Random {
+	display: none;
+}
+
+#guesthour {
+	display: none;
+}
+
 /* The sidebar menu */
 .sidenav {
 	height: 100%; /* Full-height: remove this if you want "auto" height */
