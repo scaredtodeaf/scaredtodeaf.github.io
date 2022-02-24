@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The Video Game Music Quiz</title>
-  <meta charset="utf-8">
+  <title>Video Game Music Quiz</title>
+  <meta name="description" content="This is the Video Game Music Quiz, with tracks ranging from the 1980s to 2010s. Can you guess all the games?">
+  <meta name="keywords" content="Video Game, Music Quiz, Video, Game, Music, Quiz">
+  <meta name="author" content="ScaredToDeaf">
+  <meta name="generator" content="Visual Studio Code">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/music_player.js"></script>
   <script src="js/quiz_logic.js"></script>
   <link rel="stylesheet" href="css/default.css">
+  <link rel="shortcut icon" type="image/ico" href="img/favicon.ico"/>
 </head>
 <body>
 	<div id="HDR">
@@ -18,7 +23,7 @@
 			<div id="MP_MSI"></div>
 			<div id="MP_ANS"><form><label>Answer:</label><input type="text" id="MP_ANSR" disabled="true" maxlength="60" onsubmit="reset"><input type="email" id="MP_EML" maxlength="0" size="0" required="true"></form></div>
 		</div>
-		<div id="HB" isClickable=true>I am the official hintkeeper, I watch your every move! Ask me for a hint if you are hopelessly stuck, but use me sparingly; Too many hints can spoil the game!</div>
+		<div id="HB" isClickable=true></div>
 	</div>
 	<div id="GA"><div id="BTN_C"></div></div>
 </body>

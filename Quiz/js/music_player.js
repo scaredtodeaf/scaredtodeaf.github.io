@@ -1,4 +1,4 @@
-var AUD_OBJ = new Audio('media/default.ogg'); // Audio Object
+var AUD_OBJ = new Audio('media/0000000.mp3'); // Audio Object
 var AUD_CTM; // Audio - Track (Current Time)
 var AUD_RCT; // Audio - Track (Current Time | Raw)
 var AUD_DUR; // Audio - Track (Duration)
