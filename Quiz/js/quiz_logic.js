@@ -121,16 +121,18 @@ function REP_CHECK(){
 			};
 
 		} else if ($('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked') == 'false'){
-			var HB_STRING = 'You can click here for a hint in roughly ';
-			var TRK_SL = Math.round(AUD_RCT - (AUD_RDR / 2));
-
-			if (TRK_SL < 0){TRK_SL = Math.abs(TRK_SL);};
-
-			HB_STRING += TRK_SL;
-			HB_STRING += ' seconds.';
-			$('#HB').html(HB_STRING);
-
-			if (TRK_SL == 0){$('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked', true);};
+			if (AUD_OBJ.paused != true) {
+				var HB_STRING = 'You can click here for a hint in roughly ';
+				var TRK_SL = Math.round(AUD_RCT - (AUD_RDR / 2));
+	
+				if (TRK_SL < 0){TRK_SL = Math.abs(TRK_SL);};
+	
+				HB_STRING += TRK_SL;
+				HB_STRING += ' seconds.';
+				$('#HB').html(HB_STRING);
+	
+				if (TRK_SL == 0){$('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked', true);};
+			};
 		};
 		
 		LTID = TID;
