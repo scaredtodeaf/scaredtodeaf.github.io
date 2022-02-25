@@ -1,8 +1,4 @@
 var QUIZ_DATA = new Array(); // The Quiz Data
-var TTS_SPK = false; // Is window.speechSynthesis speaking?
-var TTS_QUE = false; // Is window.speechSynthesis queued?
-var TTS_TTQ = false; // Is there text waiting to be queued?
-var HNT_SPK = false; // Has the Hint been spoken yet?
 var TID; // This ID
 var ETID; // Edited TID
 var LTID; // Last TID
@@ -29,7 +25,7 @@ FF_CLIP.volume = 1; // Volume Level - FF_CLIP
 function MAKE_DIVS_FROM_QDATA() {
 	for(var i=0; i<QUIZ_DATA.length; i++){
 		var TOTAL_COUNT = i+1;
-		$('#BTN_C').append('<div class="BTN_I" isClickable=true hintUnlocked=false hintSpoke=false TID=' + TOTAL_COUNT + '>' + TOTAL_COUNT + '</div>');
+		$('#BTN_C').append('<div class="BTN_I" isClickable=true hintUnlocked=false hintClicked=false TID=' + TOTAL_COUNT + '>' + TOTAL_COUNT + '</div>');
 	};
 };
 
@@ -61,41 +57,6 @@ async function LOAD_AND_PARSE_QDATA(JSON_FILE){
 		return false;
 	};
 };
-
-// Utilize Built-in Browser Speech Synthesis to speak something.
-function SPEAK_TEXT(TEXT_TO_SPEAK, TALK_PITCH=1, TALK_RATE=0.7, TALK_VOLUME=0.6){
-	var synth = window.speechSynthesis;
-	var voices = synth.getVoices();
-	var FOUND_VOICE = voices.filter(function(voice){
-		return voice.name == 'Google US English'; 
-	});
-	
-	if(FOUND_VOICE.length === 1){
-		var SPEAK_THIS = new SpeechSynthesisUtterance(TEXT_TO_SPEAK);
-		SPEAK_THIS.voice = FOUND_VOICE[0];
-		SPEAK_THIS.pitch = TALK_PITCH;
-		SPEAK_THIS.rate = TALK_RATE;
-		SPEAK_THIS.volume = TALK_VOLUME;
-		synth.speak(SPEAK_THIS);
-		return true;
-	} else {
-		return false;
-	}
-};
-
-
-// Function to update TTS_TALK as to whether window.speechSynthesis is speaking.
-function SPEAKING_TEXT(){
-	var synth = window.speechSynthesis;
-	TTS_SPK = synth.speaking;
-}
-
-
-// Function to update TTS_QUE as to whether window.speechSynthesis is queued.
-function QUEUEING_TEXT(){
-	var synth = window.speechSynthesis;
-	TTS_QUE = synth.pending;
-}
 
 
 // Prepare a string for comparison with another, by stripping certain characters and converting to lowercase.
@@ -140,37 +101,8 @@ function REP_CHECK(){
 	var GA_HEIGHT = $(window).height() - $('#HDR').height(); // Game Area Height: (Page Height - Header Height)
 	$('#GA').css('height', GA_HEIGHT + 'px'); // Set Game Area Height.
 	$('#GA').css('top', $('#HDR').height() + 'px'); // Set Game Area Position.
-
-	SPEAKING_TEXT();
-	QUEUEING_TEXT();
 	
-	if (RGT_ANS.paused == true && RNG_ANS.paused == true) {
-		TTS_TTQ = false;
-	};
-	
-	var HTML_BTN_CLK;
-	var HTML_ANS_DIS;
-	if ($('.BTN_I:eq(' + TID + ')').attr('isClickable') == 'true') {
-		HTML_BTN_CLK = true;
-	} else if ($('.BTN_I:eq(' + TID + ')').attr('isClickable') == 'false') {
-		HTML_BTN_CLK = false;
-	};
-	
-	if ($('#MP_ANSR').attr('disabled') == 'disabled') {
-		HTML_ANS_DIS = true;
-	} else {
-		HTML_ANS_DIS = false;
-	};
-	
-	// Only allow this code to run, if TID is not null.
-	if (TID != null){
-		if (HTML_BTN_CLK == true && HTML_ANS_DIS == true){
-			if (TTS_SPK == false && (TTS_QUE == false && TTS_TTQ == false)){
-				$('#MP_ANSR').attr('disabled', false);
-				$('#MP_ANSR').focus();
-			};
-		};
-
+	if (TID != null){ // Only allow this code to run, if TID is not null.
 		if ((LTID != TID) && LTID != null){
 			if ($('.BTN_I:eq(' + (LTID-1) + ')').attr('isClickable') == 'true'){
 				if ($('.BTN_I:eq(' + (LTID-1) + ')').attr('isClickable') == 'true'){
@@ -182,15 +114,15 @@ function REP_CHECK(){
 		};
 
 		if ($('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked') == 'true'){
-			if ($('.BTN_I:eq(' + ETID + ')').attr('hintSpoke') == 'true'){
+			if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'true'){
 				$('#HB').html(QUIZ_DATA[ETID][3]);
-			} else if ($('.BTN_I:eq(' + ETID + ')').attr('hintSpoke') == 'false'){
+			} else if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'false'){
 				$('#HB').html('You can now click for a hint!');
 			};
 
 		} else if ($('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked') == 'false'){
 			var HB_STRING = 'You can click here for a hint in roughly ';
-			var TRK_SL = Math.round(AUD_RCT - AUD_RDR);
+			var TRK_SL = Math.round(AUD_RCT - (AUD_RDR / 2));
 
 			if (TRK_SL < 0){
 				TRK_SL = Math.abs(TRK_SL);
@@ -228,9 +160,8 @@ function REP_CHECK(){
 			$('.BTN_I:eq(' + ETID + ')').css('font-size', '8pt');
 			$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO());
 			$('.BTN_I:eq(' + ETID + ')').attr('isClickable', false);
-			var CORRECT_SPEECH = ""; CORRECT_SPEECH += "Correct! That was "; CORRECT_SPEECH += $('.BTN_I:eq(' + ETID + ')').text(); CORRECT_SPEECH += "!";
 			
-			setTimeout(function() {$('#MP_ANSR').css('backgroundColor', '#1e88e5'); SPEAK_TEXT(CORRECT_SPEECH);}, 1000);
+			setTimeout(function() {$('#MP_ANSR').css('backgroundColor', '#1e88e5');}, 1000);
 		};
 	} else if (TID == null){ // Else if the TID is null, this code will run... 
 		$('#MP_ANSR').attr('disabled', false);
@@ -262,92 +193,65 @@ $(document).ready(function(){
 	// Call this function.
 	LOAD_AND_PARSE_QDATA('game_data.json');
 	
-	// Kludge to prevent first call from not calling.
-	SPEAK_TEXT("Word", 1, 1, 0);
-	
 	// Request that the REP_CHECK() function is called, every 100ms.
 	repCheck = setInterval('REP_CHECK()', 100);
 
 	// Check if a button on the user's keyboard has been pressed.
 	$(document).keydown(function(event) {
-		if (TTS_SPK == true || TTS_QUE == true || TTS_TTQ == true){
-			// Don't do anything!
-		} else {
-			if ($('#MP_ANSR').is(':focus')) {
-				if ((event.which > 47 && event.which < 58) || (event.which> 64 && event.which < 91) || (event.which > 95 && event.which < 112) || (event.which > 185 && event.which < 193) || (event.which > 218 && event.which < 223)) {
-					TYP_CLI.play();
-				};
-				
-				if (event.which === 32) {
-					TYP_CLA.play();
-				};
-				
-				if (event.which === 13) {
-					TYP_DIN.play();
-				};
+		if ($('#MP_ANSR').is(':focus')) {
+			if ((event.which > 47 && event.which < 58) || (event.which> 64 && event.which < 91) || (event.which > 95 && event.which < 112) || (event.which > 185 && event.which < 193) || (event.which > 218 && event.which < 223)) {
+				TYP_CLI.play();
+			};
+			
+			if (event.which === 32) {
+				TYP_CLA.play();
+			};
+			
+			if (event.which === 13) {
+				TYP_DIN.play();
 			};
 		};
-		
 	});
 
 	// Check if a button on the user's keyboard has been lifted.
 	$(document).keyup(function(event) {
-		if (TTS_SPK == true || TTS_QUE == true || TTS_TTQ == true){
-			// Don't do anything!
-		} else {
-			if ($('#MP_ANSR').is(':focus')) {
-				if (event.which === 13) {
-					$('#MP_ANSR').attr('disabled', true);
-					$('#MP_ANSR').css('backgroundColor', '#e5351e');
-					$('#MP_ANSR').val('');
-					RNG_ANS.play();
-					TTS_TTQ = true;
-					var INCORRECT_SPEECH = ""; INCORRECT_SPEECH += "Incorrect! That was not "; INCORRECT_SPEECH += CUR_ANSR; INCORRECT_SPEECH += "!";
-					setTimeout(function() {$('#MP_ANSR').css('backgroundColor', '#1e88e5'); SPEAK_TEXT(INCORRECT_SPEECH);}, 1300);
-				};
+		if ($('#MP_ANSR').is(':focus')) {
+			if (event.which === 13) {
+				$('#MP_ANSR').attr('disabled', true);
+				$('#MP_ANSR').css('backgroundColor', '#e5351e');
+				$('#MP_ANSR').val('');
+				RNG_ANS.play();
 			};
 		};
 	});
 	
 	$('#BTN_C').on('click','.BTN_I', function(event){
-		if (TTS_SPK == true || TTS_QUE == true || TTS_TTQ == true){
-			// Don't do anything!
+		if ($(this).attr('isClickable') == 'true'){
+			$('#MP_ANSR').attr('disabled', false);
+			$(this).css('backgroundColor', '#1ee57b');
+			
+			TID = $(this).attr('TID');
+			ETID = TID - 1;
+			LOAD_TRACK(QUIZ_DATA[ETID][0]);
+			
+			BTN_CLK.play();
+			setTimeout(function() {AUD_OBJ.play();}, 450);
 		} else {
-			if ($(this).attr('isClickable') == 'true'){
-				$('#MP_ANSR').attr('disabled', false);
-				$(this).css('backgroundColor', '#1ee57b');
-				
-				TID = $(this).attr('TID');
-				ETID = TID - 1;
-				LOAD_TRACK(QUIZ_DATA[ETID][0]);
-				
-				BTN_CLK.play();
-				setTimeout(function() {AUD_OBJ.play();}, 450);
-			} else {
-				LOAD_TRACK(QUIZ_DATA[($(this).attr('TID'))-1][0]);
-			};
+			LOAD_TRACK(QUIZ_DATA[($(this).attr('TID'))-1][0]);
 		};
     });
 	
 	$('#HB').click(function(event){
-		if (TTS_SPK == true || TTS_QUE == true || TTS_TTQ == true){
-			// Don't do anything!
-		} else {
-			if ($(this).attr('isClickable') == 'true'){
-				if (TID != null){
-					if ($('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked') == 'true'){
-						if (TTS_SPK == false){
-							if ($('.BTN_I:eq(' + ETID + ')').attr('hintSpoke') == 'false'){
-								$('.BTN_I:eq(' + ETID + ')').attr('hintSpoke', true);
-								$('#HB').html(QUIZ_DATA[ETID][3]);
-							};
-						
-							SPEAK_TEXT($('#HB').text());
-						};
+		if ($(this).attr('isClickable') == 'true'){
+			if (TID != null){
+				if ($('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked') == 'true'){
+					if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'false'){
+						$('.BTN_I:eq(' + ETID + ')').attr('hintClicked', true);
+						$('#HB').html(QUIZ_DATA[ETID][3]);
 					};
-				} else {
-					HNT_KPR.play();
 				};
+			} else {
+				HNT_KPR.play();
 			};
 		};
 	});
