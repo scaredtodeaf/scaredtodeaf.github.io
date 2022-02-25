@@ -102,7 +102,7 @@ function REP_CHECK(){
 	$('#GA').css('height', GA_HEIGHT + 'px'); // Set Game Area Height.
 	$('#GA').css('top', $('#HDR').height() + 'px'); // Set Game Area Position.
 	
-	if (TID != null){ // Only allow this code to run, if TID is not null.
+	if (TID != null){
 		if ((LTID != TID) && LTID != null){
 			if ($('.BTN_I:eq(' + (LTID-1) + ')').attr('isClickable') == 'true'){
 				if ($('.BTN_I:eq(' + (LTID-1) + ')').attr('isClickable') == 'true'){
@@ -124,32 +124,24 @@ function REP_CHECK(){
 			var HB_STRING = 'You can click here for a hint in roughly ';
 			var TRK_SL = Math.round(AUD_RCT - (AUD_RDR / 2));
 
-			if (TRK_SL < 0){
-				TRK_SL = Math.abs(TRK_SL);
-			};
+			if (TRK_SL < 0){TRK_SL = Math.abs(TRK_SL);};
 
 			HB_STRING += TRK_SL;
 			HB_STRING += ' seconds.';
 			$('#HB').html(HB_STRING);
 
-			if (TRK_SL == 0){
-				$('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked', true);
-			};
+			if (TRK_SL == 0){$('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked', true);};
 		};
 		
-		// Set the last TID as the current one.
 		LTID = TID;
 		
-		var ANS_ARRAY = QUIZ_DATA[ETID][4]; // Array of Possible Answers / Keywords
-		for (var i=0; i<ANS_ARRAY.length; i++){
-			// Go through the array and pass each through PREP_FOR_COMPARE.
-			ANS_ARRAY[i] = PREP_FOR_COMPARE(ANS_ARRAY[i], 1);
-		};
+		var ANS_ARRAY = QUIZ_DATA[ETID][4];
+		for (var i=0; i<ANS_ARRAY.length; i++){ANS_ARRAY[i] = PREP_FOR_COMPARE(ANS_ARRAY[i], 1);};
 		
 		CUR_ANSE = PREP_FOR_COMPARE($('#MP_ANSR').val(), 0);
 		CUR_ANSR = $('#MP_ANSR').val();
 		
-		if ($.inArray(CUR_ANSE, ANS_ARRAY) >= 0) {
+		if ($.inArray(CUR_ANSE, ANS_ARRAY) >= 0){
 			$('#MP_ANSR').attr('disabled', true);
 			$('#MP_ANSR').css('backgroundColor', '#e5991e');
 			$('#MP_ANSR').val('');
@@ -163,15 +155,12 @@ function REP_CHECK(){
 			
 			setTimeout(function() {$('#MP_ANSR').css('backgroundColor', '#1e88e5');}, 1000);
 		};
-	} else if (TID == null){ // Else if the TID is null, this code will run... 
+	} else if (TID == null){
 		$('#MP_ANSR').attr('disabled', false);
 		$('#HB').html("I am the official hintkeeper, I watch your every move! Ask me for a hint if you are hopelessly stuck, but use me sparingly; Too many hints can spoil the game!");
 
 		var CHECK_LIST = ['Freddy Pharkas'];
-		for (var i=0; i<CHECK_LIST.length; i++){
-			// Go through the array and pass each through PREP_FOR_COMPARE.
-			CHECK_LIST[i] = PREP_FOR_COMPARE(CHECK_LIST[i], 1);
-		};
+		for (var i=0; i<CHECK_LIST.length; i++){CHECK_LIST[i] = PREP_FOR_COMPARE(CHECK_LIST[i], 1);};
 
 		CUR_ANSE = PREP_FOR_COMPARE($('#MP_ANSR').val(), 0);
 		CUR_ANSR = $('#MP_ANSR').val();
@@ -203,13 +192,11 @@ $(document).ready(function(){
 				TYP_CLI.play();
 			};
 			
-			if (event.which === 32) {
-				TYP_CLA.play();
-			};
-			
-			if (event.which === 13) {
-				TYP_DIN.play();
-			};
+			// Space Bar
+			if (event.which === 32){TYP_CLA.play();};
+
+			// Enter Key
+			if (event.which === 13){TYP_DIN.play();};
 		};
 	});
 
@@ -221,6 +208,8 @@ $(document).ready(function(){
 				$('#MP_ANSR').css('backgroundColor', '#e5351e');
 				$('#MP_ANSR').val('');
 				RNG_ANS.play();
+
+				setTimeout(function() {$('#MP_ANSR').css('backgroundColor', '#1e88e5');}, 1300);
 			};
 		};
 	});
