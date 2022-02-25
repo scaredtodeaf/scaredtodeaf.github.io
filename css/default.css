@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap');
+
+body{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	text-decoration: none;
+	background-color: #afd4f5;
+	overflow: hidden;
+}
+
+#HDR{
+	position: fixed;
+	width: 99%;
+	padding-left: 0.125%;
+}
+
+#MP_BTNS{
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	padding-bottom:4px;
+}
+
+#MP_PP{
+	padding-right: 4px;
+}
+
+#MP_STP{
+	padding-right: 4px;
+}
+
+#MP_MSI{
+	padding-left: 8px;
+	color: #1e88e5;
+	font-family: 'Oswald', sans-serif;
+	font-size: 10pt;
+}
+
+#MP_ANS{
+	margin-left: auto;
+	color: #1e88e5;
+	font-family: 'Oswald', sans-serif;
+	font-size: 10pt;
+}
+
+#MP_ANS label{
+	padding-right: 8px;
+}
+
+#MP_ANSR{
+	height: 32px;
+	width: 480px;
+	padding-left: 16px;
+	padding-right: 16px;
+	background-color: #1e88e5;
+	color: white;
+	border: 0px solid #1e88e5;
+	font-family: 'Oswald', sans-serif;
+	font-size: 10pt;
+	text-align: center;
+}
+
+#MP_ANSR:focus, input:focus{
+    outline-style: solid;
+	outline-color: #e1771a;
+	outline-width: 2px;
+}
+
+#MP_EML{
+	display:none;
+	height: 0px;
+	width: 0px;
+	opacity: 0;
+	pointer-events: none;
+}
+
+#MP_EML:focus, input:focus{
+    outline: none;
+}
+
+#HB{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 32px;
+	background-color: black;
+	color: white;
+	font-family: 'Roboto Serif', sans-serif;
+	font-size: 10pt;
+	margin-bottom: 8px;
+}
+
+#GA{
+	position: absolute;
+	text-align: center;
+	overflow:auto;
+	top: 0px;
+	height: 0px;
+}
+
+#BTN_C{
+	display: inline-block;
+	overflow: hidden;
+}
+
+#BTN_C .BTN_I{
+	line-height: 18pt;
+	display: inline-block;
+	min-width:360px;
+	padding:8px;
+	border-radius:24px;
+	margin: 4px 4px;
+	-moz-border-radius: 24px;
+	border:2px solid black;
+	box-sizing: border-box;
+	text-align: center;
+	vertical-align: middle;
+	color: white;
+	background-color: #1e88e5;
+	font-size: 18pt;
+	font-family: 'Oswald', sans-serif;
+}
