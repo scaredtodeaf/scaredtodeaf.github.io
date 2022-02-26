@@ -3,7 +3,7 @@
 	"ID": "4182776",
 	"Name": "Resident Evil – Code: Veronica",
 	"Title": "A Moment of Relief",
-	"Hint": "The game is one of a series of games, known for fucking you over with camera angles.",
+	"Hint": "Why is the camera always in the most awkward of places?!",
 	"Keywords": ["Resident Evil", "Code: Veronica"]
 },
 {
@@ -263,7 +263,7 @@
 	"Name": "Kirby & the Amazing Mirror",
 	"Title": "Mustard Mountain",
 	"Hint": "His skill is to take other's, and it's skill is to be amazing.",
-	"Keywords": ["Kirby & the Amazing Mirror", "Kirby and the Amazing Mirror", "The Amazing Mirror"]
+	"Keywords": ["Kirby & the Amazing Mirror", "Kirby and the Amazing Mirror", "The Amazing Mirror", "Amazing Mirror"]
 },
 {
 	"ID": "3682652",
@@ -340,7 +340,7 @@
 	"Name": "Super Mario Galaxy 2",
 	"Title": "Throwback Galaxy",
 	"Hint": "You might think this is Super Mario 64! But, alas, no... This has a much more universal appeal!",
-	"Keywords": ["Super Mario Galaxy 2", "Super Mario Galaxy II"]
+	"Keywords": ["Super Mario Galaxy 2", "Super Mario Galaxy II", "Mario Galaxy 2", "Mario Galaxy II"]
 },
 {
 	"ID": "8667672",
@@ -606,7 +606,7 @@
 	"Name": "Halo 3: ODST",
 	"Title": "Deference for Darkness",
 	"Hint": "Oh wow! This thing above my head glows!",
-	"Keywords": ["Halo 3", "Halo III", "ODST"]
+	"Keywords": ["Halo 3", "Halo III", "Halo: ODST", "ODST"]
 },
 {
 	"ID": "5206398",
@@ -641,7 +641,7 @@
 	"Name": "Jet Grind Radio",
 	"Title": "Electric Toothbrush",
 	"Hint": "Spraying graffiti is probably illegal, but this guy sure doesn't care.",
-	"Keywords": ["Jet Grind Radio"]
+	"Keywords": ["Jet Grind Radio", "Jet Set Radio"]
 },
 {
 	"ID": "6614182",
