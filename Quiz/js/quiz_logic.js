@@ -138,20 +138,44 @@ function REP_CHECK(){
 		
 		CUR_ANSE = PREP_FOR_COMPARE($('#MP_ANSR').val(), 0);
 		CUR_ANSR = $('#MP_ANSR').val();
-		
-		if ($.inArray(CUR_ANSE, ANS_ARRAY) >= 0){
-			$('#MP_ANSR').attr('disabled', true);
-			$('#MP_ANSR').css('backgroundColor', '#e5991e');
-			$('#MP_ANSR').val('');
-			RGT_ANS.play();
-			AUD_OBJ.pause();
-			
-			$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#e5991e');
-			$('.BTN_I:eq(' + ETID + ')').css('font-size', '8pt');
-			$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO());
-			$('.BTN_I:eq(' + ETID + ')').attr('isClickable', false);
-			
-			setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5');}, 1000);
+
+		if (!document.all) {
+			var ANS_MATCHES = 0;
+			for (var i=0; i<ANS_ARRAY.length; i++){
+				if (CUR_ANSE.includes(ANS_ARRAY[i]) == true){
+					ANS_MATCHES += 1;
+				};
+			};
+
+			if (ANS_MATCHES > 0){
+				$('#MP_ANSR').attr('disabled', true);
+				$('#MP_ANSR').css('backgroundColor', '#e5991e');
+				$('#MP_ANSR').val('');
+				RGT_ANS.play();
+				AUD_OBJ.pause();
+				
+				$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#e5991e');
+				$('.BTN_I:eq(' + ETID + ')').css('font-size', '8pt');
+				$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO());
+				$('.BTN_I:eq(' + ETID + ')').attr('isClickable', false);
+				
+				setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5');}, 1000);
+			};
+		} else {
+			if ($.inArray(CUR_ANSE, ANS_ARRAY) >= 0){
+				$('#MP_ANSR').attr('disabled', true);
+				$('#MP_ANSR').css('backgroundColor', '#e5991e');
+				$('#MP_ANSR').val('');
+				RGT_ANS.play();
+				AUD_OBJ.pause();
+				
+				$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#e5991e');
+				$('.BTN_I:eq(' + ETID + ')').css('font-size', '8pt');
+				$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO());
+				$('.BTN_I:eq(' + ETID + ')').attr('isClickable', false);
+				
+				setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5');}, 1000);
+			};
 		};
 	} else if (TID == null){
 		$('#MP_ANSR').attr('disabled', false);
@@ -163,13 +187,32 @@ function REP_CHECK(){
 		CUR_ANSE = PREP_FOR_COMPARE($('#MP_ANSR').val(), 0);
 		CUR_ANSR = $('#MP_ANSR').val();
 
-		if ($.inArray(CUR_ANSE, CHECK_LIST) >= 0){
-			$('#MP_ANSR').css('backgroundColor', '#e5991e');
-			$('#MP_ANSR').val('');
-			RGT_ANS.play();
-			AUD_OBJ.pause();
-			
-			setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5'); FF_CLIP.play();}, 1000);
+		if (!document.all) {
+			var ANS_MATCHES = 0;
+			for (var i=0; i<CHECK_LIST.length; i++){
+				if (CUR_ANSE.includes(CHECK_LIST[i]) == true){
+					ANS_MATCHES += 1;
+				};
+			};
+
+			if (ANS_MATCHES > 0){
+				$('#MP_ANSR').css('backgroundColor', '#e5991e');
+				$('#MP_ANSR').val('');
+				RGT_ANS.play();
+				AUD_OBJ.pause();
+				
+				setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5'); FF_CLIP.play();}, 1000);
+			};
+
+		} else {
+			if ($.inArray(CUR_ANSE, CHECK_LIST) >= 0){
+				$('#MP_ANSR').css('backgroundColor', '#e5991e');
+				$('#MP_ANSR').val('');
+				RGT_ANS.play();
+				AUD_OBJ.pause();
+				
+				setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5'); FF_CLIP.play();}, 1000);
+			};
 		};
 	};
 };
