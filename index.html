@@ -1,30 +1,167 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Video Game Music Quiz</title>
-  <meta name="description" content="This is the Video Game Music Quiz, with tracks ranging from the 1980s to 2010s. Can you guess all the games?">
-  <meta name="keywords" content="Video Game, Music Quiz, Video, Game, Music, Quiz">
-  <meta name="author" content="ScaredToDeaf">
-  <meta name="generator" content="Visual Studio Code">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="js/music_player.js"></script>
-  <script src="js/quiz_logic.js"></script>
-  <link rel="stylesheet" href="css/default.css">
-  <link rel="shortcut icon" type="image/ico" href="img/favicon.ico"/>
+	<title>ScaredToDeaf Offical Site!</title>
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/page.css">
+	<style>main > div {
+		max-height: 0;
+		opacity: 0;
+		display:block !important;
+		overflow: hidden;
+		transition: max-height 0.5s ease, opacity 0.5s ease-in;
+	}
+	a.expanded + div {
+		max-height:700px;
+		opacity:1;
+	}
+</style>
 </head>
+
 <body>
-	<div id="HDR">
-		<div id="MP_BTNS">
-			<div id="MP_PP"><img id="MP_PPB" src="img/play.png" alt="Play" title="Play" width="32" height="32"></div>
-			<div id="MP_STP"><img id="MP_STPB" src="img/stop.png" alt="Stop" title="Stop" width="32" height="32"></div>
-			<div id="MP_MUM"><img id="MP_MUMB" src="img/volume_3.png" alt="100%" title="100%" width="32" height="32"></div>
-			<div id="MP_MSI"></div>
-			<div id="MP_ANS"><form><label>Answer:</label><input type="text" id="MP_ANSR" disabled="true" maxlength="60" onsubmit="reset"><input type="email" id="MP_EML" maxlength="0" size="0" required="true"></form></div>
+	<header>
+		<div class="sidenav">
+			<a href="/">
+				<img alt="ScaredToDeaf Logo" src="/images/Logo.png"/>
+			</a>
+			<a href="#" onClick="event.preventDefault();">Stream</a>
+			<a href="/stream/sounds" onClick="event.preventDefault();">Sounds</a>
 		</div>
-		<div id="HB" isClickable=true></div>
-	</div>
-	<div id="GA"><div id="BTN_C"></div></div>
+	</header>
+	<main>
+		<h1>Stream Sound Commands</h1>
+		<hr />
+		<h2> To use one of the sounds on stream, click on the button to copy it into your clipboard and paste it into chat if you're a sub or via SFX Effect channel point redeem!</h2>
+		<a href="#" onclick="toggleAll(this);">Show/Hide All</a>
+		<a href="#" onclick="toggle_visibility(this);"><h1>7th Guest and 11th hour</h1></a>
+		<div class="sfx-group" id="guesthour">
+			<div name="!FilmAt11">[Stauf] - "Reporter Baffled By Logic: Film at 11!"</div>
+			<div name="!ObiWan">[Stauf] - "Even Obi Wan can't help you with this one, Carl.</div>
+			<div name="!StaufLaugh"> [Stauf] - "[The Best Evil Laugh There Is]"</div>
+			<div name="!blocks">[Stauf] - "[Imitating Sigmund Freud] Now did you have problems with blocks as a child, also?"</div>
+			<div name="!chilli">[Stauf] - "You're so gullible that if someone said 'It's chilly outside!'... You'd grab a bowl!"</div>
+			<div name="!lobotomy">[Stauf] - "Is a Frontal Lobotomy required for this activity?"</div>
+			<div name="!looneytunes">[Stauf] - "[Imitating Porky Pig] That's All Carl!"</div>
+			<div name="!solitaire">[Stauf] - "Maybeeee-- Solitaire, is a better game for you?!"</div>
+			<div name="!lonely">[Unknown Voice] - "Feeeeling.... Lonelllly?"</div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1>Banjo Kazooie</h1></a>
+		<div class="sfx-group" id="Banjo">
+			<div name="!guhguh">[Banjo] - "Guh huh"</div>
+			<div name="!getjiggywithit"> *Unused Jiggy Collect music*</div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1>Castlevania: Symphony of the Night</h1></a>
+		<div class="sfx-group" id="CastlevaniaSOTN">
+			<div name="!man">[Dracula] - "What is a man? A miserable pile of secrets. But enough talk... Have at you!"</div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1>Daytona</h1></a>
+		<div class="sfx-group" id="Daytona">
+			<div name="!daytona">[Takenobu Mitsuyoshi] - "DAYTONAAAAAAAAAAAAAAAAAAA"</div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1>Duke Nukem Series</h1></a>
+		<div class="sfx-group" id="DukeNukem">
+			<div name="!chewgum">[Duke Nukem] - "It's time to kick ass and chew bubblegum... and i'm all out of gum." </div>
+			<div name="!ripehead">[Duke Nukem] - "I'll rip your head off and shit down your neck."</div>
+			<div name="!youreugly">[Duke Nukem] - "Damn, you're ugly!"</div>
+			<div name="!pissmeoff">[Duke Nukem] - "This really pisses me off."</div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1>Kung Fu Panda</h1></a>
+		<div class="sfx-group" id="KungFuPanda">
+			<div name="!monke">[Oogway] - "Hmmmm, Monke."</div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1>Mass Effect Series</h1></a>
+		<div class="sfx-group" id="MassEffect">
+			<div name="!favstore">[Commander Shepard] - "I'm Commander Shepard, and this is my favourite store on the citadel."</div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1>Mario</h1></a>
+		<div class="sfx-group" id="Mario">
+			<div name="!mariogameover"> *Mario Death sound*</div>
+			<div name="!ArentIDoneYet"> ArentIDoneYet - Mario: "There's more?! Oh man... Aren't I done yet?!"</div>
+			<div name="!GameOver64"> GameOver - SM64 Game Over</div>
+			<div name="!HereWeGo"> HereWeGo - SM64 Level Load</div>
+			<div name="!TheHorror"> TheHorror - Mario: "Mamma Mia! The horror! Arrivederci."</div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1>Muppets</h1></a>
+		<div class="sfx-group" id="Muppets">
+			<div name="!thankyou1">[Fozie] - "Thank you, Thank you, Love ya. Mwahhh. Love ya!"</div>
+			<div name="!yay">[Kermit] - "Yayyyyyyyy"</div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1> The Office</h1></a>
+		<div class="sfx-group" id="Office">
+			<div name="!ohgod">[Michael Scott] - "No god, Please no!" </div>
+			<div name="!michael">[Dwight Schrute] - "Michael!"</div>
+			<div name="!parkour">[Dwight, Michael and Andy] - "Parkour!" with their attempt of parkouring.</div>
+			<div name="!thankyou2">[Michael Scott] - *Bangs table* "Thank you!"</div>
+			<div name="!twss">[Michael Scott] - "That's what she said!" *laugher*</div>
+			<div name="!ohmygod">[Michael Scott] - "Oh my god! Okay, It's happening! Everybody stay calm!" [Dwight Scrute] - "Whats the Procedure everyone? What's the procedure?" [Michael Scott] - "STAY FUCKING CALM!"</div>
+			<div name="!identity">[Dwight Schrute] - "Identity Theft is not a joke, Jim! Millions of Families suffer every year!"</div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1> Portal 1 & 2</h1></a>
+		<div class="sfx-group" id="Portal">
+			<div name="!smoothjazz">[Announcer] - "This next test is very dangerous. To help you remain tranquil in the face of almost certain death, smooth jazz will be deployed, in three, two, one. [Trumpet Wah wah wah] Sarcasm self test complete.</div>
+			<div name="!different">[Turret] - "I'm different."</div>
+			<div name="!lemons">[Cave Johnson] "LEMONS!"</div>
+			<div name="!stillthere">[Turret] - "Are you still there?"</div>
+			<div name="!thinking">[Glados] - "Now you're thinking with portals."</div>
+			<div name="!thankyou3">[Turret] - "Thank you."</div>
+			<div name="!youmonster">=[Glados] - "you monster."</div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1>Sega Rally</h1></a>
+		<div class="sfx-group" id="SegaRally">
+			<div name="!gameover">[Takenobu Mitsuyoshi] - "Game over yeahhhhhhhh!"</div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1>Twitch Streamers</h1></a>
+		<div class="sfx-group" id="Twitch">
+			<div name="!donkeyfucker">[Beersy] - "Oh you donkeyfucker!"</div>
+			<div name="!goregasm">[TheMonolith] - *Manly moan groans of enjoying gore*</div>
+			<div name="!depressedrussian">[TheMonolith] - "I'm having mental health problems" - With a "russian" accent.</div>
+			<div name="!thatcunt">"[ExcessiveProfanity] - "That can't be that cunt, can it? That cannot be that cunt. Is that that cunt? </div>
+			<div name="!dontlikeit">[ExcessiveProfanity] - "If you don't like it... DON'T FUCKING WATCH IT"]</div>
+			<div name="!button">[Bengineering] - "Oh, There's a button!"</div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1> Random Sound Clips </h1></a>
+		<div class="sfx-group" id="Random">
+			<div name="!traction">[Alan Partridge] - "Shit! Did you see that? He must have a foot like a traction engine."</div>
+			<div name="!pacgameover"> *Pacman death sound*</div>
+			<div name="!miixp"> *Mii channel music with a twist* </div>
+			<div name="!sadtrom"> *Sad trombone sound - "Wah wah wahhhhh."</div>
+			<div name="!nothingleft"> 'I've got nothing left. I've got nothing left!" *ngahyah and childish crying* </div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1>Youtube</h1></a>
+		<div class="sfx-group" id="Youtube">
+			<div name="!haiya">[Uncle Roger] - "Haiya"</div>
+			<div name="!fuiyoh">[Uncle Roger] - "Fuiyoh!"</div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1>Zelda</h1></a>
+		<div id="Zelda">
+			<div class="sfx-group" name="Zelda: Animated Series">
+				<div name="!excuseme">[Link] - "Well excuuuuuuse me, Princess!"</div>
+			</div>
+			<div class="sfx-group" name="Zelda:Face of Evil">
+				<div name="!morshu">[Morshu] - "Lamp Oil? Rope? Bombs? You want it? It's yours my friend, as long you have enough rupees."</div>
+				<div name="!morshu2">[Morshu] - "Sorry Link, I can't give credit. Maybe come back when you're a little mmmmmm richer."</div>
+			</div>
+			<div class="sfx-group" name="Zelda: Wand of Gamelon">
+				<div name="!good">[Hectan] - "You've killllled meeeeeee"  [Zelda] "GOOD!"</div>
+				<div name="!light">[Ganon] - "You dare bring light to my lair? YOU MUST DIE!"</div>
+			</div>
+			<div class="sfx-group" name="Zelda: OOT">
+				<div name="!heylisten">[Navi] "Hey Listen!"</div>
+				<div name="!ItemGet"> ItemGet - LoZ: OoT - Item Get.</div>
+			</div>
+		</div>
+		<a href="#" onclick="toggle_visibility(this);"><h1>Twitch Sound Clips Credits</h1></a>
+		<div id ="Credits">
+			<h2>Permission was given to me to use their voice as an effect for my stream by:</h2>
+			<ul>
+				<li><a href="https://twitch.tv/Beersy">Beersy</a></li>
+				<li><a href="https://twitch.tv/themonolith">TheMonolith</a></li>
+				<li><a href="https://twitch.tv/ExcessiveProfanity">ExcessiveProfanity</a></li>
+				<li><a href="https://twitch.tv/Bengineering">Bengineering</a></li>
+			</ul>
+		</div>
+	</main>
+	<script src="scripts.js"></script>
 </body>
 </html>
