@@ -5,6 +5,7 @@
 	<title>ScaredToDeaf Offical Site!</title>
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/page.css">
+	<script src="sound_player.js"></script>
 	<style>main > div {
 		max-height: 0;
 		opacity: 0;
@@ -32,7 +33,7 @@
 	<main>
 		<h1>Stream Sound Commands</h1>
 		<hr />
-		<h2> To use one of the sounds on stream, click on the button to copy it into your clipboard and paste it into chat if you're a sub or via SFX Effect channel point redeem!</h2>
+		<h2>To use one of the sounds on stream, click on the button to preview it, and copy it into your clipboard. Paste it into chat if you're a sub or via SFX Effect channel point redeem!</h2>
 		<a href="#" onclick="toggleAll(this);">Show/Hide All</a>
 		<a href="#" onclick="toggle_visibility(this);"><h1>7th Guest and 11th hour</h1></a>
 		<div class="sfx-group" id="guesthour">
@@ -105,7 +106,7 @@
 			<div name="!stillthere">[Turret] - "Are you still there?"</div>
 			<div name="!thinking">[Glados] - "Now you're thinking with portals."</div>
 			<div name="!thankyou3">[Turret] - "Thank you."</div>
-			<div name="!youmonster">=[Glados] - "you monster."</div>
+			<div name="!youmonster">[Glados] - "you monster."</div>
 		</div>
 		<a href="#" onclick="toggle_visibility(this);"><h1>Sega Rally</h1></a>
 		<div class="sfx-group" id="SegaRally">
@@ -119,6 +120,7 @@
 			<div name="!thatcunt">"[ExcessiveProfanity] - "That can't be that cunt, can it? That cannot be that cunt. Is that that cunt? </div>
 			<div name="!dontlikeit">[ExcessiveProfanity] - "If you don't like it... DON'T FUCKING WATCH IT"]</div>
 			<div name="!button">[Bengineering] - "Oh, There's a button!"</div>
+			<div name="!weewoo">[GhostInTheMachine] - *Wee Woo Wee Woo sounds*</div>
 		</div>
 		<a href="#" onclick="toggle_visibility(this);"><h1> Random Sound Clips </h1></a>
 		<div class="sfx-group" id="Random">
@@ -126,7 +128,11 @@
 			<div name="!pacgameover"> *Pacman death sound*</div>
 			<div name="!miixp"> *Mii channel music with a twist* </div>
 			<div name="!sadtrom"> *Sad trombone sound - "Wah wah wahhhhh."</div>
-			<div name="!nothingleft"> 'I've got nothing left. I've got nothing left!" *ngahyah and childish crying* </div>
+			<div name="!nothingleft"> 'I've got nothing left. I've got nothing left!" *ngahyah and childish crying*</div>
+			<div name="!oof">[Roblox Guy] - "Oof."</div>
+			<div name="!wow">[Owen Wilson] - "Wow!"</div>
+			<div name="!exoticbutters">[Five Nights at Freddy's: Sister Location] - "Exotic Butters"</div>
+			<div name="!MintyRage">[Minty Himself (ScaredToDeaf)] - "CAN YOU STOP HONKING?!" *freezing then XP Critical Stop*</div>
 		</div>
 		<a href="#" onclick="toggle_visibility(this);"><h1>Youtube</h1></a>
 		<div class="sfx-group" id="Youtube">
@@ -150,15 +156,19 @@
 				<div name="!heylisten">[Navi] "Hey Listen!"</div>
 				<div name="!ItemGet"> ItemGet - LoZ: OoT - Item Get.</div>
 			</div>
+			<div class="sfx-group" name="Unknown">
+				<div name="!uhoh">[Orc] "Uh oh!"</div>
+			</div>
 		</div>
 		<a href="#" onclick="toggle_visibility(this);"><h1>Twitch Sound Clips Credits</h1></a>
 		<div id ="Credits">
 			<h2>Permission was given to me to use their voice as an effect for my stream by:</h2>
 			<ul>
-				<li><a href="https://twitch.tv/Beersy">Beersy</a></li>
-				<li><a href="https://twitch.tv/themonolith">TheMonolith</a></li>
-				<li><a href="https://twitch.tv/ExcessiveProfanity">ExcessiveProfanity</a></li>
-				<li><a href="https://twitch.tv/Bengineering">Bengineering</a></li>
+				<li><a href="https://www.twitch.tv/Bengineering">Bengineering</a></li>
+				<li><a href="https://www.twitch.tv/Beersy">Beersy</a></li>
+				<li><a href="https://www.twitch.tv/ExcessiveProfanity">ExcessiveProfanity</a></li>
+				<li><a href="https://www.twitch.tv/ghostinthemachine">GhostInTheMachine</a></li>
+				<li><a href="https://www.twitch.tv/themonolith">TheMonolith</a></li>
 			</ul>
 		</div>
 	</main>

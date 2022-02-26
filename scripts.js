@@ -45,7 +45,7 @@ for (let pre of pres)
 		if (e.clipboardData)
 		{
 			e.clipboardData.setData("text/plain", this.textContent);
-			console.log(e.clipboardData.getData("text"));
+			RECEIVE_CALL((e.clipboardData.getData("text")));
 		}
 	});
 }
