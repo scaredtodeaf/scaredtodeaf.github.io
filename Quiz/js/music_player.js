@@ -18,6 +18,11 @@ function TRACK_FRT(TIME_DATA){
 	};
 };
 
+// Function to calculate the percentage amount of one variable, against another.
+function CALC_PERCENTAGES(DATA_A, DATA_B){
+	return (DATA_A / DATA_B) * 100;
+};
+
 // Anything that needs to be repeatedly executed, goes here.
 function REP_EXEC(){
 	AUD_RCT = AUD_OBJ.currentTime; // Update the Raw Current Time, for precise checks.
@@ -28,17 +33,18 @@ function REP_EXEC(){
 	
 	var AUD_CBT = '';
 	if (AUD_CTM != null && AUD_DUR != null){
-		AUD_CBT = AUD_CBT.concat(AUD_CTM, ' / ', AUD_DUR);
+		if (AUD_RCT != null && AUD_RDR != null){
+			var BARW_POS = CALC_PERCENTAGES(AUD_RCT, AUD_RDR);
+			$('body').css('background', 'linear-gradient(to right, #83bff4 0%, #83bff4 ' + BARW_POS + '%, #afd4f5 ' + BARW_POS + '%, #7db9e8 100%)');
+			
+			AUD_CBT = AUD_CBT.concat(AUD_CTM, ' / ', AUD_DUR);
+		};
 	} else {
+		$('body').css('background', 'linear-gradient(90deg, #83bff4 0%, #afd4f5 100%)'); 
 		AUD_CBT = '00:00 / 00:00';
 	};
 
 	$('#MP_MSI').html(AUD_CBT); // Flash the 'MP_MSI' div with the updated data.
-	
-	// Check if the track is paused, but finished.
-	if (AUD_OBJ.paused == true && AUD_OBJ.currentTime == AUD_OBJ.duration){
-		AUD_OBJ.currentTime = 0; // The track has finished, reset to the beginning.
-	};
 	
 	// Change the Icon for the Play Button, based on if the music is playing or not.
 	if (AUD_OBJ.paused == true){
@@ -89,6 +95,7 @@ function LOAD_TRACK(TRACK_ID){
 	CCT_LNK = CCT_LNK.concat('media/', TRACK_ID, '.mp3'); // Concatenate the TRACK_ID into a Readable Link.
 	AUD_OBJ.src = CCT_LNK; // Load that file into the Audio Object.
 	AUD_OBJ.load(); // Reload the Audio Object, to refresh properties.
+	$('body').css('background', 'linear-gradient(to right, #83bff4 0%, #83bff4 0%, #afd4f5 0%, #7db9e8 100%)'); // Reset the width of the Progress Bar.
 };
 
 // Everything to be done once the page is ready.

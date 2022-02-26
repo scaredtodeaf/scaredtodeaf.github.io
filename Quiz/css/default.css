@@ -9,8 +9,8 @@ body{
 	-ms-user-select: none;
 	user-select: none;
 	text-decoration: none;
-	background-color: #afd4f5;
 	overflow: hidden;
+	background: linear-gradient(to right, #83bff4 0%, #83bff4 0%, #afd4f5 0%, #7db9e8 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 #HDR{

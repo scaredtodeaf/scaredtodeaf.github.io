@@ -97,7 +97,7 @@ function REP_CHECK(){
 	var GA_HEIGHT = $(window).height() - $('#HDR').height(); // Game Area Height: (Page Height - Header Height)
 	$('#GA').css('height', GA_HEIGHT + 'px'); // Set Game Area Height.
 	$('#GA').css('top', $('#HDR').height() + 'px'); // Set Game Area Position.
-	
+
 	if (TID != null){
 		if ((LTID != TID) && LTID != null){
 			if ($('.BTN_I:eq(' + (LTID-1) + ')').attr('isClickable') == 'true'){
@@ -110,6 +110,12 @@ function REP_CHECK(){
 		};
 
 		LTID = TID;
+
+		if ($('#MP_ANSR').attr('disabled') == null && $('.BTN_I:eq(' + LTID + ')').attr('isClickable') == 'true'){
+			if(!$('#MP_ANSR').is(':focus')){
+				$('#MP_ANSR').focus();
+			};
+		}
 
 		if ($('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked') == 'true'){
 			if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'true'){
@@ -178,6 +184,10 @@ function REP_CHECK(){
 			};
 		};
 	} else if (TID == null){
+		if(!$('#MP_ANSR').is(':focus')){
+			$('#MP_ANSR').focus();
+		};
+		
 		$('#MP_ANSR').attr('disabled', false);
 		$('#HB').html('I am the official hintkeeper, I watch your every move! Ask me for a hint if you are hopelessly stuck, but use me sparingly; Too many hints can spoil the game!');
 

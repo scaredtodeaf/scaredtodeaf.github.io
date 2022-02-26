@@ -18,14 +18,14 @@
 	"Name": "Just Cause 2",
 	"Title": "Mile High Club",
 	"Hint": "Just cause there's a lot of tactful shooting in this game, that doesn't mean there isn't room for mess-making.",
-	"Keywords": ["Just Cause 2", "JC 2"]
+	"Keywords": ["Just Cause 2", "JC2"]
 },
 {
 	"ID": "5800340",
 	"Name": "Commander Keen IV: Secret of the Oracle",
 	"Title": "You've Got to Eat Your Vegetables!",
 	"Hint": "This space exploring vigilante, sure is a mascot for the Green Bay Packers!",
-	"Keywords": ["Commander Keen IV", "Commander Keen 4", "Secret of the Oracle", "Keen IV", "Keen 4", "CKIV", "CK4"]
+	"Keywords": ["Commander Keen IV", "Commander Keen 4", "Secret of the Oracle", "Keen IV", "Keen 4"]
 },
 {
 	"ID": "4244009",
@@ -53,7 +53,7 @@
 	"Name": "Ultima Online",
 	"Title": "Title Theme",
 	"Hint": "An MMORPG offering from an astronaut.",
-	"Keywords": ["Ultima Online", "UO"]
+	"Keywords": ["Ultima Online"]
 },
 {
 	"ID": "9909835",
@@ -123,7 +123,7 @@
 	"Name": "Guild Wars 2",
 	"Title": "Overture",
 	"Hint": "A seriously underrated MMORPG, that should be considered one of the big dogs.",
-	"Keywords": ["Guild Wars 2", "Guild Wars II", "GW2", "GWII"]
+	"Keywords": ["Guild Wars 2", "Guild Wars II", "GW 2", "GW II"]
 },
 {
 	"ID": "5879132",
@@ -277,7 +277,7 @@
 	"Name": "Galactic Civilizations III",
 	"Title": "The Imminent Crusade",
 	"Hint": "Take control of one of Eleven Factions, and dominate through diplomacy or bloodshed.",
-	"Keywords": ["Galactic Civilizations", "GC"]
+	"Keywords": ["Galactic Civilizations"]
 },
 {
 	"ID": "5889173",
@@ -494,7 +494,7 @@
 	"Name": "Super Smash Bros 64",
 	"Title": "Peach's Castle Sky Stage",
 	"Hint": "You might've thought this was Super Mario Bros. But, no, this game packs more of a punch.",
-	"Keywords": ["Super Smash Bros", "Smash Bros", "SSB"]
+	"Keywords": ["Super Smash Bros", "Smash Bros"]
 },
 {
 	"ID": "9690511",
@@ -557,7 +557,7 @@
 	"Name": "Animal Crossing",
 	"Title": "Police Station",
 	"Hint": "When I'm vacuuming, I like to get in all those nooks and crannies.",
-	"Keywords": ["Animal Crossing", "AC"]
+	"Keywords": ["Animal Crossing"]
 },
 {
 	"ID": "9814703",
