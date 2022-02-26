@@ -212,6 +212,7 @@ $(document).ready(function(){
 	
 	$('#BTN_C').on('click','.BTN_I', function(event){
 		if ($(this).attr('isClickable') == 'true'){
+			$('#MP_ANSR').val('');
 			$('#MP_ANSR').attr('disabled', false);
 			$(this).css('backgroundColor', '#1ee57b');
 			
