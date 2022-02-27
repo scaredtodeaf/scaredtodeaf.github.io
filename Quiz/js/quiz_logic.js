@@ -258,7 +258,7 @@ $(document).ready(function(){
 				$('#MP_ANSR').val('');
 				RNG_ANS.play();
 
-				setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5'); $('#MP_ANSR').focus();}, 1300);
+				setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5'); $('#MP_ANSR').attr('disabled', false); $('#MP_ANSR').focus();}, 1300);
 			};
 		};
 	});
