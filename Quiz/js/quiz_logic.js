@@ -358,7 +358,9 @@ $(document).ready(function(){
 				ETID = TID - 1;
 
 				LOAD_TRACK(QUIZ_DATA[($(this).attr('TID'))-1][0]);
-				AUD_OBJ.play();
+				BTN_CLK.play();
+				setTimeout(function(){AUD_OBJ.play();}, 450);
+				
 			};
 		};
     });
