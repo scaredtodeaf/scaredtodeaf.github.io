@@ -6,9 +6,6 @@ var LTID; // Last TID
 var CUR_ANSE; // Current Answer - Edited
 var CUR_ANSR; // Current Answer - Raw
 var FF_CLIP = new Audio('media/9999999.mp3'); // Music Track
-var TYP_CLI = new Audio('media/SFX/typewriter_click.ogg'); // SFX - Typewriter (Click)
-var TYP_CLA = new Audio('media/SFX/typewriter_clack.ogg'); // SFX - Typewriter (Clack)
-var TYP_DIN = new Audio('media/SFX/typewriter_ding.ogg'); // SFX - Typewriter (Ding)
 var BTN_CLK = new Audio('media/SFX/button_click.ogg'); // SFX - Button Click
 var RGT_ANS = new Audio('media/SFX/right_answer.ogg'); // SFX - Right Answer
 var RNG_ANS = new Audio('media/SFX/wrong_answer.ogg'); // SFX - Wrong Answer
@@ -17,9 +14,6 @@ HNT_KPR.volume = 0.8; // Volume Level - HNT_KPR
 RNG_ANS.volume = 0.6; // Volume Level - RNG_ANS
 RGT_ANS.volume = 0.6; // Volume Level - RGT_ANS
 BTN_CLK.volume = 0.8; // Volume Level - BTN_CLK
-TYP_DIN.volune = 0.8; // Volume Level - TYP_DIN
-TYP_CLA.volume = 0.8; // Volume Level - TYP_CLA
-TYP_CLI.volume = 0.8; // Volume Level - TYP_CLI
 FF_CLIP.volume = 1; // Volume Level - FF_CLIP
 
 // Create Div 'Buttons' from the Quiz Data and append them into the 'BTN_C' Div. 
@@ -95,7 +89,7 @@ function GEN_GAMEINFO(){
 // Data for the 'Hover Alert' that appears when loading the game.
 function SET_HOVER_ALERT(){
 	$('#HVR_ALT_HDR').text('Welcome to the Video Game Music Quiz!');
-	$('#HVR_ALT_TXT').text('This is the Video Game Music Quiz, where you\'ll listen to tracks from ' + QUIZ_DATA.length + ' different games, widely ranging in style and era. Click the numbered buttons to listen to a 30-40 second excerpt from the track. When you\'re ready to guess the game, type your answer into the Text Box in the top right. If you\'re stuck on a certain track, you can click the Hint Bar for a hint alluding to the game, after half the track has played. There is no points system, so you will not be punished for using the hints system... All we ask is that you try your best to guess the answer, before clicking the Hint Bar. Keep in mind, while some answers may accept a series title (e.g: \'Assassin\'s Creed\', \'Pokémon\', \'The Witcher\'), some will require the game\'s number (or subtitle).');
+	$('#HVR_ALT_TXT').text('This is the Video Game Music Quiz, where you\'ll listen to tracks from ' + QUIZ_DATA.length + ' different games, widely ranging in style and era. Click the numbered buttons to listen to a 30-40 second excerpt from the track. When you\'re ready to guess the game, type your answer into the Text Box in the top right. If you\'re stuck on a certain track, you can click the Hint Bar for a hint alluding to the game, after half the track has played. There is no points system, so you will not be punished for using the hints system... All we ask is that you try your best to guess the answer, before clicking the Hint Bar.');
 	$('#HVR_ALT_BTN').text('Okay');
 };
 

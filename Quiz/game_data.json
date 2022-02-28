@@ -116,21 +116,21 @@
 	"Name": "Goemon's Great Adventure",
 	"Title": "Mafu Night",
 	"Hint": "I mean, come on. This guy sure is having a great adventure!",
-	"Keywords": ["Goemon's Great Adventure"]
+	"Keywords": ["Goemon"]
 },
 {
 	"ID": "6078474",
 	"Name": "Guild Wars 2",
 	"Title": "Overture",
 	"Hint": "A seriously underrated MMORPG, that should be considered one of the big dogs.",
-	"Keywords": ["Guild Wars", "Guild Wars"]
+	"Keywords": ["Guild Wars"]
 },
 {
 	"ID": "5879132",
 	"Name": "Banjo-Kazooie: Nuts & Bolts",
 	"Title": "Showdown Town Square",
 	"Hint": "Here are two animals: One got fat, both got lazy! And their car isn't even that good.",
-	"Keywords": ["Banjo-Kazooie", "Nuts & Bolts", "Nuts and Bolts"]
+	"Keywords": ["Banjo Kazooie", "Nuts & Bolts", "Nuts and Bolts"]
 },
 {
 	"ID": "9667965",
@@ -172,7 +172,7 @@
 	"Name": "Sam & Max Hit the Road",
 	"Title": "The World's Largest Ball of Twine",
 	"Hint": "These two buddies sure did fall onto the freeway from high up! They won't know what hit them.",
-	"Keywords": ["Sam & Max"]
+	"Keywords": ["Sam & Max", "Sam and Max"]
 },
 {
 	"ID": "5122758",
@@ -221,14 +221,14 @@
 	"Name": "Bugs Bunny: Lost in Time",
 	"Title": "Title Screen",
 	"Hint": "Did you give these carrots to Doc Brown or something?! They aren't supposed to be here!",
-	"Keywords": ["Bugs Bunny: Lost in Time", "Lost in Time"]
+	"Keywords": ["Bugs Bunny", "Lost in Time"]
 },
 {
 	"ID": "9601420",
 	"Name": "Castlevania 64",
 	"Title": "Credits",
 	"Hint": "Count Dracula has resurrected again after a hundred years to claim World Domination! And now you can be a noob, too.",
-	"Keywords": ["Castlevania", "Castlevania: Legacy of Darkness", "Legacy of Darkness"]
+	"Keywords": ["Castlevania", "Legacy of Darkness"]
 },
 {
 	"ID": "1213885",
@@ -305,7 +305,7 @@
 	"Name": "MySims",
 	"Title": "Main Menu",
 	"Hint": "Instead of building houses for people, you're building their furniture.",
-	"Keywords": ["MySims", "Sims"]
+	"Keywords": ["Sims", "MySims"]
 },
 {
 	"ID": "4168681",
@@ -424,7 +424,7 @@
 	"Name": "Command & Conquer: Red Alert",
 	"Title": "Mud",
 	"Hint": "The game where winning usually involves building a nuclear base, as fast as possible.",
-	"Keywords": ["Command & Conquer", "Red Alert"]
+	"Keywords": ["Command & Conquer", "Command and Conquer", "Red Alert"]
 },
 {
 	"ID": "7444254",
@@ -459,7 +459,7 @@
 	"Name": "The Guild 2",
 	"Title": "Main Theme",
 	"Hint": "Hey! ...Do you wanna date my avatar?!",
-	"Keywords": ["The Guild", "Guild 2"]
+	"Keywords": ["The Guild", "Guild"]
 },
 {
 	"ID": "1183296",
@@ -508,7 +508,7 @@
 	"Name": "Grand Theft Auto IV",
 	"Title": "Theme Song",
 	"Hint": "Help! My stupid relative keeps wanting me to play sports with him all the time!",
-	"Keywords": ["Grand Theft Auto", "GTA"]
+	"Keywords": ["Grand Theft Auto"]
 },
 {
 	"ID": "1461584",
@@ -564,7 +564,7 @@
 	"Name": "Left 4 Dead 2",
 	"Title": "Dead Center",
 	"Hint": "Four friends, and a volatile boomer! What could go wrong?!",
-	"Keywords": ["Left 4 Dead", "L4D2"]
+	"Keywords": ["Left 4 Dead", "Left for Dead", "L4D2"]
 },
 {
 	"ID": "9178917",
@@ -585,7 +585,7 @@
 	"Name": "Disney's Pocahontas",
 	"Title": "Steady as the Beating Drum",
 	"Hint": "Is the wind talking to me?! Does the wind want to be an artist?!",
-	"Keywords": ["Pocahontas"]
+	"Keywords": ["Disney's Pocahontas", "Pocahontas"]
 },
 {
 	"ID": "3820910",
@@ -676,7 +676,7 @@
 	"Name": "The Simpsons: Hit & Run",
 	"Title": "Bart Goes Downtown",
 	"Hint": "Breaking News: Jaundice sufferer wanted for running over somebody in an American Town nobody can find.",
-	"Keywords": ["The Simpsons: Hit & Run", "The Simpsons: Hit and Run", "Simpsons: Hit & Run", "Simpsons: Hit and Run", "Hit & Run", "Hit and Run"]
+	"Keywords": ["The Simpsons", "Simpsons", "Hit & Run", "Hit and Run"]
 },
 {
 	"ID": "2428096",
