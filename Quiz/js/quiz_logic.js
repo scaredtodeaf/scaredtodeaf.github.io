@@ -277,7 +277,7 @@ $(document).ready(function(){
 	});
 
 	$('#BTN_C').on('mouseleave','.BTN_I', function(event){
-		if ($(this).attr('isClickable') == 'true'){
+		if ($(this).attr('isClickable') == 'true' && $(this).attr('isSelected') == 'false'){
 			$(this).css('filter', 'contrast(100%)');
 		};
 	});
@@ -312,24 +312,27 @@ $(document).ready(function(){
 	
 	$('#BTN_C').on('click','.BTN_I', function(event){
 		if ($(this).attr('isClickable') == 'true'){
-			$('#MP_ANSR').val('');
-			$('#MP_ANSR').attr('disabled', false);
-			$(this).css('backgroundColor', '#1ee57b');
-			$(this).attr('isSelected', true);
-
-			if (ETID != null){
-				$('.BTN_I:eq(' + ETID + ')').attr('isSelected', false);
+			if ($(this).attr('isSelected') == 'false'){	
+				$('#MP_ANSR').val('');
+				$('#MP_ANSR').attr('disabled', false);
+				$(this).css('backgroundColor', '#1ee57b');
+				$(this).attr('isSelected', true);
+				
+				if (ETID != null){
+					$('.BTN_I:eq(' + ETID + ')').attr('isSelected', false);
+				};
+				
+				TID = $(this).attr('TID');
+				ETID = TID - 1;
+				$('.BTN_I:eq(' + ETID + ')').css('filter', 'contrast(100%)');
+				LOAD_TRACK(QUIZ_DATA[ETID][0]);
+				BTN_CLK.play();
+				setTimeout(function(){AUD_OBJ.play(); $('#MP_ANSR').focus();}, 450);
 			};
-			
-			TID = $(this).attr('TID');
-			ETID = TID - 1;
-			$('.BTN_I:eq(' + ETID + ')').css('filter', 'contrast(100%)');
-			LOAD_TRACK(QUIZ_DATA[ETID][0]);
-			
-			BTN_CLK.play();
-			setTimeout(function(){AUD_OBJ.play(); $('#MP_ANSR').focus();}, 450);
 		} else {
-			LOAD_TRACK(QUIZ_DATA[($(this).attr('TID'))-1][0]);
+			if ($(this).attr('isSelected') == 'false'){	
+				LOAD_TRACK(QUIZ_DATA[($(this).attr('TID'))-1][0]);
+			};
 		};
     });
 	
