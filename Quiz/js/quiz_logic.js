@@ -5,7 +5,6 @@ var ETID; // Edited TID
 var LTID; // Last TID
 var CUR_ANSE; // Current Answer - Edited
 var CUR_ANSR; // Current Answer - Raw
-var SRT_MUS = new Audio('media/LOOP/StartMusic.ogg'); // Music Track
 var FF_CLIP = new Audio('media/9999999.mp3'); // Music Track
 var TYP_CLI = new Audio('media/SFX/typewriter_click.ogg'); // SFX - Typewriter (Click)
 var TYP_CLA = new Audio('media/SFX/typewriter_clack.ogg'); // SFX - Typewriter (Clack)
@@ -22,8 +21,6 @@ TYP_DIN.volune = 0.8; // Volume Level - TYP_DIN
 TYP_CLA.volume = 0.8; // Volume Level - TYP_CLA
 TYP_CLI.volume = 0.8; // Volume Level - TYP_CLI
 FF_CLIP.volume = 1; // Volume Level - FF_CLIP
-SRT_MUS.volume = 0.3; // Volume Level - SRT_MUS
-SRT_MUS.loop = true; // Set SRT_MUS to loop.
 
 // Create Div 'Buttons' from the Quiz Data and append them into the 'BTN_C' Div. 
 function MAKE_DIVS_FROM_QDATA(){
@@ -246,9 +243,7 @@ function REP_CHECK(){
 
 // Everything to be done once the page is ready.
 $(document).ready(function(){
-	// Start playing the Start Music.
-	SRT_MUS.play();
-
+	
 	// Call this function.
 	LOAD_AND_PARSE_QDATA('game_data.json');
 
@@ -270,7 +265,6 @@ $(document).ready(function(){
 			setTimeout(function(){
 				$('#HVR_ALT').remove();
 				$('#OVERLAY').remove();
-				SRT_MUS.pause();
 				IS_BLOCKING = false;
 			}, 500);
 		});
