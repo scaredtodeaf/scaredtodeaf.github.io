@@ -4,7 +4,7 @@
 	"Name": "Resident Evil – Code: Veronica",
 	"Title": "A Moment of Relief",
 	"Hint": "Why is the camera always in the most awkward of places?!",
-	"Keywords": ["Resident Evil", "Code: Veronica"]
+	"Keywords": ["Resident Evil"]
 },
 {
 	"ID": "4265126",
@@ -18,14 +18,14 @@
 	"Name": "Just Cause 2",
 	"Title": "Mile High Club",
 	"Hint": "Just cause there's a lot of tactful shooting in this game, that doesn't mean there isn't room for mess-making.",
-	"Keywords": ["Just Cause 2", "JC2"]
+	"Keywords": ["Just Cause"]
 },
 {
 	"ID": "5800340",
 	"Name": "Commander Keen IV: Secret of the Oracle",
-	"Title": "You've Got to Eat Your Vegetables!",
+	"Title": "You've Got to Eat Your Vegetables",
 	"Hint": "This space exploring vigilante, sure is a mascot for the Green Bay Packers!",
-	"Keywords": ["Commander Keen IV", "Commander Keen 4", "Secret of the Oracle", "Keen IV", "Keen 4"]
+	"Keywords": ["Commander Keen", "Secret of the Oracle", "Keen"]
 },
 {
 	"ID": "4244009",
@@ -39,7 +39,7 @@
 	"Name": "Silent Hill 3",
 	"Title": "Never Forgive Me, Never Forget Me",
 	"Hint": "Another title from one of the most beloved Horror Franchises, originally planned to be a rail shooter.",
-	"Keywords": ["Silent Hill 3", "Silent Hill III"]
+	"Keywords": ["Silent Hill"]
 },
 {
 	"ID": "5590651",
@@ -60,7 +60,7 @@
 	"Name": "The 7th Guest",
 	"Title": "Short Intro",
 	"Hint": "A game about people turning up to a house party, and slowly turning on each other.",
-	"Keywords": ["The 7th Guest", "The Seventh Guest", "7th Guest", "Seventh Guest", "T7G"]
+	"Keywords": ["The 7th Guest", "The Seventh Guest", "7th Guest", "Seventh Guest",]
 },
 {
 	"ID": "3865946",
@@ -88,7 +88,7 @@
 	"Name": "Tekken 5: Dark Resurrection",
 	"Title": "Shattered Dreams",
 	"Hint": "There are demons, undead samurai, animals, robots and humans all fighting each other!",
-	"Keywords": ["Tekken 5", "Tekken Five", "Dark Resurrection"]
+	"Keywords": ["Tekken", "Dark Resurrection"]
 },
 {
 	"ID": "6392166",
@@ -109,7 +109,7 @@
 	"Name": "Quake II",
 	"Title": "Descent Into Cerberon",
 	"Hint": "The ground sure is shaking a lot! Maybe a natural disaster is about to occur.",
-	"Keywords": ["Quake II", "Quake 2"]
+	"Keywords": ["Quake"]
 },
 {
 	"ID": "1393180",
@@ -123,14 +123,14 @@
 	"Name": "Guild Wars 2",
 	"Title": "Overture",
 	"Hint": "A seriously underrated MMORPG, that should be considered one of the big dogs.",
-	"Keywords": ["Guild Wars 2", "Guild Wars II", "GW 2", "GW II"]
+	"Keywords": ["Guild Wars", "Guild Wars"]
 },
 {
 	"ID": "5879132",
 	"Name": "Banjo-Kazooie: Nuts & Bolts",
 	"Title": "Showdown Town Square",
 	"Hint": "Here are two animals: One got fat, both got lazy! And their car isn't even that good.",
-	"Keywords": ["Banjo-Kazooie: Nuts & Bolts", "Banjo-Kazooie: Nuts and Bolts", "Nuts & Bolts", "Nuts and Bolts"]
+	"Keywords": [Banjo-Kazooie", "Nuts & Bolts", "Nuts and Bolts"]
 },
 {
 	"ID": "9667965",
@@ -151,14 +151,14 @@
 	"Name": "Peggle 2",
 	"Title": "Luna's Theme",
 	"Hint": "This is a game all about balls, wiping out the board and racking up some sick pointage along the way.",
-	"Keywords": ["Peggle 2", "Peggle II"]
+	"Keywords": ["Peggle"]
 },
 {
 	"ID": "6134185",
 	"Name": "Mega Man Zero 3",
 	"Title": "Cannon Ball",
 	"Hint": "This series sure has a lot of men in it, and they're all rather colossal.",
-	"Keywords": ["Mega Man Zero", "Mega Man 0"]
+	"Keywords": ["Mega Man"]
 },
 {
 	"ID": "9590086",
@@ -172,14 +172,14 @@
 	"Name": "Sam & Max Hit the Road",
 	"Title": "The World's Largest Ball of Twine",
 	"Hint": "These two buddies sure did fall onto the freeway from high up! They won't know what hit them.",
-	"Keywords": ["Sam & Max Hit the Road", "Sam and Max Hit the Road"]
+	"Keywords": ["Sam & Max"]
 },
 {
 	"ID": "5122758",
 	"Name": "Myst III: Exile",
 	"Title": "Opening Titles",
 	"Hint": "Oh goodie! ...The Moving Picture Show, in book form.",
-	"Keywords": ["Myst III", "Myst 3", "Exile"]
+	"Keywords": ["Myst", "Exile"]
 },
 {
 	"ID": "5970087",
@@ -193,28 +193,28 @@
 	"Name": "God of War II",
 	"Title": "The Bathhouse",
 	"Hint": "There ain't no boy here yet!",
-	"Keywords": ["God of War II", "God of War 2", "GoW II", "GoW 2"]
+	"Keywords": ["God of War", "GoW II", "GoW 2"]
 },
 {
 	"ID": "4514501",
 	"Name": "Yakuza 0",
 	"Title": "Receive You The Subtype",
 	"Hint": "One of the latest instalments in a franchise which could be considered an offshoot of Shenmue.",
-	"Keywords": ["Yakuza 0", "Yakuza Zero"]
+	"Keywords": ["Yakuza"]
 },
 {
 	"ID": "1668791",
 	"Name": "Warcraft 2",
 	"Title": "Orc",
 	"Hint": "The ultimate Orcs vs. Humans experience!",
-	"Keywords": ["Warcraft 2", "Warcraft II"]
+	"Keywords": ["Warcraft"]
 },
 {
 	"ID": "4782493",
 	"Name": "Europa Universalis IV",
 	"Title": "Main Theme",
 	"Hint": "World Domination! But more in a diplomatic sense.",
-	"Keywords": ["Europa Universalis IV", "Europa Universalis 4"]
+	"Keywords": ["Europa Universalis"]
 },
 {
 	"ID": "8005265",
@@ -228,7 +228,7 @@
 	"Name": "Castlevania 64",
 	"Title": "Credits",
 	"Hint": "Count Dracula has resurrected again after a hundred years to claim World Domination! And now you can be a noob, too.",
-	"Keywords": ["Castlevania 64", "Castlevania: Legacy of Darkness", "Legacy of Darkness"]
+	"Keywords": ["Castlevania", "Castlevania: Legacy of Darkness", "Legacy of Darkness"]
 },
 {
 	"ID": "1213885",
@@ -263,14 +263,14 @@
 	"Name": "Kirby & the Amazing Mirror",
 	"Title": "Mustard Mountain",
 	"Hint": "His skill is to take other's, and it's skill is to be amazing.",
-	"Keywords": ["Kirby & the Amazing Mirror", "Kirby and the Amazing Mirror", "The Amazing Mirror", "Amazing Mirror"]
+	"Keywords": ["Kirby", "The Amazing Mirror", "Amazing Mirror"]
 },
 {
 	"ID": "3682652",
 	"Name": "Rugrats: Search for Reptar",
 	"Title": "The Mysterious Mr. Friend",
 	"Hint": "These tots sure do want their toy! They'll do anything to find it.",
-	"Keywords": ["Rugrats: Search for Reptar", "Rugrats: The Search for Reptar", "Search for Reptar", "The Search for Reptar"]
+	"Keywords": ["Rugrats", "Search for Reptar", "The Search for Reptar"]
 },
 {
 	"ID": "3615665",
@@ -291,7 +291,7 @@
 	"Name": "Doom 3",
 	"Title": "Pause Menu",
 	"Hint": "Let me just whip out my chainsaw, and I'll be in the mood!",
-	"Keywords": ["DOOM 3", "DOOM III"]
+	"Keywords": ["DOOM"]
 },
 {
 	"ID": "5031329",
@@ -312,7 +312,7 @@
 	"Name": "Deus Ex: Human Revolution",
 	"Title": "Icarus",
 	"Hint": "It is that other cyberpunk game!",
-	"Keywords": ["Deus Ex: Human Revolution", "Human Revolution"]
+	"Keywords": ["Deus Ex", "Human Revolution"]
 },
 {
 	"ID": "2480777",
@@ -340,7 +340,7 @@
 	"Name": "Super Mario Galaxy 2",
 	"Title": "Throwback Galaxy",
 	"Hint": "You might think this is Super Mario 64! But, alas, no... This has a much more universal appeal!",
-	"Keywords": ["Super Mario Galaxy 2", "Super Mario Galaxy II", "Mario Galaxy 2", "Mario Galaxy II"]
+	"Keywords": ["Super Mario Galaxy", "Mario Galaxy"]
 },
 {
 	"ID": "8667672",
@@ -382,7 +382,7 @@
 	"Name": "Sly 2: Band of Thieves",
 	"Title": "Paris Rooftops",
 	"Hint": "Your favourite vigilante 'dumpster diver' is at it again, and this time with a crew!",
-	"Keywords": ["Sly 2", "Sly II", "Sly Cooper 2", "Sly Cooper II", "Band of Thieves"]
+	"Keywords": ["Sly", "Band of Thieves"]
 },
 {
 	"ID": "1551617",
@@ -424,7 +424,7 @@
 	"Name": "Command & Conquer: Red Alert",
 	"Title": "Mud",
 	"Hint": "The game where winning usually involves building a nuclear base, as fast as possible.",
-	"Keywords": ["Command & Conquer: Red Alert", "C&C: Red Alert", "Red Alert"]
+	"Keywords": ["Command & Conquer", "Red Alert"]
 },
 {
 	"ID": "7444254",
@@ -438,7 +438,7 @@
 	"Name": "Metal Gear Solid: The Twin Snakes",
 	"Title": "Rope Escape",
 	"Hint": "If you poured liquid metal all over your gearstick, you'd literally have this.",
-	"Keywords": ["Metal Gear Solid: The Twin Snakes", "MGS: The Twin Snakes", "The Twin Snakes"]
+	"Keywords": ["Metal Gear Solid", "The Twin Snakes"]
 },
 {
 	"ID": "3476182",
@@ -459,7 +459,7 @@
 	"Name": "The Guild 2",
 	"Title": "Main Theme",
 	"Hint": "Hey! ...Do you wanna date my avatar?!",
-	"Keywords": ["The Guild 2", "The Guild II", "Guild 2", "Guild II"]
+	"Keywords": ["The Guild", "Guild 2"]
 },
 {
 	"ID": "1183296",
@@ -473,21 +473,21 @@
 	"Name": "Fable III",
 	"Title": "A Hero Awakes",
 	"Hint": "Another instalment of a game that got some seriously favourable reviews on the Xbox!",
-	"Keywords": ["Fable 3", "Fable III"]
+	"Keywords": ["Fable"]
 },
 {
 	"ID": "7737132",
 	"Name": "The Elder Scrolls III: Morrowind",
 	"Title": "Peaceful Waters",
 	"Hint": "You start off on a boat, ready to begin anew... And you have to fight for real change on this island.",
-	"Keywords": ["The Elder Scrolls 3", "The Elder Scrolls III", "Elder Scrolls 3", "Elder Scrolls III", "The Elder Scrolls: Morrowind", "Elder Scrolls: Morrowind", "TES: Morrowind", "Morrowind"]
+	"Keywords": ["The Elder Scrolls". "Elder Scrolls", "Morrowind"]
 },
 {
 	"ID": "9360689",
 	"Name": "Duke Nukem 3D",
 	"Title": "Future Military Conquests",
 	"Hint": "Aliens are hell bent on World Domination! A jacked-up gun lover, and chick magnet, is humanity's only salvation.",
-	"Keywords": ["Duke Nukem 3D"]
+	"Keywords": ["Duke Nukem"]
 },
 {
 	"ID": "3227188",
@@ -501,14 +501,14 @@
 	"Name": "Harry Potter and the Philosopher's Stone",
 	"Title": "Title Screen",
 	"Hint": "I can't believe I've been sleeping in such a small space for so long, and now I'm in a big castle!",
-	"Keywords": ["Harry Potter and the Philosopher's Stone", "HP and the Philosopher's Stone", "The Philosopher's Stone", "Philosopher's Stone"]
+	"Keywords": ["Harry Potter", "The Philosopher's Stone", "Philosopher's Stone"]
 },
 {
 	"ID": "8032693",
 	"Name": "Grand Theft Auto IV",
 	"Title": "Theme Song",
 	"Hint": "Help! My stupid relative keeps wanting me to play sports with him all the time!",
-	"Keywords": ["Grand Theft Auto IV", "Grand Theft Auto 4", "GTA IV", "GTA 4"]
+	"Keywords": ["Grand Theft Auto", "GTA"]
 },
 {
 	"ID": "1461584",
@@ -564,7 +564,7 @@
 	"Name": "Left 4 Dead 2",
 	"Title": "Dead Center",
 	"Hint": "Four friends, and a volatile boomer! What could go wrong?!",
-	"Keywords": ["Left 4 Dead 2", "Left 4 Dead II", "L4D2"]
+	"Keywords": ["Left 4 Dead", "L4D2"]
 },
 {
 	"ID": "9178917",
@@ -585,7 +585,7 @@
 	"Name": "Disney's Pocahontas",
 	"Title": "Steady as the Beating Drum",
 	"Hint": "Is the wind talking to me?! Does the wind want to be an artist?!",
-	"Keywords": ["Disney's Pocahontas", "Pocahontas"]
+	"Keywords": ["Pocahontas"]
 },
 {
 	"ID": "3820910",
@@ -606,14 +606,14 @@
 	"Name": "Halo 3: ODST",
 	"Title": "Deference for Darkness",
 	"Hint": "Oh wow! This thing above my head glows!",
-	"Keywords": ["Halo 3", "Halo III", "Halo: ODST", "ODST"]
+	"Keywords": ["Halo", "Halo: ODST", "ODST"]
 },
 {
 	"ID": "5206398",
 	"Name": "Red Dead Redemption: Undead Nightmare",
-	"Title": "Blackwater, U.S.A.",
+	"Title": "Blackwater, USA",
 	"Hint": "I didn't know that the decline of the Wild West coincided with the rise of the Zombie Apocalypse!",
-	"Keywords": ["Red Dead Redemption: Undead Nightmare", "Red Dead: Undead Nightmare", "RDR: Undead Nightmare", "Undead Nightmare"]
+	"Keywords": ["Red Dead Redemption", "Undead Nightmare"]
 },
 {
 	"ID": "5355901",
@@ -634,7 +634,7 @@
 	"Name": "Donkey Kong Country: Tropical Freeze",
 	"Title": "Seashore War",
 	"Hint": "They once made a rap about these guys! But now they're just freezing their nuts off.",
-	"Keywords": ["Donkey Kong Country: Tropical Freeze", "DK Country: Tropical Freeze", "DKC: Tropical Freeze", "Tropical Freeze"]
+	"Keywords": ["Donkey Kong Country", "Tropical Freeze"]
 },
 {
 	"ID": "2420988",
@@ -669,7 +669,7 @@
 	"Name": "Splatoon 2",
 	"Title": "Inkopolis News",
 	"Hint": "You'll have made a mess all over the floor, by the time you're done with this game!",
-	"Keywords": ["Splatoon 2", "Splatoon II"]
+	"Keywords": ["Splatoon"]
 },
 {
 	"ID": "1265382",
@@ -683,7 +683,7 @@
 	"Name": "Rayman 3: Hoodlum Havoc",
 	"Title": "A Hard Landing",
 	"Hint": "This guy sure loves to extend all his limbs for you!",
-	"Keywords": ["Rayman 3", "Rayman III", "Hoodlum Havoc"]
+	"Keywords": ["Rayman", "Hoodlum Havoc"]
 },
 {
 	"ID": "7255789",

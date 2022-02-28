@@ -300,20 +300,6 @@ $(document).ready(function(){
 		};
 	});
 
-	// Check if a button on the user's keyboard has been pressed.
-	$(document).keydown(function(event){
-		if ($('#MP_ANSR').is(':focus')){
-			// Any readable character.
-			if ((event.which > 47 && event.which < 58) || (event.which> 64 && event.which < 91) || (event.which > 95 && event.which < 112) || (event.which > 185 && event.which < 193) || (event.which > 218 && event.which < 223)){TYP_CLI.play();};
-			
-			// Space Bar
-			if (event.which === 32){TYP_CLA.play();};
-
-			// Enter Key
-			if (event.which === 13){TYP_DIN.play();};
-		};
-	});
-
 	// Check if a button on the user's keyboard has been lifted.
 	$(document).keyup(function(event){
 		if ($('#MP_ANSR').is(':focus')){
@@ -360,7 +346,6 @@ $(document).ready(function(){
 				LOAD_TRACK(QUIZ_DATA[($(this).attr('TID'))-1][0]);
 				BTN_CLK.play();
 				setTimeout(function(){AUD_OBJ.play();}, 450);
-				
 			};
 		};
     });
