@@ -130,24 +130,38 @@ function REP_CHECK(){
 		}
 
 		if ($('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked') == 'true'){
-			if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'true'){
-				$('#HB').html(QUIZ_DATA[ETID][3]);
-			} else if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'false'){
-				$('#HB').html('You can now click for a hint!');
-			};
-
-		} else if ($('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked') == 'false'){
-			var HB_STRING = '';
-			var TRK_SL = Math.round(AUD_RCT - (AUD_RDR / 2));
-			if (TRK_SL < 0){TRK_SL = Math.abs(TRK_SL);};
-
-			if (AUD_OBJ.paused != true){
-				if (isNaN(TRK_SL) != true){
-					HB_STRING = HB_STRING.concat('You can click here for a hint in roughly ', TRK_SL, ' seconds.');
-					$('#HB').html(HB_STRING);
-					
-					if (TRK_SL == 0){$('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked', true);};
+			if ($('.BTN_I:eq(' + ETID + ')').attr('isClickable') == 'true'){
+				if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'true'){
+					$('#HB').text(QUIZ_DATA[ETID][3]);
+				} else if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'false'){
+					$('#HB').text('You can now click for a hint!');
 				};
+			} else if ($('.BTN_I:eq(' + ETID + ')').attr('isClickable') == 'false'){
+				if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'true'){
+					$('#HB').text(QUIZ_DATA[ETID][3]);
+				} else if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'false'){
+					var HB_STRING = '';
+					HB_STRING = HB_STRING.concat('Congratulations on guessing that this track was from ', QUIZ_DATA[ETID][1], '! If you still wish to see the hint, click here.');
+					$('#HB').text(HB_STRING);
+				};
+			};
+		} else if ($('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked') == 'false'){
+			if ($('.BTN_I:eq(' + ETID + ')').attr('isClickable') == 'true'){
+				var HB_STRING = '';
+				var TRK_SL = Math.round(AUD_RCT - (AUD_RDR / 2));
+				if (TRK_SL < 0){TRK_SL = Math.abs(TRK_SL);};
+				
+				if (AUD_OBJ.paused != true){
+					if (isNaN(TRK_SL) != true){
+						HB_STRING = HB_STRING.concat('You can click here for a hint in roughly ', TRK_SL, ' seconds.');
+						$('#HB').text(HB_STRING);
+						if (TRK_SL == 0){$('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked', true);};
+					};
+				};
+			} else if ($('.BTN_I:eq(' + ETID + ')').attr('isClickable') == 'false'){
+				var HB_STRING = '';
+				HB_STRING = HB_STRING.concat('Congratulations on guessing that this track was from ', QUIZ_DATA[ETID][1], '! If you still wish to see the hint, click here.');
+				$('#HB').text(HB_STRING);
 			};
 		};
 		
@@ -166,35 +180,39 @@ function REP_CHECK(){
 			};
 
 			if (ANS_MATCHES > 0){
-				$('#MP_ANSR').attr('disabled', true);
-				$('#MP_ANSR').css('backgroundColor', '#e5991e');
-				$('#MP_ANSR').val('');
-				RGT_ANS.play();
-				AUD_OBJ.pause();
-				
-				$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#e5991e');
-				$('.BTN_I:eq(' + ETID + ')').css('font-size', '8pt');
-				$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO());
-				$('.BTN_I:eq(' + ETID + ')').attr('isClickable', false);
-				$('.BTN_I:eq(' + ETID + ')').attr('isSelected', false);
-				
-				setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5');}, 1000);
+				if ($('.BTN_I:eq(' + ETID + ')').attr('isClickable') == 'true'){
+					$('#MP_ANSR').attr('disabled', true);
+					$('#MP_ANSR').css('backgroundColor', '#e5991e');
+					$('#MP_ANSR').val('');
+					RGT_ANS.play();
+					AUD_OBJ.pause();
+					
+					$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#e5991e');
+					$('.BTN_I:eq(' + ETID + ')').css('font-size', '8pt');
+					$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO());
+					$('.BTN_I:eq(' + ETID + ')').attr('isClickable', false);
+					$('.BTN_I:eq(' + ETID + ')').attr('isSelected', false);
+					
+					setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5');}, 1000);
+				};
 			};
 		} else {
 			if ($.inArray(CUR_ANSE, ANS_ARRAY) >= 0){
-				$('#MP_ANSR').attr('disabled', true);
-				$('#MP_ANSR').css('backgroundColor', '#e5991e');
-				$('#MP_ANSR').val('');
-				RGT_ANS.play();
-				AUD_OBJ.pause();
-				
-				$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#e5991e');
-				$('.BTN_I:eq(' + ETID + ')').css('font-size', '8pt');
-				$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO());
-				$('.BTN_I:eq(' + ETID + ')').attr('isClickable', false);
-				$('.BTN_I:eq(' + ETID + ')').attr('isSelected', false);
-				
-				setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5');}, 1000);
+				if ($('.BTN_I:eq(' + ETID + ')').attr('isClickable') == 'true'){
+					$('#MP_ANSR').attr('disabled', true);
+					$('#MP_ANSR').css('backgroundColor', '#e5991e');
+					$('#MP_ANSR').val('');
+					RGT_ANS.play();
+					AUD_OBJ.pause();
+					
+					$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#e5991e');
+					$('.BTN_I:eq(' + ETID + ')').css('font-size', '8pt');
+					$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO());
+					$('.BTN_I:eq(' + ETID + ')').attr('isClickable', false);
+					$('.BTN_I:eq(' + ETID + ')').attr('isSelected', false);
+					
+					setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5');}, 1000);
+				};
 			};
 		};
 	} else if (TID == null){
@@ -330,8 +348,17 @@ $(document).ready(function(){
 				setTimeout(function(){AUD_OBJ.play(); $('#MP_ANSR').focus();}, 450);
 			};
 		} else {
-			if ($(this).attr('isSelected') == 'false'){	
+			if ($(this).attr('isSelected') == 'false'){
+				if ($('.BTN_I:eq(' + ETID + ')').attr('isClickable') == 'true'){
+					$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#1e88e5');
+					$('.BTN_I:eq(' + ETID + ')').attr('isSelected', false);
+				};
+
+				TID = $(this).attr('TID');
+				ETID = TID - 1;
+
 				LOAD_TRACK(QUIZ_DATA[($(this).attr('TID'))-1][0]);
+				AUD_OBJ.play();
 			};
 		};
     });
@@ -339,10 +366,14 @@ $(document).ready(function(){
 	$('#HB').click(function(event){
 		if ($(this).attr('isClickable') == 'true'){
 			if (TID != null){
-				if ($('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked') == 'true'){
+				if ($('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked') == 'true' || $('.BTN_I:eq(' + ETID + ')').attr('isClickable') == 'false'){
 					if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'false'){
 						$('.BTN_I:eq(' + ETID + ')').attr('hintClicked', true);
 						$('#HB').html(QUIZ_DATA[ETID][3]);
+					};
+
+					if  ($('.BTN_I:eq(' + ETID + ')').attr('isClickable') == 'false'){
+						$('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked', true);
 					};
 				};
 			} else {
