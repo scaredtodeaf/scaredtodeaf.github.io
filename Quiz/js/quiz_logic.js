@@ -1,9 +1,11 @@
 var QUIZ_DATA = new Array(); // The Quiz Data
+var IS_BLOCKING = true; // Is the 'Hover Alert' blocking?
 var TID; // This ID
 var ETID; // Edited TID
 var LTID; // Last TID
 var CUR_ANSE; // Current Answer - Edited
 var CUR_ANSR; // Current Answer - Raw
+var SRT_MUS = new Audio('media/LOOP/StartMusic.ogg'); // Music Track
 var FF_CLIP = new Audio('media/9999999.mp3'); // Music Track
 var TYP_CLI = new Audio('media/SFX/typewriter_click.ogg'); // SFX - Typewriter (Click)
 var TYP_CLA = new Audio('media/SFX/typewriter_clack.ogg'); // SFX - Typewriter (Clack)
@@ -20,12 +22,14 @@ TYP_DIN.volune = 0.8; // Volume Level - TYP_DIN
 TYP_CLA.volume = 0.8; // Volume Level - TYP_CLA
 TYP_CLI.volume = 0.8; // Volume Level - TYP_CLI
 FF_CLIP.volume = 1; // Volume Level - FF_CLIP
+SRT_MUS.volume = 0.3; // Volume Level - SRT_MUS
+SRT_MUS.loop = true; // Set SRT_MUS to loop.
 
 // Create Div 'Buttons' from the Quiz Data and append them into the 'BTN_C' Div. 
 function MAKE_DIVS_FROM_QDATA(){
 	for(var i=0; i<QUIZ_DATA.length; i++){
 		var TOTAL_COUNT = i+1;
-		$('#BTN_C').append('<div class="BTN_I" isClickable=true hintUnlocked=false hintClicked=false TID=' + TOTAL_COUNT + '>' + TOTAL_COUNT + '</div>');
+		$('#BTN_C').append('<div class="BTN_I" isClickable=true isSelected=false hintUnlocked=false hintClicked=false TID=' + TOTAL_COUNT + '>' + TOTAL_COUNT + '</div>');
 	};
 };
 
@@ -91,12 +95,23 @@ function GEN_GAMEINFO(){
 	return GAM_INF;
 }
 
+// Data for the 'Hover Alert' that appears when loading the game.
+function SET_HOVER_ALERT(){
+	$('#HVR_ALT_HDR').text('Welcome to the Video Game Music Quiz!');
+	$('#HVR_ALT_TXT').text('This is the Video Game Music Quiz, where you\'ll listen to tracks from ' + QUIZ_DATA.length + ' different games, widely ranging in style and era. Click the numbered buttons to listen to a 30-40 second excerpt from the track. When you\'re ready to guess the game, type your answer into the Text Box in the top right. If you\'re stuck on a certain track, you can click the Hint Bar for a hint alluding to the game, after half the track has played. There is no points system, so you will not be punished for using the hints system... All we ask is that you try your best to guess the answer, before clicking the Hint Bar. Keep in mind, while some answers may accept a series title (e.g: \'Assassin\'s Creed\', \'Pokémon\', \'The Witcher\'), some will require the game\'s number (or subtitle).');
+	$('#HVR_ALT_BTN').text('Okay');
+};
+
 // Anything that needs to be repeatedly executed, goes here.
 function REP_CHECK(){
 	// Code to make sure the Game Area is always the height of the page, minus the Header Area and is positioned correctly.
 	var GA_HEIGHT = $(window).height() - $('#HDR').height(); // Game Area Height: (Page Height - Header Height)
 	$('#GA').css('height', GA_HEIGHT + 'px'); // Set Game Area Height.
 	$('#GA').css('top', $('#HDR').height() + 'px'); // Set Game Area Position.
+
+	if (IS_BLOCKING == true){
+		SET_HOVER_ALERT();
+	};
 
 	if (TID != null){
 		if ((LTID != TID) && LTID != null){
@@ -164,6 +179,7 @@ function REP_CHECK(){
 				$('.BTN_I:eq(' + ETID + ')').css('font-size', '8pt');
 				$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO());
 				$('.BTN_I:eq(' + ETID + ')').attr('isClickable', false);
+				$('.BTN_I:eq(' + ETID + ')').attr('isSelected', false);
 				
 				setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5');}, 1000);
 			};
@@ -179,6 +195,7 @@ function REP_CHECK(){
 				$('.BTN_I:eq(' + ETID + ')').css('font-size', '8pt');
 				$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO());
 				$('.BTN_I:eq(' + ETID + ')').attr('isClickable', false);
+				$('.BTN_I:eq(' + ETID + ')').attr('isSelected', false);
 				
 				setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5');}, 1000);
 			};
@@ -229,11 +246,47 @@ function REP_CHECK(){
 
 // Everything to be done once the page is ready.
 $(document).ready(function(){
+	// Start playing the Start Music.
+	SRT_MUS.play();
+
 	// Call this function.
 	LOAD_AND_PARSE_QDATA('game_data.json');
-	
+
 	// Request that the REP_CHECK() function is called, every 100ms.
 	repCheck = setInterval('REP_CHECK()', 100);
+
+	if (IS_BLOCKING == true){
+		$(function (){
+			$('#HVR_ALT_BTN').hover(function(){
+				document.getElementById('HVR_ALT_BTN').style.filter = 'contrast(50%)';
+			}, function (){
+				document.getElementById('HVR_ALT_BTN').style.filter = 'contrast(100%)';
+			});
+		});
+	
+		$('#HVR_ALT_BTN').on('click', function(event){
+			BTN_CLK.play();
+
+			setTimeout(function(){
+				$('#HVR_ALT').remove();
+				$('#OVERLAY').remove();
+				SRT_MUS.pause();
+				IS_BLOCKING = false;
+			}, 500);
+		});
+	};
+
+	$('#BTN_C').on('mouseenter','.BTN_I', function(event){
+		if ($(this).attr('isClickable') == 'true' && $(this).attr('isSelected') == 'false'){
+			$(this).css('filter', 'contrast(50%)');
+		};
+	});
+
+	$('#BTN_C').on('mouseleave','.BTN_I', function(event){
+		if ($(this).attr('isClickable') == 'true'){
+			$(this).css('filter', 'contrast(100%)');
+		};
+	});
 
 	// Check if a button on the user's keyboard has been pressed.
 	$(document).keydown(function(event){
@@ -268,9 +321,15 @@ $(document).ready(function(){
 			$('#MP_ANSR').val('');
 			$('#MP_ANSR').attr('disabled', false);
 			$(this).css('backgroundColor', '#1ee57b');
+			$(this).attr('isSelected', true);
+
+			if (ETID != null){
+				$('.BTN_I:eq(' + ETID + ')').attr('isSelected', false);
+			};
 			
 			TID = $(this).attr('TID');
 			ETID = TID - 1;
+			$('.BTN_I:eq(' + ETID + ')').css('filter', 'contrast(100%)');
 			LOAD_TRACK(QUIZ_DATA[ETID][0]);
 			
 			BTN_CLK.play();

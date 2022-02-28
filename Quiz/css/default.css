@@ -17,6 +17,7 @@ body{
 	position: fixed;
 	width: 99%;
 	padding-left: 0.125%;
+	z-index: 0;
 }
 
 #MP_BTNS{
@@ -93,6 +94,7 @@ body{
 	font-family: 'Roboto Serif', sans-serif;
 	font-size: 10pt;
 	margin-bottom: 8px;
+	z-index: 0;
 }
 
 #GA{
@@ -101,6 +103,7 @@ body{
 	overflow:auto;
 	top: 0px;
 	height: 0px;
+	z-index: 0;
 }
 
 #BTN_C{
@@ -124,4 +127,79 @@ body{
 	background-color: #1e88e5;
 	font-size: 18pt;
 	font-family: 'Oswald', sans-serif;
+}
+
+#OVERLAY{
+	position: fixed;
+	display: block;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.75);
+	backdrop-filter: blur(8px);
+	z-index: 1000;
+	cursor: pointer;
+}
+
+#HVR_ALT{
+	position: absolute;
+	display: flex;
+    align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	flex-direction: column;
+	z-index: 1001;
+}
+
+#HVR_BOX{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	width: 50%;
+	height: 50%;
+	background-color: #afd4f5;
+	border-style: solid;
+	border-width: 4px;
+	border-radius: 64px;
+	border-color: black;
+	box-shadow: 16px 16px 32px black;
+}
+
+#HVR_ALT_HDR{
+	width: 96%;
+	padding-bottom: 8px;
+	font-size: 18pt;
+	font-family: 'Oswald', sans-serif;
+}
+
+#HVR_ALT_TXT{
+	width: 96%;
+	padding-bottom: 8px;
+	font-size: 14pt;
+	font-family: 'Roboto Serif', sans-serif;
+}
+
+#HVR_ALT_BTN{
+	display: block;
+	width: 20%;
+	font-family: 'Oswald', sans-serif;
+	font-size: 12pt;
+	line-height: 24pt;
+	background-color: #1ee57b;
+	color: black;
+	cursor: grab;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 32px;
+	border-color: black;
 }
