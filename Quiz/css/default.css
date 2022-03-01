@@ -129,6 +129,24 @@ body{
 	font-family: 'Oswald', sans-serif;
 }
 
+#DEL_DATA{
+	line-height: 18pt;
+	display: inline-block;
+	min-width:360px;
+	padding:8px;
+	border-radius:24px;
+	margin: 4px 4px;
+	-moz-border-radius: 24px;
+	border:2px solid black;
+	box-sizing: border-box;
+	text-align: center;
+	vertical-align: middle;
+	color: white;
+	background-color: #1e88e5;
+	font-size: 18pt;
+	font-family: 'Oswald', sans-serif;
+}
+
 #OVERLAY{
 	position: fixed;
 	display: block;

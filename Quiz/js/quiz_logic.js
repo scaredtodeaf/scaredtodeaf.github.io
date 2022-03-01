@@ -1,4 +1,7 @@
+var QUIZ_ID = 'ED2E4E9kb3lNzgT2'; // The ID for this quiz.
 var QUIZ_DATA = new Array(); // The Quiz Data
+var SG_DATA = new Array(); // The User's Save Data.
+var SG_KEY = ''; // The User's Key.
 var IS_BLOCKING = true; // Is the 'Hover Alert' blocking?
 var TID; // This ID
 var ETID; // Edited TID
@@ -16,11 +19,89 @@ RGT_ANS.volume = 0.6; // Volume Level - RGT_ANS
 BTN_CLK.volume = 0.8; // Volume Level - BTN_CLK
 FF_CLIP.volume = 1; // Volume Level - FF_CLIP
 
+
+function LOAD_DATA(REQUEST_TYPE, KEY_NAME, DATA_TYPE=1){
+	if (REQUEST_TYPE == 0){ // Check if Data Exists.
+		var LD_TEST_REQUEST = window.localStorage.getItem(KEY_NAME);
+		console.log(LD_TEST_REQUEST);
+		if (LD_TEST_REQUEST != null){
+			return true;
+		} else if (LD_TEST_REQUEST == null){
+			return false;
+		};
+	} else if (REQUEST_TYPE == 1){ // Request Data.
+		if (DATA_TYPE == 0){ // Standard Data. String, Bool, etc.
+			var REQUEST_DATA = window.localStorage.getItem(KEY_NAME);
+			return REQUEST_DATA;
+		} else if (DATA_TYPE == 1){ // Arrays.
+			var REQUEST_DATA = window.localStorage.getItem(KEY_NAME);
+			REQUEST_DATA = JSON.parse(REQUEST_DATA);
+			return REQUEST_DATA;
+		};
+	};
+};
+
+function SAVE_DATA(KEY_NAME, DATA_TO_SAVE, DATA_TYPE=1){
+	if (DATA_TYPE == 0){ // Standard Data. String, Bool, etc.
+		window.localStorage.setItem(KEY_NAME, DATA_TO_SAVE);
+	} else if (DATA_TYPE == 1){ // Arrays.
+		var SEND_DATA = JSON.stringify(DATA_TO_SAVE);
+		window.localStorage.setItem(KEY_NAME, SEND_DATA);
+	};
+};
+
 // Create Div 'Buttons' from the Quiz Data and append them into the 'BTN_C' Div. 
 function MAKE_DIVS_FROM_QDATA(){
+	var LOADABLE_DATA = false;
+	if (LOAD_DATA(0, 'QGSaveData') == true){
+		if (LOAD_DATA(0, 'QGKey') == true){
+			LOADABLE_DATA = true;
+			var LOCAL_SG_DATA = (LOAD_DATA(1, 'QGSaveData'));
+			var LOCAL_SG_KEY = (LOAD_DATA(1, 'QGKey', 0));
+
+			if (LOCAL_SG_KEY == QUIZ_ID){
+				if (LOCAL_SG_DATA.length == QUIZ_DATA.length){
+					LOADABLE_DATA = true;
+					SG_DATA = LOCAL_SG_DATA;
+					SG_KEY = LOCAL_SG_KEY;
+				} else {
+					LOADABLE_DATA = false;
+				};
+			} else {
+				LOADABLE_DATA = false;
+			};
+		} else if (LOAD_DATA(0, 'QGKey') == false){
+			LOADABLE_DATA = false;
+		}; 
+	} else if (LOAD_DATA(0, 'QGSaveData') == false){
+		LOADABLE_DATA = false;
+	};
+
 	for(var i=0; i<QUIZ_DATA.length; i++){
 		var TOTAL_COUNT = i+1;
 		$('#BTN_C').append('<div class="BTN_I" isClickable=true isSelected=false hintUnlocked=false hintClicked=false TID=' + TOTAL_COUNT + '>' + TOTAL_COUNT + '</div>');
+
+		if (LOADABLE_DATA == false){
+			SG_DATA[i] = new Array(true, false, false);
+		};
+	};
+
+	if (LOADABLE_DATA == true){
+		for(var i=0; i<QUIZ_DATA.length; i++){
+			$('.BTN_I:eq(' + i + ')').attr('isClickable', SG_DATA[i][0]);
+			$('.BTN_I:eq(' + i + ')').attr('hintUnlocked', SG_DATA[i][1]);
+			$('.BTN_I:eq(' + i + ')').attr('hintClicked', SG_DATA[i][2]);
+
+			if ($('.BTN_I:eq(' + i + ')').attr('isClickable') == 'false'){
+				$('.BTN_I:eq(' + i + ')').css('backgroundColor', '#e5991e');
+				$('.BTN_I:eq(' + i + ')').css('font-size', '8pt');
+				$('.BTN_I:eq(' + i + ')').text(GEN_GAMEINFO(i));
+			};
+		};
+
+	} else if (LOADABLE_DATA == false){
+		SAVE_DATA('QGSaveData', SG_DATA);
+		SAVE_DATA('QGKey', QUIZ_ID, 0);
 	};
 };
 
@@ -71,15 +152,15 @@ function PREP_FOR_COMPARE(STRING, MODE){
 };
 
 // Parse and return the Game's Name and Track.
-function GEN_GAMEINFO(){
+function GEN_GAMEINFO(GID){
 	var GAM_INF = ''; // Game Info
 	
-	if (QUIZ_DATA[ETID][1].length > 0 && QUIZ_DATA[ETID][2].length > 0){ // If both items have information...
+	if (QUIZ_DATA[GID][1].length > 0 && QUIZ_DATA[GID][2].length > 0){ // If both items have information...
 		// ...Concatenate them both together with a hyphen between them.
-		GAM_INF += QUIZ_DATA[ETID][1]; GAM_INF += ' - '; GAM_INF += QUIZ_DATA[ETID][2];
-	} else if (QUIZ_DATA[ETID][1].length > 0 && QUIZ_DATA[ETID][2].length == 0){ // If only the first item has information...
+		GAM_INF += QUIZ_DATA[GID][1]; GAM_INF += ' - '; GAM_INF += QUIZ_DATA[GID][2];
+	} else if (QUIZ_DATA[GID][1].length > 0 && QUIZ_DATA[GID][2].length == 0){ // If only the first item has information...
 		// ...Only return the game name as the Game Info.
-		GAM_INF += QUIZ_DATA[ETID][1];
+		GAM_INF += QUIZ_DATA[GID][1];
 	};
 	
 	// Return this information to whatever called it.
@@ -149,7 +230,11 @@ function REP_CHECK(){
 					if (isNaN(TRK_SL) != true){
 						HB_STRING = HB_STRING.concat('You can click here for a hint in roughly ', TRK_SL, ' seconds.');
 						$('#HB').text(HB_STRING);
-						if (TRK_SL == 0){$('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked', true);};
+						if (TRK_SL == 0){
+							$('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked', true);
+							SG_DATA[ETID][1] = true; //hintUnlocked
+							SAVE_DATA('QGSaveData', SG_DATA);
+						};
 					};
 				};
 			} else if ($('.BTN_I:eq(' + ETID + ')').attr('isClickable') == 'false'){
@@ -183,9 +268,11 @@ function REP_CHECK(){
 					
 					$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#e5991e');
 					$('.BTN_I:eq(' + ETID + ')').css('font-size', '8pt');
-					$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO());
+					$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO(ETID));
 					$('.BTN_I:eq(' + ETID + ')').attr('isClickable', false);
 					$('.BTN_I:eq(' + ETID + ')').attr('isSelected', false);
+					SG_DATA[ETID][0] = false; //isClickable
+					SAVE_DATA('QGSaveData', SG_DATA);
 					
 					setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5');}, 1000);
 				};
@@ -201,9 +288,11 @@ function REP_CHECK(){
 					
 					$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#e5991e');
 					$('.BTN_I:eq(' + ETID + ')').css('font-size', '8pt');
-					$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO());
+					$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO(ETID));
 					$('.BTN_I:eq(' + ETID + ')').attr('isClickable', false);
 					$('.BTN_I:eq(' + ETID + ')').attr('isSelected', false);
+					SG_DATA[ETID][0] = false; //isClickable
+					SAVE_DATA('QGSaveData', SG_DATA);
 					
 					setTimeout(function(){$('#MP_ANSR').css('backgroundColor', '#1e88e5');}, 1000);
 				};
@@ -263,6 +352,24 @@ $(document).ready(function(){
 	repCheck = setInterval('REP_CHECK()', 100);
 
 	if (IS_BLOCKING == true){
+		$(function (){
+			$('#DEL_DATA').hover(function(){
+				document.getElementById('DEL_DATA').style.filter = 'contrast(50%)';
+			}, function (){
+				document.getElementById('DEL_DATA').style.filter = 'contrast(100%)';
+			});
+		});
+
+		$('#DEL_DATA').on('click', function(event){
+			BTN_CLK.play();
+
+			setTimeout(function(){
+				window.localStorage.removeItem('QGKey');
+				window.localStorage.removeItem('QGSaveData');
+				document.location.reload(true);
+			}, 500);
+		});
+
 		$(function (){
 			$('#HVR_ALT_BTN').hover(function(){
 				document.getElementById('HVR_ALT_BTN').style.filter = 'contrast(50%)';
@@ -351,10 +458,14 @@ $(document).ready(function(){
 					if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'false'){
 						$('.BTN_I:eq(' + ETID + ')').attr('hintClicked', true);
 						$('#HB').html(QUIZ_DATA[ETID][3]);
+						SG_DATA[ETID][2] = true; //hintClicked
+						SAVE_DATA('QGSaveData', SG_DATA);
 					};
 
 					if  ($('.BTN_I:eq(' + ETID + ')').attr('isClickable') == 'false'){
 						$('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked', true);
+						SG_DATA[ETID][2] = true; //hintClicked
+						SAVE_DATA('QGSaveData', SG_DATA);
 					};
 				};
 			} else {
