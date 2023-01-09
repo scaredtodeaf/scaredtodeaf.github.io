@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Game Music Quiz</title>
+  <meta name="description" content="This is the Video Game Music Quiz, with tracks ranging from the 1980s to 2010s. Can you guess all the games?">
+  <meta name="keywords" content="Video Game, Music Quiz, Video, Game, Music, Quiz" />
+  <meta name="author" content="ScaredToDeaf" />
+  <meta name="generator" content="Visual Studio Code" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/music_player.js"></script>
+  <script src="js/quiz_logic.js"></script>
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="shortcut icon" type="image/ico" href="img/favicon.ico"/>
+</head>
+<body>
+	<div id="HDR">
+		<div id="MP_BTNS">
+			<div id="MP_PP"><img id="MP_PPB" src="img/play.png" alt="Play" title="Play" width="32" height="32"></div>
+			<div id="MP_STP"><img id="MP_STPB" src="img/stop.png" alt="Stop" title="Stop" width="32" height="32"></div>
+			<div id="MP_MUM"><img id="MP_MUMB" src="img/volume_3.png" alt="100%" title="100%" width="32" height="32"></div>
+			<div id="MP_MSI"></div>
+			<div id="MP_ANS"><form><label>Answer:</label><input type="text" id="MP_ANSR" disabled="true" maxlength="80" onsubmit="reset"><input type="email" id="MP_EML" maxlength="0" size="0" required="true"></form></div>
+		</div>
+		<div id="HB" isClickable=true></div>
+	</div>
+	<div id="GA">
+    <div id="BTN_C"></div>
+    <br>
+    <div id="DEL_DATA">Delete Saved Data</div>
+  </div>
+  <div id="OVERLAY"></div>
+  <div id="HVR_ALT">
+    <div id="HVR_BOX">
+      <div id="HVR_ALT_HDR"></div>
+      <div id="HVR_ALT_TXT"></div>
+      <div id="HVR_ALT_BTN"></div>
+    </div>
+  </div>
+</body>
+</html>
