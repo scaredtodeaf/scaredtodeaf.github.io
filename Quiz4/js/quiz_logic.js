@@ -19,6 +19,7 @@ RGT_ANS.volume = 0.6; // Volume Level - RGT_ANS
 BTN_CLK.volume = 0.8; // Volume Level - BTN_CLK
 FF_CLIP.volume = 1; // Volume Level - FF_CLIP
 
+
 function LOAD_DATA(REQUEST_TYPE, KEY_NAME, DATA_TYPE=1){
 	if (REQUEST_TYPE == 0){ // Check if Data Exists.
 		var LD_TEST_REQUEST = window.localStorage.getItem(KEY_NAME);
@@ -92,11 +93,7 @@ function MAKE_DIVS_FROM_QDATA(){
 			$('.BTN_I:eq(' + i + ')').attr('hintClicked', SG_DATA[i][2]);
 
 			if ($('.BTN_I:eq(' + i + ')').attr('isClickable') == 'false'){
-				if ($('.BTN_I:eq(' + i + ')').attr('hintClicked') == 'true'){
-					$('.BTN_I:eq(' + i + ')').css('backgroundColor', '#e5991e');
-				} else if ($('.BTN_I:eq(' + i + ')').attr('hintClicked') == 'false'){
-					$('.BTN_I:eq(' + i + ')').css('backgroundColor', '#b07619');
-				};
+				$('.BTN_I:eq(' + i + ')').css('backgroundColor', '#e5991e');
 				$('.BTN_I:eq(' + i + ')').css('font-size', '8pt');
 				$('.BTN_I:eq(' + i + ')').text(GEN_GAMEINFO(i));
 			};
@@ -269,12 +266,7 @@ function REP_CHECK(){
 					RGT_ANS.play();
 					AUD_OBJ.pause();
 					
-					if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'true'){
-						$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#e5991e');
-					} else if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'false'){
-						$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#b07619');
-					};
-					
+					$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#e5991e');
 					$('.BTN_I:eq(' + ETID + ')').css('font-size', '8pt');
 					$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO(ETID));
 					$('.BTN_I:eq(' + ETID + ')').attr('isClickable', false);
@@ -294,12 +286,7 @@ function REP_CHECK(){
 					RGT_ANS.play();
 					AUD_OBJ.pause();
 					
-					if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'true'){
-						$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#e5991e');
-					} else if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'false'){
-						$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#b07619');
-					};
-					
+					$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#e5991e');
 					$('.BTN_I:eq(' + ETID + ')').css('font-size', '8pt');
 					$('.BTN_I:eq(' + ETID + ')').text(GEN_GAMEINFO(ETID));
 					$('.BTN_I:eq(' + ETID + ')').attr('isClickable', false);
@@ -319,7 +306,7 @@ function REP_CHECK(){
 		$('#MP_ANSR').attr('disabled', false);
 		$('#HB').html('I am the official hintkeeper, I watch your every move! Ask me for a hint if you are hopelessly stuck, but use me sparingly; Too many hints can spoil the game!');
 
-		var CHECK_LIST = ['Digger T Rock'];
+		var CHECK_LIST = ['Tetris'];
 		for (var i=0; i<CHECK_LIST.length; i++){CHECK_LIST[i] = PREP_FOR_COMPARE(CHECK_LIST[i], 1);};
 
 		CUR_ANSE = PREP_FOR_COMPARE($('#MP_ANSR').val(), 0);
@@ -470,17 +457,15 @@ $(document).ready(function(){
 				if ($('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked') == 'true' || $('.BTN_I:eq(' + ETID + ')').attr('isClickable') == 'false'){
 					if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'false'){
 						$('.BTN_I:eq(' + ETID + ')').attr('hintClicked', true);
+						$('#HB').html(QUIZ_DATA[ETID][3]);
 						SG_DATA[ETID][2] = true; //hintClicked
 						SAVE_DATA('QGSaveData', SG_DATA);
-						$('#HB').html(QUIZ_DATA[ETID][3]);
-					} else if ($('.BTN_I:eq(' + ETID + ')').attr('hintClicked') == 'true'){
-						$('#HB').html(QUIZ_DATA[ETID][3]);
 					};
 
-					if  ($('.BTN_I:eq(' + ETID + ')').attr('isClickable') == 'false'){	
-						if  ($('.BTN_I:eq(' + ETID + ')').css('backgroundColor') == 'rgb(176, 118, 25)'){
-							$('.BTN_I:eq(' + ETID + ')').css('backgroundColor', '#e5991e');
-						};
+					if  ($('.BTN_I:eq(' + ETID + ')').attr('isClickable') == 'false'){
+						$('.BTN_I:eq(' + ETID + ')').attr('hintUnlocked', true);
+						SG_DATA[ETID][2] = true; //hintClicked
+						SAVE_DATA('QGSaveData', SG_DATA);
 					};
 				};
 			} else {
