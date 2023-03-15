@@ -8,7 +8,7 @@ const myForm = document.getElementById('myForm');
 const buttonContainer = document.getElementById('buttonContainer');
 
 // Load the JSON data
-fetch('quiz-data.json')
+fetch('./quiz-data.json')
   .then(response => response.json())
   .then(data => {
     // Populate the video options and buttons
@@ -25,7 +25,7 @@ fetch('quiz-data.json')
 
       button.addEventListener('click', () => {
         myVideo.src = `QuizVideos/${video.src}.webm`;
-        currentAnswers = video.answer;
+        currentAnswers = video.answers;
         currentHint = video.hint;
         hintBtn.disabled = true;
         hintDiv.style.display = 'none';
@@ -35,7 +35,7 @@ fetch('quiz-data.json')
 
     // Set the default video and answers/hint
     myVideo.src = `QuizVideos/${data.videos[0].src}.webm`;
-    let currentAnswers = data.videos[0].answer;
+    let currentAnswers = data.videos[0].answers;
     let currentHint = data.videos[0].hint;
 
     // Enable the hint button when the video reaches the halfway point
@@ -55,7 +55,8 @@ fetch('quiz-data.json')
     myForm.addEventListener('submit', event => {
       event.preventDefault();
       const userAnswer = answerInput.value.trim().toLowerCase();
-      const isCorrect = currentAnswers.some(answer => userAnswer.includes(answer.toLowerCase()));
+      const isCorrect = currentAnswers.some(answer =>userAnswer.includes(answer.toLowerCase())
+      );
       if (isCorrect) {
         alert('Correct!');
       } else {
