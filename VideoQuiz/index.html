@@ -5,29 +5,23 @@
     <link rel="stylesheet" href="quiz.css">
   </head>
   <body>
-    <div class="container">
-      <div class="question-container">
-        <div class="select-container">
-          <label for="videoSelect">Select a video:</label>
-          <select id="videoSelect"></select>
-        </div>
-        <div class="button-container" id="buttonContainer"></div>
-      </div>
-      <div class="video-container">
-        <video id="myVideo" controls></video>
-      </div>
-      <div class="controls-container">
-        <div class="hint-container">
-          <button id="hintBtn" disabled>Hint</button>
-          <div id="hintDiv"></div>
-        </div>
-        <form id="myForm">
-          <label for="answerInput">Enter your answer:</label>
-          <input type="text" id="answerInput">
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+ <div class="container">
+  <div class="controls-container">
+    <form id="myForm">
+      <label for="answerInput">Enter your answer:</label>
+      <input type="text" id="answerInput">
+      <button type="submit">Submit</button>
+    </form>
+    <div class="button-container" id="buttonContainer"></div>
+    <div class="hint-container">
+      <button id="hintBtn" disabled>Hint</button>
+      <div id="hintDiv"></div>
     </div>
+  </div>
+  <div class="video-container">
+    <video id="myVideo" controls></video>
+  </div>
+</div>
     <script src="script.js"></script>
   </body>
 </html>
