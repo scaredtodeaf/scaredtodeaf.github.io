@@ -1,14 +1,13 @@
 {
-  "videos": [
-    {
-      "src": "BathTime.webm",
-      "answer": "Pyst",
-      "hint": "It starts with the letter P"
-    },
-    {
-      "src": "space.webm",
-      "answer": "command and conquer",
-      "hint": "It's located in the Himalayas"
-    },
-  ]
+	"videos": [{
+			"src": "BathTime.webm",
+			"answer": "Pyst",
+			"hint": "It starts with the letter P"
+		},
+		{
+			"src": "space.webm",
+			"answer": "command and conquer",
+			"hint": "It's located in the Himalayas"
+		}
+	]
 }
