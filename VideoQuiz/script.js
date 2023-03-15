@@ -56,3 +56,13 @@ fetch('quiz-data.json')
       event.preventDefault();
       const userAnswer = answerInput.value.trim().toLowerCase();
       const isCorrect = currentAnswers.some(answer =>
+        userAnswer.includes(answer.toLowerCase())
+      );
+      if (isCorrect) {
+        alert('Correct!');
+      } else {
+        alert('Incorrect. Try again!');
+      }
+      myForm.reset();
+    });
+  });
