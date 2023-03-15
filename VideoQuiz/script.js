@@ -25,7 +25,7 @@ fetch('quiz-data.json')
 
       button.addEventListener('click', () => {
         myVideo.src = `QuizVideos/${video.src}.webm`;
-        currentAnswers = Array.isArray(video.answers) ? video.answers : [video.answers];
+        currentAnswers = video.answer;
         currentHint = video.hint;
         hintBtn.disabled = true;
         hintDiv.style.display = 'none';
@@ -35,7 +35,7 @@ fetch('quiz-data.json')
 
     // Set the default video and answers/hint
     myVideo.src = `QuizVideos/${data.videos[0].src}.webm`;
-    let currentAnswers = Array.isArray(data.videos[0].answers) ? data.videos[0].answers : [data.videos[0].answers];
+    let currentAnswers = data.videos[0].answer;
     let currentHint = data.videos[0].hint;
 
     // Enable the hint button when the video reaches the halfway point
@@ -54,11 +54,8 @@ fetch('quiz-data.json')
     // Handle form submission
     myForm.addEventListener('submit', event => {
       event.preventDefault();
-      const userAnswer = answerInput.value.trim().toLowerCase().split(' ');
-      const isCorrect = currentAnswers.some(answer => {
-        const answerWords = answer.toLowerCase().split(' ');
-        return answerWords.every(word => userAnswer.includes(word));
-      });
+      const userAnswer = answerInput.value.trim().toLowerCase();
+      const isCorrect = currentAnswers.some(answer => userAnswer.includes(answer.toLowerCase()));
       if (isCorrect) {
         alert('Correct!');
       } else {
