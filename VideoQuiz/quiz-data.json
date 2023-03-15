@@ -6,7 +6,7 @@
 		},
 		{
 			"src": "space",
-			"answer": "command and conquer",
+			"answer": ["command and conquer","C&C","command & conquer","red alert"],
 			"hint": "It's located in the Himalayas"
 		}
 	]

@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Quiz</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
-  <video id="myVideo" controls></video>
-  <button id="playBtn">Play Video</button>
-  <form id="myForm">
-    <label>
-      Answer:
-      <input type="text" id="answerInput" />
-    </label>
-    <button type="submit">Submit Answer</button>
-  </form>
-  <button id="hintBtn" disabled>Get Hint</button>
-  <select id="videoSelect"></select>
-  <div id="hintDiv"></div>
-  <script src="script.js"></script>
+  <div id="videoContainer">
+    <video id="myVideo" controls></video>
+    <form id="myForm">
+      <label for="answerInput">Enter your answer:</label>
+      <input type="text" id="answerInput" name="answerInput" required>
+      <button type="submit">Submit</button>
+    </form>
+    <div id="hintDiv"></div>
+  </div>
+  <div id="buttonContainer"></div>
+  <script src="quiz.js"></script>
 </body>
-</html>

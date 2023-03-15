@@ -1,8 +1,24 @@
-#myVideo {
-  width: 100%;
-  max-width: 500px;
+/* Center the video at the top */
+#videoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
 }
 
-#hintDiv {
-  display: none;
+/* Position the answer textbox above the video */
+#answerInput {
+  margin-bottom: 20px;
+}
+
+/* Position the buttons below the video */
+#buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.button {
+  margin: 0 10px;
 }
