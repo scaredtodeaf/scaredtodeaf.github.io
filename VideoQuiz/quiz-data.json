@@ -1,11 +1,11 @@
 {
 	"videos": [{
-			"src": "BathTime.webm",
+			"src": "BathTime",
 			"answer": "Pyst",
 			"hint": "It starts with the letter P"
 		},
 		{
-			"src": "space.webm",
+			"src": "space",
 			"answer": "command and conquer",
 			"hint": "It's located in the Himalayas"
 		}
