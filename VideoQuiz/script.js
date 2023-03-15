@@ -1,67 +1,94 @@
-const videoSelect = document.getElementById('videoSelect');
-const myVideo = document.getElementById('myVideo');
-const playBtn = document.getElementById('playBtn');
-const hintBtn = document.getElementById('hintBtn');
-const hintDiv = document.getElementById('hintDiv');
-const answerInput = document.getElementById('answerInput');
-const myForm = document.getElementById('myForm');
-const buttonContainer = document.getElementById('buttonContainer');
+// Define the video and select element
+const video = document.getElementById("myVideo");
+const select = document.getElementById("videoSelect");
 
-// Load the JSON data
-fetch('./quiz-data.json')
-  .then(response => response.json())
-  .then(data => {
-    // Populate the video options and buttons
-    data.videos.forEach((video, index) => {
-      const option = document.createElement('option');
-      option.value = index;
-      option.textContent = video.src;
-      videoSelect.appendChild(option);
+// Define the button and input elements
+const buttonContainer = document.getElementById("buttonContainer");
+const answerInput = document.getElementById("answerInput");
+const hintBtn = document.getElementById("hintBtn");
+const hintDiv = document.getElementById("hintDiv");
 
-      const button = document.createElement('button');
-      button.className = 'button';
-      button.textContent = `Question ${index + 1}`;
-      buttonContainer.appendChild(button);
+// Define the video options as an array of objects
+const videoOptions = [
+  {
+    src: "https://www.w3schools.com/tags/movie.mp4",
+    answer: ["HTML"],
+    hint: "It's a markup language",
+    buttons: ["HTML", "CSS", "JavaScript", "Python"]
+  },
+  {
+    src: "https://www.w3schools.com/tags/movie.ogg",
+    answer: ["CSS"],
+    hint: "It's used for styling",
+    buttons: ["HTML", "CSS", "JavaScript", "Python"]
+  },
+  {
+    src: "https://www.w3schools.com/html/mov_bbb.mp4",
+    answer: ["JavaScript"],
+    hint: "It's often abbreviated as JS",
+    buttons: ["HTML", "CSS", "JavaScript", "Python"]
+  },
+  {
+    src: "https://www.w3schools.com/tags/mov_bbb.ogg",
+    answer: ["Python"],
+    hint: "It's named after a comedy troupe",
+    buttons: ["HTML", "CSS", "JavaScript", "Python"]
+  }
+];
 
-      button.addEventListener('click', () => {
-        myVideo.src = `QuizVideos/${video.src}.webm`;
-        currentAnswers = video.answers;
-        currentHint = video.hint;
-        hintBtn.disabled = true;
-        hintDiv.style.display = 'none';
-        myForm.reset();
-      });
-    });
+// Populate the select element with the video options
+videoOptions.forEach((option, index) => {
+  const videoOption = document.createElement("option");
+  videoOption.value = index;
+  videoOption.text = option.answer[0];
+  select.appendChild(videoOption);
+});
 
-    // Set the default video and answers/hint
-    myVideo.src = `QuizVideos/${data.videos[0].src}.webm`;
-    let currentAnswers = data.videos[0].answers;
-    let currentHint = data.videos[0].hint;
+// Update the video source and hint when a new option is selected
+select.addEventListener("change", () => {
+  const selectedOption = videoOptions[select.value];
+  video.src = selectedOption.src;
+  hintDiv.textContent = selectedOption.hint;
+  hintBtn.disabled = false;
 
-    // Enable the hint button when the video reaches the halfway point
-    myVideo.addEventListener('timeupdate', () => {
-      if (myVideo.currentTime >= myVideo.duration / 2) {
-        hintBtn.disabled = false;
-      }
-    });
+  // Clear previous buttons
+  buttonContainer.innerHTML = "";
 
-    // Display the hint when the user clicks the hint button
-    hintBtn.addEventListener('click', () => {
-      hintDiv.textContent = currentHint;
-      hintDiv.style.display = 'block';
-    });
-
-    // Handle form submission
-    myForm.addEventListener('submit', event => {
-      event.preventDefault();
-      const userAnswer = answerInput.value.trim().toLowerCase();
-      const isCorrect = currentAnswers.some(answer =>userAnswer.includes(answer.toLowerCase())
-      );
-      if (isCorrect) {
-        alert('Correct!');
-      } else {
-        alert('Incorrect. Try again!');
-      }
-      myForm.reset();
-    });
+  // Create a button for each option
+  selectedOption.buttons.forEach((option) => {
+    const button = document.createElement("button");
+    button.textContent = option;
+    button.type = "button";
+    button.classList.add("button-option");
+    buttonContainer.appendChild(button);
   });
+});
+
+// Listen for button clicks
+buttonContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("button-option")) {
+    answerInput.value = event.target.textContent;
+  }
+});
+
+// Listen for form submissions
+myForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const selectedOption = videoOptions[select.value];
+  const answer = answerInput.value.trim().toLowerCase();
+  const isCorrect = selectedOption.answer.some((option) =>
+    option.toLowerCase() === answer
+  );
+
+  if (isCorrect) {
+    alert("Correct!");
+  } else {
+    alert("Incorrect. Please try again.");
+  }
+});
+
+// Listen for hint button clicks
+hintBtn.addEventListener("click", () => {
+  hintDiv.style.display = "block";
+});
