@@ -1,96 +1,66 @@
-// Define the quiz data file
-const quizDataFile = "quiz-data.json";
+const videoSelect = document.getElementById('videoSelect');
+const myVideo = document.getElementById('myVideo');
+const playBtn = document.getElementById('playBtn');
+const hintBtn = document.getElementById('hintBtn');
+const hintDiv = document.getElementById('hintDiv');
+const answerInput = document.getElementById('answerInput');
+const myForm = document.getElementById('myForm');
 
-// Select the video element
-const myVideo = document.getElementById("myVideo");
-
-// Select the answer input and form elements
-const answerInput = document.getElementById("answerInput");
-const myForm = document.getElementById("myForm");
-
-// Select the button container
-const buttonContainer = document.getElementById("buttonContainer");
-
-// Select the hint button and div elements
-const hintBtn = document.getElementById("hintBtn");
-const hintDiv = document.getElementById("hintDiv");
-
-// Define a variable to store the quiz data
-let quizData;
-
-// Load the quiz data
-fetch(quizDataFile)
+// Load the JSON data
+fetch('quiz-data.json')
   .then(response => response.json())
   .then(data => {
-    quizData = data;
-    loadVideoOptions();
-  })
-  .catch(error => console.error(error));
-
-// Load the video options into the select element
-function loadVideoOptions() {
-  const videoSelect = document.getElementById("videoSelect");
-
-  quizData.videos.forEach(video => {
-    const videoOption = document.createElement("option");
-    videoOption.value = video.src;
-    videoOption.textContent = video.src;
-    videoSelect.appendChild(videoOption);
-  });
-
-  videoSelect.addEventListener("change", function(event) {
-    const selectedVideoSrc = event.target.value;
-    const selectedVideo = quizData.videos.find(video => video.src === selectedVideoSrc);
-    myVideo.src = `QuizVideos/${selectedVideoSrc}.webm`;
-    myVideo.load();
-    loadButtonOptions(selectedVideo);
-    resetQuiz();
-  });
-}
-
-// Load the button options into the button container
-function loadButtonOptions(selectedVideo) {
-  buttonContainer.innerHTML = "";
-  selectedVideo.answer.forEach(answer => {
-    const answerButton = document.createElement("button");
-    answerButton.textContent = answer;
-    answerButton.addEventListener("click", function(event) {
-      answerInput.value = event.target.textContent;
+    // Populate the video options
+    data.videos.forEach((video, index) => {
+      const option = document.createElement('option');
+      option.value = index;
+      option.textContent = video.src;
+      videoSelect.appendChild(option);
     });
-    buttonContainer.appendChild(answerButton);
+
+    // Set the default video
+    myVideo.src = `QuizVideos/${data.videos[0].src}.mp4`;
+
+    // Set the answers and hint for the current video
+    let currentAnswers = data.videos[0].answers;
+    let currentHint = data.videos[0].hint;
+
+    // Update the answers and hint when the user selects a different video
+    videoSelect.addEventListener('change', () => {
+      const selectedIndex = videoSelect.selectedIndex;
+      myVideo.src = `QuizVideos/${data.videos[selectedIndex].src}.mp4`;
+      currentAnswers = data.videos[selectedIndex].answers;
+      currentHint = data.videos[selectedIndex].hint;
+      hintBtn.disabled = true;
+      hintDiv.style.display = 'none';
+      myForm.reset();
+    });
+
+    // Enable the hint button when the video reaches the halfway point
+    myVideo.addEventListener('timeupdate', () => {
+      if (myVideo.currentTime >= myVideo.duration / 2) {
+        hintBtn.disabled = false;
+      }
+    });
+
+    // Display the hint when the user clicks the hint button
+    hintBtn.addEventListener('click', () => {
+      hintDiv.textContent = currentHint;
+      hintDiv.style.display = 'block';
+    });
+
+    // Handle form submission
+    myForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const userAnswer = answerInput.value.trim().toLowerCase();
+      const isCorrect = currentAnswers.some(answer => answer.toLowerCase() === userAnswer);
+      if (isCorrect) {
+        alert('Correct!');
+      } else {
+        alert('Incorrect!');
+      }
+      myForm.reset();
+      hintDiv.style.display = 'none';
+      hintBtn.disabled = true;
+    });
   });
-}
-
-// Handle the form submission
-myForm.addEventListener("submit", function(event) {
-  event.preventDefault();
-  const selectedVideoSrc = document.getElementById("videoSelect").value;
-  const selectedVideo = quizData.videos.find(video => video.src === selectedVideoSrc);
-  const submittedAnswer = answerInput.value.toLowerCase();
-  const correctAnswer = selectedVideo.answer.find(answer => answer.toLowerCase() === submittedAnswer);
-
-  if (correctAnswer) {
-    hintBtn.disabled = true;
-    hintDiv.innerHTML = "";
-    alert("Correct!");
-  } else {
-    alert("Incorrect. Please try again.");
-  }
-
-  resetQuiz();
-});
-
-// Handle the hint button click
-hintBtn.addEventListener("click", function(event) {
-  const selectedVideoSrc = document.getElementById("videoSelect").value;
-  const selectedVideo = quizData.videos.find(video => video.src === selectedVideoSrc);
-  const hint = selectedVideo.hint;
-  hintDiv.innerHTML = hint;
-});
-
-// Reset the quiz
-function resetQuiz() {
-  answerInput.value = "";
-  myVideo.currentTime = 0;
-  myVideo.play();
-}
