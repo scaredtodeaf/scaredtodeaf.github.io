@@ -1,7 +1,7 @@
 {
 	"videos": [{
 			"src": "BathTime",
-			"answer": "Pyst",
+			"answer": ["Pyst"],
 			"hint": "It starts with the letter P"
 		},
 		{
