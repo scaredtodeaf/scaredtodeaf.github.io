@@ -1,15 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Video Player</title>
+  <meta charset="UTF-8">
+  <title>Quiz Player</title>
+  <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
-    <video id="video-player" controls>
-        <source src="" type="video/webm">
-    </video>
-    <div id="button-grid"></div>
-
-    <script src="script.js"></script>
+  <div class="container">
+    <div class="row">
+      <div class="column">
+        <h1>Quiz Player</h1>
+        <div id="video-player-container">
+          <video id="video-player" controls></video>
+        </div>
+        <div id="answer-box">
+          <label for="answer-input">Enter Answer:</label>
+          <input type="text" id="answer-input" disabled>
+          <div id="answer-feedback"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <div id="button-grid"></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
