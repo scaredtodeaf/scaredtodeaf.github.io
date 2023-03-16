@@ -3,7 +3,7 @@ const videoPlayer = document.getElementById('video-player');
 const buttonGrid = document.getElementById('button-grid');
 
 // Load the JSON file
-fetch('videos.json')
+fetch('quiz-data.json')
     .then(response => response.json())
     .then(data => {
         // Create a button for each video in the JSON data
