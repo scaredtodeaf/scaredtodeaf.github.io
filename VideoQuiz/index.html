@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Quiz</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Video Player</title>
 </head>
 <body>
-  <video id="myVideo" controls></video>
-  <button id="playBtn">Play Video</button>
-  <form id="myForm">
-    <label>
-      Answer:
-      <input type="text" id="answerInput" />
-    </label>
-    <button type="submit">Submit Answer</button>
-  </form>
-  <button id="hintBtn" disabled>Get Hint</button>
-  <select id="videoSelect"></select>
-  <div id="hintDiv"></div>
-  <script src="script.js"></script>
+    <video id="video-player" controls>
+        <source src="" type="video/webm">
+    </video>
+    <div id="button-grid"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
