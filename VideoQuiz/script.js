@@ -119,3 +119,4 @@ fetch('quiz-data.json')
       }
     }
   });
+  
