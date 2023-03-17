@@ -8,14 +8,17 @@
 <body>
   <div class="container">
     <h1>Quiz Player</h1>
+    <div id="hint-container">
+      <span id="hint"></span>
+    </div>
     <div id="video-player-container">
       <video id="video-player" controls></video>
     </div>
-    <div id="answer-box">
+    <form id="answer-form">
       <label for="answer-input">Enter Answer:</label>
       <input type="text" id="answer-input" disabled>
-      <div id="answer-feedback"></div>
-    </div>
+    </form>
+    <div id="answer-feedback"></div>
   </div>
   <div class="button-container">
     <div id="button-grid"></div>

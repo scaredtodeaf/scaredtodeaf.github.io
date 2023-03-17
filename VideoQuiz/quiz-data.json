@@ -1,21 +1,21 @@
 [
 	{
 	  "ID": "4182776",
-	  "Name": "Resident Evil – Code: Veronica",
+	  "Name": "Pyst",
 	  "Hint": "Why is the camera always in the most awkward of places?!",
-	  "Keywords": ["Resident Evil"]
+	  "Keywords": ["Pyst"]
 	},
 	{
 	  "ID": "4265126",
-	  "Name": "Crash Twinsanity",
+	  "Name": "Command and Conquer: Red Alert 3",
 	  "Hint": "The video game character looks nothing like his animal counterpart, and he's gone insane... Twice.",
-	  "Keywords": ["Crash Twinsanity", "Crash Bandicoot", "Twinsanity"]
+	  "Keywords": ["C&C", "Red Alert", "Command and conquer","command & conquer"]
 	},
 	{
-		"ID": "getahead",
-		"Name": "Ghosts",
+		"ID": "4213814",
+		"Name": "Broken Sword 1",
 		"Hint": "Why is the camera always in the most awkward of places?!",
-		"Keywords": ["Ghosts"]
+		"Keywords": ["Broken Sword"]
 	}
   ]
   

@@ -71,3 +71,12 @@ button:hover {
   border-radius: 5px;
   text-align: center;
 }
+
+#hint {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 1.2em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
