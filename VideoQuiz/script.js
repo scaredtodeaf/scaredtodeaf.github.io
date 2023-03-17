@@ -36,6 +36,7 @@ fetch('quiz-data.json')
           answerInput.disabled = false;
           answerInput.value = '';
           answerFeedback.innerText = '';
+          playPauseButton.innerText = 'Play';
   
           hintAvailable = button.hintAvailable;
           hintShown = button.hintShown;
@@ -76,6 +77,7 @@ fetch('quiz-data.json')
     rewindButton.addEventListener('click', () => {
       videoPlayer.currentTime = 0;
       videoPlayer.pause();
+      playPauseButton.innerText = 'Play';
     });
 
     volumeSlider.addEventListener('input', () => {

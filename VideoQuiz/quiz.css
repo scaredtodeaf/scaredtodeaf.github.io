@@ -73,7 +73,9 @@ button:hover {
   border: 1px solid #3E92CC;
   border-radius: 5px;
   text-align: center;
-  height: 1.5em;
+  overflow-wrap: break-word; /* Add this line to wrap the text */
+  width: 100%; /* Add this line to set the width to 100% */
+  box-sizing: border-box; /* Add this line to include padding and border in the total width */
 }
 
 #video-controls {
