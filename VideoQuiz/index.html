@@ -8,17 +8,21 @@
 <body>
   <div class="container">
     <h1>Quiz Player</h1>
-    <div id="hint-container">
-      <span id="hint"></span>
-    </div>
+    <div id="hint" class="hint-label"></div>
     <div id="video-player-container">
-      <video id="video-player" controls></video>
+      <video id="video-player"></video>
     </div>
-    <form id="answer-form">
+    <!-- Custom video controls -->
+    <div id="video-controls">
+      <button id="play-pause-button">Play</button>
+      <button id="rewind-button">Rewind</button>
+      <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1">
+    </div>
+    <div id="answer-form">
       <label for="answer-input">Enter Answer:</label>
       <input type="text" id="answer-input" disabled>
-    </form>
-    <div id="answer-feedback"></div>
+      <div id="answer-feedback"></div>
+    </div>
   </div>
   <div class="button-container">
     <div id="button-grid"></div>
@@ -26,4 +30,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-

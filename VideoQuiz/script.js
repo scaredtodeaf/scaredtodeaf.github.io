@@ -3,6 +3,11 @@ const videoButtons = document.getElementById('button-grid');
 const answerInput = document.getElementById('answer-input');
 const answerFeedback = document.getElementById('answer-feedback');
 
+// Custom video controls
+const playPauseButton = document.getElementById('play-pause-button');
+const rewindButton = document.getElementById('rewind-button');
+const volumeSlider = document.getElementById('volume-slider');
+
 let video = null;
 let hintAvailable = false;
 let hintShown = false;
@@ -17,6 +22,7 @@ fetch('quiz-data.json')
     videoPlayer.src = `QuizVideos/${video.ID}.webm`;
 
     // Set up the video buttons
+
     for (const [index, videoData] of data.entries()) {
         const button = document.createElement('button');
         button.innerText = index + 1;
@@ -56,9 +62,24 @@ fetch('quiz-data.json')
         });
         videoButtons.appendChild(button);
       }
+    // Custom video controls
+    playPauseButton.addEventListener('click', () => {
+      if (videoPlayer.paused) {
+        videoPlayer.play();
+        playPauseButton.innerText = 'Pause';
+      } else {
+        videoPlayer.pause();
+        playPauseButton.innerText = 'Play';
+      }
+    });
 
-    // ...
+    rewindButton.addEventListener('click', () => {
+      videoPlayer.currentTime = 0;
+    });
 
+    volumeSlider.addEventListener('input', () => {
+      videoPlayer.volume = volumeSlider.value;
+    });
 
     const answerForm = document.getElementById('answer-form');
     answerForm.addEventListener('submit', (event) => {
@@ -105,7 +126,7 @@ fetch('quiz-data.json')
           }
         }
         hintLabel.innerText = 'Hint Available - Click here';
-        hintLabel.style.color = 'black';
+        hintLabel.style.color = '#AAB4BE';
         hintLabel.addEventListener('click', showHint);
       }
     });
@@ -115,8 +136,8 @@ fetch('quiz-data.json')
       if (!hintShown) {
         hintShown = true;
         hintLabel.innerText = `Hint: ${video.Hint}`;
-        hintLabel.style.color = 'red';
+        hintLabel.style.color = '#8B728C';
       }
     }
   });
-  
+

@@ -1,18 +1,14 @@
 body {
-  background-color: #f2f2f2;
+  background-color: #1F2A3A;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 .container {
+  color: #E9ECEF;
   margin: 0 auto;
   max-width: 800px;
-  text-align: center;
-}
-
-.button-container {
-  margin: 0 auto;
   text-align: center;
 }
 
@@ -27,6 +23,12 @@ body {
   height: 450px;
 }
 
+.button-container {
+  width: auto;
+  margin: 20px auto;
+  text-align: center;
+}
+
 #button-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
@@ -36,10 +38,10 @@ body {
 }
 
 button {
-  background-color: #ddd;
+  background-color: #2E4057;
   border: none;
   border-radius: 5px;
-  color: #333;
+  color: #E9ECEF;
   cursor: pointer;
   font-size: 16px;
   height: 50px;
@@ -52,7 +54,7 @@ button {
 }
 
 button:hover {
-  background-color: #bbb;
+  background-color: #405A78;
 }
 
 #answer-input {
@@ -63,21 +65,25 @@ button:hover {
   font-size: 18px;
 }
 
-#answer-feedback {
+#answer-feedback, #hint {
+  color: #AAB4BE;
   margin-top: 20px;
   padding: 10px;
   font-size: 1.2em;
-  border: 1px solid #ccc;
+  border: 1px solid #3E92CC;
   border-radius: 5px;
   text-align: center;
+  height: 2em;
 }
 
-#hint {
-  margin-top: 20px;
-  padding: 10px;
-  font-size: 1.2em;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  text-align: center;
+#video-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
 }
 
+#video-player {
+  pointer-events: none;
+}
