@@ -1,84 +1,73 @@
 body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: center;
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.button-container {
+  margin: 0 auto;
+  text-align: center;
 }
 
 #video-player-container {
-  width: 640px;
-  height: 360px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
 }
 
 #video-player {
+  width: 800px;
+  height: 450px;
+}
+
+#button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  grid-gap: 10px;
+  margin: 20px auto;
   width: 100%;
-  height: 100%;
-}
-
-#answer-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-#answer-box label {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-#answer-input {
-  font-size: 1.2rem;
-  padding: 5px;
-  margin-bottom: 10px;
-  width: 250px;
-  text-align: center;
-}
-
-#answer-feedback {
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
-  width: 250px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid black;
-  border-radius: 10px;
-  background-color: white;
 }
 
 button {
-  font-size: 1.2rem;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  padding: 5px 10px;
+  background-color: #ddd;
   border: none;
-  border-radius: 10px;
-  background-color: lightgray;
+  border-radius: 5px;
+  color: #333;
   cursor: pointer;
+  font-size: 16px;
+  height: 50px;
+  transition: background-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.correct-answer {
-  background-color: green;
-  color: white;
+button:hover {
+  background-color: #bbb;
+}
+
+#answer-input {
+  margin: 20px auto;
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  font-size: 18px;
+}
+
+#answer-feedback {
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 1.2em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
 }
