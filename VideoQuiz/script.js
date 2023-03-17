@@ -75,6 +75,7 @@ fetch('quiz-data.json')
 
     rewindButton.addEventListener('click', () => {
       videoPlayer.currentTime = 0;
+      videoPlayer.pause();
     });
 
     volumeSlider.addEventListener('input', () => {
