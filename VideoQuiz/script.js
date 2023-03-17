@@ -93,7 +93,7 @@ fetch('quiz-data.json')
         }
       }
       if (isMatch) {
-        answerFeedback.innerText = `Correct! The game was ${video.Name} !`;
+        answerFeedback.innerText = `Correct! The game was ${video.Name}!`;
         answerFeedback.style.color = 'green';
         answerInput.disabled = true;
         const buttons = document.querySelectorAll('#button-grid button');
