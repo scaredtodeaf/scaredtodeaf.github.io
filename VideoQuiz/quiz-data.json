@@ -76,6 +76,12 @@
 		"Name": "Final Fantasy X HD",
 		"Hint": "Enter a realm of fantasy and magic, where engaging combat, strategic abilities, and humorous characters await. Explore the world, battle enemies, and uncover secrets in this classic role-playing game.",
 		"Keywords":["Final Fantasy X"]
+	},
+	{
+		"ID":"4819502",
+		"Name": "Gabriel Knight: The Beast Within",
+		"Hint": "Take on a detective role and travel to Germany to investigate a series of murders and werewolf sightings. Use your puzzle-solving and investigative skills to uncover the dark secrets hidden within the town, and unravel the mystery that lurks behind the scenes.",
+		"Keywords":["Gabriel Knight","The Beast Within"]
 	}
 ]
   
