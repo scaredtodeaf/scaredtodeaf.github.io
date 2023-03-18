@@ -22,6 +22,18 @@
 		"Name:": "Doctor Who: Destiny of the Doctors",
 		"Hint": "As you assist the main character in their quest to save their previous incarnations, let your love for the iconic franchise guide you. Through solving puzzles and bantering with familiar foes, use your wit and humor to help the character outsmart their enemies and save the universe!",
 		"Keywords": ["Doctor Who"]
+	},
+	{
+		"ID": "4185712",
+		"Name": "Phantasmagoria",
+		"Hint": "You play as the brave protagonist, Adrienne, as she investigates the chilling history of her new home, a creepy mansion that's hiding unsettling secrets. With each room holding more terrifying clues and supernatural entities lurking in the shadows, it's up to you to unravel the mystery and stay alive",
+		"Keywords": ["Phantasmagoria"]
+	},
+	{
+		"ID": "4812952",
+		"Name": "Mystery of the Druids",
+		"Hint": "Follow the trail of a curious American professor who journeys to England to investigate a series of grisly murders tied to an ancient Celtic society. With each clue leading to more questions and macabre revelations, it's up to you to solve the mystery and stop the killer from striking again.",
+		"Keywords": "Mystery of the Druids"	
 	}
   ]
   
