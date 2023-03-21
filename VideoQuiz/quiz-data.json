@@ -124,6 +124,60 @@
 		"Name":"Tex Murphy: The Pandora Directive",
 		"Hint":"Step into the gritty and post-apocalyptic world of a point-and-click adventure game set in San Francisco! As a private investigator, you'll need to solve a series of murders and unravel a conspiracy. With a dark atmosphere and a gripping storyline, this game will have you hooked from start to finish.",
 		"Keywords":["Tex Murphy", "The Pandora Directive"]
+	},
+	{
+		"ID":"5819402",
+		"Name":"Devil may Cry 3",
+		"Hint":"The family that slays together, stays together! Except when they're trying to outdo each other in an epic demon-slaying competition.",
+		"Keywords":["DMC 3","Devil May Cry 3"]
+	},
+	{
+		"ID":"3128941",
+		"Name":"Contradiction!",
+		"Hint":"Well, well, well, what have we got here? You're stepping into the quaint little town of Edenton, my friend. And as Detective Inspector Jenks, I'll be your guide through this murder mystery. Keep your eyes sharp and your wits about you, because this game will test your detective skills like no other",
+		"Keywords":["Contradiction"]
+	},
+	{
+		"ID":"4127891",
+		"Name":"Day of Defeat",
+		"Hint":"Get ready to experience the heat of battle in a multiplayer first-person shooter set in the European Theater of World War II! Choose your side and team up with other soldiers to engage in epic team-based combat across a variety of maps. With a variety of weapons and strategies to choose from, this game is perfect for those who love intense, action-packed gameplay",
+		"Keywords":["Day of Defeat"]
+	},
+	{
+		"ID":"8412905",
+		"Name":"Mad Dog Mcree",
+		"Hint":"Welcome to the Wild West, partner! You're about to become a gunslinger on a mission to save a small town from a gang of ruthless outlaws. With live-action footage and an arcade-style rail shooter gameplay, this game will test your quick reflexes and sharpshooting skills.",
+		"Keywords":["Mad Dog Mcree"]
+	},
+	{
+		"ID":"5389012",
+		"Name":"Phantasmagoria 2: A puzzle of Flesh",
+		"Hint":"Get ready to delve deep into the twisted mind of a troubled young man in this game that will keep you on the edge of your seat. Follow Curtis Craig as he navigates his own hallucinations and tries to determine what's real and what's not.",
+		"Keywords":["Phantasmagoria 2","A puzzle of Flesh"]
+	},
+	{
+		"ID":"3412890",
+		"Name":"Resident Evil",
+		"Hint":"Hey there! Get ready to face your worst nightmares as we find ourselves trapped in a mansion filled with undead horrors. As a member of the S.T.A.R.S. team, we'll need to unravel the mystery behind the outbreak and rely on our wits and weapons to make it out alive. So, let's see if we have what it takes to survive this nightmare!",
+		"Keywords":["Resident Evil"]
+	},
+	{
+		"ID":"4171293",
+		"Name":"Roundabout",
+		"Hint":"Greetings, mortal! Get ready to take a ride in the revolving limousine of doom, where you'll play as Georgio Manos, the fearless driver on a mission to complete various challenges and missions. With a mix of humor and action, this game will have you on the edge of your seat, laughing and screaming in terror all at the same time!",
+		"Keywords":["Roundabout"]
+	},
+	{
+		"ID":"5673842",
+		"Name":"Skate 3",
+		"Hint":"Yo, grasshopper! Coach Frank here. Use that 'agro kick' for speed boosts, and remember, practice makes perfect. Keep shreddin' and stay gnarly!",
+		"Keywords":["Skate 3"]
+	},
+	{
+		"ID":"3412895",
+		"Name":"Tenchu Shadow Assassins",
+		"Hint":"This game lets you step into the shoes of a ninja and experience the thrill of covert operations. You'll be skulking around like a cat burglar, taking out your enemies with lightning-fast reflexes and lethal precision. It's a game that combines the excitement of espionage with the satisfaction of a well-placed throwing star.",
+		"Keywords":["Tenchu"]
 	}
 ]
   

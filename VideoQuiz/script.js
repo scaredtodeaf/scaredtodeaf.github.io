@@ -111,7 +111,8 @@ fetch('quiz-data.json')
         hintShown = false;
         currentHint = '';
       } else {
-        answerFeedback.innerText = '';
+        answerFeedback.innerText = 'Incorrect.';
+        answerFeedback.style.color ='red';
       }
     });
 
