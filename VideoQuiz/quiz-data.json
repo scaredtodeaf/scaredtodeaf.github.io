@@ -98,7 +98,7 @@
 	{
 		"ID":"5128901",
 		"Name":"Police Quest: SWAT",
-		"Hint":"To succeed, follow proper SWAT procedures and protocols closely. Pay attention during training, adhere to your team leader's instructions, and be prepared for each mission by selecting appropriate equipment. Remember, teamwork and communication are vital in these high-stakes situations.",
+		"Hint":"As a law enforcement officer, you'll need to utilize your knowledge of police tactics and procedures to make split-second decisions that could mean life or death. With a variety of specialized equipment and weaponry at your disposal, work together with your team to neutralize threats and protect innocent civilians.",
 		"Keywords":["SWAT","Police Quest"]
 	},
 	{
@@ -106,6 +106,24 @@
 		"Name":"Myst: Exile",
 		"Hint": "It's not just a walk in the park, but a walk through five otherworldly parks! To solve the puzzles and save the day, make sure to explore each Age like a curious tourist. Snap some mental pictures, read the travel brochures (documents), and remember: sometimes the best hints are hidden in the strangest places!",
 		"Keywords":["Myst","Exile"]
+	},
+	{
+		"ID":"4128951",
+		"Name":"Dark Nights with Poe and Munroe",
+		"Hint":"Tune in to the sultry and mysterious world of a live-action FMV adventure set in the town of August! As two radio hosts, you'll embark on a series of late-night shows that will keep you on the edge of your seat. With a variety of branching storylines and choices, this game is sure to keep you guessing until the very end. So, sit back, grab a drink, and get ready for some late-night radio that you won't soon forget!",
+		"Keywords":["Dark Nights with Poe and Munroe","Poe and Munroe","Dark Nights"]
+	},
+	{
+		"ID":"5348129",
+		"Name":"Populous the Beginning",
+		"Hint":"Enter a mystical world where you'll lead your tribe to victory and ascend to godhood! As a powerful shaman, use your spells and magical powers to conquer other tribes and become the ruler of the land. So, get ready to put your strategy skills to the test and become the ultimate deity!",
+		"Keywords":["Populous","Populous the beginning"]
+	},
+	{
+		"ID":"9418290",
+		"Name":"Tex Murphy: The Pandora Directive",
+		"Hint":"Step into the gritty and post-apocalyptic world of a point-and-click adventure game set in San Francisco! As a private investigator, you'll need to solve a series of murders and unravel a conspiracy. With a dark atmosphere and a gripping storyline, this game will have you hooked from start to finish.",
+
 	}
 ]
   
