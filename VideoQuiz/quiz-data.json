@@ -2,13 +2,13 @@
 	{
 	  "ID": "4182776",
 	  "Name": "Pyst",
-	  "Hint": "While exploring the parody world, look for clever twists and references to familiar puzzle solutions, as these will enhance your amusement and appreciation of the satire.",
+	  "Hint": "Embrace your inner tourist on this quirky island! Engage with oddball inhabitants, chuckle at absurdities, and remember: solving puzzles here is all about playful shenanigans. Enjoy the ride and grab a souvenir!",
 	  "Keywords": ["Pyst"]
 	},
 	{
 	  "ID": "4265126",
 	  "Name": "Command and Conquer: Red Alert 3",
-	  "Hint": "As the plot unfolds, pay attention to each faction's motivations and key characters, as alliances may shift and understanding their objectives can help you make informed decisions during pivotal campaign moments.",
+	  "Hint": "To crush your enemies in this thrilling World War III extravaganza, just remember: it's all about who can build, gather, and deploy the fastest. Pick your favorite faction, and don't forget to have a good laugh as you send your adversaries packing with your strategic genius and flair for the dramatic!",
 	  "Keywords": ["C&C", "Red Alert", "Command and conquer","command & conquer"]
 	},
 	{
@@ -20,68 +20,92 @@
 	{
 		"ID": "4281751",
 		"Name": "Doctor Who: Destiny of the Doctors",
-		"Hint": "As you assist the main character in their quest to save their previous incarnations, let your love for the iconic franchise guide you. Through solving puzzles and bantering with familiar foes, use your wit and humor to help the character outsmart their enemies and save the universe!",
+		"Hint": "Get ready for a timey-wimey adventure as a robotic hero! Embrace your puzzle-solving prowess and combat skills while traveling through time. When faced with a cosmic conundrum, channel the spirit of a quirky, quick-witted time traveler, and save the day!",
 		"Keywords": ["Doctor Who"]
 	},
 	{
 		"ID": "4185712",
 		"Name": "Phantasmagoria",
-		"Hint": "You play as the brave protagonist, Adrienne, as she investigates the chilling history of her new home, a creepy mansion that's hiding unsettling secrets. With each room holding more terrifying clues and supernatural entities lurking in the shadows, it's up to you to unravel the mystery and stay alive",
+		"Hint": "As Adrienne, you've just scored a mansion that's more 'haunted' than 'house.' To unravel its eerie past and save your better half, get ready to channel your inner ghost hunter, poke around the spooky estate, and solve puzzles like a pro. Just remember, when things go bump in the night, it's all part of the spooky fun!",
 		"Keywords": ["Phantasmagoria"]
 	},
 	{
 		"ID": "4812952",
 		"Name": "Mystery of the Druids",
-		"Hint": "Follow the trail of a curious American professor who journeys to England to investigate a series of grisly murders tied to an ancient Celtic society. With each clue leading to more questions and macabre revelations, it's up to you to solve the mystery and stop the killer from striking again.",
+		"Hint": "Step into the shoes of Detective Halligan, a Scotland Yard investigator with a knack for uncovering ancient mysteries. To solve this druidic whodunit, unleash your inner Sherlock, explore every nook and cranny, and interrogate witnesses like a pro. Remember, cracking the case might require some unconventional thinking, so don't be afraid to get creative with your detective skills!",
 		"Keywords": ["Mystery of the Druids"]	
 	},
 	{
 		"ID": "4218591",
 		"Name": "The 7th Guest",
-		"Hint": "Navigate through a decrepit mansion, solve eerie puzzles, and uncover the dark secrets of a twisted past. As you progress through each room, stay alert and focused, and don't be afraid to think outside the box to uncover the mysteries that lurk within.",
+		"Hint": "Ah, dear Guest, you've come to my abode seeking answers, haven't you? To unravel my mansion's secrets, you must be cunning, observant, and bold. Explore my eerie chambers, and let the puzzles enthrall you. Remember, each solved riddle brings you closer to the truth. Can you outwit me and uncover the fate of the other guests? Let the games begin!",
 		"Keywords": ["7th guest","the 7th guest"]
 	},
 	{
 		"ID": "4218519",
 		"Name": "Night Trap",
-		"Hint": "Keep your wits about you and stay alert, as you monitor a group of clueless teenagers in a haunted house",
+		"Hint": "Hey there, rad gamer! Ready to join the Special Control Attack Team? Keep your eyes peeled on those video feeds and show those creepy Augers who's boss! Timing is everything, so don't hesitate to set those traps and save the day. Just remember, it's not a regular sleepover, it's a high-stakes game of 'gotcha!' Good luck, and let's kick some Auger butt!",
 		"Keywords":["Night Trap"]
 	},
 	{
 		"ID": "4812956",
 		"Name": "Bad Mojo",
-		"Hint": "Navigate through your dingy apartment as a transformed cockroach, solving puzzles and uncovering secrets to unravel the mystery behind your metamorphosis. But beware: danger lurks in every nook and cranny, and time is running out to escape your insectoid fate.",
+		"Hint": "Embark on a creepy-crawly adventure and embrace your new insect life! Scuttle through grime and filth with style, while keeping your antennae alert for clues and hazards. Remember, the most intriguing secrets lurk in the darkest corners. Good luck on this enlightening, exoskeletal journey!",
 		"Keywords":["Bad Mojo"]
 	},
 	{
 		"ID": "4751295",
 		"Name": "Messiah",
-		"Hint": "Play as Bob the angel and use your possession powers to infiltrate demon ranks and save humanity from an impending apocalypse. With a mix of action, platforming, and strategy, it's up to you to restore balance to the world and stop the end of days.",
+		"Hint": "Get ready to spread your wings as a heavenly cherub with a mission! To bring some divine intervention to this messed-up world, remember to hop from host to host, taking advantage of each creature's abilities. So, buckle up and prepare to possess your way to victory – after all, there's no better way to save humanity than to walk a mile (or two) in their shoes... or paws!",
 		"Keywords": ["Messiah"]
 	},
 	{
 		"ID":"4537189",
 		"Name":"Star Wars: Jedi Knight: Dark Forces 2",
-		"Hint":"Follow the story of Kyle Katarn, a former Imperial officer seeking answers surrounding his father's death. With a range of combat skills and strategic abilities, use your wit and cunning to navigate through the challenges and adversaries in your path, ultimately shaping your own destiny and uncovering the truth.",
+		"Hint":"Buckle up for a galactic adventure where blasters and lightsabers collide! Channel your inner Kyle Katarn and remember to explore the mystical Force powers at your disposal. Just be cautious – with great power comes great responsibility, and a choice between light and dark. Good luck, young space warrior!",
 		"Keywords":["Jedi Knight","Dark forces","Star wars"]
 	},
 	{
 		"ID":"5892139",
 		"Name":"Wolfenstein 2: The New Collossus",
-		"Hint":"Lead a rebellion against a powerful regime and fight for the future of America. With brutal combat and intense action, gather allies and take on enemies to emerge victorious and save the world.",
+		"Hint":"In a world where the Nazis won the war, it's up to you to lead the rebellion! As the fearless B.J., take down the oppressive regime with a mix of stealth, gunfights, and puzzle-solving. So, gear up and show these Nazis what true freedom looks like!",
 		"Keywords":["Wolfenstein 2"]
 	},
 	{
 		"ID":"5128137",
 		"Name": "Final Fantasy X HD",
-		"Hint": "Enter a realm of fantasy and magic, where engaging combat, strategic abilities, and humorous characters await. Explore the world, battle enemies, and uncover secrets in this classic role-playing game.",
+		"Hint": "Get ready for an epic RPG adventure in a mystical world! Join a group of allies on a mission to save the world from a monstrous creature. With turn-based combat and a deep storyline, this game is sure to keep you hooked! So, grab your sword, cast your spells, and let's go!",
 		"Keywords":["Final Fantasy X"]
 	},
 	{
 		"ID":"4819502",
 		"Name": "Gabriel Knight: The Beast Within",
-		"Hint": "Take on a detective role and travel to Germany to investigate a series of murders and werewolf sightings. Use your puzzle-solving and investigative skills to uncover the dark secrets hidden within the town, and unravel the mystery that lurks behind the scenes.",
+		"Hint": "Become a supernatural investigator and embark on a thrilling point-and-click adventure in Germany! With murder, the occult, and family secrets, this game is sure to keep you on the edge of your seat. So, get ready to solve puzzles and uncover the mysteries lurking in the shadows. It's time to show the world what a real sleuth is made of!",
 		"Keywords":["Gabriel Knight","The Beast Within"]
+	},
+	{
+		"ID":"3412951",
+		"Name":"Harvester",
+		"Hint":"Welcome to a small town where nothing is what it seems! Play as the protagonist who wakes up with no memory of their past and embarks on a journey to uncover the town's secrets. With twisted characters, bizarre events, and a dash of humor, this point-and-click adventure will keep you guessing!",
+		"Keywords":["Harvester"]
+	},
+	{
+		"ID":"9123892",
+		"Name":"Ripper",
+		"Hint":"Step into the dark alleys of New York City and embark on a thrilling point-and-click adventure game! Help solve a series of gruesome murders that bear a striking resemblance to the work of a notorious serial killer. With the help of a star-studded cast including Christopher Walken, Burgess Meredith, and Karen Allen, unravel the mystery and catch the killer.",
+		"Keywords":["Ripper"]
+	},
+	{
+		"ID":"5128901",
+		"Name":"Police Quest: SWAT",
+		"Hint":"To succeed, follow proper SWAT procedures and protocols closely. Pay attention during training, adhere to your team leader's instructions, and be prepared for each mission by selecting appropriate equipment. Remember, teamwork and communication are vital in these high-stakes situations.",
+		"Keywords":["SWAT","Police Quest"]
+	},
+	{
+		"ID":"4821905",
+		"Name":"Myst: Exile",
+		"Hint": "It's not just a walk in the park, but a walk through five otherworldly parks! To solve the puzzles and save the day, make sure to explore each Age like a curious tourist. Snap some mental pictures, read the travel brochures (documents), and remember: sometimes the best hints are hidden in the strangest places!",
+		"Keywords":["Myst","Exile"]
 	}
 ]
   
