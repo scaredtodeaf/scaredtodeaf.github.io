@@ -178,6 +178,96 @@
 		"Name":"Tenchu Shadow Assassins",
 		"Hint":"This game lets you step into the shoes of a ninja and experience the thrill of covert operations. You'll be skulking around like a cat burglar, taking out your enemies with lightning-fast reflexes and lethal precision. It's a game that combines the excitement of espionage with the satisfaction of a well-placed throwing star.",
 		"Keywords":["Tenchu"]
+	},
+	{
+		"ID":"4189014",
+		"Name":"Dune 2000",
+		"Hint":"The only game where you can command armies, manage resources, and enjoy a scenic vacation on a sandy planet with gigantic worms as your neighbors. What could go wrong?",
+		"Keywords":["Dune"]
+	},
+	{
+		"ID":"5819103",
+		"Name":"Hector - Badge of Carnage",
+		"Hint":"When crime is on the rise, and the city's finest detective is a hard-drinking, chain-smoking, foul-mouthed anti-hero, buckle up for a hilarious ride through the mean streets of Clappers Wreake!",
+		"Keywords":["Hector","Badge of Carnage"]
+	},
+	{
+		"ID":"5812902",
+		"Name":"Ico",
+		"Hint":"If you've ever felt like you're carrying the weight of the world on your shoulders, try carrying around a princess with a mysterious curse instead. Now, that's a real workout!",
+		"Keywords":["Ico"]
+	},
+	{
+		"ID":"5129831",
+		"Name":"Legend of Dragoon",
+		"Hint":"When a group of adventurers sets out to save the world, they never expect to face off against magical armored warriors, ancient winged creatures, and the occasional awkward love triangle.",
+		"Keywords":["Legend of Dragoon"]
+	},
+	{
+		"ID":"4189051",
+		"Name":"LSD Dream Emulator",
+		"Hint":"Ever wondered what it's like to take a stroll through a fever dream? Buckle up, buttercup, and get ready for the weirdest virtual vacation of your life! Just don't expect any postcards.",
+		"Keywords":["LSD","Dream Emulator","LSD Dream Emulator"]
+	},
+	{
+		"ID":"2138904",
+		"Name":"MDK 2",
+		"Hint":"When Earth is under attack by ruthless aliens, who you gonna call? A sharpshooting janitor, a six-legged robotic dog, and a mad scientist with a penchant for bizarre inventions, of course!",
+		"Keywords":["MDK"]
+	},
+	{
+		"ID":"1418052",
+		"Name":"Medievil 2",
+		"Hint":"When an undead knight wakes up in Victorian London, he quickly learns that cobblestone streets, top hats, and tea time aren't the only things waiting for him. Let's just say, the 'dead' have never been so lively",
+		"Keywords":"Medievil 2"
+	},
+	{
+		"ID":"6928102",
+		"Name":"Medal of Honor",
+		"Hint":"Ever wanted to save the world while wearing the snazziest military uniform? Well, buckle up, soldier! It's time to fight the good fight, one hilariously mispronounced German phrase at a time.",
+		"Keywords":["Medal of Honor"]
+	},
+	{
+		"ID":"8421095",
+		"Name":"Omikron: The nomad Soul",
+		"Hint":"When your soul gets sucked into a futuristic parallel universe, who better to guide you through the adventure than the Thin White Duke himself? Ziggy played guitar, and now he's here to help you save the world!",
+		"Keywords":["Omikron","Omikron: The nomad soul","The nomad soul"]
+	},
+	{
+		"ID":"8492042",
+		"Name":"Parasite Eve",
+		"Hint":"When mitochondria decide to ditch their day job and start causing chaos in New York City, who needs superheroes when you've got a rookie cop with supernatural powers and a killer wardrobe?",
+		"Keywords":["Parasite Eve"]
+	},
+	{
+		"ID":"2185419",
+		"Name":"Persona 1",
+		"Hint":"When a group of high school students accidentally unlocks the power of their inner selves, it's time to take 'extracurricular activities' to a whole new level. Get ready to face your demons – both figuratively and literally!",
+		"Keywords":["Persona","Persona 1"]
+	},
+	{
+		"ID":"5817293",
+		"Name":"Rule of Rose",
+		"Hint":"When creepy children and a mysterious airship mix, you get a horrifying game of 'Lord of the Flies' meets 'Up.' Who knew a bouquet of roses could be so sinister?",
+		"Keywords":["Rule of Rose"]
+	},
+	{
+		"ID":"1851921",
+		"Name":"Sekiro: Shadows Die Twice",
+		"Hint":"Ever wondered what would happen if you combined a vengeful, one-armed ninja, a magical prosthetic limb, and more sword fights than you can shake a katana at? Spoiler alert: it's a whole lot of fun and a whole lot of dying.",
+		"Keywords":["Sekiro","Shadows Die Twice","Sekiro: Shadows Die Twice"]
+	},
+	{
+		"ID":"5890213",
+		"Name":"Toonstruck",
+		"Hint":"What happens when a burned-out animator gets sucked into a wacky cartoon world? A wild adventure full of eccentric characters, bizarre puzzles, and enough puns to make you question your own sanity. Who said cartoons are just for kids?",
+		"Keywords":["Toonstruck"]
+	},
+	{
+		"ID":"6923032",
+		"Name":"Twisted Metal 4",
+		"Hint":"Welcome to a world where demolition derbies are taken to the extreme, and a maniacal ice cream truck-driving clown is just the tip of the iceberg. Buckle up and remember, in this game, road rage is the name of the game – just don't say its actual name!",
+		"Keywords":["Twisted Metal"]
 	}
 ]
   
