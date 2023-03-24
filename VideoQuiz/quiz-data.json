@@ -216,10 +216,16 @@
 		"Keywords":["MDK"]
 	},
 	{
+		"ID":"2849213",
+		"Name":"Titanic Adventure Out of Time",
+		"Hint":"Time-traveling spies, secret missions, and the most famous shipwreck in history – what could possibly go wrong? Grab your life jacket and your decoder ring, because this adventure is full steam ahead!",
+		"Keywords":["Titanic","Titanic Adventure out of time"]
+	},
+	{
 		"ID":"1418052",
 		"Name":"Medievil 2",
 		"Hint":"When an undead knight wakes up in Victorian London, he quickly learns that cobblestone streets, top hats, and tea time aren't the only things waiting for him. Let's just say, the 'dead' have never been so lively",
-		"Keywords":"Medievil 2"
+		"Keywords":["Medievil 2"]
 	},
 	{
 		"ID":"6928102",
@@ -268,6 +274,90 @@
 		"Name":"Twisted Metal 4",
 		"Hint":"Welcome to a world where demolition derbies are taken to the extreme, and a maniacal ice cream truck-driving clown is just the tip of the iceberg. Buckle up and remember, in this game, road rage is the name of the game – just don't say its actual name!",
 		"Keywords":["Twisted Metal"]
+	},
+	{
+		"ID":"2318905",
+		"Name":"Oddworld: Munch Oddysee",
+		"Hint":"When a lovable alien with a penchant for saving his species teams up with an amphibious creature in a wheelchair, you know you're in for a wild ride! It's time to get even... Odder!",
+		"Keywords":["Oddworld","Munch Oddysee"]
+	},
+	{
+		"ID":"8539202",
+		"Name":"Bayonetta 3",
+		"Hint":"High heels and witchcraft have never been such a deadly combination! Get ready to slay angels and demons in style, with a hairdo that's more than just fabulous – it's downright lethal!",
+		"Keywords":["Bayonetta","Bayonetta 3"]
+	},
+	{
+		"ID":"1920314",
+		"Name":"Black and white",
+		"Hint":"Ever wanted to play God and dish out miracles like they're going out of style? Well, now's your chance! Just remember, with great power comes great responsibility – and the occasional need to fling a cow across the sky.",
+		"Keywords":["Black and white"]
+	},
+	{
+		"ID":"9218304",
+		"Name":"Danganronpa Trigger Happy Havoc",
+		"Hint":"When a sadistic teddy bear forces you into a deadly game of 'Clue', high school suddenly becomes a lot more intense! It's time to channel your inner detective, because in this game, failing the class means a lot more than just summer school.",
+		"Keywords":["Danganronpa"]
+	},
+	{
+		"ID":"5819020",
+		"Name":"Pepsiman",
+		"Hint":"It's a bird, it's a plane, it's... a spandex-clad superhero with an uncanny resemblance to a certain soft drink logo? Get ready to sprint, jump, and slide your way to victory, all in the name of quenching thirst!",
+		"Keywords":["Pepsiman"]
+	},
+	{
+		"ID":"9421905",
+		"Name":"Full Throttle Remastered",
+		"Hint":"What do you get when you mix a burly biker, a hoverbike gang, and a healthy dose of sarcasm? A high-octane adventure that'll make you want to hit the open road and explore the wild world of motorcycle mayhem – just don't forget your leather jacket!",
+		"Keywords":["Full Throttle"]
+	},
+	{
+		"ID":"7123412",
+		"Name":"Furi",
+		"Hint":"Picture this: you're a neon-clad warrior with a flowing cape, a high-tech sword, and a thirst for vengeance. It's time to face off against a series of bizarre bosses in intense, one-on-one combat – and maybe even learn a thing or two about the power of friendship along the way!",
+		"Keywords":["Furi"]
+	},
+	{
+		"ID":"1746123",
+		"Name":"Ghost Master",
+		"Hint":"Ever wanted to haunt a house, possess objects, and spook the living daylights out of unsuspecting humans? It's time to unleash your inner poltergeist and show those mortals who's boss in this ghoulishly delightful strategy game!",
+		"Keywords":["Ghost Master"]
+	},
+	{
+		"ID":"1298941",
+		"Name":"Grounded",
+		"Hint":"Remember that classic movie where kids get shrunk down to the size of ants? Well, it's time to live out that fantasy, but with more survival, crafting, and gigantic bugs! Welcome to a wild adventure where the backyard is your jungle and the insects are out to get you!",
+		"Keywords":["Grounded"]
+	},
+	{
+		"ID":"3918102",
+		"Name":"Lollipop Chainsaw",
+		"Hint":"High school drama meets the zombie apocalypse, with a cheerleader-turned-zombie-slayer wielding a chainsaw and a decapitated head as her trusty sidekick. If that doesn't scream 'wacky fun', we don't know what does!",
+		"Keywords":["Lollipop Chainsaw"]
+	},
+	{
+		"ID":"2139142",
+		"Name":"Psychonauts",
+		"Hint":"Who knew that diving into people's minds could be this much fun? Put on your psychic goggles and get ready to explore a world filled with twisted thoughts, bizarre dreams, and an abundance of dental-themed nightmares!",
+		"Keywords":["Psychonauts"]
+	},
+	{
+		"ID":"1298315",
+		"Name":"Resident Evil 8",
+		"Hint":"When a family trip to a picturesque European village turns into a nightmare of werewolves, vampires, and even scarier creatures, it's time to ask yourself: are you prepared for a showdown with some truly monstrous in-laws?",
+		"Keywords":["Resident Evil 8","Resident Evil"]
+	},
+	{
+		"ID":"5481923",
+		"Name":"Space Colony",
+		"Hint":"What do you get when you mix a bunch of quirky colonists, a far-flung space habitat, and a whole lot of aliens? The cosmic sitcom you never knew you needed! Pack your bags and get ready to boldly go where no reality show has gone before!",
+		"Keywords":["Space Colony"]
+	},
+	{
+		"ID":"9482013",
+		"Name":"XIII",
+		"Hint":"If you're a fan of stylish comic book visuals and conspiracy theories, then this amnesiac adventure is right up your alley. Just remember to keep your friends close, your enemies closer, and your cel-shaded weapons even closer!",
+		"Keywords":["XIII","13"]
 	}
 ]
   
