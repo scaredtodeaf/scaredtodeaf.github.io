@@ -105,6 +105,7 @@ fetch('quiz-data.json')
             button.classList.add('correct-answer');
             button.disabled = true;
             button.style.backgroundColor = 'green';
+            SFXHandler(1, 'RightAns');
           }
         }
         hintAvailable = false;
@@ -113,6 +114,7 @@ fetch('quiz-data.json')
       } else {
         answerFeedback.innerText = 'Incorrect.';
         answerFeedback.style.color ='red';
+        SFXHandler(1, 'WrongAns');
       }
     });
 
