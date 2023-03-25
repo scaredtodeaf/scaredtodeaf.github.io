@@ -1,9 +1,9 @@
 // Prepare Audio Objects required.
-var BTN_CLK = new Audio('sfx/button_click.ogg'); // SFX - Button (Click)
-var BTN_CKI = new Audio('sfx/button_pressin.ogg'); // SFX - Button (Click In)
-var BTN_CKO = new Audio('sfx/button_pressout.ogg'); // SFX - Button (Click Out)
-var RGT_ANS = new Audio('sfx/right_answer.ogg'); // SFX - Right Answer
-var RNG_ANS = new Audio('sfx/wrong_answer.ogg'); // SFX - Wrong Answer
+var BTN_CLK = new Audio('SFX/button_click.ogg'); // SFX - Button (Click)
+var BTN_CKI = new Audio('SFX/button_pressin.ogg'); // SFX - Button (Click In)
+var BTN_CKO = new Audio('SFX/button_pressout.ogg'); // SFX - Button (Click Out)
+var RGT_ANS = new Audio('SFX/right_answer.ogg'); // SFX - Right Answer
+var RNG_ANS = new Audio('SFX/wrong_answer.ogg'); // SFX - Wrong Answer
 BTN_CLK.volume = 0.8; // Volume Level - BTN_CLK
 BTN_CKI.volume = 0.8; // Volume Level - BTN_CKI
 BTN_CKO.volume = 0.8; // Volume Level - BTN_CKO
