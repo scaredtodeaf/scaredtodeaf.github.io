@@ -358,6 +358,96 @@
 		"Name":"XIII",
 		"Hint":"If you're a fan of stylish comic book visuals and conspiracy theories, then this amnesiac adventure is right up your alley. Just remember to keep your friends close, your enemies closer, and your cel-shaded weapons even closer!",
 		"Keywords":["XIII","13"]
+	},
+	{
+		"ID":"3189401",
+		"Name":"Alpha Protocol",
+		"Hint":"Get ready to become the world's most sarcastic superspy, where your deadliest weapons are your charm, your wit, and your penchant for choosing the perfect one-liner in the heat of the moment. Just remember, when it comes to espionage, it's all about keeping your friends close and your frenemies even closer!",
+		"Keywords":["Alpha Protocol"]
+	},
+	{
+		"ID":"1239104",
+		"Name":"Brutal Legend",
+		"Hint":"When a humble roadie is transported to a world inspired by heavy metal album covers, there's only one thing to do: rock out, summon an army of headbangers, and save the world from a demonic overlord! Prepare to shred your way through a wild adventure that'll have you banging your head in no time.",
+		"Keywords":["Brutal Legend"]
+	},
+	{
+		"ID":"4190541",
+		"Name":"Deathloop",
+		"Hint":"Stuck in a never-ending cycle of murder, mayhem, and snarky rival assassins? Sounds like just another day at the office! Grab your weapons, put on your thinking cap, and get ready to break the time loop in the most stylish way possible.",
+		"Keywords":["Deathloop"]
+	},
+	{
+		"ID":"5123948",
+		"Name":"Dishonored 2",
+		"Hint":"Ever wanted to be a supernatural assassin with a flair for the dramatic? Whether you're a stealthy shadow or a walking whirlwind of chaos, this action-packed adventure is all about making your mark (or not) in a city riddled with corruption and betrayal.",
+		"Keywords":["Dishonored 2"]
+	},
+	{
+		"ID":"4129031",
+		"Name":"Fahrenheit: Indigo Prophecy",
+		"Hint":"When murder, the supernatural, and an ice-cold conspiracy collide, it's time to put on your detective hat and solve the case – or accidentally turn your apartment into a crime scene while trying to hide evidence. Just remember, there's no problem that can't be solved with a little quick-time-event action!",
+		"Keywords":["Fahrenheit"]
+	},
+	{
+		"ID":"5921032",
+		"Name":"Jet Set Radio Future",
+		"Hint":"Graffiti, groovy tunes, and grinding rails – it's time to strap on your rollerblades and join the coolest gang in town! Just remember, when it comes to fighting the oppressive government, the best weapon is a well-timed spray can and a wicked sense of style.",
+		"Keywords":["Jet Set Radio Future"]
+	},
+	{
+		"ID":"2190152",
+		"Name":"Layers of Fear",
+		"Hint":"What do you get when you combine a haunted mansion, a tormented artist, and a never-ending supply of creepy paintings? A terrifying masterpiece that'll have you questioning your sanity – and whether you should have taken up a safer hobby, like knitting!",
+		"Keywords":["Layers of Fear"]
+	},
+	{
+		"ID":"3910515",
+		"Name":"Maize",
+		"Hint":"When a government experiment goes awry and creates sentient corn, it's up to you to uncover the secrets of an abandoned farm – and maybe even make a new, cob-headed friend along the way! Just remember, the next time you're lost in a cornfield, always bring a trusty, talking teddy bear with you.",
+		"Keywords":["Maize"]
+	},
+	{
+		"ID":"0139041",
+		"Name":"Mortal Kombat Mythologies Sub-Zero",
+		"Hint":"Ever wondered what happens when you mix an ice-cold assassin, ancient relics, and a whole lot of deadly platforming? You get a frosty adventure that'll have you questioning your reflexes – and your ability to endure the chill of a thousand fatalities!",
+		"Keywords":["Mortal Kombat"]
+	},
+	{
+		"ID":"0123910",
+		"Name":"Need for Speed",
+		"Hint":"If you've ever wanted to burn rubber, make friends with fellow car enthusiasts, and live out your wildest street racing fantasies, this game is your one-way ticket to adrenaline-pumping action. Just remember, when it comes to evading the cops, it's all about style, speed, and a healthy disregard for traffic laws!",
+		"Keywords":["Need for Speed"]
+	},
+	{
+		"ID":"0532912",
+		"Name":"Remember Me",
+		"Hint":"In a world where memories can be bought, sold, and altered, one woman's quest for the truth will lead her through a maze of mind-bending puzzles and high-tech fisticuffs. Just remember, when it comes to tampering with people's minds, always double-check your work – or you might end up with a head full of cat videos!",
+		"Keywords":["Remember Me"]
+	},
+	{
+		"ID":"1023910",
+		"Name":"The Darkness",
+		"Hint":"When you're a mob hitman with a sinister, supernatural force lurking within you, life can get a little... dark. But hey, who needs night lights when you've got demon tentacles and an army of darklings at your beck and call?",
+		"Keywords":["The Darkness"]
+	},
+	{
+		"ID":"3129045",
+		"Name":"The X Files",
+		"Hint":"Unexplained phenomena, shadowy government conspiracies, and a rookie FBI agent determined to uncover the truth. When you're investigating the bizarre and inexplicable, remember that the truth is out there – but you might want to keep that flashlight handy!",
+		"Keywords":["The X Files"]
+	},
+	{
+		"ID":"02139120",
+		"Name":"Void Bastards",
+		"Hint":"When you're a ragtag group of space prisoners tasked with navigating an interstellar ship graveyard, you'll need more than just a good sense of humor to survive. Remember, in the vast emptiness of space, nobody can hear you laugh at your own witty one-liners!",
+		"Keywords":["Void Bastards"]
+	},
+	{
+		"ID":"0000000",
+		"Name":"Yakuza Kiwami",
+		"Hint":"When you're a recently released ex-con trying to rebuild your life, navigating the seedy underbelly of Tokyo can be as tough as eating sushi with a fork. Just remember, in the world of organized crime, a sharp suit and a mean right hook can go a long way!",
+		"Keywords":["Yakuza","Yakuza Kiwami"]
 	}
 ]
   
