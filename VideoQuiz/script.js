@@ -99,7 +99,7 @@ fetch('quiz-data.json')
       if (isMatch) {
         answerFeedback.innerText = `Correct! The game was ${video.Name}!`;
         answerFeedback.style.color = 'green';
-        answerInput.disabled = true;
+        answerInput.disabled = true
         const buttons = document.querySelectorAll('#button-grid button');
         for (const button of buttons) {
           if (button.videoData === video) {
@@ -107,6 +107,7 @@ fetch('quiz-data.json')
             button.disabled = true;
             button.style.backgroundColor = 'green';
             SFXHandler(1, 'RightAns');
+            button.innerText = button.videoData.Name;
           }
         }
         hintAvailable = false;
