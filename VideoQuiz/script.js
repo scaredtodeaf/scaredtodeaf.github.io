@@ -31,6 +31,7 @@ fetch('quiz-data.json')
         button.hintShown = false;
         button.currentHint = '';
         button.addEventListener('click', () => {
+          SFXHandler(0, 'QuizBtn');
           video = videoData;
           videoPlayer.src = `QuizVideos/${video.ID}.webm`;
           answerInput.disabled = false;
