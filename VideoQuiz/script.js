@@ -3,7 +3,6 @@ const videoButtons = document.getElementById('button-grid');
 const answerInput = document.getElementById('answer-input');
 const answerFeedback = document.getElementById('answer-feedback');
 
-// Custom video controls
 const playPauseButton = document.getElementById('play-pause-button');
 const rewindButton = document.getElementById('rewind-button');
 const volumeSlider = document.getElementById('volume-slider');
@@ -13,15 +12,13 @@ let hintAvailable = false;
 let hintShown = false;
 let currentHint = '';
 
-// Load the video data from the JSON file
+let currentSelectedButton = null;
+
 fetch('quiz-data.json')
   .then(response => response.json())
   .then(data => {
-    // Set up the video player with the first video
     video = data[0];
     videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-
-    // Set up the video buttons
 
     for (const [index, videoData] of data.entries()) {
         const button = document.createElement('button');
@@ -61,10 +58,25 @@ fetch('quiz-data.json')
             button.classList.remove('correct-answer');
             button.disabled = false;
           }
+
+          if (currentSelectedButton && currentSelectedButton !== button) {
+            currentSelectedButton.classList.remove('selected');
+            currentSelectedButton.classList.remove('selected-correct-answer');
+          }
+        
+          if (currentSelectedButton && currentSelectedButton !== button) {
+            currentSelectedButton.classList.remove('selected');
+          }
+        
+          if (!button.classList.contains('correct-answer')) {
+            button.classList.add('selected');
+          }
+          currentSelectedButton = button;
+        
         });
         videoButtons.appendChild(button);
       }
-    // Custom video controls
+
     playPauseButton.addEventListener('click', () => {
       if (videoPlayer.paused) {
         videoPlayer.play();

@@ -36,6 +36,14 @@ body::-webkit-scrollbar {
   text-align: center;
 }
 
+.selected {
+  background-color: rgba(200, 200, 200, 0.5); /* Change the color to your desired lighter version */
+}
+
+.selected-correct-answer {
+  background-color: rgba(49, 143, 49, 0.5); /* Change the color to your desired variant */
+}
+
 #button-grid {
   display: grid;
   grid-template-columns: repeat(5,1fr);
