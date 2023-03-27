@@ -35,11 +35,11 @@ fetch('quiz-data.json')
           answerInput.value = '';
           answerFeedback.innerText = '';
           playPauseButton.innerText = 'Play';
-  
+        
           hintAvailable = button.hintAvailable;
           hintShown = button.hintShown;
           currentHint = button.currentHint;
-  
+        
           if (hintAvailable && !hintShown) {
             hintLabel.innerText = 'Hint Available - Click here';
             hintLabel.style.color = 'black';
@@ -52,20 +52,13 @@ fetch('quiz-data.json')
             hintLabel.style.color = 'black';
             hintLabel.removeEventListener('click', showHint);
           }
-  
+        
           const buttons = document.querySelectorAll('#button-grid button');
           for (const button of buttons) {
-            button.classList.remove('correct-answer');
-            button.disabled = false;
-          }
-
-          if (currentSelectedButton && currentSelectedButton !== button) {
-            currentSelectedButton.classList.remove('selected');
-            currentSelectedButton.classList.remove('selected-correct-answer');
-          }
-        
-          if (currentSelectedButton && currentSelectedButton !== button) {
-            currentSelectedButton.classList.remove('selected');
+            if (!button.classList.contains('correct-answer')) {
+              button.classList.remove('selected');
+              button.classList.remove('selected-correct-answer');
+            }
           }
         
           if (!button.classList.contains('correct-answer')) {
@@ -111,7 +104,7 @@ fetch('quiz-data.json')
       if (isMatch) {
         answerFeedback.innerText = `Correct! The game was ${video.Name}!`;
         answerFeedback.style.color = 'green';
-        answerInput.disabled = true
+        answerInput.disabled = true;
         const buttons = document.querySelectorAll('#button-grid button');
         for (const button of buttons) {
           if (button.videoData === video) {
@@ -125,6 +118,7 @@ fetch('quiz-data.json')
         hintAvailable = false;
         hintShown = false;
         currentHint = '';
+        saveProgress(); // Save progress after a correct answer is given
       } else {
         answerFeedback.innerText = 'Incorrect.';
         answerFeedback.style.color ='red';
@@ -159,5 +153,35 @@ fetch('quiz-data.json')
         hintLabel.style.color = '#8B728C';
       }
     }
+
+    function saveProgress() {
+      const progress = [];
+      const buttons = document.querySelectorAll('#button-grid button');
+      for (const button of buttons) {
+        if (button.classList.contains('correct-answer')) {
+          progress.push(button.videoData.ID);
+        }
+      }
+      localStorage.setItem('quizProgress', JSON.stringify(progress));
+    }
+    
+    
+    
+    function loadProgress() {
+      const savedProgress = localStorage.getItem('quizProgress');
+      if (savedProgress) {
+        const progress = JSON.parse(savedProgress);
+        const buttons = document.querySelectorAll('#button-grid button');
+        for (const button of buttons) {
+          if (progress.includes(button.videoData.ID)) {
+            button.classList.add('correct-answer');
+            button.disabled = true;
+            button.style.backgroundColor = 'green';
+            button.innerText = button.videoData.Name;
+          }
+        }
+      }
+    }
+    loadProgress();
   });
 
