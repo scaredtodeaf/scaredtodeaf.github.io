@@ -109,7 +109,7 @@ fetch('quiz-data.json')
         for (const button of buttons) {
           if (button.videoData === video) {
             button.classList.add('correct-answer');
-            button.disabled = true;
+            //button.disabled = true;
             button.style.backgroundColor = 'green';
             SFXHandler(1, 'RightAns');
             button.innerText = button.videoData.Name;
@@ -175,7 +175,7 @@ fetch('quiz-data.json')
         for (const button of buttons) {
           if (progress.includes(button.videoData.ID)) {
             button.classList.add('correct-answer');
-            button.disabled = true;
+            //button.disabled = true;
             button.style.backgroundColor = 'green';
             button.innerText = button.videoData.Name;
           }
