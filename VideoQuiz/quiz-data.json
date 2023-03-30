@@ -448,6 +448,156 @@
 		"Name":"Yakuza Kiwami",
 		"Hint":"When you're a recently released ex-con trying to rebuild your life, navigating the seedy underbelly of Tokyo can be as tough as eating sushi with a fork. Just remember, in the world of organized crime, a sharp suit and a mean right hook can go a long way!",
 		"Keywords":["Yakuza","Yakuza Kiwami"]
+	},
+	{
+		"ID":"3891204",
+		"Name":"Are you Afraid of the Dark: The tale of Orpheo's Curse",
+		"Hint":"A thrilling point-and-click adventure that invites you to solve eerie mysteries in a haunted theater, inspired by a classic 90's children's horror TV show.",
+		"Keywords":["Are you afraid of the dark","The tale of Orpheo's Curse"]
+	},
+	{
+		"ID":"3190412",
+		"Name":"Armored Core",
+		"Hint":"Enter a dystopian future where you pilot customizable mechs in intense battles for power and resources, in a series known for its deep customization and challenging gameplay.",
+		"Keywords":["Armored Core"]
+	},
+	{
+		"ID":"3129401",
+		"Name":"Baldur's Gate",
+		"Hint":"Embark on an epic journey through a rich, high-fantasy world filled with memorable characters and tactical combat, as you unravel a sinister plot and discover your mysterious heritage.",
+		"Keywords":["Baldur's Gate"]
+	},
+	{
+		"ID":"1230194",
+		"Name":"Batman Arkham City",
+		"Hint":"Step into the role of the Dark Knight as you navigate a dangerous open-world prison city, using stealth, combat, and detective skills to thwart a sinister plot involving iconic adversaries",
+		"Keywords":["Batman Arkham City"]
+	},
+	{
+		"ID":"904812",
+		"Name":"Catherine",
+		"Hint":"Navigate a twisted love triangle and face your inner turmoil through challenging puzzle-platforming segments in a surreal dream world, all while making choices that determine your fate in this mature, narrative-driven adventure.",
+		"Keywords":["Catherine"]
+	},
+	{
+		"ID":"9138041",
+		"Name":"Civilization 4",
+		"Hint":"Guide your civilization through the ages, forging your own unique path to victory in this deep and engaging turn-based strategy game that blends history, diplomacy, warfare, and technology.",
+		"Keywords":["Civilization"]
+	},
+	{
+		"ID":"9310451",
+		"Name":"Conker's Bad Fur Day",
+		"Hint":"Embark on a wild, irreverent adventure with a rodent, as you navigate through levels filled with humor, puzzles, and combat, in a game known for its satirical take on classic platforming tropes and adult-themed content.",
+		"Keywords":["Conkers Bad Fur Day"]
+	},
+	{
+		"ID":"0213189",
+		"Name":"Dante's Inferno",
+		"Hint":"Explore the depths of Hell and fight your way through hordes of demonic enemies in this action-adventure game based on a classic epic poem. Use a variety of weapons and magical abilities to survive challenging combat encounters and overcome obstacles in a dark and unforgiving world.",
+		"Keywords":["Dante's Inferno"]
+	},
+	{
+		"ID":"1239041",
+		"Name":"Dead by Daylight",
+		"Hint":"Enter a world of survival horror where you must outwit a deadly killer or evade a group of survivors as you navigate a dark and eerie environment. With multiple playable characters and modes, unlockable perks, and intense gameplay, this game will keep you on the edge of your seat.",
+		"Keywords":["Dead by Daylight"]
+	},
+	{
+		"ID":"9510581",
+		"Name":"Deponia",
+		"Hint":"Enter a unique and quirky world filled with bizarre characters, clever puzzles, and a charming hand-drawn art style. Follow the story of an unconventional inventor as he navigates a dystopian wasteland and dreams of a better life beyond the trash heap",
+		"Keywords":["Deponia"]
+	},
+	{
+		"ID":"9541489",
+		"Name":"Discworld Noir",
+		"Hint":"Step into the dark and moody world of Ankh-Morpork and join Lewton, a private investigator, on his quest to unravel a complex mystery filled with danger and intrigue. Explore the city, collect clues, and interact with a cast of quirky and memorable characters in this immersive graphic adventure game set in the Discworld universe.",
+		"Keywords":["Discworld Noir"]
+	},
+	{
+		"ID":"0213951",
+		"Name":"Escape from Monkey Island",
+		"Hint":"Embark on a comedic adventure set in a vibrant Caribbean world, where you must solve puzzles and interact with quirky characters to uncover the story's mysteries. With a cartoonish art style, memorable dialogue, and hidden secrets, this classic point-and-click adventure game is sure to provide an entertaining and engaging experience.",
+		"Keywords":["Escape from Monkey Island"]
+	},
+	{
+		"ID":"4190518",
+		"Name":"Halo 3 ODST",
+		"Hint":"Step into the boots of a powerful soldier in a captivating sci-fi world, where you'll fight your way through an urban environment teeming with enemies. Use advanced technology and immersive gameplay to uncover the truth behind a dangerous invasion, in this intense first-person shooter that will leave you on the edge of your seat.",
+		"Keywords":["Halo 3","Halo 3 ODST","ODST","Halo"]
+	},
+	{
+		"ID":"1581902",
+		"Name":"Elder Scrolls 5: Skyrim",
+		"Hint":"Step into a mystical world of adventure and exploration, where you can become a powerful Dragonborn and battle fierce creatures while developing your own unique set of skills. With an immersive storyline and endless possibilities, this action-packed RPG is sure to keep you hooked for hours on end.",
+		"Keywords":["Skyrim"]
+	},
+	{
+		"ID":"1904150",
+		"Name":"Kingdom Hearts 2.5",
+		"Hint":"Step into a magical world of adventure and join a young hero on an epic journey across different worlds. Fight against dark forces, explore stunning environments, and uncover the secrets of a unique and captivating story. This game will take you on an unforgettable adventure full of action and wonder.",
+		"Keywords":["Kingdom Hearts","Kingdom Hearts 2.5","Kingdom Hearts 2"]
+	},
+	{
+		"ID":"1591023",
+		"Name":"Magic 2015: Duel of the planeswalkers",
+		"Hint":"Enter a magical world where you can build your own deck of cards, battle AI opponents or other players online, and discover new mechanics and a captivating storyline. With various game modes to explore, this immersive collectible card game is sure to provide endless hours of thrilling gameplay.",
+		"Keywords":["MTG","Magic the Gathering","Duel of the Planeswalkers","Magic 2015 Duel of the Planeswalkers"]
+	},
+	{
+		"ID":"0591203",
+		"Name":"Nier Automata",
+		"Hint":"Step into a post-apocalyptic world filled with androids, machines, and a philosophical storyline. Fight against the machine army, unravel the mysteries of your existence, and explore a vast open-world in this action-packed RPG. With multiple endings, haunting music, and unique characters",
+		"Keywords":["Nier Automata"]
+	},
+	{
+		"ID":"0120304",
+		"Name":"Wing Commander IV",
+		"Hint":"Experience the thrill of space combat in a fictional universe where you play as a starfighter pilot fighting against a new enemy threat. Engage in intense missions, upgrade your starfighters, and make crucial decisions that impact the game's outcome in this immersive space combat simulation game.",
+		"Keywords":["Wing Commander","Wing Commander IV"]
+	},
+	{
+		"ID":"0519103",
+		"Name":"Returnal",
+		"Hint":"Embark on an epic journey with Selene, an astronaut who finds herself trapped in a time loop on a mysterious alien planet. Fight against hostile creatures, explore the planet's environment, and uncover the secrets of the game's immersive storyline in this fast-paced, action-packed shooter.",
+		"Keywords":["Returnal"]
+	},
+	{
+		"ID":"059183",
+		"Name":"Sam and Max Save the world!",
+		"Hint":"Enter a colorful world of mystery and comedy and help a detective duo solve bizarre crimes in the bustling city of New York. Explore the city's diverse environments, interact with an array of unique characters, and solve challenging puzzles in this entertaining point-and-click adventure.",
+		"Keywords":["Sam and Max save the world","sam and max","save the world"]
+	},
+	{
+		"ID":"9501315",
+		"Name":"Far Cry 3",
+		"Hint":"Get lost in a tropical paradise turned deadly. Play as a young man stranded on a treacherous island where survival is the only goal. Explore the open-world environment, fight against dangerous wildlife and pirates, and complete missions to uncover the secrets of the island.",
+		"Keywords":["Far Cry 3"]
+	},
+	{
+		"ID":"01591031",
+		"Name":"The Operative No one Lives forever",
+		"Hint":"Experience the thrilling world of espionage as a spy working for an international intelligence agency, and complete a variety of missions that involve stealth, combat, and the use of gadgets and weapons. With a unique blend of humor, spy-themed action, and engaging gameplay",
+		"Keywords":["NO one lives forever","The operative"]
+	},
+	{
+		"ID":"5190314",
+		"Name":"Fallout 4",
+		"Hint":"Step into a post-apocalyptic world of adventure with Fallout 4. Play as the 'Sole Survivor,' a character who emerges from an underground vault and sets out to explore a ruined Boston and its surrounding areas. Complete missions, engage in combat against hostile factions and creatures, and build settlements in this open-world action role-playing game",
+		"Keywords":["Fallout 4"]
+	},
+	{
+		"ID":"5129015",
+		"Name":"Warcraft 3",
+		"Hint":"Choose one of four factions and engage in real-time battles against other players or the game's AI. Build bases, train units, and upgrade hero characters to gain an edge over your opponents.",
+		"Keywords":["Warcraft 3"]
+	},
+	{
+		"ID":"5123901",
+		"Name":"Zelda CDI",
+		"Hint":"Explore a bizarre and poorly executed world of adventure with this series of game. Embark on quests filled with awkward voice acting, glitchy gameplay, and strange animation. While these games are not considered part of the official series and are generally regarded as low-quality, they have gained a cult following due to their bizarre nature and unique history",
+		"Keywords":["Zelda CDI","Zelda","CDI Zelda"]
 	}
 ]
   
