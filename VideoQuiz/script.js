@@ -7,6 +7,8 @@ const playPauseButton = document.getElementById('play-pause-button');
 const rewindButton = document.getElementById('rewind-button');
 const volumeSlider = document.getElementById('volume-slider');
 
+
+
 let video = null;
 let hintAvailable = false;
 let hintShown = false;
@@ -164,8 +166,18 @@ fetch('quiz-data.json')
       }
       localStorage.setItem('quizProgress', JSON.stringify(progress));
     }
-    
-    
+
+    // Added code for secret video event listener
+    answerInput.addEventListener('input', () => {
+      const inputValue = answerInput.value.trim().toLowerCase();
+      if (inputValue === 'jamie') {
+        videoPlayer.src = 'QuizVideos/Secret.webm';
+        videoPlayer.play();
+        videoPlayer.addEventListener('ended', () => {
+          videoPlayer.src = `QuizVideos/${video.ID}.webm`;
+        });
+      }
+    });
     
     function loadProgress() {
       const savedProgress = localStorage.getItem('quizProgress');
