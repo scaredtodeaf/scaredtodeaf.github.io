@@ -8,6 +8,16 @@ body {
 
 }
 
+.floating-container {
+  position: sticky;
+  top: 10px;
+  background-color: #1F2A3A;
+  z-index: 1000;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
 body::-webkit-scrollbar {
   display: none;
 }

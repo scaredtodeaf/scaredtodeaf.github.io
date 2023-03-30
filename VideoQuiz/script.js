@@ -7,6 +7,7 @@ const playPauseButton = document.getElementById('play-pause-button');
 const rewindButton = document.getElementById('rewind-button');
 const volumeSlider = document.getElementById('volume-slider');
 
+videoPlayer.src = 'QuizVideos/Welcome.webm';
 
 
 let video = null;
@@ -19,8 +20,8 @@ let currentSelectedButton = null;
 fetch('quiz-data.json')
   .then(response => response.json())
   .then(data => {
-    video = data[0];
-    videoPlayer.src = `QuizVideos/${video.ID}.webm`;
+    //video = data[0];
+    //videoPlayer.src = `QuizVideos/${video.ID}.webm`;
 
     for (const [index, videoData] of data.entries()) {
         const button = document.createElement('button');
