@@ -176,7 +176,14 @@ fetch('quiz-data.json')
         videoPlayer.play();
         videoPlayer.addEventListener('ended', () => {
           videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-        });
+        })
+      }
+      else if(inputValue === 'silent hill') {
+        videoPlayer.src = 'QuizVideos/SilentHillSecret.webm';
+        videoPlayer.play();
+        videoPlayer.addEventListener('ended', () => {
+        videoPlayer.src = `QuizVideos/${video.ID}.webm`;
+      });
       }
     });
     
