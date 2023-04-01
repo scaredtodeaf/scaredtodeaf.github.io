@@ -23,16 +23,7 @@ answerInput.form.addEventListener('submit', (event) => {
 });
 
 function prepMatch(matchText) {
-  var prepString = String(matchText);
-
-  // Get rid of all characters which are non-alphanumeric (including spaces).
-  prepString = prepString.replace(/[^0-9A-z]+/g, '');
-
-  // Convert the String to Lower Case
-  prepString = prepString.toLowerCase();
-
-  // Return the results.
-  return prepString;
+  return String(matchText).replace(/[^0-9a-z]+/gi, '').toLowerCase();
 }
 
 
