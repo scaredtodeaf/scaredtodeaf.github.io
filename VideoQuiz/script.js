@@ -137,17 +137,14 @@ fetch('quiz-data.json')
           hintAvailable = button.hintAvailable;
           hintShown = button.hintShown;
           currentHint = button.currentHint;
-        
+          hintLabel.style.color = '#AAB4BE';
           if (hintAvailable && !hintShown) {
             hintLabel.innerText = 'Hint Available - Click here';
-            hintLabel.style.color = 'black';
             hintLabel.addEventListener('click', showHint);
           } else if (hintShown) {
             hintLabel.innerText = `Hint: ${currentHint}`;
-            hintLabel.style.color = 'red';
           } else {
             hintLabel.innerText = '';
-            hintLabel.style.color = 'black';
             hintLabel.removeEventListener('click', showHint);
           }
         
@@ -230,11 +227,22 @@ fetch('quiz-data.json')
     function showHint() {
       if (!hintShown) {
         hintShown = true;
+        currentHint = currentSelectedButton.videoData.Hint;
         clearInterval(hintTimer);
-        hintLabel.innerText = `Hint: ${video.Hint}`;
+        hintLabel.innerText = `Hint: ${currentHint}`;
         hintLabel.style.color = '#AAB4BE';
+    
+        // Update the button's hintShown and currentHint properties
+        if (currentSelectedButton) {
+          currentSelectedButton.hintShown = true;
+          currentSelectedButton.currentHint = currentHint;
+          saveProgress();
+        }
       }
     }
+    
+    
+    
 
 
 
