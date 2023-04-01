@@ -56,7 +56,7 @@ function checkAnswer() {
     for (const button of buttons) {
       if (button.videoData === video) {
         button.classList.add('correct-answer');
-        button.disabled = true;
+        //button.disabled = true;
         button.style.backgroundColor = 'green';
         SFXHandler(1, 'RightAns');
         button.innerText = button.videoData.Name;
@@ -187,47 +187,11 @@ fetch('quiz-data.json')
     volumeSlider.addEventListener('input', () => {
       videoPlayer.volume = volumeSlider.value;
     });
-
-   /* const answerForm = document.getElementById('answer-form');
-    answerForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const inputValue = answerInput.value.trim().toLowerCase();
-      let isMatch = false;
-      for (const keyword of video.Keywords) {
-        if (inputValue === keyword.toLowerCase()) {
-          isMatch = true;
-          break;
-        }
-      }
-      if (isMatch) {
-        answerFeedback.innerText = `Correct! The game was ${video.Name}!`;
-        answerFeedback.style.color = 'green';
-        answerInput.disabled = true;
-        const buttons = document.querySelectorAll('#button-grid button');
-        for (const button of buttons) {
-          if (button.videoData === video) {
-            button.classList.add('correct-answer');
-            //button.disabled = true;
-            button.style.backgroundColor = 'green';
-            SFXHandler(1, 'RightAns');
-            button.innerText = button.videoData.Name;
-          }
-        }
-        hintAvailable = false;
-        hintShown = false;
-        currentHint = '';
-        saveProgress(); // Save progress after a correct answer is given
-      } else {
-        answerFeedback.innerText = 'Incorrect.';
-        answerFeedback.style.color ='red';
-        SFXHandler(1, 'WrongAns');
-      }
-    });*/
-    
     
 
-    // Set up the hint display
     const hintLabel = document.getElementById('hint');
+    let hintTimer;
+
     videoPlayer.addEventListener('timeupdate', () => {
       const halfDuration = videoPlayer.duration / 2;
       if (videoPlayer.currentTime > halfDuration && !hintAvailable && !hintShown) {
@@ -236,23 +200,43 @@ fetch('quiz-data.json')
         for (const button of buttons) {
           if (button.videoData === video) {
             button.hintAvailable = true;
-            button.addEventListener('click', showHint);
           }
         }
+        clearInterval(hintTimer);
         hintLabel.innerText = 'Hint Available - Click here';
         hintLabel.style.color = '#AAB4BE';
         hintLabel.addEventListener('click', showHint);
       }
     });
-    
+
+    videoPlayer.addEventListener('play', () => {
+      // Countdown timer for the hint
+      hintTimer = setInterval(() => {
+        if (!hintAvailable && !hintShown) {
+          const remainingTime = (videoPlayer.duration / 2) - videoPlayer.currentTime;
+          hintLabel.innerText = `You can click here for the hint in ${Math.ceil(remainingTime)} seconds`;
+          hintLabel.style.color = '#AAB4BE';
+        } else {
+          clearInterval(hintTimer);
+        }
+      }, 1000);
+    });
+
+    videoPlayer.addEventListener('pause', () => {
+      clearInterval(hintTimer);
+    });
+
     // Function to show the hint
     function showHint() {
       if (!hintShown) {
         hintShown = true;
+        clearInterval(hintTimer);
         hintLabel.innerText = `Hint: ${video.Hint}`;
-        hintLabel.style.color = '#8B728C';
+        hintLabel.style.color = '#AAB4BE';
       }
     }
+
+
 
     // Added code for secret video event listener
     answerInput.addEventListener('input', () => {
@@ -271,6 +255,13 @@ fetch('quiz-data.json')
         videoPlayer.src = `QuizVideos/${video.ID}.webm`;
       });
       }
+      else if(inputValue === 'dj nun') {
+        videoPlayer.src = 'QuizVideos/SecretNun.webm';
+        videoPlayer.play();
+        videoPlayer.addEventListener('ended', () => {
+        videoPlayer.src = `QuizVideos/${video.ID}.webm`;
+      })
+    }
     });
     
     loadProgress();
