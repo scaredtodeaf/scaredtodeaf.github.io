@@ -12,9 +12,10 @@ body {
   top: 10px;
   background-color: #1F2A3A;
   z-index: 1000;
-  padding: 10px;
+  padding: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 
 body::-webkit-scrollbar {
   display: none;
@@ -29,11 +30,12 @@ body::-webkit-scrollbar {
 
 #video-player-container {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-bottom: 33.33%; /* 21:9 Aspect Ratio */
   height: 0;
   overflow: hidden;
   margin: 20px auto;
 }
+
 
 #video-player {
   position: absolute;

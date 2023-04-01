@@ -8,12 +8,107 @@ const rewindButton = document.getElementById('rewind-button');
 const volumeSlider = document.getElementById('volume-slider');
 
 videoPlayer.src = 'QuizVideos/Welcome.webm';
+answerInput.addEventListener('input', checkAnswer);
+
+answerInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    answerFeedback.innerText = 'Incorrect.';
+    answerFeedback.style.color = 'red';
+    SFXHandler(1, 'WrongAns');
+  }
+});
+
+answerInput.form.addEventListener('submit', (event) => {
+  event.preventDefault();
+});
+
+function prepMatch(matchText) {
+  var prepString = String(matchText);
+
+  // Get rid of all characters which are non-alphanumeric (including spaces).
+  prepString = prepString.replace(/[^0-9A-z]+/g, '');
+
+  // Convert the String to Lower Case
+  prepString = prepString.toLowerCase();
+
+  // Return the results.
+  return prepString;
+}
 
 
-let video = null;
-let hintAvailable = false;
-let hintShown = false;
-let currentHint = '';
+
+function checkAnswer() {
+  const inputValue = prepMatch(answerInput.value); // Use answerInput.value
+  let isMatch = false;
+  for (const keyword of video.Keywords) {
+    if (inputValue === prepMatch(keyword)) {
+      isMatch = true;
+      break;
+    }
+  }
+
+
+  if (isMatch) {
+    answerFeedback.innerText = `Correct! The game was ${video.Name}!`;
+    answerFeedback.style.color = 'green';
+    answerInput.disabled = true;
+    const buttons = document.querySelectorAll('#button-grid button');
+    for (const button of buttons) {
+      if (button.videoData === video) {
+        button.classList.add('correct-answer');
+        button.disabled = true;
+        button.style.backgroundColor = 'green';
+        SFXHandler(1, 'RightAns');
+        button.innerText = button.videoData.Name;
+      }
+    }
+    hintAvailable = false;
+    hintShown = false;
+    currentHint = '';
+    saveProgress();
+  }
+}
+
+function saveProgress() {
+  const progress = [];
+  const buttons = document.querySelectorAll('#button-grid button');
+  for (const button of buttons) {
+    const buttonData = {
+      id: button.videoData.ID,
+      hintAvailable: button.hintAvailable,
+      hintShown: button.hintShown,
+      currentHint: button.currentHint
+    };
+
+    if (button.classList.contains('correct-answer')) {
+      buttonData.isCorrect = true;
+    }
+    progress.push(buttonData);
+  }
+  localStorage.setItem('quizProgress', JSON.stringify(progress));
+}
+
+function loadProgress() {
+  const savedProgress = localStorage.getItem('quizProgress');
+  if (savedProgress) {
+    const progress = JSON.parse(savedProgress);
+    const buttons = document.querySelectorAll('#button-grid button');
+    for (const button of buttons) {
+      const buttonData = progress.find((data) => data.id === button.videoData.ID);
+      if (buttonData) {
+        if (buttonData.isCorrect) {
+          button.classList.add('correct-answer');
+          //button.disabled = true;
+          button.style.backgroundColor = 'green';
+          button.innerText = button.videoData.Name;
+        }
+        button.hintAvailable = buttonData.hintAvailable;
+        button.hintShown = buttonData.hintShown;
+        button.currentHint = buttonData.currentHint;
+      }
+    }
+  }
+}
 
 let currentSelectedButton = null;
 
@@ -93,7 +188,7 @@ fetch('quiz-data.json')
       videoPlayer.volume = volumeSlider.value;
     });
 
-    const answerForm = document.getElementById('answer-form');
+   /* const answerForm = document.getElementById('answer-form');
     answerForm.addEventListener('submit', (event) => {
       event.preventDefault();
       const inputValue = answerInput.value.trim().toLowerCase();
@@ -127,7 +222,9 @@ fetch('quiz-data.json')
         answerFeedback.style.color ='red';
         SFXHandler(1, 'WrongAns');
       }
-    });
+    });*/
+    
+    
 
     // Set up the hint display
     const hintLabel = document.getElementById('hint');
@@ -157,17 +254,6 @@ fetch('quiz-data.json')
       }
     }
 
-    function saveProgress() {
-      const progress = [];
-      const buttons = document.querySelectorAll('#button-grid button');
-      for (const button of buttons) {
-        if (button.classList.contains('correct-answer')) {
-          progress.push(button.videoData.ID);
-        }
-      }
-      localStorage.setItem('quizProgress', JSON.stringify(progress));
-    }
-
     // Added code for secret video event listener
     answerInput.addEventListener('input', () => {
       const inputValue = answerInput.value.trim().toLowerCase();
@@ -187,21 +273,6 @@ fetch('quiz-data.json')
       }
     });
     
-    function loadProgress() {
-      const savedProgress = localStorage.getItem('quizProgress');
-      if (savedProgress) {
-        const progress = JSON.parse(savedProgress);
-        const buttons = document.querySelectorAll('#button-grid button');
-        for (const button of buttons) {
-          if (progress.includes(button.videoData.ID)) {
-            button.classList.add('correct-answer');
-            //button.disabled = true;
-            button.style.backgroundColor = 'green';
-            button.innerText = button.videoData.Name;
-          }
-        }
-      }
-    }
     loadProgress();
   });
 
