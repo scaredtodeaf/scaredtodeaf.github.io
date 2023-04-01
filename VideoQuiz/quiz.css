@@ -30,7 +30,7 @@ body::-webkit-scrollbar {
 
 #video-player-container {
   position: relative;
-  padding-bottom: 33.33%; /* 21:9 Aspect Ratio */
+  padding-bottom: 42.5%; /* 21:9 Aspect Ratio */
   height: 0;
   overflow: hidden;
   margin: 20px auto;
