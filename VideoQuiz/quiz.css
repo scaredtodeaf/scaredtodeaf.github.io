@@ -5,6 +5,9 @@ body {
   padding: 0;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .floating-container {
@@ -67,6 +70,14 @@ body::-webkit-scrollbar {
   width: 90%;
 }
 
+#button-grid button {
+  cursor: grab;
+}
+
+#button-grid button:active {
+  cursor: grabbing;
+}
+
 button {
   background-color: #2E4057;
   border: none;
@@ -106,6 +117,9 @@ button:hover {
   overflow-wrap: break-word; /* Add this line to wrap the text */
   width: 100%; /* Add this line to set the width to 100% */
   box-sizing: border-box; /* Add this line to include padding and border in the total width */
+  -webkit-user-select: contain; /* Safari */
+  -ms-user-select: contain; /* IE 10 and IE 11 */
+  user-select: contain; /* Standard syntax */
 }
 
 #video-controls {
@@ -116,6 +130,15 @@ button:hover {
   margin-top: 5px;
 }
 
+#play-pause-button, #rewind-button, #volume-slider {
+  cursor: grab;
+}
+
+#play-pause-button:active, #rewind-button:active, #volume-slider:active {
+  cursor: grabbing;
+}
+
 #video-player {
   pointer-events: none;
+  cursor: none;
 }
