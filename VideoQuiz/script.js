@@ -268,6 +268,20 @@ fetch('quiz-data.json')
       videoPlayer.src = `QuizVideos/${video.ID}.webm`;
       })
       }
+      else if(inputValue === 'tips') {
+        videoPlayer.src = 'QuizVideos/SecretTips.webm';
+        videoPlayer.play();
+        videoPlayer.addEventListener('ended', () => {
+        videoPlayer.src = `QuizVideos/${video.ID}.webm`;
+        })
+      }
+      else if(inputValue === "we'll bang ok") {
+          videoPlayer.src = 'QuizVideos/SecretWellBang.webm';
+          videoPlayer.play();
+          videoPlayer.addEventListener('ended', () => {
+          videoPlayer.src = `QuizVideos/${video.ID}.webm`;
+          })
+      }
     });
     
     loadProgress();
