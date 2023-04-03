@@ -260,7 +260,14 @@ fetch('quiz-data.json')
         videoPlayer.addEventListener('ended', () => {
         videoPlayer.src = `QuizVideos/${video.ID}.webm`;
       })
-    }
+      }
+      else if(inputValue === 'tetris') {
+      videoPlayer.src = 'QuizVideos/SecretTetris.webm';
+      videoPlayer.play();
+      videoPlayer.addEventListener('ended', () => {
+      videoPlayer.src = `QuizVideos/${video.ID}.webm`;
+      })
+      }
     });
     
     loadProgress();
