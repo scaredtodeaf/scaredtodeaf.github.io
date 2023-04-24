@@ -1,0 +1,104 @@
+[
+	{
+		"ID": "492102",
+		"Name": "Art Attack",
+		"Hint": "Join the fun and let your imagination soar with this popular TV program that turns everyday objects into works of art!",
+		"Keywords": ["Art Attack"]
+	},
+	{
+		"ID":"54439012",
+		"Name":"Fireman Sam",
+		"Hint":"When there's trouble, these heroes are always ready with hoses and helmets.",
+		"Keywords":["Fireman Sam"]
+	},
+	{
+		"ID":"5129012",
+		"Name":"Round the Twist",
+		"Hint":"Strange happenings at a coastal lighthouse keep a family on their toes.",
+		"Keywords":["Round the twist"]
+	},
+	{
+		"ID":"3432154",
+		"Name":"Sesame Street",
+		"Hint":"A beloved TV street where puppets and humans play, teaching kids skills in a fun-filled way.",
+		"Keywords":["Sesame Street"]
+	},
+	{
+		"ID":"9105408",
+		"Name":"Thomas the Tank Engine",
+		"Hint":"A lovable locomotive with a smiling face and his friends explore the wonders of railway transportation.",
+		"Keywords":["Thomas the Tank Engine"]
+	},
+	{
+		"ID":"1234853",
+		"Name":"Are you afraid of the Dark?",
+		"Hint":"An eerie group of friends gather around a campfire to share spooky tales of the supernatural.",
+		"Keywords":["Are you afraid of the dark"]
+	},
+	{
+		"ID":"5182904",
+		"Name":"Brum",
+		"Hint":"A small, yellow car with a big heart zooms around town, helping those in need",
+		"Keywords":["Brum"]
+	},
+	{
+		"ID":"851209",
+		"Name":"Dinosaurs",
+		"Hint":"A sitcom about a prehistoric family of talking reptiles that mirrors modern-day issues with a comedic twist.",
+		"Keywords":["Dinosaurs"]
+	},
+	{
+		"ID":"1203945",
+		"Name":"Johnson and Friends",
+		"Hint":"Toys come to life and learn important life lessons when their owner is away in this Australian children's TV show.",
+		"Keywords":["Johnson & friends","Johnson and friends"]
+	},
+	{
+		"ID":"2300145",
+		"Name":"Rupert",
+		"Hint":"A curious and adventurous little bear embarks on magical journeys through a charmingly illustrated world.",
+		"Keywords":["Rupert"]
+	},
+	{
+		"ID":"5832910",
+		"Name":"Boy Meets world",
+		"Hint":"Follow the ups and downs of a boy's journey through adolescence as he learns valuable life lessons with the help of his family and friends in this beloved 90s sitcom.",
+		"Keywords":["Boy meets world"]
+	},
+	{
+		"ID":"0159102",
+		"Name":"Sailor Moon",
+		"Hint":"A young girl with a big heart transforms into a powerful warrior to save the world from evil in this iconic Japanese anime.",
+		"Keywords":["Sailor Moon"]
+	},
+	{
+		"ID":"384012",
+		"Name":"Neverending Story",
+		"Hint":"Join a young book-lover on a perilous quest through a magical realm of flying dragons and talking snails. With only his bravery and imagination, he must fight to save this enchanting world from dark forces that threaten to destroy it, in this TV adaptation of a beloved fantasy classic.",
+		"Keywords":["Neverending Story"]
+	},
+	{
+		"ID":"091931",
+		"Name":"Dexter's Labatory",
+		"Hint":"Watch as a young genius attempts to balance his double life as a regular kid and a brilliant scientist in this animated TV show filled with wacky inventions and mischievous humor.",
+		"Keywords":["Dexter's Labatory"]
+	},
+	{
+		"ID":"519023",
+		"Name":"Bear in the Big Blue House",
+		"Hint":"Get ready for a fun and educational TV show for kids, where a lovable bear and his furry friends explore the world around them, play games, and sing songs in their cozy home.",
+		"Keywords":["Bear in the big blue house"]
+	},
+	{
+		"ID":"2031941",
+		"Name":"Johnny Bravo",
+		"Hint":"Did you hear about the guy with the big hair and even bigger ego who thinks every girl wants him? He's always flexing his muscles and saying 'woah, mama!'.",
+		"Keywords":["Johnny Bravo"]
+	},
+	{
+		"ID":"9105418",
+		"Name":"The Wombles",
+		"Hint":"Have you heard of a group of furry creatures that live underground and are passionate about recycling and keeping the environment clean? They might be small, but their hearts are big!",
+		"Keywords":["The Wombles"]
+	}
+]
