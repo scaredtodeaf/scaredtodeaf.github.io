@@ -100,5 +100,83 @@
 		"Name":"The Wombles",
 		"Hint":"Have you heard of a group of furry creatures that live underground and are passionate about recycling and keeping the environment clean? They might be small, but their hearts are big!",
 		"Keywords":["The Wombles"]
+	},
+	{
+		"ID":"7217384",
+		"Name":"Digimon",
+		"Hint":"Digital creatures and human friends team up to save two worlds from danger. They were like Tamagotchis on steroids!",
+		"Keywords":["Digimon"]
+	},
+	{
+		"ID":"783412",
+		"Name":"Yu-Gi-Oh",
+		"Hint":"Get ready to duel with monsters and magic in this popular card game anime franchise. It's time to duel!",
+		"Keywords":["Yu-Gi-Oh"]
+	},
+	{
+		"ID":"8419051",
+		"Name":"Corneil and Bernie",
+		"Hint":"A talking dog and his not-so-smart dog-sitter get into all sorts of trouble in this French animated series.",
+		"Keywords":["Corneil and Bernie","Watch my chops"]
+	},
+	{
+		"ID":"84512902",
+		"Name":"Play School",
+		"Hint":"Join the fun with this long-running Australian show that encourages learning through play for young children.",
+		"Keywords":["Play School"]
+	},
+	{
+		"ID":"23910458",
+		"Name":"Authur",
+		"Hint":"Follow the adventures of an aardvark and his friends as they navigate the ups and downs of childhood in this beloved animated series.",
+		"Keywords":["Authur"]
+	},
+	{
+		"ID":"4895120",
+		"Name":"Biker Mice from Mars",
+		"Hint":"Three badass mice on motorcycles defend Earth from an evil race in this out-of-this-world animated series.",
+		"Keywords":["Biker Mice From Mars"]
+	},
+	{
+		"ID":"91285102",
+		"Name":"Bump in the Night",
+		"Hint":"An adventurous, green monster lives under a boy's bed and causes chaos with his unusual friends in this innovative stop-motion animated series.",
+		"Keywords":["Bump in the Night"]
+	},
+	{
+		"ID":"5910231",
+		"Name":"Hairy Maclary",
+		"Hint":"Join a playful pack of furry friends on their fun-filled adventures in this delightful animated series based on a beloved children's book series.",
+		"Keywords":["Join a playful pack of furry friends on their fun-filled adventures in this delightful animated series based on a beloved children's book series."]
+	},
+	{
+		"ID":"95012345",
+		"Name":"Jimmy Neutron Boy Genius",
+		"Hint":"Get ready for some out-of-this-world adventures with a boy genius and his quirky group of friends in this wacky animated series.",
+		"Keywords":["Jimmy Neutron"]
+	},
+	{
+		"ID":"12381905",
+		"Name":"Mona the Vampire",
+		"Hint":"Join a spunky young girl and her two trusty friends on their imaginative adventures as they battle spooky creatures in this offbeat animated series.",
+		"Keywords":["Mona the vampire"]
+	},
+	{
+		"ID":"12319523",
+		"Name":"Rocko's Modern Life",
+		"Hint":"Get ready for a wild ride with a quirky wallaby and his wacky friends as they navigate the absurdities of adult life in this zany animated series.",
+		"Keywords":["Rocko's Modern Life"]
+	},
+	{
+		"ID":"9050123",
+		"Name":"The Adventures of TinTin",
+		"Hint":"Join a fearless young journalist and his trusty canine companion as they travel the globe, solve mysteries, and outsmart villains in this adventurous animated series based on a beloved comic book.",
+		"Keywords":["The Adventures of Tintin","TinTin"]
+	},
+	{
+		"ID":"54190321",
+		"Name":"SMart",
+		"Hint":"Get ready to get creative with this British art education show, featuring a charming host and fun art projects that will inspire young minds to explore their artistic talents.",
+		"Keywords":["smart"]
 	}
 ]
