@@ -106,8 +106,34 @@ let currentSelectedButton = null;
 fetch('quiz-data.json')
   .then(response => response.json())
   .then(data => {
-    //video = data[0];
-    //videoPlayer.src = `QuizVideos/${video.ID}.webm`;
+    fetch('mute_intervals.json')
+    .then((response) => response.json())
+    .then((muteIntervals) => {
+      videoPlayer.addEventListener('timeupdate', () => {
+        if (!currentSelectedButton.classList.contains('correct-answer') && shouldMuteVideo(video.ID, videoPlayer.currentTime)) {
+          videoPlayer.muted = true;
+        } else {
+          videoPlayer.muted = false;
+        }
+      });
+      
+
+      function shouldMuteVideo(videoID, currentTime) {
+        const intervals = muteIntervals[videoID];
+        for (const interval of intervals) {
+          if (currentTime >= interval.start && currentTime <= interval.end) {
+            return true;
+          }
+        }
+        return false;
+      }
+     
+      const clearDataButton = document.getElementById('clear-data-button');
+
+      clearDataButton.addEventListener('click', () => {
+        localStorage.removeItem('quizProgress');
+        location.reload(); // Reload the page to reset the progress
+      });  
 
     for (const [index, videoData] of data.entries()) {
         const button = document.createElement('button');
@@ -182,7 +208,7 @@ fetch('quiz-data.json')
 
     videoPlayer.addEventListener('timeupdate', () => {
       const halfDuration = videoPlayer.duration / 2;
-      if (videoPlayer.currentTime > halfDuration && !hintAvailable && !hintShown) {
+      if (videoPlayer.currentTime > halfDuration && !hintAvailable && !hintShown && !isSecretVideoPlaying) {
         hintAvailable = true;
         const buttons = document.querySelectorAll('#button-grid button');
         for (const button of buttons) {
@@ -198,6 +224,7 @@ fetch('quiz-data.json')
     });
 
     videoPlayer.addEventListener('play', () => {
+      if(!isSecretVideoPlaying) {
       // Countdown timer for the hint
       hintTimer = setInterval(() => {
         if (!hintAvailable && !hintShown) {
@@ -208,82 +235,70 @@ fetch('quiz-data.json')
           clearInterval(hintTimer);
         }
       }, 1000);
-    });
+    }
+  });
 
     videoPlayer.addEventListener('pause', () => {
       clearInterval(hintTimer);
     });
 
-    // Function to show the hint
-    function showHint() {
-      if (!hintShown) {
-        hintShown = true;
-        currentHint = currentSelectedButton.videoData.Hint;
-        clearInterval(hintTimer);
-        hintLabel.innerText = `Hint: ${currentHint}`;
-        hintLabel.style.color = '#AAB4BE';
-    
-        // Update the button's hintShown and currentHint properties
-        if (currentSelectedButton) {
-          currentSelectedButton.hintShown = true;
-          currentSelectedButton.currentHint = currentHint;
-          saveProgress();
-        }
+    let isSecretVideoPlaying = false;
+
+function playSecretVideo(videoSrc) {
+  isSecretVideoPlaying = true; // Set the flag indicating a secret video is playing
+  videoPlayer.src = videoSrc;
+  videoPlayer.play();
+  videoPlayer.addEventListener('ended', () => {
+    isSecretVideoPlaying = false; // Reset the flag when the secret video ends
+    videoPlayer.src = `QuizVideos/${video.ID}.webm`;
+  });
+}
+
+// Updated showHint function
+function showHint() {
+  if(!isSecretVideoPlaying) {
+  if (!hintShown) {
+    hintShown = true;
+    currentHint = currentSelectedButton.videoData.Hint;
+
+    hintLabel.innerText = `Hint: ${currentHint}`;
+    hintLabel.style.color = '#AAB4BE';
+
+    // Update the button's hintShown and currentHint properties
+    if (currentSelectedButton) {
+      currentSelectedButton.hintShown = true;
+      currentSelectedButton.currentHint = currentHint;
+      saveProgress();
       }
     }
-    
-    
-    
+  }
+}
 
-
-
+    
     // Added code for secret video event listener
     answerInput.addEventListener('input', () => {
       const inputValue = answerInput.value.trim().toLowerCase();
       if (inputValue === 'jamie') {
-        videoPlayer.src = 'QuizVideos/Secret.webm';
-        videoPlayer.play();
-        videoPlayer.addEventListener('ended', () => {
-          videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-        })
-      }
-      else if(inputValue === 'silent hill') {
-        videoPlayer.src = 'QuizVideos/SilentHillSecret.webm';
-        videoPlayer.play();
-        videoPlayer.addEventListener('ended', () => {
-        videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-      });
-      }
-      else if(inputValue === 'dj nun') {
-        videoPlayer.src = 'QuizVideos/SecretNun.webm';
-        videoPlayer.play();
-        videoPlayer.addEventListener('ended', () => {
-        videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-      })
-      }
-      else if(inputValue === 'tetris') {
-      videoPlayer.src = 'QuizVideos/SecretTetris.webm';
-      videoPlayer.play();
-      videoPlayer.addEventListener('ended', () => {
-      videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-      })
-      }
-      else if(inputValue === 'tips') {
-        videoPlayer.src = 'QuizVideos/SecretTips.webm';
-        videoPlayer.play();
-        videoPlayer.addEventListener('ended', () => {
-        videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-        })
-      }
-      else if(inputValue === "we'll bang ok") {
-          videoPlayer.src = 'QuizVideos/SecretWellBang.webm';
-          videoPlayer.play();
-          videoPlayer.addEventListener('ended', () => {
-          videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-          })
+        playSecretVideo('QuizVideos/Secret.webm');
+      } else if (inputValue === 'silent hill') {
+        playSecretVideo('QuizVideos/SilentHillSecret.webm');
+      } else if (inputValue === 'dj nun') {
+        playSecretVideo('QuizVideos/SecretNun.webm');
+      } else if (inputValue === 'tetris') {
+        playSecretVideo('QuizVideos/SecretTetris.webm');
+      } else if (inputValue === 'tips') {
+        playSecretVideo('QuizVideos/SecretTips.webm');
+      } else if (inputValue === "we'll bang ok") {
+        playSecretVideo('QuizVideos/SecretWellBang.webm');
+      } else if (inputValue === "leisure suit larry") {
+        playSecretVideo('QuizVideos/SuitLarry.webm');
+      } else if (inputValue === "moist") {
+        playSecretVideo('QuizVideos/Towlettes.webm');
+      } else if (inputValue === "genshin impact") {
+        playSecretVideo('QuizVideos/GI2.webm')
       }
     });
     
     loadProgress();
   });
-
+});

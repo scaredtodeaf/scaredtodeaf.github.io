@@ -6,7 +6,7 @@
   <title>Quiz Player</title>
   <link rel="stylesheet" href="quiz.css">
 </head>
-<body>
+<body></body>
   <div class="floating-container"> <!-- Add this div -->
     <div class="container">
       <div id="hint" class="hint-label"></div>
@@ -21,7 +21,7 @@
       </div>
       <form id="answer-form">
           <label for="answer-input">Enter Answer:</label>
-          <input type="text" id="answer-input" disabled>
+          <input type="text" id="answer-input" disabled autocomplete="off">
           <div id="answer-feedback"></div>
       </form>
     </div>
@@ -29,7 +29,9 @@
   <div class="button-container">
     <div id="button-grid"></div>
   </div>
-  
+  <div class="floating-container">
+    <button id="clear-data-button">Clear Saved Data</button>
+  </div>
   <script src="SFX-handler.js"></script>
   <script src="script.js"></script>
 </body>
