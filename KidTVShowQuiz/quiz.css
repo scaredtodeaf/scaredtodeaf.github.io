@@ -146,3 +146,11 @@ button:hover {
 .hidden-video {
   display: none;
 }
+
+
+@media (max-height: 600px) {
+  .floating-container
+      {
+        position: static;
+      }
+}
