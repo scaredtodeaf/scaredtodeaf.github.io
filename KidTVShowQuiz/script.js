@@ -249,12 +249,23 @@ fetch('quiz-data.json')
       clearInterval(hintTimer);
     });
 
-    // Function to show the hint
+    function playSecretVideo(videoSrc) {
+      isSecretVideoPlaying = true; // Set the flag indicating a secret video is playing
+      videoPlayer.src = videoSrc;
+      videoPlayer.play();
+      videoPlayer.addEventListener('ended', () => {
+        isSecretVideoPlaying = false; // Reset the flag when the secret video ends
+        videoPlayer.src = `QuizVideos/${video.ID}.webm`;
+      });
+    }
+    
+    // Updated showHint function
     function showHint() {
+      if(!isSecretVideoPlaying) {
       if (!hintShown) {
         hintShown = true;
         currentHint = currentSelectedButton.videoData.Hint;
-        clearInterval(hintTimer);
+    
         hintLabel.innerText = `Hint: ${currentHint}`;
         hintLabel.style.color = '#AAB4BE';
     
@@ -263,61 +274,19 @@ fetch('quiz-data.json')
           currentSelectedButton.hintShown = true;
           currentSelectedButton.currentHint = currentHint;
           saveProgress();
+          }
         }
       }
     }
     
-    
-    
-
-
-
-    // Added code for secret video event listener
-    answerInput.addEventListener('input', () => {
-      const inputValue = answerInput.value.trim().toLowerCase();
-      if (inputValue === 'jamie') {
-        videoPlayer.src = 'QuizVideos/Secret.webm';
-        videoPlayer.play();
-        videoPlayer.addEventListener('ended', () => {
-          videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-        })
-      }
-      else if(inputValue === 'silent hill') {
-        videoPlayer.src = 'QuizVideos/SilentHillSecret.webm';
-        videoPlayer.play();
-        videoPlayer.addEventListener('ended', () => {
-        videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-      });
-      }
-      else if(inputValue === 'dj nun') {
-        videoPlayer.src = 'QuizVideos/SecretNun.webm';
-        videoPlayer.play();
-        videoPlayer.addEventListener('ended', () => {
-        videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-      })
-      }
-      else if(inputValue === 'tetris') {
-      videoPlayer.src = 'QuizVideos/SecretTetris.webm';
-      videoPlayer.play();
-      videoPlayer.addEventListener('ended', () => {
-      videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-      })
-      }
-      else if(inputValue === 'tips') {
-        videoPlayer.src = 'QuizVideos/SecretTips.webm';
-        videoPlayer.play();
-        videoPlayer.addEventListener('ended', () => {
-        videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-        })
-      }
-      else if(inputValue === "we'll bang ok") {
-          videoPlayer.src = 'QuizVideos/SecretWellBang.webm';
-          videoPlayer.play();
-          videoPlayer.addEventListener('ended', () => {
-          videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-          })
-      }
-    });
+        
+        // Added code for secret video event listener
+        answerInput.addEventListener('input', () => {
+          const inputValue = answerInput.value.trim().toLowerCase();
+          if (inputValue === 'jamie') {
+            playSecretVideo('QuizVideos/Secret.webm');
+          }
+        });
     
     loadProgress();
   });

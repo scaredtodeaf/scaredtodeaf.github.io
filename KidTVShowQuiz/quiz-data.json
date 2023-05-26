@@ -178,5 +178,29 @@
 		"Name":"SMart",
 		"Hint":"Get ready to get creative with this British art education show, featuring a charming host and fun art projects that will inspire young minds to explore their artistic talents.",
 		"Keywords":["smart"]
+	},
+	{
+		"ID":"857123",
+		"Name":"Tiny Planets",
+		"Hint":"Embark on a cosmic journey with two playful adventurers as they explore an enchanting universe filled with tiny wonders in this animated series.",
+		"Keywords":["tiny planets"]
+	},
+	{
+		"ID":"34129051",
+		"Name":"Mr Benn",
+		"Hint":"Step into a magical costume shop and join a certain adventurous individual as he discovers extraordinary worlds, one outfit at a time.",
+		"Keywords":["Mr Benn"]
+	},
+	{
+		"ID":"45819051",
+		"Name":"CatDog",
+		"Hint":"Join the tail-wagging chaos as two mismatched creatures with one body navigate the ups and downs of life in this animated series that's double the trouble and double the fun.",
+		"Keywords":["CatDog"]
+	},
+	{
+		"ID":"3290131",
+		"Name":"Cardcaptor Sakura",
+		"Hint":"Join a young protagonist armed with magical cards as they embark on a captivating quest to restore order and save the world from a mischievous mayhem.",
+		"Keywords":["Cardcaptor"]
 	}
 ]
