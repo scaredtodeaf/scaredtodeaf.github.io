@@ -244,5 +244,53 @@
 		"Name":"Zzzap!",
 		"Hint":"Get ready for a zany mix of live-action and comic-book tropes, with a kid-friendly 'Bean', handy puppets, imaginative art come to life and simple challenges dialled up to the max, in this interactive children's series that'll leave you wanting more!",
 		"Keywords":["Zzzap!"]
+	},
+	{
+		"ID":"51283902",
+		"Name":"Sooty",
+		"Hint":"Enter a world of mischief and magic with a lovable yellow bear, a squeaky sidekick, and a cast of furry friends, where laughter and surprises are just a puppet's touch away.",
+		"Keywords":["Sooty"]
+	},
+	{
+		"ID":"15190312",
+		"Name":"Come Outside",
+		"Hint":"Join a curious adventurer and her trusty canine companion as they embark on delightful journeys to unravel the mysteries of everyday objects, one letter at a time.",
+		"Keywords":["Come outside"]
+	},
+	{
+		"ID":"951283012",
+		"Name":"Monster Cafe",
+		"Hint":"Step into a quirky cafe where monsters serve up laughter, mischief, and a menu that's out of this world in this puppet-filled comedy series that's a frightfully good time.",
+		"Keywords":["Monster Cafe"]
+	},
+	{
+		"ID":"123781149",
+		"Name":"Finders Keepers",
+		"Hint":"Get ready for a frantic treasure hunt where teams race against the clock, swap unusual objects, and unlock prizes galore in this thrilling game show that's all about finding and keeping the ultimate prize.",
+		"Keywords":["Finders Keepers"]
+	},
+	{
+		"ID":"2139415",
+		"Name":"Jungle Run",
+		"Hint":"Join a fearless team as they venture through a wild and wacky jungle, tackling tricky trials, puzzling obstacles, and searching for hidden treasures in this adrenaline-fueled adventure game show.",
+		"Keywords":["Jungle Run"]
+	},
+	{
+		"ID":"1923814",
+		"Name":"Bernard's Watch",
+		"Hint":"Discover the secret behind a time-stopping timepiece as a young adventurer uses its magical powers to pause the world around him, unlocking endless adventures and mischief in this captivating children's series.",
+		"Keywords":["Bernard's Watch"]
+	},
+	{
+		"ID":"5812390",
+		"Name":"Playdays",
+		"Hint":"Step into a whimsical playroom where puppets and real-life fun collide, taking young viewers on a daily adventure filled with surprises, songs, and the joy of imaginative play.",
+		"Keywords":["Playdays"]
+	},
+	{
+		"ID":"95128319",
+		"Name":"The magic Key",
+		"Hint":"Unlock a world of adventure with a mysterious key that takes a group of friends on thrilling journeys through time and imagination, where learning becomes a magical quest.",
+		"Keywords":["The magic key"]
 	}
 ]
