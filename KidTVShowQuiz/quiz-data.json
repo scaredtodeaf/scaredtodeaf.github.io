@@ -202,5 +202,47 @@
 		"Name":"Cardcaptor Sakura",
 		"Hint":"Join a young protagonist armed with magical cards as they embark on a captivating quest to restore order and save the world from a mischievous mayhem.",
 		"Keywords":["Cardcaptor"]
+	},
+	{
+		"ID":"1519032",
+		"Name":"Even Stevens",
+		"Hint":"Step into the world of a quirky family, where sibling rivalries, hilarious mishaps, and a whole lot of chaos make for some truly 'even' entertainment.",
+		"Keywords":["Even Stevens"]
+	},
+	{
+		"ID":"591025189",
+		"Name":"Kim Possible",
+		"Hint":"Follow the double life of a high school student who's not just saving the world, but also acing her algebra exams in this action-packed animated series.",
+		"Keywords":["Kim Possible"]
+	},
+	{
+		"ID":"51892031",
+		"Name":"Angela Anaconda",
+		"Hint":"Join a spunky and artistic youngster as she takes on the quirks and challenges of elementary school life, with a unique animation style that's as distinctive as her imagination.",
+		"Keywords":["Angela Anaconda"]
+	},
+	{
+		"ID":"1239104",
+		"Name":"Chip 'N Dale's Rescue Rangers",
+		"Hint":"Join a pair of pint-sized detectives and their resourceful crew as they tackle crime and come to the rescue, proving that even the smallest heroes can make a big impact.",
+		"Keywords":["Chip and dale","Chip n dale"]
+	},
+	{
+		"ID":"6912310",
+		"Name":"Barney and Friends",
+		"Hint":"Get ready for a purple surprise who brings joy, laughter, and valuable life lessons to a group of enthusiastic youngsters in this lively and musical children's series.",
+		"Keywords":["Barney"]
+	},
+	{
+		"ID":"1230941",
+		"Name":"Recess",
+		"Hint":"Join a group of spirited schoolmates as they navigate the battleground of recess, where every break is an adventure filled with games, pranks, and life lessons.",
+		"Keywords":["Recess"]
+	},
+	{
+		"ID":"58192036",
+		"Name":"Zzzap!",
+		"Hint":"Get ready for a zany mix of live-action and comic-book tropes, with a kid-friendly 'Bean', handy puppets, imaginative art come to life and simple challenges dialled up to the max, in this interactive children's series that'll leave you wanting more!",
+		"Keywords":["Zzzap!"]
 	}
 ]
