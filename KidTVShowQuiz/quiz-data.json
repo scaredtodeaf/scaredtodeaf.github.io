@@ -358,5 +358,71 @@
 		"Name":"The Worst Witch",
 		"Hint":"Follow the adventures of a clumsy young witch as she stumbles through magic school, turning mishaps into magical moments along the way.",
 		"Keywords":["Worst Witch"]
+	},
+	{
+		"ID":"1237819",
+		"Name":"MASK",
+		"Hint":"Unleash the power of secret masks and high-tech vehicles as heroes and villains clash in a battle of epic proportions.",
+		"Keywords":["MASK"]
+	},
+	{
+		"ID":"6519201",
+		"Name":"Poddington Peas",
+		"Hint":"",
+		"Keywords":["Poddington Peas"]
+	},
+	{
+		"ID":"8512903",
+		"Name":"Star Wars Droids",
+		"Hint":"Join two iconic droids on a galaxy-spanning journey full of beeps, boops, and interstellar adventures.",
+		"Keywords":["Star wars Droids"]
+	},
+	{
+		"ID":"1023059",
+		"Name":"Out of the Box",
+		"Hint":"Step into a world where imagination knows no bounds as friends explore, create, and play in their magical clubhouse.",
+		"Keywords":["Out of the Box"]
+	},
+	{
+		"ID":"512723",
+		"Name":"Tarzan",
+		"Hint":"Experience the wild adventures of a man raised by apes as he swings through the jungle, discovers his true identity, and fights for justice.",
+		"Keywords":["Tarzan"]
+	},
+	{
+		"ID":"6012394",
+		"Name":"Emperor's New School",
+		"Hint":"Follow the hilarious misadventures of a young emperor as he navigates the challenges of high school life while trying to maintain his royal status.",
+		"Keywords":["Emperor's New School"]
+	},
+	{
+		"ID":"9518231",
+		"Name":"House of Mouse",
+		"Hint":"Enter a magical place where beloved Disney characters come together to run a bustling club, serving up laughter, music, and enchantment.",
+		"Keywords":["House of Mouse"]
+	},
+	{
+		"ID":"5612931",
+		"Name":"Doug",
+		"Hint":"Step into the shoes of a lovably awkward kid navigating the complexities of life, school, and the peculiarities of his colorful neighborhood.",
+		"Keywords":["Doug"]
+	},
+	{
+		"ID":"1394502",
+		"Name":"My Dad the rockstar",
+		"Hint":"Life takes an unexpected twist for a teenager when his rockin' dad brings the noise to their peaceful neighborhood.",
+		"Keywords":["My Dad the rockstar"]
+	},
+	{
+		"ID":"9412032",
+		"Name":"Codename: Kids next door",
+		"Hint":"Join a secret society of pint-sized heroes as they battle against adult tyranny, armed with gadgets, courage, and an unyielding dedication to preserving kids' rights.",
+		"Keywords":["Kids next door"]
+	},
+	{
+		"ID":"213941",
+		"Name":"Courage the Cowardly Dog",
+		"Hint":"Prepare for a howling good time as a timid dog faces off against a multitude of creepy creatures in the name of protecting his eccentric family.",
+		"Keywords":["Courage the Cowardly Dog"]
 	}
 ]
