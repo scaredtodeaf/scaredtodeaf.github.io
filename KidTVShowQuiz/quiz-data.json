@@ -292,5 +292,71 @@
 		"Name":"The magic Key",
 		"Hint":"Unlock a world of adventure with a mysterious key that takes a group of friends on thrilling journeys through time and imagination, where learning becomes a magical quest.",
 		"Keywords":["The magic key"]
+	},
+	{
+		"ID":"510139",
+		"Name":"Grizzly Tales for Gruesome Kids",
+		"Hint":"Delve into a delightfully twisted world where misbehaving kids meet their eerie fates in a series of cautionary tales that will send shivers down your spine and morals straight to your heart",
+		"Keywords":["Grizzly Tales for Gruesome Kids"]
+	},
+	{
+		"ID":"951823",
+		"Name":"Knightmare",
+		"Hint":"Enter a realm of mystery and peril where brave young adventurers face mind-bending challenges, navigate treacherous paths, and conquer virtual realms in a quest for glory and triumph",
+		"Keywords":["Knightmare"]
+	},
+	{
+		"ID":"618923",
+		"Name":"The Demon Headmaster",
+		"Hint":"Beware the hypnotic gaze of a school's enigmatic leader as a group of courageous kids must outsmart mind control, expose secrets, and bring light to the shadowy truth lurking behind the school's façade.",
+		"Keywords":["The Demon headmaster"]
+	},
+	{
+		"ID":"851920",
+		"Name":"Big Cook Little Cook",
+		"Hint":"Step into a magical café where two culinary adventurers whip up tasty delights, serving up a dash of imagination, a pinch of problem-solving, and a whole lot of fun for young aspiring chefs.",
+		"Keywords":["Big Cook Little Cook"]
+	},
+	{
+		"ID":"951023",
+		"Name":"The Story Makers",
+		"Hint":"Unleash your imagination in a magical library, where unlikely friends and curious objects come together to weave tales that spark wonder, laughter, and endless adventures.",
+		"Keywords":["Story makers"]
+	},
+	{
+		"ID":"51823901",
+		"Name":"Tweenies",
+		"Hint":"Join a vibrant group of pint-sized pals as they embark on playful escapades, dance to catchy tunes, and discover the joy of friendship and learning in their colorful world.",
+		"Keywords":["Tweenies"]
+	},
+	{
+		"ID":"812931",
+		"Name":"Funnybones",
+		"Hint":"In a world where laughter meets the spooky, join a bony family and their mischievous pup on comical adventures that tickle the funny bone and light up the night.",
+		"Keywords":["Funnybones"]
+	},
+	{
+		"ID":"61291023",
+		"Name":"Dennis and Gnasher",
+		"Hint":"Join a troublemaker and his loyal four-legged sidekick as they unleash chaos, pranks, and laughter in their quest to outwit the world around them.",
+		"Keywords":["Dennis and Gnasher"]
+	},
+	{
+		"ID":"9123014",
+		"Name":"Fraggle Rock",
+		"Hint":"Step into an underground realm where music, mischief, and magical creatures collide in a zany world beneath our feet.",
+		"Keywords":["Fraggle Rock"]
+	},
+	{
+		"ID":"829103",
+		"Name":"The Basil Brush Show",
+		"Hint":"Meet a sly and sassy fox with a knack for mischief, quick comebacks, and delivering jokes that leave you howling for more.",
+		"Keywords":["Basil Brush"]
+	},
+	{
+		"ID":"5912321",
+		"Name":"The Worst Witch",
+		"Hint":"Follow the adventures of a clumsy young witch as she stumbles through magic school, turning mishaps into magical moments along the way.",
+		"Keywords":["Worst Witch"]
 	}
 ]

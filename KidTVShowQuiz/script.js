@@ -249,6 +249,8 @@ fetch('quiz-data.json')
       clearInterval(hintTimer);
     });
 
+    let isSecretVideoPlaying = false;
+
     function playSecretVideo(videoSrc) {
       isSecretVideoPlaying = true; // Set the flag indicating a secret video is playing
       videoPlayer.src = videoSrc;
