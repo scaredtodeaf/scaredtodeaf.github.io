@@ -424,5 +424,71 @@
 		"Name":"Courage the Cowardly Dog",
 		"Hint":"Prepare for a howling good time as a timid dog faces off against a multitude of creepy creatures in the name of protecting his eccentric family.",
 		"Keywords":["Courage the Cowardly Dog"]
+	},
+	{
+		"ID":"0512931",
+		"Name":"The Grim Adventures of Billy and Mandy",
+		"Hint":"Embark on twisted and hilarious escapades with two unlikely friends, as they outwit supernatural beings, challenge the Grim Reaper, and navigate the bizarre world around them.",
+		"Keywords":["Billy and Mandy"]
+	},
+	{
+		"ID":"239401",
+		"Name":"Goosebumps",
+		"Hint":"Get ready for spine-chilling tales that will send shivers down your spine as ordinary kids face extraordinary and often terrifying encounters with the supernatural.",
+		"Keywords":["Goosebumps"]
+	},
+	{
+		"ID":"741285",
+		"Name":"SonicX",
+		"Hint":"Race into high-speed adventures with a blue hedgehog and his friends as they defend their world against the forces of evil in this action-packed animated series.",
+		"Keywords":["SonicX"]
+	},
+	{
+		"ID":"3845195",
+		"Name":"Bill Nye the Science Guy",
+		"Hint":"Join a charismatic scientist as he brings science to life through fun experiments, wacky demonstrations, and a dash of humor, inspiring curiosity and a love for learning.",
+		"Keywords":["Bill Nye"]
+	},
+	{
+		"ID":"783924",
+		"Name":"Mighty Morphin Power Rangers",
+		"Hint":"Unleash the power of teamwork as a group of extraordinary teenagers harness their unique abilities to protect the world from evil forces, morphing into mighty warriors.",
+		"Keywords":["Power Rangers"]
+	},
+	{
+		"ID":"09213845",
+		"Name":"Totally Spies",
+		"Hint":"Step into the world of three fashionable and fearless high school spies as they embark on top-secret missions, balancing teenage life with thrilling adventures and gadgets",
+		"Keywords":["Totally Spies"]
+	},
+	{
+		"ID":"194815",
+		"Name":"Hamtaro",
+		"Hint":"Follow the adorable and adventurous Hamtaro, a curious hamster, and his furry friends as they embark on heartwarming escapades filled with friendship, fun, and lots of hamster-sized excitement.",
+		"Keywords":["Hamtaro"]
+	},
+	{
+		"ID":"4821394",
+		"Name":"Max Steel",
+		"Hint":"Gear up for high-tech heroics as a teenager harnesses the power of advanced technology, transforming into a supercharged hero to protect the world from villains and save the day.",
+		"Keywords":["Max Steel"]
+	},
+	{
+		"ID":"561892",
+		"Name":"Mopatop's Shop",
+		"Hint":"Enter a whimsical world where a friendly puppet shopkeeper and his animal puppet friends welcome visitors, spark imagination, and turn everyday objects into magical adventures.",
+		"Keywords":["Mopatop's Shop"]
+	},
+	{
+		"ID":"2104958",
+		"Name":"Rugrats",
+		"Hint":"Join a group of adventurous and imaginative toddlers as they navigate the world from their unique perspective, turning ordinary situations into extraordinary adventures filled with laughter, curiosity, and plenty of misadventures.",
+		"Keywords":["Rugrats"]
+	},
+	{
+		"ID":"8950123",
+		"Name":"Cheez TV",
+		"Hint":"Start your day with a slice of cheesy animated goodness on the TV channel that brings you laughter, action, and a whole lot of fun.",
+		"Keywords":["Cheez TV"]
 	}
 ]
