@@ -490,5 +490,65 @@
 		"Name":"Cheez TV",
 		"Hint":"Start your day with a slice of cheesy animated goodness on the TV channel that brings you laughter, action, and a whole lot of fun.",
 		"Keywords":["Cheez TV"]
+	},
+	{
+		"ID":"19518122",
+		"Name":"Dragonball Z",
+		"Hint":"Unleash your inner warrior as superpowered beings clash in epic battles, pushing their limits and unlocking new levels of strength in a quest to protect the universe from formidable foes.",
+		"Keywords":["Dragonball Z"]
+	},
+	{
+		"ID":"960231",
+		"Name":"Pokemon",
+		"Hint":"Gotta catch 'em all! Prepare for an electrifying journey with a young trainer and their trusty companion as they travel far and wide, battling unique creatures and striving for victory in a world of competitive Pokémon battles.",
+		"Keywords":["Pokemon"]
+	},
+	{
+		"ID":"6432142",
+		"Name":"Neon Genesis Evangelion",
+		"Hint":"Unleash the mecha madness! Prepare for a mind-bending blend of intense action, deep introspection, and giant robot battles as troubled heroes pilot their way through an apocalyptic landscape, facing inner demons and external threats alike.",
+		"Keywords":["Neon Genesis Evangelion"]
+	},
+	{
+		"ID":"01295123",
+		"Name":"Rage",
+		"Hint":"Unleash your inner fury! Dive into a realm of relentless beats, electrifying performances, and an ecstatic crowd as you explore the wild and untamed world of an iconic music television program that celebrates the raw power of rock and alternative music.",
+		"Keywords":["Rage"]
+	},
+	{
+		"ID":"5123950",
+		"Name":"Saddle Club",
+		"Hint":"Giddy up for tales of hoofed pursuits and spirited friendships in a charming series that gallops its way into your heart. With a stable full of excitement and equestrian escapades, this show will have you trotting along with a smile from ear to ear.",
+		"Keywords":["Saddle Club"]
+	},
+	{
+		"ID":"75812931",
+		"Name":"The Jetsons",
+		"Hint":"Step into the future with a family that's out of this world! Meet the Jetsons, a quirky bunch living in a high-tech world of flying cars, robotic maids, and futuristic adventures. Get ready for a cosmic blend of humor, innovation, and family dynamics that will have you saying, 'Meet me in the future!",
+		"Keywords":["Jetsons"]
+	},
+	{
+		"ID":"0281512",
+		"Name":"Sabrina the Teenage Witch",
+		"Hint":"Join a spellbinding journey as a teenager discovers her magical powers and tries to balance the supernatural with the ordinary. With a mischievous black cat, whimsical spells, and plenty of teenage antics, this bewitching series will leave you enchanted.",
+		"Keywords":["Sabrina"]
+	},
+	{
+		"ID":"3291540",
+		"Name":"Angry Beavers",
+		"Hint":"Follow the hilarious misadventures of two beaver brothers as they navigate the challenges of life in the wild. With their quirky personalities, sibling rivalry, and constant uproar, this show will have you laughing and wondering just what these beavers will do next.",
+		"Keywords":["Angry Beavers"	]
+	},
+	{
+		"ID":"1295120",
+		"Name":"Phineas and Ferb",
+		"Hint":"Join two inventive stepbrothers on their summer escapades filled with epic inventions, outrageous schemes, and unpredictable adventures. With their pet platypus leading a double life as a secret agent, you never know what kind of fun and excitement awaits in their backyard.",
+		"Keywords":["Phineas and Ferb"]
+	},
+	{
+		"ID":"8690213",
+		"Name":"Animaniacs",
+		"Hint":"Get ready for zany antics and non-stop laughter with a trio of animated siblings who wreak havoc in the most unpredictable ways. From catchy tunes to hilarious skits, this show is a wild ride of animated mayhem that will leave you in stitches.",
+		"Keywords":["Animaniacs"]
 	}
 ]
