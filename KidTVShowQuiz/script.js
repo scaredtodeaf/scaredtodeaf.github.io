@@ -41,7 +41,7 @@ function checkAnswer() {
   }
 
   if (isMatch) {
-    answerFeedback.innerText = `Correct! The game was ${video.Name}!`;
+    answerFeedback.innerText = `Correct! The TV Show was ${video.Name}!`;
     answerFeedback.style.color = 'green';
     answerInput.disabled = true;
     videoPlayer.style.display = 'block';
