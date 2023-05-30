@@ -550,5 +550,53 @@
 		"Name":"Animaniacs",
 		"Hint":"Get ready for zany antics and non-stop laughter with a trio of animated siblings who wreak havoc in the most unpredictable ways. From catchy tunes to hilarious skits, this show is a wild ride of animated mayhem that will leave you in stitches.",
 		"Keywords":["Animaniacs"]
+	},
+	{
+		"ID":"9519283",
+		"Name":"ICarly",
+		"Hint":"Ever wondered what happens when a group of tech-savvy friends turn a web show into their ticket to hilarious adventures?",
+		"Keywords":["ICarly"]
+	},
+	{
+		"ID":"52130592",
+		"Name":"That's So Raven",
+		"Hint":"Get ready for a psychic teen who sees more than meets the eye, turning everyday chaos into comedy gold!",
+		"Keywords":["That's So Raven"]
+	},
+	{
+		"ID":"793104",
+		"Name":"Blue Peter",
+		"Hint":"Unlocking a world of imagination and adventure, this iconic show has been captivating young minds since the '50s, leaving a colorful mark on British TV history.",
+		"Keywords":["Blue Peter"]
+	},
+	{
+		"ID":"01239451",
+		"Name":"Chucklevision",
+		"Hint":"Double the laughter, double the trouble - these bumbling brothers stumble their way through hilarious misadventures, leaving chaos in their wake!",
+		"Keywords":["Chucklevision"]
+	},
+	{
+		"ID":"23915871",
+		"Name":"Gargoyles",
+		"Hint":"When the moon rises, stone comes alive, revealing protectors who guard a modern city with ancient might.",
+		"Keywords":["Gargoyles"]
+	},
+	{
+		"ID":"9213951",
+		"Name":"Genie From Down Under",
+		"Hint":"When an Aussie genie meets a British girl, it's outback meets tea time, with a touch of magical mayhem!",
+		"Keywords":["Genie from Down Under"]
+	},
+	{
+		"ID":"859105",
+		"Name":"Hey Arnold!",
+		"Hint":"Join a football-headed kid as he navigates the ups and downs of city life, proving that kindness and optimism are always in style.",
+		"Keywords":["Hey Arnold"]
+	},
+	{
+		"ID":"02319415",
+		"Name":"Legends of the Hidden Temple",
+		"Hint":"Teams of young adventurers tackle puzzles and face temple guards on a quest for ancient artifacts in a mysterious Mayan-inspired setting.",
+		"Keywords":["Legends of the Hidden Temple"]
 	}
 ]
