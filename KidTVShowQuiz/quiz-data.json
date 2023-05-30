@@ -79,9 +79,9 @@
 	},
 	{
 		"ID":"091931",
-		"Name":"Dexter's Labatory",
+		"Name":"Dexter's Laboratory",
 		"Hint":"Watch as a young genius attempts to balance his double life as a regular kid and a brilliant scientist in this animated TV show filled with wacky inventions and mischievous humor.",
-		"Keywords":["Dexter's Labatory"]
+		"Keywords":["Dexter's Laboratory"]
 	},
 	{
 		"ID":"519023",
@@ -171,7 +171,7 @@
 		"ID":"9050123",
 		"Name":"The Adventures of TinTin",
 		"Hint":"Join a fearless young journalist and his trusty canine companion as they travel the globe, solve mysteries, and outsmart villains in this adventurous animated series based on a beloved comic book.",
-		"Keywords":["The Adventures of Tintin","TinTin"]
+		"Keywords":["The Adventures of Tintin","TinTin","Adventures of Tintin"]
 	},
 	{
 		"ID":"54190321",
@@ -357,7 +357,7 @@
 		"ID":"5912321",
 		"Name":"The Worst Witch",
 		"Hint":"Follow the adventures of a clumsy young witch as she stumbles through magic school, turning mishaps into magical moments along the way.",
-		"Keywords":["Worst Witch"]
+		"Keywords":["Worst Witch", "the worst witch"]
 	},
 	{
 		"ID":"1237819",
@@ -368,7 +368,7 @@
 	{
 		"ID":"6519201",
 		"Name":"Poddington Peas",
-		"Hint":"",
+		"Hint":"In a lively garden, these tiny legumes lead vibrant lives, each with a unique role and personality, teaching valuable lessons along the way.",
 		"Keywords":["Poddington Peas"]
 	},
 	{
@@ -415,9 +415,9 @@
 	},
 	{
 		"ID":"9412032",
-		"Name":"Codename: Kids next door",
+		"Name":"Codename Kids next door",
 		"Hint":"Join a secret society of pint-sized heroes as they battle against adult tyranny, armed with gadgets, courage, and an unyielding dedication to preserving kids' rights.",
-		"Keywords":["Kids next door"]
+		"Keywords":["Kids next door","Codename Kids next door"]
 	},
 	{
 		"ID":"213941",
@@ -429,7 +429,7 @@
 		"ID":"0512931",
 		"Name":"The Grim Adventures of Billy and Mandy",
 		"Hint":"Embark on twisted and hilarious escapades with two unlikely friends, as they outwit supernatural beings, challenge the Grim Reaper, and navigate the bizarre world around them.",
-		"Keywords":["Billy and Mandy"]
+		"Keywords":["Billy and Mandy","The Grim Adventures of Billy and Mandy","Grim Adventures of Billy and Mandy"]
 	},
 	{
 		"ID":"239401",
@@ -453,7 +453,7 @@
 		"ID":"783924",
 		"Name":"Mighty Morphin Power Rangers",
 		"Hint":"Unleash the power of teamwork as a group of extraordinary teenagers harness their unique abilities to protect the world from evil forces, morphing into mighty warriors.",
-		"Keywords":["Power Rangers"]
+		"Keywords":["Power Rangers","Mighty Morphin Power Rangers"]
 	},
 	{
 		"ID":"09213845",
@@ -464,7 +464,7 @@
 	{
 		"ID":"194815",
 		"Name":"Hamtaro",
-		"Hint":"Follow the adorable and adventurous Hamtaro, a curious hamster, and his furry friends as they embark on heartwarming escapades filled with friendship, fun, and lots of hamster-sized excitement.",
+		"Hint":"Tiny furry adventurers scurry through exciting escapades, spreading joy and friendship wherever they go.",
 		"Keywords":["Hamtaro"]
 	},
 	{
@@ -525,7 +525,7 @@
 		"ID":"75812931",
 		"Name":"The Jetsons",
 		"Hint":"Step into the future with a family that's out of this world! Meet the Jetsons, a quirky bunch living in a high-tech world of flying cars, robotic maids, and futuristic adventures. Get ready for a cosmic blend of humor, innovation, and family dynamics that will have you saying, 'Meet me in the future!",
-		"Keywords":["Jetsons"]
+		"Keywords":["Jetsons", "The Jetsons"]
 	},
 	{
 		"ID":"0281512",
