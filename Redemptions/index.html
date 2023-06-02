@@ -7,8 +7,27 @@
 </head>
 <body>
   <div class="container">
-    <div id="twitch-embed"></div>
-    <div id="page-content"></div>
+    <div id="page-content">
+		<main>
+			<h1> Stream Sound Commands</h1>
+			<hr />
+			<h2>To use one of the Redemptions on stream, you can click on command to hear/See what it does!</h2>
+			<ul class="category-list">
+				<li class="active" onclick="toggleTable('sfx')">SFX</li>
+				<li onclick="toggleTable('media')">Media</li>
+			  </ul>
+			  
+			  <div id="sfx-table" class="table-container active">
+				<h3>SFX Table</h3>
+				SFX
+			  </div>
+			  
+			  <div id="media-table" class="table-container">
+				<h3>Media Table</h3>
+				Media
+			  </div>
+		</main>
+	</div>
     <div class="button-container">
       <button class="button" onclick="loadPage('index.html')">Main Page</button>
       <button class="button" onclick="loadPage('Redemptions/index.html')">Channel Redemptions</button>
@@ -17,7 +36,6 @@
     </div>
   </div>
 
-  <script src="twitch-embed.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
