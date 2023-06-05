@@ -42,4 +42,41 @@ body {
   .button:hover {
     background-color: #444;
   }
+
+  .button:hover {
+    background-color: #444;
+  }
   
+  .category-list li {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  
+  .category-list li {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .category-list li.active {
+    font-weight: bold;
+  }
+  
+  .table-container {
+    display: none;
+  }
+  
+  .table-container.active {
+    display: block;
+  }
+
+  .subcategory-container {
+    display: none;
+  }
+  
+  .subcategory-container.active {
+    display: block;
+  }

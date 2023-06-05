@@ -1,0 +1,22 @@
+{
+  "sfx": [
+    {
+      "name": "SFX Item 1",
+      "text": "SFX Item 1 Description"
+    },
+    {
+      "name": "SFX Item 2",
+      "text": "SFX Item 2 Description"
+    }
+  ],
+  "media": [
+    {
+      "name": "Media Item 1",
+      "text": "Media Item 1 Description"
+    },
+    {
+      "name": "Media Item 2",
+      "text": "Media Item 2 Description"
+    }
+  ]
+}

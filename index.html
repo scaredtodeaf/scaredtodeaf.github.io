@@ -4,11 +4,13 @@
   <title>Black Background with Twitch Chat</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://embed.twitch.tv/embed/v1.js"></script>
 </head>
 <body>
   <div class="container">
-    <div id="twitch-embed"></div>
-    <div id="page-content"></div>
+    <div id="page-content">
+      <div id="twitch-embed"></div>
+    </div>
     <div class="button-container">
       <button class="button" onclick="loadPage('index.html')">Main Page</button>
       <button class="button" onclick="loadPage('Redemptions/index.html')">Channel Redemptions</button>
