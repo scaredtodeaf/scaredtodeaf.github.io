@@ -1,22 +1,58 @@
 {
   "sfx": [
     {
-      "name": "SFX Item 1",
-      "text": "SFX Item 1 Description"
+      "category": "7th guest and 11th Hour",
+      "items": [
+        {
+          "name": "SFX Item 1",
+          "text": "SFX Item 1 Description"
+        },
+        {
+          "name": "SFX Item 2",
+          "text": "SFX Item 2 Description"
+        }
+      ]
     },
     {
-      "name": "SFX Item 2",
-      "text": "SFX Item 2 Description"
+      "category": "Banjo",
+      "items": [
+        {
+          "name": "SFX Item 3",
+          "text": "SFX Item 3 Description"
+        },
+        {
+          "name": "SFX Item 4",
+          "text": "SFX Item 4 Description"
+        }
+      ]
     }
   ],
   "media": [
     {
-      "name": "Media Item 1",
-      "text": "Media Item 1 Description"
+      "category": "category1",
+      "items": [
+        {
+          "name": "Media Item 1",
+          "text": "Media Item 1 Description"
+        },
+        {
+          "name": "Media Item 2",
+          "text": "Media Item 2 Description"
+        }
+      ]
     },
     {
-      "name": "Media Item 2",
-      "text": "Media Item 2 Description"
+      "category": "category2",
+      "items": [
+        {
+          "name": "Media Item 3",
+          "text": "Media Item 3 Description"
+        },
+        {
+          "name": "Media Item 4",
+          "text": "Media Item 4 Description"
+        }
+      ]
     }
   ]
 }

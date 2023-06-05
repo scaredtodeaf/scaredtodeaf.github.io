@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Black Background with Twitch Chat</title>
+  <title>VinylMinty's Official Site</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="main.js"></script>
@@ -9,26 +9,42 @@
 <body>
   <div class="container">
     <div id="page-content">
-		<main>
-			<h1>Stream Sound Commands</h1>
-			<hr />
-			<h2>To use one of the Redemptions on stream, you can click on command to hear/See what it does!</h2>
-			<ul class="category-list">
-				<li class="active" data-category="sfx">SFX</li>
-				<li data-category="media">Media</li>
-			</ul>			  
-			
-			<div id="sfx-table" class="table-container active">
-				<h3>SFX Table</h3>
-				<!-- Add your SFX table content here -->WAHAHA
+      <main>
+        <h1>Stream Sound Commands</h1>
+        <hr />
+        <h2>To use one of the Redemptions on stream, you can click on the command to hear/see what it does!</h2>
+        <ul class="category-list">
+			<li class="active" data-category="sfx">SFX</li>
+			<li data-category="media">Media</li>
+		  </ul>
+				 
+        
+        <div id="sfx-table" class="table-container active">
+          <h3>SFX Table</h3>
+		<a href="#" onclick="toggle_visibility(this);"><h1>7th Guest and 11th hour</h1></a>
+			<div class="sfx-group" id="guesthour">
+				<div name="!FilmAt11">[Stauf] - "Reporter Baffled By Logic: Film at 11!"</div>
+				<div name="!ObiWan">[Stauf] - "Even Obi Wan can't help you with this one, Carl.</div>
+				<div name="!StaufLaugh"> [Stauf] - "[The Best Evil Laugh There Is]"</div>
+				<div name="!blocks">[Stauf] - "[Imitating Sigmund Freud] Now did you have problems with blocks as a child, also?"</div>
+				<div name="!chilli">[Stauf] - "You're so gullible that if someone said 'It's chilly outside!'... You'd grab a bowl!"</div>
+				<div name="!lobotomy">[Stauf] - "Is a Frontal Lobotomy required for this activity?"</div>
+				<div name="!looneytunes">[Stauf] - "[Imitating Porky Pig] That's All Carl!"</div>
+				<div name="!solitaire">[Stauf] - "Maybeeee-- Solitaire, is a better game for you?!"</div>
+				<div name="!lonely">[Unknown Voice] - "Feeeeling.... Lonelllly?"</div>
 			</div>
-			
-			<div id="media-table" class="table-container">
-				<h3>Media Table</h3>
-				<!-- Add your Media table content here -->
+		<a href="#" onclick="toggle_visibility(this);"><h1>Banjo Kazooie</h1></a>
+			<div class="sfx-group" id="Banjo">
+				<div name="!guhguh">[Banjo] - "Guh huh"</div>
+				<div name="!getjiggywithit"> *Unused Jiggy Collect music*</div>
 			</div>
-		</main>
-	</div>
+        </div>
+        <div id="media-table" class="table-container">
+          <h3>Media Table</h3>
+          Media
+        </div>
+      </main>
+    </div>
     <div class="button-container">
       <button id="main-page-btn" class="button">Main Page</button>
       <button id="channel-redemptions-btn" class="button">Channel Redemptions</button>
