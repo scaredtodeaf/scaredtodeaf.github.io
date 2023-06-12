@@ -1,43 +1,34 @@
 function loadPage(url) {
-    const pageContent = $("#page-content");
-    pageContent.load(url);
-  }
+  window.location.href = url;
+}
 
-  function toggle_visibility(element) {
-    $(element).next('.sfx-group').toggle();
+const contentContainer = document.getElementById('content-container');
+const sfxContent = document.getElementById('sfx-content');
+const mediaContent = document.getElementById('media-content');
+
+function playSound(sound) {
+  // Add logic to play the corresponding sound based on the 'sound' parameter
+  console.log(`Playing sound: ${sound}`);
+}
+
+function toggleCategory(category) {
+  if (category === 'sfx') {
+    sfxContent.style.display = 'block';
+    mediaContent.style.display = 'none';
+  } else if (category === 'media') {
+    sfxContent.style.display = 'none';
+    mediaContent.style.display = 'block';
   }
-  
-  $(document).ready(function() {
-    $('.category-list li').on('click', function() {
-      var category = $(this).attr('data-category');
-      $('.category-list li').removeClass('active');
-      $(this).addClass('active');
-      $('.table-container').removeClass('active').hide();
-      $('#' + category + '-table').addClass('active').show();
-    });
-  
-    $('.button').on('click', function() {
-      var url = $(this).attr('data-url');
-      $('#page-content').load(url);
-    });
-  
-    // Hide all tables initially
-    $('.table-container').hide();
-  
-    // Show the initial active table
-    var initialCategory = $('.category-list li.active').attr('data-category');
-    $('#' + initialCategory + '-table').show();
+}
+
+// Initial setup
+toggleCategory('sfx');
+
+// Event listeners for category toggling
+const categoryButtons = document.querySelectorAll('.buttons .button.is-toggle');
+categoryButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const category = button.dataset.category;
+    toggleCategory(category);
   });
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    const sfxDivs = document.querySelectorAll('.sfx-group div[name]');
-  
-    sfxDivs.forEach(function(div) {
-      div.addEventListener('click', function(event) {
-        const name = this.getAttribute('name').replace('!', ''); // Remove the exclamation mark
-        const audio = new Audio('Redemptions/sounds/' + name + '.ogg'); // Adjust the audio file path
-        audio.play();
-      });
-    });
-  });
-  
+});

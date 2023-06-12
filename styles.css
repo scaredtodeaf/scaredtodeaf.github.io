@@ -1,79 +1,82 @@
+/* styles.css */
+
+:root {
+  --primary-color: #2C2C2C;
+  --navbar-background: #333333;
+  --navbar-text-color: #F4F6F5;
+  --button-background: #5C5470;
+  --button-text-color: #F4F6F5;
+  --content-background: #3D3C3F;
+  --content-text-color: #F4F6F5;
+}
+
 body {
-    background-color: #000;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  
-  .container {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  #page-content {
-    flex-grow: 1;
-    background-color: black;
-    color: white;
-    text-align: center;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    background-color: #222;
-  }
-  
-  .button {
-    padding: 10px 20px;
-    background-color: #222;
-    color: #fff;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #444;
-  }
+  background-color: var(--primary-color);
+  color: var(--navbar-text-color);
+  margin: 0;
+  padding: 0;
+}
 
-  .button:hover {
-    background-color: #444;
-  }
-  
-  .category-list li {
-    display: inline-block;
-    margin-right: 10px;
-    cursor: pointer;
-    user-select: none;
-  }
-  
-  
-  .category-list li {
-    display: inline-block;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  
-  .category-list li.active {
-    font-weight: bold;
-  }
-  
-  .table-container {
-    display: none;
-  }
-  
-  .table-container.active {
-    display: block;
-  }
+.navbar {
+  background-color: var(--navbar-background);
+  color: var(--navbar-text-color);
+  justify-content: center;
+}
 
-  .sfx-group div[name] {
-    cursor: pointer;
-  }
-  
+.navbar-start {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.navbar-item {
+  margin: 0 0.5rem;
+  color: var(--navbar-text-color);
+}
+
+.navbar-item:hover {
+  background-color: var(--navbar-background);
+  color: var(--navbar-text-color);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 3.25rem);
+}
+
+.content {
+  background-color: var(--content-background);
+  color: var(--content-text-color);
+  padding: 2rem;
+}
+
+.button {
+  background-color: var(--button-background);
+  color: var(--button-text-color);
+}
+
+.button:hover {
+  background-color: var(--navbar-background);
+  color: var(--navbar-text-color);
+}
+
+/* Redemptions Page Styles */
+
+.section-redemptions {
+  background-color: #7e6786;
+  padding: 2rem;
+  color: #f4f6f5;
+}
+
+.title-redemptions {
+  color: #f4f6f5;
+}
+
+.buttons-redemptions {
+  margin-bottom: 1rem;
+}
+
+.content-section-redemptions {
+  margin-top: 1.5rem;
+}

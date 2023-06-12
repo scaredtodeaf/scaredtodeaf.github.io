@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>VinylMinty's Offical Site</title>
+  <title>Your Page Title</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="styles.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://embed.twitch.tv/embed/v1.js"></script>
+  <style>
+    /* Add your custom styles here */
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div id="page-content">
-      <div id="twitch-embed"></div>
+  <section class="section">
+    <div class="container">
+      <div id="twitch-embed">
+        <div id="page-content"></div>
+      </div>
     </div>
-    <div class="button-container">
-      <button class="button" onclick="loadPage('index.html')">Main Page</button>
-      <button class="button" onclick="loadPage('Redemptions/index.html')">Channel Redemptions</button>
-      <button class="button" onclick="loadPage('socials.html')">Socials</button>
-      <button class="button" onclick="loadPage('quizzes.html')">Quizzes</button>
-    </div>
-  </div>
+  </section>
 
+  <nav class="navbar is-fixed-bottom" role="navigation" aria-label="main navigation">
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="#" onclick="loadPage('index.html')">Home</a>
+        <a class="navbar-item" href="#" onclick="loadPage('Redemptions/index.html')">Channel Redemptions</a>
+        <a class="navbar-item" href="#">Socials</a>
+        <a class="navbar-item" href="#">Quizzes</a>
+      </div>
+    </div>
+  </nav>
+  
   <script src="twitch-embed.js"></script>
   <script src="main.js"></script>
 </body>

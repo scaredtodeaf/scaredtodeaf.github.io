@@ -254,10 +254,12 @@ fetch('quiz-data.json')
     function playSecretVideo(videoSrc) {
       isSecretVideoPlaying = true; // Set the flag indicating a secret video is playing
       videoPlayer.src = videoSrc;
+      videoPlayer.style.display = 'block';
       videoPlayer.play();
       videoPlayer.addEventListener('ended', () => {
         isSecretVideoPlaying = false; // Reset the flag when the secret video ends
         videoPlayer.src = `QuizVideos/${video.ID}.webm`;
+        videoPlayer.style.display = 'hidden';
       });
     }
     
@@ -285,8 +287,8 @@ fetch('quiz-data.json')
         // Added code for secret video event listener
         answerInput.addEventListener('input', () => {
           const inputValue = answerInput.value.trim().toLowerCase();
-          if (inputValue === 'jamie') {
-            playSecretVideo('QuizVideos/Secret.webm');
+          if (inputValue === 'jam on toast') {
+            playSecretVideo('QuizVideos/PappiSecretSong.webm');
           }
         });
     

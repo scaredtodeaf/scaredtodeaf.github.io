@@ -1,56 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>VinylMinty's Official Site</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="main.js"></script>
+  <title>Redemptions</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-  <div class="container">
-    <div id="page-content">
-      <main>
-        <h1>Stream Sound Commands</h1>
-        <hr />
-        <h2>To use one of the Redemptions on stream, you can click on the command to hear/see what it does!</h2>
-        <ul class="category-list">
-			<li class="active" data-category="sfx">SFX</li>
-			<li data-category="media">Media</li>
-		  </ul>
-				 
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Redemptions</h1>
+      
+      <div class="buttons-container">
+        <div class="buttons has-addons">
+          <button class="button is-toggle is-active" data-category="sfx" onclick="toggleCategory('sfx')">SFX</button>
+          <button class="button is-toggle" data-category="media" onclick="toggleCategory('media')">Media</button>
+        </div>
+      </div>
+      
+      <div id="sfx-content" class="content-section">
+        <h2 class="title is-4">SFX</h2>
+        <div class="buttons">
+          <button class="button is-small" onclick="playSound('filmat11')">!filmat11 [Stauf] - "Reporter baffled by logic: film at 11!"</button>
+          <!-- Add more SFX buttons here -->
+        </div>
+      </div>
         
-        <div id="sfx-table" class="table-container active">
-          <h3>SFX Table</h3>
-		<a href="#" onclick="toggle_visibility(this);"><h1>7th Guest and 11th hour</h1></a>
-			<div class="sfx-group" id="guesthour">
-				<div name="!FilmAt11">[Stauf] - "Reporter Baffled By Logic: Film at 11!"</div>
-				<div name="!ObiWan">[Stauf] - "Even Obi Wan can't help you with this one, Carl.</div>
-				<div name="!StaufLaugh"> [Stauf] - "[The Best Evil Laugh There Is]"</div>
-				<div name="!blocks">[Stauf] - "[Imitating Sigmund Freud] Now did you have problems with blocks as a child, also?"</div>
-				<div name="!chilli">[Stauf] - "You're so gullible that if someone said 'It's chilly outside!'... You'd grab a bowl!"</div>
-				<div name="!lobotomy">[Stauf] - "Is a Frontal Lobotomy required for this activity?"</div>
-				<div name="!looneytunes">[Stauf] - "[Imitating Porky Pig] That's All Carl!"</div>
-				<div name="!solitaire">[Stauf] - "Maybeeee-- Solitaire, is a better game for you?!"</div>
-				<div name="!lonely">[Unknown Voice] - "Feeeeling.... Lonelllly?"</div>
-			</div>
-		<a href="#" onclick="toggle_visibility(this);"><h1>Banjo Kazooie</h1></a>
-			<div class="sfx-group" id="Banjo">
-				<div name="!guhguh">[Banjo] - "Guh huh"</div>
-				<div name="!getjiggywithit"> *Unused Jiggy Collect music*</div>
-			</div>
-        </div>
-        <div id="media-table" class="table-container">
-          <h3>Media Table</h3>
-          Media
-        </div>
-      </main>
+      <div id="media-content" class="content-section" style="display: none;">
+        <h2 class="title is-4">Media</h2>
+        <!-- Add media content here -->
+      </div>
     </div>
-    <div class="button-container">
-      <button id="main-page-btn" class="button">Main Page</button>
-      <button id="channel-redemptions-btn" class="button">Channel Redemptions</button>
-      <button id="socials-btn" class="button">Socials</button>
-      <button id="quizzes-btn" class="button">Quizzes</button>
+  </section>
+  
+  <nav class="navbar is-fixed-bottom" role="navigation" aria-label="main navigation">
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="../index.html">Home</a>
+        <a class="navbar-item" href="index.html">Channel Redemptions</a>
+        <a class="navbar-item" href="#">Socials</a>
+        <a class="navbar-item" href="#">Quizzes</a>
+      </div>
     </div>
-  </div>
+  </nav>
+  
+  <script src="../main.js"></script>
 </body>
 </html>
