@@ -314,6 +314,10 @@ fetch('quiz-data.json')
 					button.classList.add('selected');
 				}
 				currentSelectedButton = button;
+				
+				setTimeout(() => {
+					videoPlayer.play();
+				}, 500);
 			});
 			videoButtons.appendChild(button);
 		}
