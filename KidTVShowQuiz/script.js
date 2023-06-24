@@ -8,8 +8,6 @@ const playPauseButton = document.getElementById('play-pause-button');
 const rewindButton = document.getElementById('rewind-button');
 const volumeSlider = document.getElementById('volume-slider');
 
-const delay = ms => new Promise(res => setTimeout(res, ms));
-
 videoPlayer.src = 'QuizVideos/Welcome.webm';
 answerInput.addEventListener('input', checkAnswer);
 
@@ -67,15 +65,8 @@ function makeDistortionCurve(amount) {
 	return curve;
 }
 
+let nodes;
 let audioContext;
-let sourceNode;
-let distortionNode;
-let filterNode;
-let bitCrusherNode;
-let muffleGainNode;
-let compressorNode;
-let makeupGainNode;
-	
 function handleFirstClick(){
 	const thresholdValue = -10;
 	const ratioValue = 4;
@@ -84,21 +75,21 @@ function handleFirstClick(){
 	const bitDepth = 4;
 	
 	audioContext = new (window.AudioContext || window.webkitAudioContext)();
-	sourceNode = audioContext.createMediaElementSource(videoPlayer);
-	distortionNode = audioContext.createWaveShaper();
-	filterNode = audioContext.createBiquadFilter();
-	bitCrusherNode = audioContext.createScriptProcessor(4096, 1, 1);
-	muffleGainNode = audioContext.createGain();
-	compressorNode = audioContext.createDynamicsCompressor();
-	delayNode = audioContext.createDelay();
-	makeupGainNode = audioContext.createGain();
+	let sourceNode = audioContext.createMediaElementSource(videoPlayer);
+	let distortionNode = audioContext.createWaveShaper();
+	let filterNode = audioContext.createBiquadFilter();
+	let bitCrusherNode = audioContext.createScriptProcessor(4096, 1, 1);
+	let muffleGainNode = audioContext.createGain();
+	let compressorNode = audioContext.createDynamicsCompressor();
+	let delayNode = audioContext.createDelay();
+	let makeupGainNode = audioContext.createGain();
+	nodes = [sourceNode, distortionNode, filterNode, bitCrusherNode, muffleGainNode, compressorNode, makeupGainNode];
 	
-	distortionNode.curve = makeDistortionCurve(2000);
-	filterNode.type = "lowpass";
-	filterNode.frequency.value = 200;
-	muffleGainNode.gain.value = 0.01;
-	
-	bitCrusherNode.onaudioprocess = function (e) {
+	nodes[0].connect(audioContext.destination);
+	nodes[1].curve = makeDistortionCurve(2000);
+	nodes[2].type = "lowpass";
+	nodes[2].frequency.value = 200;
+	nodes[3].onaudioprocess = function (e) {
 		var inputBuffer = e.inputBuffer.getChannelData(0);
 		var outputBuffer = e.outputBuffer.getChannelData(0);
 		for (var i = 0; i < inputBuffer.length; i++) {
@@ -106,22 +97,16 @@ function handleFirstClick(){
 			outputBuffer[i] = Math.round(inputBuffer[i] / step) * step;
 		}
 	};
-	
-	compressorNode.threshold.setValueAtTime(thresholdValue, audioContext.currentTime);
-	compressorNode.ratio.setValueAtTime(ratioValue, audioContext.currentTime);
-	compressorNode.attack.setValueAtTime(attackValue, audioContext.currentTime);
-	compressorNode.release.setValueAtTime(releaseValue, audioContext.currentTime);
-	
-	sourceNode.connect(audioContext.destination);
+	nodes[4].gain.value = 0.01;
+	nodes[5].threshold.setValueAtTime(thresholdValue, audioContext.currentTime);
+	nodes[5].ratio.setValueAtTime(ratioValue, audioContext.currentTime);
+	nodes[5].attack.setValueAtTime(attackValue, audioContext.currentTime);
+	nodes[5].release.setValueAtTime(releaseValue, audioContext.currentTime);
 	
 	document.removeEventListener("click", handleFirstClick);
 }
 
 document.addEventListener("click", handleFirstClick);
-
-//document.addEventListener('contextmenu', function(e){
-//	e.preventDefault();
-//});
 
 function checkAnswer() {
 	const inputValue = prepMatch(answerInput.value); // Use answerInput.value
@@ -207,7 +192,7 @@ function loadProgress() {
 
 let currentSelectedButton = null;
 
-let makeupGainValue = null;
+let makeupGain = null;
 
 fetch('quiz-data.json')
 .then(response => response.json())
@@ -219,26 +204,25 @@ fetch('quiz-data.json')
 		
 		videoPlayer.addEventListener('timeupdate', () => {
 			if (!currentSelectedButton.classList.contains('correct-answer') && shouldDistVideo(video.ID, videoPlayer.currentTime)) {
-				if (sourceNode.isConnected || sourceNode.numberOfOutputs > 0) {
-					makeupGainNode.gain.value = makeupGainValue;
-					sourceNode.disconnect();
-					sourceNode.connect(distortionNode);
-					distortionNode.connect(filterNode);
-					filterNode.connect(bitCrusherNode);
-					bitCrusherNode.connect(muffleGainNode);
-					muffleGainNode.connect(compressorNode);
-					compressorNode.connect(makeupGainNode);
-					makeupGainNode.connect(audioContext.destination);
+				if (nodes[0].isConnected || nodes[0].numberOfOutputs > 0) {
+					nodes[6].gain.value = makeupGain;
+					
+					nodes[0].disconnect();
+					
+					nodes.forEach((node, index) => {
+						if (index < nodes.length - 1) {
+							node.connect(nodes[index + 1]);
+						} else {
+							node.connect(audioContext.destination);
+						}
+					});
 				}
 			} else {
-				if (!sourceNode.isConnected || sourceNode.numberOfOutputs === 0) {
-					makeupGainNode.disconnect();
-					compressorNode.disconnect();
-					muffleGainNode.disconnect();
-					bitCrusherNode.disconnect();
-					filterNode.disconnect();
-					distortionNode.disconnect();
-					sourceNode.connect(audioContext.destination);
+				if (!nodes[0].isConnected || nodes[0].numberOfOutputs === 0) {
+					for (let i = (nodes.length - 1); i > 0; i--) {
+						nodes[i].disconnect();
+					}
+					nodes[0].connect(audioContext.destination);
 				}
 			}
 		});
@@ -250,11 +234,10 @@ fetch('quiz-data.json')
 				const intervals = muteIntervals[videoID];
 				for (const interval of intervals) {
 					if (currentTime >= interval.start && currentTime <= interval.end) {
-						makeupGainValue = interval.gain;
+						makeupGain = interval.gain;
 						return true;
 					}
 				}
-				makeupGainValue = null;
 				return false;
 			}
 		}
@@ -317,7 +300,11 @@ fetch('quiz-data.json')
 				
 				setTimeout(() => {
 					videoPlayer.play();
-				}, 500);
+					
+					if (playPauseButton.innerText = 'Play') {
+						playPauseButton.innerText = 'Pause';
+					}
+				}, 200);
 			});
 			videoButtons.appendChild(button);
 		}
@@ -383,6 +370,29 @@ fetch('quiz-data.json')
 			clearInterval(hintTimer);
 		});
 		
+		videoPlayer.addEventListener('ended', () => {
+			if (!isSecretVideoPlaying) {
+				videoPlayer.currentTime = 0;
+				
+				if (playPauseButton.innerText = 'Pause') {
+					playPauseButton.innerText = 'Play';
+				}
+			} else {
+				isSecretVideoPlaying = false; // Reset the flag when the secret video ends
+				answerInput.disabled = false;
+				videoPlayer.src = `QuizVideos/${video.ID}.webm`;
+				videoPlayer.currentTime = 0;
+				
+				if (playPauseButton.innerText = 'Pause') {
+					playPauseButton.innerText = 'Play';
+				}
+				
+				if (!currentSelectedButton.classList.contains('correct-answer')) {
+					videoPlayer.style.display = 'none';
+				}
+			}
+		});
+		
 		function playSecretVideo(videoSrc) {
 			isSecretVideoPlaying = true; // Set the flag indicating a secret video is playing
 			answerInput.disabled = true;
@@ -402,16 +412,6 @@ fetch('quiz-data.json')
 			setTimeout(() => {
 				answerFeedback.innerText = ''
 			}, 7600);
-			
-			videoPlayer.addEventListener('ended', () => {
-				isSecretVideoPlaying = false; // Reset the flag when the secret video ends
-				answerInput.disabled = false;
-				videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-				
-				if (!button.classList.contains('correct-answer')) {
-					videoPlayer.style.display = 'none';
-				}
-			});	
 		}
 		
 		// Updated showHint function
