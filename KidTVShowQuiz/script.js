@@ -62,11 +62,11 @@ function hFirstCall(){
 		var inputBuffer = e.inputBuffer.getChannelData(0);
 		var outputBuffer = e.outputBuffer.getChannelData(0);
 		for (var i = 0; i < inputBuffer.length; i++) {
-			var step = Math.pow(1 / 2, 4);
+			var step = Math.pow(1 / 2, 2);
 			outputBuffer[i] = Math.round(inputBuffer[i] / step) * step;
 		}
 	};
-	nodes[4].gain.value = 0.01;
+	nodes[4].gain.value = 0.005;
 	nodes[5].threshold.setValueAtTime(-10, audCnt.currentTime);
 	nodes[5].ratio.setValueAtTime(4, audCnt.currentTime);
 	nodes[5].attack.setValueAtTime(0.003, audCnt.currentTime);
@@ -307,25 +307,50 @@ fetch('quiz-data.json')
 		});
 		
 		videoPlayer.addEventListener('timeupdate', () => {
-			if (!curSelButton.classList.contains('correct-answer') && shouldDistVideo(video.ID, videoPlayer.currentTime)) {
-				if (nodes[0].isConnected || nodes[0].numberOfOutputs > 0) {
-					nodes[0].disconnect();
-					nodes[6].gain.value = mGain;
-					
-					nodes.forEach((node, index) => {
-						if (index < nodes.length - 1) {
-							node.connect(nodes[index + 1]);
-						} else {
-							node.connect(audCnt.destination);
+			const matchRegex = new RegExp('(Welcome)');
+			if (!matchRegex.test(videoPlayer.currentSrc)) {
+				if (!curSelButton.classList.contains('correct-answer') && shouldDistVideo(video.ID, videoPlayer.currentTime)) {
+					if (nodes[0].isConnected || nodes[0].numberOfOutputs > 0) {
+						nodes[0].disconnect();
+						nodes[6].gain.value = mGain;
+						
+						nodes.forEach((node, index) => {
+							if (index < nodes.length - 1) {
+								node.connect(nodes[index + 1]);
+							} else {
+								node.connect(audCnt.destination);
+							}
+						});
+					}
+				} else {
+					if (!nodes[0].isConnected || nodes[0].numberOfOutputs === 0) {
+						for (let i = (nodes.length - 1); i > 0; i--) {
+							nodes[i].disconnect();
 						}
-					});
+						nodes[0].connect(audCnt.destination);
+					}
 				}
 			} else {
-				if (!nodes[0].isConnected || nodes[0].numberOfOutputs === 0) {
-					for (let i = (nodes.length - 1); i > 0; i--) {
-						nodes[i].disconnect();
+				if (shouldDistVideo('Welcome', videoPlayer.currentTime)) {
+					if (nodes[0].isConnected || nodes[0].numberOfOutputs > 0) {
+						nodes[0].disconnect();
+						nodes[6].gain.value = mGain;
+						
+						nodes.forEach((node, index) => {
+							if (index < nodes.length - 1) {
+								node.connect(nodes[index + 1]);
+							} else {
+								node.connect(audCnt.destination);
+							}
+						});
 					}
-					nodes[0].connect(audCnt.destination);
+				} else {
+					if (!nodes[0].isConnected || nodes[0].numberOfOutputs === 0) {
+						for (let i = (nodes.length - 1); i > 0; i--) {
+							nodes[i].disconnect();
+						}
+						nodes[0].connect(audCnt.destination);
+					}
 				}
 			}
 		});
@@ -437,26 +462,26 @@ fetch('quiz-data.json')
 		});
 		
 		videoPlayer.addEventListener('timeupdate', () => {
-			const halfDuration = videoPlayer.duration / 2;
-			if (videoPlayer.currentTime > halfDuration && !hintAvailable && !hintShown && !isSecretVideoPlaying) {
-				hintAvailable = true;
-				const buttons = document.querySelectorAll('#button-grid button');
-				for (const button of buttons) {
-					if (button.videoData === video) {
-						button.hintAvailable = true;
-					}
+			const matchRegex = new RegExp('(Welcome)');
+			
+			if (!matchRegex.test(videoPlayer.currentSrc)) {
+				const halfDuration = videoPlayer.duration / 2;
+				if (videoPlayer.currentTime > halfDuration && !hintAvailable && !hintShown && !isSecretVideoPlaying) {
+					curSelButton.hintAvailable, hintAvailable = true;
+					
+					clearInterval(hintTimer);
+					hintLabel.innerText = 'Hint Available - Click here';
+					hintLabel.style.color = '#AAB4BE';
+					hintLabel.addEventListener('click', showHint);
 				}
-				
-				clearInterval(hintTimer);
-				hintLabel.innerText = 'Hint Available - Click here';
-				hintLabel.style.color = '#AAB4BE';
-				hintLabel.addEventListener('click', showHint);
 			}
 		});
 		
 		videoPlayer.addEventListener('play', () => {
 			hintTimer = setInterval(() => {
-				if (isSecretVideoPlaying) {
+				const matchRegex = new RegExp('(Welcome)');
+				
+				if (isSecretVideoPlaying || matchRegex.test(videoPlayer.currentSrc)) {
 					hintLabel.innerText = '';
 					clearInterval(hintTimer);
 				} else {
