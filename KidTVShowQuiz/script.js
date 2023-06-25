@@ -93,7 +93,28 @@ fetch('quiz-data.json')
 		let sHint;
 		let sRemaining;
 		let sVideos = [
-			{'sWord': 'Jam on Toast', 'sID': 'PappiSecretSong', 'sHint': 'It\'s Jamie\'s favourite breakfast treat!', 'sGuessed': false}
+			{'sWord': 'Jam on Toast', 'sID': 'PappiSecretSong', 'sHint': 'It\'s Jamie\'s favourite breakfast treat!', 'sGuessed': false},
+			{'sWord': 'Graham', 'sID': 'SecretBear', 'sHint': 'A cracker which shares its name with a King\'s Quest character!', 'sGuessed': false},
+			{'sWord': 'Big Kev', 'sID': 'SecretBigKev', 'sHint': 'Expect the unexpected when a larger-than-life personality sells YOU products!', 'sGuessed': false},
+			{'sWord': 'Bob', 'sID': 'SecretBob', 'sHint': 'If you want some construction work done, he\'s who you call!', 'sGuessed': false},
+			{'sWord': 'Wendy', 'sID': 'SecretBurger', 'sHint': 'Does she deliver the best burgers around?!', 'sGuessed': false},
+			{'sWord': 'Chex', 'sID': 'SecretChex', 'sHint': 'Gear up, cereal warrior, and vanquish hunger\'s alien invasion. Now with a free CD!', 'sGuessed': false},
+			{'sWord': 'Starburst', 'sID': 'SecretCream', 'sHint': 'Taste the explosive burst of fruity supernovas in every chew.', 'sGuessed': false},
+			{'sWord': 'Drugs', 'sID': 'SecretDrugs', 'sHint': 'It all originated from a TV Campaign! This is your brain on...', 'sGuessed': false},
+			{'sWord': 'Door', 'sID': 'SecretDoor', 'sHint': 'If Bill Gates hadn\'t made Windows, he may have made this!', 'sGuessed': false},
+			{'sWord': 'Duracell', 'sID': 'SecretDuracell', 'sHint': 'It\'s the battery that lasts, apparently!', 'sGuessed': false},
+			{'sWord': 'Cigar', 'sID': 'SecretHamlet', 'sHint': 'Smoke swirls, shadows deepen... A moment frozen in cinematic allure.', 'sGuessed': false},
+			{'sWord': 'McDonalds', 'sID': 'SecretMaccas', 'sHint': 'You can get all these delicious items for a DOLLAR here?!', 'sGuessed': false},
+			{'sWord': 'Milk', 'sID': 'SecretMilk', 'sHint': 'Got cookies? It\'s got your back... Unless you\'re intolerant!', 'sGuessed': false},
+			{'sWord': 'Pikachu', 'sID': 'SecretPokemon', 'sHint': 'This character often comes top in \'Pocket Monster\' polls.', 'sGuessed': false},
+			{'sWord': 'Shreddies', 'sID': 'SecretShreddies', 'sHint': 'It\'s the only cereal that\'s \'knitted\'!', 'sGuessed': false},
+			{'sWord': 'Samboy', 'sID': 'SecretSamboy', 'sHint': 'Embrace the crunch that packs a flavor punch like no other.', 'sGuessed': false},
+			{'sWord': 'Sega', 'sID': 'SecretSonic', 'sHint': 'Nintendo\'s arch rivals in the gaming industry, for a while.', 'sGuessed': false},
+			{'sWord': 'Water', 'sID': 'SecretSoaker', 'sHint': 'You want it, you need it? H20 has got it!', 'sGuessed': false},
+			{'sWord': 'Sprite', 'sID': 'SecretSprite', 'sHint': 'Quench your thirst with a sparkling sprite of citrus delight.', 'sGuessed': false},
+			{'sWord': 'Mickey Mouse', 'sID': 'SecretYazhee', 'sHint': 'This character fronted a big-name studio\'s first foray into animation!', 'sGuessed': false},
+			{'sWord': 'Yogurt', 'sID': 'SecretYop', 'sHint': 'Milk\'s rebellious sibling: It\'s milk gone wild... IT\'S ALIVE!!!', 'sGuessed': false},
+			{'sWord': 'Zelda', 'sID': 'SecretZelda', 'sHint': 'Courage, a green tunic, and a legendary quest await.', 'sGuessed': false}
 		];
 		let sVideosBuffer;
 		
@@ -186,6 +207,7 @@ fetch('quiz-data.json')
 				
 				answerFeedback.style.color = 'green';
 				answerInput.disabled = true;
+				answerInput.value = '';
 				videoPlayer.style.display = 'block';
 				videoPlayer.play();
 				
