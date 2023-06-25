@@ -8,49 +8,23 @@ const playPauseButton = document.getElementById('play-pause-button');
 const rewindButton = document.getElementById('rewind-button');
 const volumeSlider = document.getElementById('volume-slider');
 
-videoPlayer.src = 'QuizVideos/Welcome.webm';
-answerInput.addEventListener('input', checkAnswer);
-
-answerInput.addEventListener('keydown', (event) => {
-	if (event.key === 'Enter') {
-		var inputCheck = checkNumber(answerInput.value);
-		
-		if (!inputCheck[0]) {
-			answerFeedback.innerText = 'Incorrect.';
-			answerFeedback.style.color = 'red';
-			SFXHandler(1, 'WrongAns');
-		} else {
-			answerInput.value = '';
-			videoPlayer.currentTime = inputCheck[1];
-			
-			if (videoPlayer.paused) {
-				videoPlayer.play();
-			}
-		}
-	}
-});
-
-answerInput.form.addEventListener('submit', (event) => {
-	event.preventDefault();
-});
-
-function checkNumber(matchText) {
-	var specialRegex = /[^a-zA-Z0-9]/g;
-	var numRegex = /^[0-9]+$/;
-	var stripText = matchText.replace(specialRegex, '')
+function checkNumber(mText) {
+	var sRegx = /[^a-zA-Z0-9]/g;
+	var nRegx = /^[0-9]+$/;
+	var sText = mText.replace(sRegx, '')
 	
-	if (numRegex.test(stripText)) {
-		return [true, stripText];
+	if (nRegx.test(sText)) {
+		return [true, sText];
 	} else {
-		return [false, stripText];
+		return [false, sText];
 	}
 }
 
-function prepMatch(matchText) {
-	return String(matchText).replace(/[^0-9a-z]+/gi, '').toLowerCase();
+function prepMatch(mText) {
+	return String(mText).replace(/[^0-9a-z]+/gi, '').toLowerCase();
 }
 
-function makeDistortionCurve(amount) {
+function mkDistCurve(amount) {
 	const k = typeof amount === 'number' ? amount : 50;
 	const n_samples = 44100;
 	const curve = new Float32Array(n_samples);
@@ -66,133 +40,42 @@ function makeDistortionCurve(amount) {
 }
 
 let nodes;
-let audioContext;
-function handleFirstClick(){
-	const thresholdValue = -10;
-	const ratioValue = 4;
-	const attackValue = 0.003;
-	const releaseValue = 0.25;
-	const bitDepth = 4;
+let audCnt;
+function hFirstCall(){
+	audCnt = new (window.AudioContext || window.webkitAudioContext)();
+	let srceNd = audCnt.createMediaElementSource(videoPlayer);
+	let distNd = audCnt.createWaveShaper();
+	let filtNd = audCnt.createBiquadFilter();
+	let bitCNd = audCnt.createScriptProcessor(4096, 1, 1);
+	let mfGnNd = audCnt.createGain();
+	let compNd = audCnt.createDynamicsCompressor();
+	let mtGnNd = audCnt.createGain();
+	nodes = [srceNd, distNd, filtNd, bitCNd, mfGnNd, compNd, mtGnNd];
 	
-	audioContext = new (window.AudioContext || window.webkitAudioContext)();
-	let sourceNode = audioContext.createMediaElementSource(videoPlayer);
-	let distortionNode = audioContext.createWaveShaper();
-	let filterNode = audioContext.createBiquadFilter();
-	let bitCrusherNode = audioContext.createScriptProcessor(4096, 1, 1);
-	let muffleGainNode = audioContext.createGain();
-	let compressorNode = audioContext.createDynamicsCompressor();
-	let delayNode = audioContext.createDelay();
-	let makeupGainNode = audioContext.createGain();
-	nodes = [sourceNode, distortionNode, filterNode, bitCrusherNode, muffleGainNode, compressorNode, makeupGainNode];
-	
-	nodes[0].connect(audioContext.destination);
-	nodes[1].curve = makeDistortionCurve(2000);
+	nodes[0].connect(audCnt.destination);
+	nodes[1].curve = mkDistCurve(2000);
 	nodes[2].type = "lowpass";
 	nodes[2].frequency.value = 200;
 	nodes[3].onaudioprocess = function (e) {
 		var inputBuffer = e.inputBuffer.getChannelData(0);
 		var outputBuffer = e.outputBuffer.getChannelData(0);
 		for (var i = 0; i < inputBuffer.length; i++) {
-			var step = Math.pow(1 / 2, bitDepth);
+			var step = Math.pow(1 / 2, 4);
 			outputBuffer[i] = Math.round(inputBuffer[i] / step) * step;
 		}
 	};
 	nodes[4].gain.value = 0.01;
-	nodes[5].threshold.setValueAtTime(thresholdValue, audioContext.currentTime);
-	nodes[5].ratio.setValueAtTime(ratioValue, audioContext.currentTime);
-	nodes[5].attack.setValueAtTime(attackValue, audioContext.currentTime);
-	nodes[5].release.setValueAtTime(releaseValue, audioContext.currentTime);
+	nodes[5].threshold.setValueAtTime(-10, audCnt.currentTime);
+	nodes[5].ratio.setValueAtTime(4, audCnt.currentTime);
+	nodes[5].attack.setValueAtTime(0.003, audCnt.currentTime);
+	nodes[5].release.setValueAtTime(0.25, audCnt.currentTime);
 	
-	document.removeEventListener("click", handleFirstClick);
+	document.removeEventListener("click", hFirstCall);
 }
 
-document.addEventListener("click", handleFirstClick);
+document.addEventListener("click", hFirstCall);
 
-function checkAnswer() {
-	const inputValue = prepMatch(answerInput.value); // Use answerInput.value
-	let isMatch = false;
-	for (const keyword of video.Keywords) {
-		if (inputValue === prepMatch(keyword)) {
-			isMatch = true;
-			break;
-		}
-	}
-	
-	if (isMatch) {
-		answerFeedback.innerText = `Correct! The TV Show was ${video.Name}!`;
-		answerFeedback.style.color = 'green';
-		answerInput.disabled = true;
-		videoPlayer.style.display = 'block';
-		videoPlayer.play();
-		
-		const buttons = document.querySelectorAll('#button-grid button');
-		for (const button of buttons) {
-			if (button.videoData === video) {
-				button.classList.add('correct-answer');
-				//button.disabled = true;
-				button.style.backgroundColor = 'green';
-				SFXHandler(1, 'RightAns');
-				button.innerText = button.videoData.Name;
-			}
-		}
-		
-		hintAvailable = false;
-		hintShown = false;
-		currentHint = '';
-		saveProgress();
-	
-		// Show the video when the answer is correct
-		videoPlayer.classList.remove('hidden-video');
-		videoPlayer.currentTime = 0;
-		videoPlayer.play();
-	}
-}
-
-function saveProgress() {
-	const progress = [];
-	const buttons = document.querySelectorAll('#button-grid button');
-	for (const button of buttons) {
-		const buttonData = {
-			id: button.videoData.ID,
-			hintAvailable: button.hintAvailable,
-			hintShown: button.hintShown,
-			currentHint: button.currentHint
-		};
-		
-		if (button.classList.contains('correct-answer')) {
-			buttonData.isCorrect = true;
-		}
-		progress.push(buttonData);
-	}
-	localStorage.setItem('KidquizProgress', JSON.stringify(progress));
-}
-
-function loadProgress() {
-	const savedProgress = localStorage.getItem('KidquizProgress');
-	if (savedProgress) {
-		const progress = JSON.parse(savedProgress);
-		const buttons = document.querySelectorAll('#button-grid button');
-		for (const button of buttons) {
-			const buttonData = progress.find((data) => data.id === button.videoData.ID);
-			if (buttonData) {
-				if (buttonData.isCorrect) {
-					button.classList.add('correct-answer');
-					//button.disabled = true;
-					button.style.backgroundColor = 'green';
-					button.innerText = button.videoData.Name;
-				}
-				
-				button.hintAvailable = buttonData.hintAvailable;
-				button.hintShown = buttonData.hintShown;
-				button.currentHint = buttonData.currentHint;
-			}
-		}
-	}
-}
-
-let currentSelectedButton = null;
-
-let makeupGain = null;
+videoPlayer.src = 'QuizVideos/Welcome.webm';
 
 fetch('quiz-data.json')
 .then(response => response.json())
@@ -200,20 +83,205 @@ fetch('quiz-data.json')
 	fetch('mute_intervals.json')
 	.then((response) => response.json())
 	.then((muteIntervals) => {
+		const hintLabel = document.getElementById('hint');
+		let curSelButton = null;
+		let hintTimer;
 		let isSecretVideoPlaying = false;
+		let mGain;
+		let sHint;
+		let sRemaining;
+		let sVideos = [
+			{'sWord': 'Jam on Toast', 'sID': 'PappiSecretSong', 'sHint': 'It\'s Jamie\'s favourite breakfast treat!', 'sGuessed': false}
+		];
+		let sVideosBuffer;
+		
+		let currentHint = '';
+		let hintAvailable = false;
+		let hintShown = false;
+		
+		answerInput.addEventListener('input', checkAnswer);
+		
+		answerInput.addEventListener('keydown', (event) => {
+			if (event.key === 'Enter') {
+				var inputCheck = checkNumber(answerInput.value);
+				
+				if (!inputCheck[0]) {
+					answerFeedback.innerText = 'Incorrect.';
+					answerFeedback.style.color = 'red';
+					SFXHandler(1, 'WrongAns');
+				} else {
+					answerInput.value = '';
+					videoPlayer.currentTime = inputCheck[1];
+					
+					if (videoPlayer.paused) {
+						videoPlayer.play();
+					}
+				}
+			}
+		});
+		
+		answerInput.form.addEventListener('submit', (event) => {
+			event.preventDefault();
+		});
+		
+		function getRandomIndex(iArr) {
+			if (Array.isArray(iArr)) {
+				const mIndex = iArr.length - 1;
+				const rIndex = Math.floor(Math.random() * (mIndex + 1));
+				return rIndex;
+			} else {
+				return false;
+			}
+		}
+		
+		function checkAnswer() {
+			const inputValue = prepMatch(answerInput.value);
+			let isMatch = false;
+			let isSecret = false;
+			let sID;
+			
+			for (let i = 0; i < sVideos.length; i++) {
+				if (inputValue === prepMatch(sVideos[i].sWord)) {
+					isSecret = true;
+					sVideos[i].sGuessed = true;
+					sID = sVideos[i].sID;
+					//saveProgress();
+					break;
+				}
+			}
+			
+			if (!isSecret) {
+				for (const keyword of video.Keywords) {
+					if (inputValue === prepMatch(keyword)) {
+						isMatch = true;
+						break;
+					}
+				}
+			}
+			
+			if (isMatch) {
+				sRemaining = 0;
+				sVideosBuffer = [];
+				
+				for (let i = 0; i < sVideos.length; i++) {
+					if (sVideos[i].sGuessed === false) {
+						sVideosBuffer.push(sVideos[i].sHint);
+						sRemaining += 1;
+					}
+				}
+				
+				if (sRemaining > 0) {
+					var sIndex = getRandomIndex(sVideosBuffer);
+					sHint = sVideosBuffer[sIndex];
+					answerFeedback.innerText = `Correct! The TV Show was ${video.Name}! ...Secret Hint: ${sHint}`;
+				} else {
+					answerFeedback.innerText = `Correct! The TV Show was ${video.Name}!`;
+				}
+				
+				answerFeedback.style.color = 'green';
+				answerInput.disabled = true;
+				videoPlayer.style.display = 'block';
+				videoPlayer.play();
+				
+				curSelButton.classList.add('correct-answer');
+				curSelButton.style.backgroundColor = 'green';
+				curSelButton.innerText = curSelButton.videoData.Name;
+				SFXHandler(1, 'RightAns');
+				
+				curSelButton.hintAvailable = true;
+				hintAvailable = curSelButton.hintAvailable;
+				saveProgress();
+				
+				if (hintAvailable && !hintShown) {
+					hintLabel.innerText = 'Hint Available - Click here';
+					hintLabel.addEventListener('click', showHint);
+				} else if (hintShown) {
+					hintLabel.innerText = `Hint: ${currentHint}`;
+				} else {
+					hintLabel.innerText = '';
+					hintLabel.removeEventListener('click', showHint);
+				}
+				
+				videoPlayer.classList.remove('hidden-video');
+				videoPlayer.currentTime = 0;
+				videoPlayer.play();
+			} else {
+				if (isSecret) {
+					isSecretVideoPlaying = true;
+					answerInput.disabled = true;
+					answerInput.value = '';
+					videoPlayer.pause();
+					
+					answerFeedback.innerText = 'You\'ve found a secret!';
+					answerFeedback.style.color = 'gold';
+					SFXHandler(1, 'SecretAns');
+					
+					setTimeout(() => {
+						videoPlayer.src = `QuizVideos/${sID}.webm`;
+						videoPlayer.style.display = 'block';
+						videoPlayer.play();
+					}, 3800);
+					
+					setTimeout(() => {
+						answerFeedback.innerText = ''
+					}, 7600);
+				}
+			}
+		}
+		
+		function saveProgress() {
+			const progress = [];
+			const buttons = document.querySelectorAll('#button-grid button');
+			for (const button of buttons) {
+				const buttonData = {
+					id: button.videoData.ID,
+					hintAvailable: button.hintAvailable,
+					hintShown: button.hintShown,
+					currentHint: button.currentHint
+				};
+		
+				if (button.classList.contains('correct-answer')) {
+					buttonData.isCorrect = true;
+				}
+				progress.push(buttonData);
+			}
+			localStorage.setItem('KidquizProgress', JSON.stringify(progress));
+		}
+		
+		function loadProgress() {
+			const savedProgress = localStorage.getItem('KidquizProgress');
+			if (savedProgress) {
+				const progress = JSON.parse(savedProgress);
+				const buttons = document.querySelectorAll('#button-grid button');
+				for (const button of buttons) {
+					const buttonData = progress.find((data) => data.id === button.videoData.ID);
+					if (buttonData) {
+						if (buttonData.isCorrect) {
+							button.classList.add('correct-answer');
+							//button.disabled = true;
+							button.style.backgroundColor = 'green';
+							button.innerText = button.videoData.Name;
+						}
+						
+						button.hintAvailable = buttonData.hintAvailable;
+						button.hintShown = buttonData.hintShown;
+						button.currentHint = buttonData.currentHint;
+					}
+				}
+			}
+		}
 		
 		videoPlayer.addEventListener('timeupdate', () => {
-			if (!currentSelectedButton.classList.contains('correct-answer') && shouldDistVideo(video.ID, videoPlayer.currentTime)) {
+			if (!curSelButton.classList.contains('correct-answer') && shouldDistVideo(video.ID, videoPlayer.currentTime)) {
 				if (nodes[0].isConnected || nodes[0].numberOfOutputs > 0) {
-					nodes[6].gain.value = makeupGain;
-					
 					nodes[0].disconnect();
+					nodes[6].gain.value = mGain;
 					
 					nodes.forEach((node, index) => {
 						if (index < nodes.length - 1) {
 							node.connect(nodes[index + 1]);
 						} else {
-							node.connect(audioContext.destination);
+							node.connect(audCnt.destination);
 						}
 					});
 				}
@@ -222,7 +290,7 @@ fetch('quiz-data.json')
 					for (let i = (nodes.length - 1); i > 0; i--) {
 						nodes[i].disconnect();
 					}
-					nodes[0].connect(audioContext.destination);
+					nodes[0].connect(audCnt.destination);
 				}
 			}
 		});
@@ -234,7 +302,7 @@ fetch('quiz-data.json')
 				const intervals = muteIntervals[videoID];
 				for (const interval of intervals) {
 					if (currentTime >= interval.start && currentTime <= interval.end) {
-						makeupGain = interval.gain;
+						mGain = interval.gain;
 						return true;
 					}
 				}
@@ -296,7 +364,8 @@ fetch('quiz-data.json')
 				if (!button.classList.contains('correct-answer')) {
 					button.classList.add('selected');
 				}
-				currentSelectedButton = button;
+				
+				curSelButton = button;
 				
 				setTimeout(() => {
 					videoPlayer.play();
@@ -322,15 +391,15 @@ fetch('quiz-data.json')
 		rewindButton.addEventListener('click', () => {
 			videoPlayer.currentTime = 0;
 			videoPlayer.pause();
-			playPauseButton.innerText = 'Play';
+			
+			if (playPauseButton.innerText = 'Pause') {
+				playPauseButton.innerText = 'Play';
+			}
 		});
 		
 		volumeSlider.addEventListener('input', () => {
 			videoPlayer.volume = volumeSlider.value;
 		});
-		
-		const hintLabel = document.getElementById('hint');
-		let hintTimer;
 		
 		videoPlayer.addEventListener('timeupdate', () => {
 			const halfDuration = videoPlayer.duration / 2;
@@ -351,17 +420,18 @@ fetch('quiz-data.json')
 		});
 		
 		videoPlayer.addEventListener('play', () => {
-			// Countdown timer for the hint
 			hintTimer = setInterval(() => {
-				if (!hintAvailable && !hintShown && !isSecretVideoPlaying) {
-					const remainingTime = (videoPlayer.duration / 2) - videoPlayer.currentTime;
-					hintLabel.innerText = `You can click here for the hint in ${Math.ceil(remainingTime)} seconds`;
-					hintLabel.style.color = '#AAB4BE';
-				} else {
-					if (isSecretVideoPlaying) {
-						hintLabel.innerText = '';
-					}
+				if (isSecretVideoPlaying) {
+					hintLabel.innerText = '';
 					clearInterval(hintTimer);
+				} else {
+					if (!hintAvailable && !hintShown) {
+						const remainingTime = (videoPlayer.duration / 2) - videoPlayer.currentTime;
+						hintLabel.innerText = `You can click here for the hint in ${Math.ceil(remainingTime)} seconds`;
+						hintLabel.style.color = '#AAB4BE';
+					} else {
+						clearInterval(hintTimer);
+					}
 				}
 			}, 1000);
 		});
@@ -378,7 +448,7 @@ fetch('quiz-data.json')
 					playPauseButton.innerText = 'Play';
 				}
 			} else {
-				isSecretVideoPlaying = false; // Reset the flag when the secret video ends
+				isSecretVideoPlaying = false;
 				answerInput.disabled = false;
 				videoPlayer.src = `QuizVideos/${video.ID}.webm`;
 				videoPlayer.currentTime = 0;
@@ -387,60 +457,29 @@ fetch('quiz-data.json')
 					playPauseButton.innerText = 'Play';
 				}
 				
-				if (!currentSelectedButton.classList.contains('correct-answer')) {
+				if (!curSelButton.classList.contains('correct-answer')) {
 					videoPlayer.style.display = 'none';
 				}
 			}
 		});
 		
-		function playSecretVideo(videoSrc) {
-			isSecretVideoPlaying = true; // Set the flag indicating a secret video is playing
-			answerInput.disabled = true;
-			answerInput.value = '';
-			videoPlayer.pause();
-			
-			answerFeedback.innerText = 'You\'ve found a secret!';
-			answerFeedback.style.color = 'gold';
-			SFXHandler(1, 'SecretAns');
-			
-			setTimeout(() => {
-				videoPlayer.src = videoSrc;
-				videoPlayer.style.display = 'block';
-				videoPlayer.play();
-			}, 3800);
-			
-			setTimeout(() => {
-				answerFeedback.innerText = ''
-			}, 7600);
-		}
-		
-		// Updated showHint function
 		function showHint() {
 			if(!isSecretVideoPlaying) {
 				if (!hintShown) {
 					hintShown = true;
-					currentHint = currentSelectedButton.videoData.Hint;
-					
+					currentHint = curSelButton.videoData.Hint;
+
 					hintLabel.innerText = `Hint: ${currentHint}`;
 					hintLabel.style.color = '#AAB4BE';
 					
-					// Update the button's hintShown and currentHint properties
-					if (currentSelectedButton) {
-						currentSelectedButton.hintShown = true;
-						currentSelectedButton.currentHint = currentHint;
+					if (curSelButton) {
+						curSelButton.hintShown = true;
+						curSelButton.currentHint = currentHint;
 						saveProgress();
 					}
 				}
 			}
 		}
-		
-		// Added code for secret video event listener
-		answerInput.addEventListener('input', () => {
-			const inputValue = answerInput.value.trim().toLowerCase();
-			if (inputValue === 'jam on toast') {
-				playSecretVideo('QuizVideos/PappiSecretSong.webm');
-			}
-		});
 		
 		loadProgress();
 	});
