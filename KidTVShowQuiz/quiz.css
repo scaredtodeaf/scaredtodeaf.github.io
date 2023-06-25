@@ -143,6 +143,19 @@ button:hover {
 	cursor: none;
 }
 
+#button-grid {
+	display: grid;
+	grid-template-columns: repeat(5,1fr);
+	grid-gap: 10px;
+	margin: 20px auto;
+	width: 90%;
+}
+
+#clear-data-button {
+	margin: 20px auto;
+	width: 90%;
+}
+
 .hidden-video {
 	display: none;
 }

@@ -8,6 +8,8 @@ const playPauseButton = document.getElementById('play-pause-button');
 const rewindButton = document.getElementById('rewind-button');
 const volumeSlider = document.getElementById('volume-slider');
 
+const clearDataButton = document.getElementById('clear-data-button');
+
 function checkNumber(mText) {
 	var sRegx = /[^a-zA-Z0-9]/g;
 	var nRegx = /^[0-9]+$/;
@@ -141,18 +143,22 @@ fetch('quiz-data.json')
 			let sID;
 			
 			for (let i = 0; i < sVideos.length; i++) {
-				if (inputValue === prepMatch(sVideos[i].sWord)) {
+				const matchRegex = new RegExp(`(${prepMatch(sVideos[i].sWord)})`);
+				
+				if (matchRegex.test(inputValue)) {
 					isSecret = true;
 					sVideos[i].sGuessed = true;
 					sID = sVideos[i].sID;
-					//saveProgress();
+					saveProgress();
 					break;
 				}
 			}
 			
 			if (!isSecret) {
 				for (const keyword of video.Keywords) {
-					if (inputValue === prepMatch(keyword)) {
+					const matchRegex = new RegExp(`(${prepMatch(keyword)})`);
+					
+					if (matchRegex.test(inputValue)) {
 						isMatch = true;
 						break;
 					}
@@ -232,6 +238,7 @@ fetch('quiz-data.json')
 		function saveProgress() {
 			const progress = [];
 			const buttons = document.querySelectorAll('#button-grid button');
+			
 			for (const button of buttons) {
 				const buttonData = {
 					id: button.videoData.ID,
@@ -245,16 +252,27 @@ fetch('quiz-data.json')
 				}
 				progress.push(buttonData);
 			}
+			
+			for (const sVideo of sVideos) {
+				progress.push({
+					id: sVideo.sID,
+					guessed: sVideo.sGuessed
+				});
+			}
+			
 			localStorage.setItem('KidquizProgress', JSON.stringify(progress));
 		}
 		
 		function loadProgress() {
 			const savedProgress = localStorage.getItem('KidquizProgress');
+			
 			if (savedProgress) {
 				const progress = JSON.parse(savedProgress);
 				const buttons = document.querySelectorAll('#button-grid button');
+				
 				for (const button of buttons) {
 					const buttonData = progress.find((data) => data.id === button.videoData.ID);
+					
 					if (buttonData) {
 						if (buttonData.isCorrect) {
 							button.classList.add('correct-answer');
@@ -268,8 +286,25 @@ fetch('quiz-data.json')
 						button.currentHint = buttonData.currentHint;
 					}
 				}
+				
+				for (let i = 0; i < sVideos.length; i++) {
+				}
+				
+				
+				for (const sVideo of sVideos) {
+					const sVideoData = progress.find((data) => data.id === sVideo.sID);
+					
+					if (sVideoData) {
+						sVideo.sGuessed = sVideoData.guessed;
+					}
+				}
 			}
 		}
+		
+		clearDataButton.addEventListener('click', () => {
+			localStorage.removeItem('KidquizProgress');
+			location.reload();
+		});
 		
 		videoPlayer.addEventListener('timeupdate', () => {
 			if (!curSelButton.classList.contains('correct-answer') && shouldDistVideo(video.ID, videoPlayer.currentTime)) {
