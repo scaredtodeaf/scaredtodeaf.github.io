@@ -92,6 +92,9 @@ fetch('quiz-data.json')
 		let mGain;
 		let sHint;
 		let sRemaining;
+		let sTimerA;
+		let sTimerB;
+		let sTimerDone = false;
 		let sVideos = [
 			{'sWord': 'Jam on Toast', 'sID': 'PappiSecretSong', 'sHint': 'It\'s Jamie\'s favourite breakfast treat!', 'sGuessed': false},
 			{'sWord': 'Graham', 'sID': 'SecretBear', 'sHint': 'A cracker which shares its name with a King\'s Quest character!', 'sGuessed': false},
@@ -246,13 +249,14 @@ fetch('quiz-data.json')
 					answerFeedback.style.color = 'gold';
 					SFXHandler(1, 'SecretAns');
 					
-					setTimeout(() => {
+					sTimerA = setTimeout(() => {
+						sTimerDone = true;
 						videoPlayer.src = `QuizVideos/${sID}.webm`;
 						videoPlayer.style.display = 'block';
 						videoPlayer.play();
 					}, 3800);
 					
-					setTimeout(() => {
+					sTimerB = setTimeout(() => {
 						answerFeedback.innerText = ''
 					}, 7600);
 				}
@@ -403,6 +407,11 @@ fetch('quiz-data.json')
 			button.currentHint = '';
 			button.addEventListener('click', () => {
 				if (isSecretVideoPlaying) {
+					if (sTimerDone = false) {
+						clearTimeout(sTimerA);
+						clearTimeout(sTimerB);
+					}
+					
 					isSecretVideoPlaying = false;
 				}
 				
@@ -450,6 +459,7 @@ fetch('quiz-data.json')
 				}
 				
 				curSelButton = button;
+				sTimerDone = false;
 				
 				setTimeout(() => {
 					videoPlayer.play();
