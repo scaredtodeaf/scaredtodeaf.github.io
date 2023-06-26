@@ -44,9 +44,9 @@
 		{"start":54, "end":58, "gain":64}
 	],
 	"51823901":[
-		{"start":10.5, "end":11.5, "gain":72},
-		{"start":16.4, "end":17.3, "gain":72},
-		{"start":38.9, "end":42.1, "gain":72}
+		{"start":10.5, "end":11.5, "gain":96},
+		{"start":16.4, "end":17.3, "gain":96},
+		{"start":38.9, "end":42.1, "gain":96}
 	],
 	"8419051":[
 		{"start":0, "end":2.3, "gain":64},
@@ -75,14 +75,14 @@
 		{"start":24, "end":27, "gain":64}
 	],
 	"1023059":[
-		{"start":16.6, "end":18, "gain":72},
-		{"start":34.6, "end":36.2, "gain":72},
-		{"start":50.75, "end":60.5, "gain":72}
+		{"start":16.6, "end":18, "gain":96},
+		{"start":34.6, "end":36.2, "gain":96},
+		{"start":50.75, "end":60.5, "gain":96}
 	],
 	"492102":[
-		{"start":0.82, "end":1.6, "gain":72},
-		{"start":3.12, "end":4, "gain":72},
-		{"start":5.6, "end":6.7, "gain":72}
+		{"start":0.82, "end":1.6, "gain":112},
+		{"start":3.12, "end":4, "gain":112},
+		{"start":5.6, "end":6.7, "gain":112}
 	],
 	"8950123":[
 		{"start":14, "end":15.5, "gain":72},
@@ -101,8 +101,8 @@
 		{"start":27, "end":29.5, "gain":48}
 	],
 	"02319415":[
-		{"start":11.4, "end":14.5, "gain":72},
-		{"start":19, "end":20.7, "gain":72}
+		{"start":11.4, "end":14.5, "gain":112},
+		{"start":19, "end":20.7, "gain":92}
 	],
 	"4895120":[
 		{"start":0, "end":8, "gain":64},
@@ -160,9 +160,9 @@
 		{"start":1.25, "end":1.62, "gain":48}
 	],
 	"851920":[
-		{"start":3.8, "end":5.8, "gain":72},
-		{"start":10.9, "end":12.5, "gain":72},
-		{"start":24.7, "end":26.3, "gain":72}
+		{"start":3.8, "end":5.8, "gain":112},
+		{"start":10.9, "end":12.5, "gain":112},
+		{"start":24.7, "end":26.3, "gain":112}
 	],
 	"6519201":[
 		{"start":15.2, "end":17, "gain":64},
@@ -178,30 +178,30 @@
 		{"start":61, "end":64, "gain":64}
 	],
 	"859105":[
-		{"start":1.32, "end":2.2, "gain":72},
-		{"start":5.24, "end":6.15, "gain":72},
-		{"start":18, "end":20, "gain":72},
-		{"start":22, "end":22.9, "gain":72},
-		{"start":24.8, "end":25.6, "gain":72},
-		{"start":27, "end":27.8, "gain":72},
-		{"start":37, "end":39, "gain":72},
-		{"start":40.2, "end":43.5, "gain":72}
+		{"start":1.32, "end":2.2, "gain":80},
+		{"start":5.24, "end":6.15, "gain":80},
+		{"start":18, "end":20, "gain":80},
+		{"start":22, "end":22.9, "gain":80},
+		{"start":24.8, "end":25.6, "gain":80},
+		{"start":27, "end":27.8, "gain":80},
+		{"start":37, "end":39, "gain":80},
+		{"start":40.2, "end":43.5, "gain":80}
 	],
 	"3291540":[
 		{"start":13, "end":16, "gain":72},
 		{"start":44, "end":48, "gain":72}
 	],
 	"5182904":[
-		{"start":21.4, "end":22.8, "gain":72},
-		{"start":85.6, "end":86.3, "gain":72}
+		{"start":21.4, "end":22.8, "gain":80},
+		{"start":85.6, "end":86.3, "gain":80}
 	],
 	"9518231":[
-		{"start":2.8, "end":3.9, "gain":72},
-		{"start":5, "end":6.4, "gain":72},
-		{"start":9.4, "end":10.7, "gain":72},
-		{"start":17.9, "end":19, "gain":72},
-		{"start":23, "end":24, "gain":72},
-		{"start":53.6, "end":55.3, "gain":72}
+		{"start":2.8, "end":3.9, "gain":80},
+		{"start":5, "end":6.4, "gain":80},
+		{"start":9.4, "end":10.7, "gain":80},
+		{"start":17.9, "end":19, "gain":80},
+		{"start":23, "end":24, "gain":80},
+		{"start":53.6, "end":55.3, "gain":80}
     ],
 	"194815":[
 		{"start":0.74, "end":1.62, "gain":64},
@@ -311,13 +311,13 @@
 		{"start":12.8, "end":13.2, "gain":64}
 	],
 	"0159102":[
-		{"start":22.8, "end":24.9, "gain":72},
-		{"start":36.5, "end":46, "gain":72},
-		{"start":50.3, "end":52.4, "gain":72},
-		{"start":73.8, "end":75.2, "gain":72},
-		{"start":78, "end":80, "gain":72},
-		{"start":81.3, "end":83, "gain":72},
-		{"start":85, "end":87, "gain":72}
+		{"start":22.8, "end":24.9, "gain":80},
+		{"start":36.5, "end":46, "gain":80},
+		{"start":50.3, "end":52.4, "gain":80},
+		{"start":73.8, "end":75.2, "gain":80},
+		{"start":78, "end":80, "gain":80},
+		{"start":81.3, "end":83, "gain":80},
+		{"start":85, "end":87, "gain":80}
 	],
 	"95012345":[
 		{"start":27.2, "end":31, "gain":72}
@@ -332,7 +332,7 @@
 		{"start":39.7, "end":46, "gain":64}
 	],
 	"510139":[
-		{"start":36, "end":40.8, "gain":72}
+		{"start":36, "end":40.8, "gain":80}
 	],
 	"1295120":[
 		{"start":35.6, "end":36.5, "gain":72},

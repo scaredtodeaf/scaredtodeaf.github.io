@@ -62,11 +62,11 @@ function hFirstCall(){
 		var inputBuffer = e.inputBuffer.getChannelData(0);
 		var outputBuffer = e.outputBuffer.getChannelData(0);
 		for (var i = 0; i < inputBuffer.length; i++) {
-			var step = Math.pow(1 / 2, 2);
+			var step = Math.pow(1 / 2, 4);
 			outputBuffer[i] = Math.round(inputBuffer[i] / step) * step;
 		}
 	};
-	nodes[4].gain.value = 0.005;
+	nodes[4].gain.value = 0.01;
 	nodes[5].threshold.setValueAtTime(-10, audCnt.currentTime);
 	nodes[5].ratio.setValueAtTime(4, audCnt.currentTime);
 	nodes[5].attack.setValueAtTime(0.003, audCnt.currentTime);
@@ -100,8 +100,9 @@ fetch('quiz-data.json')
 			{'sWord': 'Wendy', 'sID': 'SecretBurger', 'sHint': 'Does she deliver the best burgers around?!', 'sGuessed': false},
 			{'sWord': 'Chex', 'sID': 'SecretChex', 'sHint': 'Gear up, cereal warrior, and vanquish hunger\'s alien invasion. Now with a free CD!', 'sGuessed': false},
 			{'sWord': 'Starburst', 'sID': 'SecretCream', 'sHint': 'Taste the explosive burst of fruity supernovas in every chew.', 'sGuessed': false},
-			{'sWord': 'Drugs', 'sID': 'SecretDrugs', 'sHint': 'It all originated from a TV Campaign! This is your brain on...', 'sGuessed': false},
+			{'sWord': 'Chocolate', 'sID': 'SecretDime', 'sHint': 'Unveil the hidden magic of a confectionery delight that captivates with its rich allure.', 'sGuessed': false},
 			{'sWord': 'Door', 'sID': 'SecretDoor', 'sHint': 'If Bill Gates hadn\'t made Windows, he may have made this!', 'sGuessed': false},
+			{'sWord': 'Drugs', 'sID': 'SecretDrugs', 'sHint': 'It all originated from a TV Campaign! This is your brain on...', 'sGuessed': false},
 			{'sWord': 'Duracell', 'sID': 'SecretDuracell', 'sHint': 'It\'s the battery that lasts, apparently!', 'sGuessed': false},
 			{'sWord': 'Cigar', 'sID': 'SecretHamlet', 'sHint': 'Smoke swirls, shadows deepen... A moment frozen in cinematic allure.', 'sGuessed': false},
 			{'sWord': 'McDonalds', 'sID': 'SecretMaccas', 'sHint': 'You can get all these delicious items for a DOLLAR here?!', 'sGuessed': false},
@@ -109,9 +110,11 @@ fetch('quiz-data.json')
 			{'sWord': 'Pikachu', 'sID': 'SecretPokemon', 'sHint': 'This character often comes top in \'Pocket Monster\' polls.', 'sGuessed': false},
 			{'sWord': 'Shreddies', 'sID': 'SecretShreddies', 'sHint': 'It\'s the only cereal that\'s \'knitted\'!', 'sGuessed': false},
 			{'sWord': 'Samboy', 'sID': 'SecretSamboy', 'sHint': 'Embrace the crunch that packs a flavor punch like no other.', 'sGuessed': false},
+			{'sWord': 'Smash', 'sID': 'SecretSmash', 'sHint': 'What does Nintendo and Instant Mashed Potato have in common?!', 'sGuessed': false},
 			{'sWord': 'Sega', 'sID': 'SecretSonic', 'sHint': 'Nintendo\'s arch rivals in the gaming industry, for a while.', 'sGuessed': false},
 			{'sWord': 'Water', 'sID': 'SecretSoaker', 'sHint': 'You want it, you need it? H20 has got it!', 'sGuessed': false},
 			{'sWord': 'Sprite', 'sID': 'SecretSprite', 'sHint': 'Quench your thirst with a sparkling sprite of citrus delight.', 'sGuessed': false},
+			{'sWord': 'Teris', 'sID': 'SecretTetris', 'sHint': 'Enter a world where order and chaos collide, governed by your strategic moves.', 'sGuessed': false},
 			{'sWord': 'Mickey Mouse', 'sID': 'SecretYazhee', 'sHint': 'This character fronted a big-name studio\'s first foray into animation!', 'sGuessed': false},
 			{'sWord': 'Yogurt', 'sID': 'SecretYop', 'sHint': 'Milk\'s rebellious sibling: It\'s milk gone wild... IT\'S ALIVE!!!', 'sGuessed': false},
 			{'sWord': 'Zelda', 'sID': 'SecretZelda', 'sHint': 'Courage, a green tunic, and a legendary quest await.', 'sGuessed': false}
@@ -186,7 +189,7 @@ fetch('quiz-data.json')
 				}
 			}
 			
-			if (isMatch) {
+			if (isMatch && !curSelButton.classList.contains('correct-answer')) {
 				sRemaining = 0;
 				sVideosBuffer = [];
 				
@@ -206,7 +209,6 @@ fetch('quiz-data.json')
 				}
 				
 				answerFeedback.style.color = 'green';
-				answerInput.disabled = true;
 				answerInput.value = '';
 				videoPlayer.style.display = 'block';
 				videoPlayer.play();
