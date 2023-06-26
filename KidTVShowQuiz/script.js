@@ -114,7 +114,7 @@ fetch('quiz-data.json')
 			{'sWord': 'Sega', 'sID': 'SecretSonic', 'sHint': 'Nintendo\'s arch rivals in the gaming industry, for a while.', 'sGuessed': false},
 			{'sWord': 'Water', 'sID': 'SecretSoaker', 'sHint': 'You want it, you need it? H20 has got it!', 'sGuessed': false},
 			{'sWord': 'Sprite', 'sID': 'SecretSprite', 'sHint': 'Quench your thirst with a sparkling sprite of citrus delight.', 'sGuessed': false},
-			{'sWord': 'Teris', 'sID': 'SecretTetris', 'sHint': 'Enter a world where order and chaos collide, governed by your strategic moves.', 'sGuessed': false},
+			{'sWord': 'Tetris', 'sID': 'SecretTetris', 'sHint': 'Enter a world where order and chaos collide, governed by your strategic moves.', 'sGuessed': false},
 			{'sWord': 'Mickey Mouse', 'sID': 'SecretYazhee', 'sHint': 'This character fronted a big-name studio\'s first foray into animation!', 'sGuessed': false},
 			{'sWord': 'Yogurt', 'sID': 'SecretYop', 'sHint': 'Milk\'s rebellious sibling: It\'s milk gone wild... IT\'S ALIVE!!!', 'sGuessed': false},
 			{'sWord': 'Zelda', 'sID': 'SecretZelda', 'sHint': 'Courage, a green tunic, and a legendary quest await.', 'sGuessed': false}
