@@ -104,7 +104,7 @@ fetch('quiz-data.json')
 			{'sWord': 'Chex', 'sID': 'SecretChex', 'sHint': 'Gear up, cereal warrior, and vanquish hunger\'s alien invasion. Now with a free CD!', 'sGuessed': false},
 			{'sWord': 'Starburst', 'sID': 'SecretCream', 'sHint': 'Taste the explosive burst of fruity supernovas in every chew.', 'sGuessed': false},
 			{'sWord': 'Chocolate', 'sID': 'SecretDime', 'sHint': 'Unveil the hidden magic of a confectionery delight that captivates with its rich allure.', 'sGuessed': false},
-			{'sWord': 'Door', 'sID': 'SecretDoor', 'sHint': 'If Bill Gates hadn\'t made Windows, he may have made this!', 'sGuessed': false},
+			{'sWord': 'Jingle Bells', 'sID': 'SecretDoor', 'sHint': 'Joyful notes chime, riding in a winter wonderland!', 'sGuessed': false},
 			{'sWord': 'Drugs', 'sID': 'SecretDrugs', 'sHint': 'It all originated from a TV Campaign! This is your brain on...', 'sGuessed': false},
 			{'sWord': 'Duracell', 'sID': 'SecretDuracell', 'sHint': 'It\'s the battery that lasts, apparently!', 'sGuessed': false},
 			{'sWord': 'Cigar', 'sID': 'SecretHamlet', 'sHint': 'Smoke swirls, shadows deepen... A moment frozen in cinematic allure.', 'sGuessed': false},
