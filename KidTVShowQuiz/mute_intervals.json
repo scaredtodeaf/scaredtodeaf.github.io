@@ -1,343 +1,343 @@
 {
 	"Welcome":[
-		{"start":28.9, "end":32.3, "gain":72}
+		{"start":28.9, "end":32.3}
 	],
 	"75812931":[
-		{"start":22.4, "end":23.5, "gain":64},
-		{"start":28.8, "end":29.5, "gain":64},
-		{"start":34.8, "end":35.5, "gain":64},
-		{"start":39.95, "end":40.5, "gain":64}
+		{"start":22.4, "end":23.5},
+		{"start":28.8, "end":29.5},
+		{"start":34.8, "end":35.5},
+		{"start":39.95, "end":40.5}
 	],
 	"4821394":[
-		{"start":4.76, "end":5.98, "gain":64},
-		{"start":6.49, "end":7.38, "gain":48},
-		{"start":10.48, "end":11.06, "gain":64},
-		{"start":21, "end":22.9, "gain":64},
-		{"start":27.2, "end":30, "gain":64}
+		{"start":4.76, "end":5.98},
+		{"start":6.49, "end":7.38},
+		{"start":10.48, "end":11.06},
+		{"start":21, "end":22.9},
+		{"start":27.2, "end":30}
 	],
 	"9123014":[
-		{"start":27.6, "end":29.4, "gain":64},
-		{"start":34.1, "end":35.4, "gain":64},
-		{"start":55, "end":61, "gain":64}
+		{"start":27.6, "end":29.4},
+		{"start":34.1, "end":35.4},
+		{"start":55, "end":61}
 	],
 	"23910458":[
-		{"start":59.1, "end":60.95, "gain":59}
+		{"start":59.1, "end":60.95}
 	],
 	"8690213":[
-		{"start":7.6, "end":9.7, "gain":55},
-		{"start":16.59, "end":18.6, "gain":55},
-		{"start":31.25, "end":32.8, "gain":55},
-		{"start":39.15, "end":41.3, "gain":55},
-		{"start":53.8, "end":56.3, "gain":55},
-		{"start":62.4, "end":69.3, "gain":55}
+		{"start":7.6, "end":9.7},
+		{"start":16.59, "end":18.6},
+		{"start":31.25, "end":32.8},
+		{"start":39.15, "end":41.3},
+		{"start":53.8, "end":56.3},
+		{"start":62.4, "end":69.3}
 	],
 	"1394502":[
-		{"start":19, "end":24.2, "gain":72},
-		{"start":43, "end":48.5, "gain":72}
+		{"start":19, "end":24.2},
+		{"start":43, "end":48.5}
 	],
 	"783924":[
-		{"start":20, "end":23, "gain":64},
-		{"start":25, "end":27.8, "gain":64},
-		{"start":30.8, "end":36, "gain":64},
-		{"start":44, "end":45.8, "gain":64},
-		{"start":48, "end":50.5, "gain":64},
-		{"start":54, "end":58, "gain":64}
+		{"start":20, "end":23},
+		{"start":25, "end":27.8},
+		{"start":30.8, "end":36},
+		{"start":44, "end":45.8},
+		{"start":48, "end":50.5},
+		{"start":54, "end":58}
 	],
 	"51823901":[
-		{"start":10.5, "end":11.5, "gain":96},
-		{"start":16.4, "end":17.3, "gain":96},
-		{"start":38.9, "end":42.1, "gain":96}
+		{"start":10.5, "end":11.5},
+		{"start":16.4, "end":17.3},
+		{"start":38.9, "end":42.1}
 	],
 	"8419051":[
-		{"start":0, "end":2.3, "gain":64},
-		{"start":14.2, "end":15, "gain":64},
-		{"start":16.74, "end":17.5, "gain":64},
-		{"start":26.9, "end":28.2, "gain":64},
-		{"start":31.1, "end":32.8, "gain":64}
+		{"start":0, "end":2.3},
+		{"start":14.2, "end":15},
+		{"start":16.74, "end":17.5},
+		{"start":26.9, "end":28.2},
+		{"start":31.1, "end":32.8}
 	],
 	"591025189":[
-		{"start":9.8, "end":11.8, "gain":58},
-		{"start":26, "end":27.5, "gain":58},
-		{"start":53.3, "end":54.8, "gain":58}
+		{"start":9.8, "end":11.8},
+		{"start":26, "end":27.5},
+		{"start":53.3, "end":54.8}
 	],
 	"783412":[
-		{"start":12, "end":14, "gain":55},
-		{"start":34, "end":36.2, "gain":55},
-		{"start":37.5, "end":41, "gain":55},
-		{"start":56, "end":62, "gain":55}
+		{"start":12, "end":14},
+		{"start":34, "end":36.2},
+		{"start":37.5, "end":41},
+		{"start":56, "end":62}
 	],
 	"951283012":[
-		{"start":2, "end":4, "gain":64},
-		{"start":9.2, "end":10.2, "gain":64},
-		{"start":12, "end":13.2, "gain":64},
-		{"start":14.8, "end":16, "gain":64},
-		{"start":21.2, "end":23, "gain":64},
-		{"start":24, "end":27, "gain":64}
+		{"start":2, "end":4},
+		{"start":9.2, "end":10.2},
+		{"start":12, "end":13.2},
+		{"start":14.8, "end":16},
+		{"start":21.2, "end":23},
+		{"start":24, "end":27}
 	],
 	"1023059":[
-		{"start":16.6, "end":18, "gain":96},
-		{"start":34.6, "end":36.2, "gain":96},
-		{"start":50.75, "end":60.5, "gain":96}
+		{"start":16.6, "end":18},
+		{"start":34.6, "end":36.2},
+		{"start":50.75, "end":60.5}
 	],
 	"492102":[
-		{"start":0.82, "end":1.6, "gain":112},
-		{"start":3.12, "end":4, "gain":112},
-		{"start":5.6, "end":6.7, "gain":112}
+		{"start":0.82, "end":1.6},
+		{"start":3.12, "end":4},
+		{"start":5.6, "end":6.7}
 	],
 	"8950123":[
-		{"start":14, "end":15.5, "gain":72},
-		{"start":18, "end":19.5, "gain":72},
-		{"start":21.5, "end":23.5, "gain":72},
-		{"start":25,  "end":26.8, "gain":72}
+		{"start":14, "end":15.5},
+		{"start":18, "end":19.5},
+		{"start":21.5, "end":23.5},
+		{"start":25,  "end":26.8}
 	],
 	"95128319":[
-		{"start":9.7, "end":10.2, "gain":64},
-		{"start":19.4, "end":20.8, "gain":64},
-		{"start":28.6, "end":31.4, "gain":64},
-		{"start":38.8, "end":40, "gain":64},
-		{"start":43.3, "end":44.8, "gain":64}
+		{"start":9.7, "end":10.2},
+		{"start":19.4, "end":20.8},
+		{"start":28.6, "end":31.4},
+		{"start":38.8, "end":40},
+		{"start":43.3, "end":44.8}
 	],
 	"84512902":[
-		{"start":27, "end":29.5, "gain":48}
+		{"start":27, "end":29.5}
 	],
 	"02319415":[
-		{"start":11.4, "end":14.5, "gain":112},
-		{"start":19, "end":20.7, "gain":92}
+		{"start":11.4, "end":14.5},
+		{"start":19, "end":20.7}
 	],
 	"4895120":[
-		{"start":0, "end":8, "gain":64},
-		{"start":42, "end":50.5, "gain":64}
+		{"start":0, "end":8},
+		{"start":42, "end":50.5}
 	],
 	"6912310":[
-		{"start":9, "end":11.3, "gain":64},
-		{"start":15.8, "end":18.4, "gain":64},
-		{"start":21.6, "end":22.6, "gain":64}
+		{"start":9, "end":11.3},
+		{"start":15.8, "end":18.4},
+		{"start":21.6, "end":22.6}
 	],
 	"61291023":[
-		{"start":3, "end":4, "gain":72}
+		{"start":3, "end":4}
 	],
 	"6012394":[
-		{"start":6.2, "end":7.6, "gain":48},
-		{"start":22.78, "end":24, "gain":48},
-		{"start":30.2, "end":33.48, "gain":48},
-		{"start":40, "end":42.58, "gain":48},
-		{"start":51, "end":54.48, "gain":48},
-		{"start":65, "end":67.44, "gain":48}
+		{"start":6.2, "end":7.6},
+		{"start":22.78, "end":24},
+		{"start":30.2, "end":33.48},
+		{"start":40, "end":42.58},
+		{"start":51, "end":54.48},
+		{"start":65, "end":67.44}
 	],
 	"213941":[
-		{"start":3, "end":5.2, "gain":64},
-		{"start":6, "end":7.8, "gain":64},
-		{"start":10.6, "end":11.2, "gain":64},
-		{"start":13.9, "end":15.1, "gain":64},
-		{"start":18.7, "end":19.2, "gain":64}
+		{"start":3, "end":5.2},
+		{"start":6, "end":7.8},
+		{"start":10.6, "end":11.2},
+		{"start":13.9, "end":15.1},
+		{"start":18.7, "end":19.2}
 	],
 	"123781149":[
-		{"start":17.2, "end":18.5, "gain":64}
+		{"start":17.2, "end":18.5}
 	],
 	"239401":[
-		{"start":46.6, "end":48.4, "gain":64}
+		{"start":46.6, "end":48.4}
 	],
 	"52130592":[
-		{"start":32.6, "end":34.7, "gain":64},
-		{"start":36.2, "end":37.8, "gain":64},
-		{"start":40.2, "end":42.4, "gain":64},
-		{"start":43.9, "end":45.5, "gain":64}
+		{"start":32.6, "end":34.7},
+		{"start":36.2, "end":37.8},
+		{"start":40.2, "end":42.4},
+		{"start":43.9, "end":45.5}
 	],
 	"519023":[
-		{"start":14.25, "end":15.1, "gain":64},
-		{"start":20.5, "end":21.4, "gain":64},
-		{"start":26.3, "end":27.3, "gain":64},
-		{"start":40.2, "end":41.2, "gain":64},
-		{"start":44.2, "end":45.3, "gain":64},
-		{"start":47.3, "end":48.4, "gain":64}
+		{"start":14.25, "end":15.1},
+		{"start":20.5, "end":21.4},
+		{"start":26.3, "end":27.3},
+		{"start":40.2, "end":41.2},
+		{"start":44.2, "end":45.3},
+		{"start":47.3, "end":48.4}
 	],
 	"9213951":[
-		{"start":22.5, "end":26.4, "gain":72},
-		{"start":31.4, "end":35.5, "gain":72},
-		{"start":39.5, "end":42.1, "gain":72}
+		{"start":22.5, "end":26.4},
+		{"start":31.4, "end":35.5},
+		{"start":39.5, "end":42.1}
 	],
 	"01295123":[
-		{"start":1.25, "end":1.62, "gain":48}
+		{"start":1.25, "end":1.62}
 	],
 	"851920":[
-		{"start":3.8, "end":5.8, "gain":112},
-		{"start":10.9, "end":12.5, "gain":112},
-		{"start":24.7, "end":26.3, "gain":112}
+		{"start":3.8, "end":5.8},
+		{"start":10.9, "end":12.5},
+		{"start":24.7, "end":26.3}
 	],
 	"6519201":[
-		{"start":15.2, "end":17, "gain":64},
-		{"start":29.6, "end":31.4, "gain":64},
-		{"start":43.2, "end":49, "gain":64}
+		{"start":15.2, "end":17},
+		{"start":29.6, "end":31.4},
+		{"start":43.2, "end":49}
 	],
 	"9105418":[
-		{"start":18.25, "end":22.4, "gain":64}
+		{"start":18.25, "end":22.4}
 	],
 	"3290131":[
-		{"start":46, "end":48, "gain":64},
-		{"start":53, "end":56, "gain":64},
-		{"start":61, "end":64, "gain":64}
+		{"start":46, "end":48},
+		{"start":53, "end":56},
+		{"start":61, "end":64}
 	],
 	"859105":[
-		{"start":1.32, "end":2.2, "gain":80},
-		{"start":5.24, "end":6.15, "gain":80},
-		{"start":18, "end":20, "gain":80},
-		{"start":22, "end":22.9, "gain":80},
-		{"start":24.8, "end":25.6, "gain":80},
-		{"start":27, "end":27.8, "gain":80},
-		{"start":37, "end":39, "gain":80},
-		{"start":40.2, "end":43.5, "gain":80}
+		{"start":1.32, "end":2.2},
+		{"start":5.24, "end":6.15},
+		{"start":18, "end":20},
+		{"start":22, "end":22.9},
+		{"start":24.8, "end":25.6},
+		{"start":27, "end":27.8},
+		{"start":37, "end":39},
+		{"start":40.2, "end":43.5}
 	],
 	"3291540":[
-		{"start":13, "end":16, "gain":72},
-		{"start":44, "end":48, "gain":72}
+		{"start":13, "end":16},
+		{"start":44, "end":48}
 	],
 	"5182904":[
-		{"start":21.4, "end":22.8, "gain":80},
-		{"start":85.6, "end":86.3, "gain":80}
+		{"start":21.4, "end":22.8},
+		{"start":85.6, "end":86.3}
 	],
 	"9518231":[
-		{"start":2.8, "end":3.9, "gain":80},
-		{"start":5, "end":6.4, "gain":80},
-		{"start":9.4, "end":10.7, "gain":80},
-		{"start":17.9, "end":19, "gain":80},
-		{"start":23, "end":24, "gain":80},
-		{"start":53.6, "end":55.3, "gain":80}
+		{"start":2.8, "end":3.9},
+		{"start":5, "end":6.4},
+		{"start":9.4, "end":10.7},
+		{"start":17.9, "end":19},
+		{"start":23, "end":24},
+		{"start":53.6, "end":55.3}
     ],
 	"194815":[
-		{"start":0.74, "end":1.62, "gain":64},
-		{"start":3.8, "end":5.2, "gain":64},
-		{"start":11.3, "end":12.8, "gain":64},
-		{"start":15.2, "end":16.4, "gain":64},
-		{"start":16.72, "end":17.15, "gain":64},
-		{"start":21.08, "end":21.6, "gain":64},
-		{"start":34.25, "end":36.2, "gain":64},
-		{"start":42, "end":43.7, "gain":64},
-		{"start":45.7, "end":47, "gain":64},
-		{"start":47.14, "end":47.45, "gain":64},
-		{"start":53.4, "end":55.2, "gain":64},
-		{"start":57, "end":59, "gain":64},
-		{"start":66.05, "end":67.18, "gain":64}
+		{"start":0.74, "end":1.62},
+		{"start":3.8, "end":5.2},
+		{"start":11.3, "end":12.8},
+		{"start":15.2, "end":16.4},
+		{"start":16.72, "end":17.15},
+		{"start":21.08, "end":21.6},
+		{"start":34.25, "end":36.2},
+		{"start":42, "end":43.7},
+		{"start":45.7, "end":47},
+		{"start":47.14, "end":47.45},
+		{"start":53.4, "end":55.2},
+		{"start":57, "end":59},
+		{"start":66.05, "end":67.18}
     ],
 	"45819051":[
-		{"start":11.85, "end":16.2, "gain":72},
-		{"start":18.5, "end":19.6, "gain":72},
-		{"start":23.45, "end":24, "gain":72},
-		{"start":28, "end":31, "gain":72},
-		{"start":33.2, "end":38, "gain":72},
-		{"start":40.2, "end":41.5, "gain":72}
+		{"start":11.85, "end":16.2},
+		{"start":18.5, "end":19.6},
+		{"start":23.45, "end":24},
+		{"start":28, "end":31},
+		{"start":33.2, "end":38},
+		{"start":40.2, "end":41.5}
 	],
 	"54439012":[
-		{"start":8.8, "end":10.2, "gain":64},
-		{"start":23.2, "end":24.6, "gain":64},
-		{"start":26.3, "end":27.95, "gain":64},
-		{"start":30.1, "end":30.75, "gain":64},
-		{"start":48, "end":49.6, "gain":64},
-		{"start":51.9, "end":53.2, "gain":64},
-		{"start":55.4, "end":57.02, "gain":64},
-		{"start":60, "end":61, "gain":64}
+		{"start":8.8, "end":10.2},
+		{"start":23.2, "end":24.6},
+		{"start":26.3, "end":27.95},
+		{"start":30.1, "end":30.75},
+		{"start":48, "end":49.6},
+		{"start":51.9, "end":53.2},
+		{"start":55.4, "end":57.02},
+		{"start":60, "end":61}
 	],
 	"01239451":[
-		{"start":0, "end":4.1, "gain":64},
-		{"start":14, "end":16.8, "gain":64},
-		{"start":27, "end":31, "gain":64}
+		{"start":0, "end":4.1},
+		{"start":14, "end":16.8},
+		{"start":27, "end":31}
 	],
 	"15190312":[
-		{"start":21.8, "end":26.8, "gain":64}
+		{"start":21.8, "end":26.8}
 	],
 	"51892031":[
-		{"start":1.3, "end":2, "gain":72},
-		{"start":10.3, "end":11.2, "gain":72},
-		{"start":17.65, "end":18.75, "gain":72},
-		{"start":20.3, "end":21.4, "gain":72},
-		{"start":27.6, "end":28.8, "gain":72}
+		{"start":1.3, "end":2},
+		{"start":10.3, "end":11.2},
+		{"start":17.65, "end":18.75},
+		{"start":20.3, "end":21.4},
+		{"start":27.6, "end":28.8}
 	],
 	"1239104":[
-		{"start":24, "end":30, "gain":72},
-		{"start":37.5, "end":42.8, "gain":72},
-		{"start":50, "end":60, "gain":72}
+		{"start":24, "end":30},
+		{"start":37.5, "end":42.8},
+		{"start":50, "end":60}
 	],
 	"12381905":[
-		{"start":13.2, "end":15.3, "gain":64},
-		{"start":20.6, "end":22.6, "gain":64},
-		{"start":43, "end":44.6, "gain":64},
-		{"start":46.4, "end":48.2, "gain":64},
-		{"start":50.05, "end":51.7, "gain":64},
-		{"start":55.3, "end":59.4, "gain":64}
+		{"start":13.2, "end":15.3},
+		{"start":20.6, "end":22.6},
+		{"start":43, "end":44.6},
+		{"start":46.4, "end":48.2},
+		{"start":50.05, "end":51.7},
+		{"start":55.3, "end":59.4}
 	],
 	"1237819":[
-		{"start":9.9, "end":12.85, "gain":64},
-		{"start":30.8, "end":32.7, "gain":64},
-		{"start":37.4, "end":39.2, "gain":64},
-		{"start":41.4, "end":43.5, "gain":64},
-		{"start":44, "end":46.2, "gain":64},
-		{"start":59, "end":62, "gain":64}
+		{"start":9.9, "end":12.85},
+		{"start":30.8, "end":32.7},
+		{"start":37.4, "end":39.2},
+		{"start":41.4, "end":43.5},
+		{"start":44, "end":46.2},
+		{"start":59, "end":62}
 	],
 	"5812390":[
-		{"start":3, "end":4.8, "gain":64}
+		{"start":3, "end":4.8}
 	],
 	"561892":[
-		{"start":9.8, "end":10.8, "gain":64},
-		{"start":37.2, "end":37.95, "gain":64}
+		{"start":9.8, "end":10.8},
+		{"start":37.2, "end":37.95}
 	],
 	"951023":[
-		{"start":18, "end":20.9, "gain":72},
-		{"start":23.7, "end":26, "gain":72},
-		{"start":34, "end":36.5, "gain":72},
-		{"start":40, "end":41.4, "gain":72}
+		{"start":18, "end":20.9},
+		{"start":23.7, "end":26},
+		{"start":34, "end":36.5},
+		{"start":40, "end":41.4}
 	],
 	"91285102":[
-		{"start":20, "end":21.9, "gain":64},
-		{"start":37.6, "end":40, "gain":64},
-		{"start":55.4, "end":60, "gain":64}
+		{"start":20, "end":21.9},
+		{"start":37.6, "end":40},
+		{"start":55.4, "end":60}
 	],
 	"09213845":[
-		{"start":21, "end":22.4, "gain":64}
+		{"start":21, "end":22.4}
 	],
 	"9105408":[
-		{"start":0, "end":76, "gain":48}
+		{"start":0, "end":76}
 	],
 	"5129012":[
-		{"start":18.3, "end":19.6, "gain":72},
-		{"start":26.8, "end":27.9, "gain":72},
-		{"start":43.8, "end":44.8, "gain":72}
+		{"start":18.3, "end":19.6},
+		{"start":26.8, "end":27.9},
+		{"start":43.8, "end":44.8}
 	],
 	"51283902":[
-		{"start":0.6, "end":1.1, "gain":64},
-		{"start":2.4, "end":2.7, "gain":64},
-		{"start":4.4, "end":4.77, "gain":64},
-		{"start":6.6, "end":6.95, "gain":64},
-		{"start":8.3, "end":8.6, "gain":64},
-		{"start":10.3, "end":10.7, "gain":64},
-		{"start":12.8, "end":13.2, "gain":64}
+		{"start":0.6, "end":1.1},
+		{"start":2.4, "end":2.7},
+		{"start":4.4, "end":4.77},
+		{"start":6.6, "end":6.95},
+		{"start":8.3, "end":8.6},
+		{"start":10.3, "end":10.7},
+		{"start":12.8, "end":13.2}
 	],
 	"0159102":[
-		{"start":22.8, "end":24.9, "gain":80},
-		{"start":36.5, "end":46, "gain":80},
-		{"start":50.3, "end":52.4, "gain":80},
-		{"start":73.8, "end":75.2, "gain":80},
-		{"start":78, "end":80, "gain":80},
-		{"start":81.3, "end":83, "gain":80},
-		{"start":85, "end":87, "gain":80}
+		{"start":22.8, "end":24.9},
+		{"start":36.5, "end":46},
+		{"start":50.3, "end":52.4},
+		{"start":73.8, "end":75.2},
+		{"start":78, "end":80},
+		{"start":81.3, "end":83},
+		{"start":85, "end":87}
 	],
 	"95012345":[
-		{"start":27.2, "end":31, "gain":72}
+		{"start":27.2, "end":31}
 	],
 	"12319523":[
-		{"start":10.8, "end":15.3, "gain":72},
-		{"start":19.6, "end":24.3, "gain":72},
-		{"start":31.6, "end":36, "gain":72}
+		{"start":10.8, "end":15.3},
+		{"start":19.6, "end":24.3},
+		{"start":31.6, "end":36}
 	],
 	"3432154":[
-		{"start":22.4, "end":25, "gain":64},
-		{"start":39.7, "end":46, "gain":64}
+		{"start":22.4, "end":25},
+		{"start":39.7, "end":46}
 	],
 	"510139":[
-		{"start":36, "end":40.8, "gain":80}
+		{"start":36, "end":40.8}
 	],
 	"1295120":[
-		{"start":35.6, "end":36.5, "gain":72},
-		{"start":42.8, "end":43.9, "gain":72},
-		{"start":48.2, "end":49.4, "gain":72},
-		{"start":53.3, "end":54.4, "gain":72}
+		{"start":35.6, "end":36.5},
+		{"start":42.8, "end":43.9},
+		{"start":48.2, "end":49.4},
+		{"start":53.3, "end":54.4}
 	]
 }

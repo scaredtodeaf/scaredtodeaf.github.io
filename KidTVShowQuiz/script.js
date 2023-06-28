@@ -41,38 +41,109 @@ function mkDistCurve(amount) {
 	return curve;
 }
 
-let nodes;
+let cleanNodes;
+let dirtyNodes;
 let audCnt;
 function hFirstCall(){
 	audCnt = new (window.AudioContext || window.webkitAudioContext)();
 	let srceNd = audCnt.createMediaElementSource(videoPlayer);
-	let distNd = audCnt.createWaveShaper();
-	let filtNd = audCnt.createBiquadFilter();
-	let bitCNd = audCnt.createScriptProcessor(4096, 1, 1);
-	let mfGnNd = audCnt.createGain();
-	let compNd = audCnt.createDynamicsCompressor();
-	let mtGnNd = audCnt.createGain();
-	nodes = [srceNd, distNd, filtNd, bitCNd, mfGnNd, compNd, mtGnNd];
+	let anl1Nd = audCnt.createAnalyser();
+	let PrG1Nd = audCnt.createGain();
 	
-	nodes[0].connect(audCnt.destination);
-	nodes[1].curve = mkDistCurve(2000);
-	nodes[2].type = "lowpass";
-	nodes[2].frequency.value = 200;
-	nodes[3].onaudioprocess = function (e) {
-		var inputBuffer = e.inputBuffer.getChannelData(0);
-		var outputBuffer = e.outputBuffer.getChannelData(0);
-		for (var i = 0; i < inputBuffer.length; i++) {
-			var step = Math.pow(1 / 2, 4);
-			outputBuffer[i] = Math.round(inputBuffer[i] / step) * step;
+	let mfG1Nd = audCnt.createGain();
+	let distNd = audCnt.createWaveShaper();
+	let mfG2Nd = audCnt.createGain();
+	let fil1Nd = audCnt.createBiquadFilter();
+	let bitCNd = audCnt.createScriptProcessor(4096, 1, 1);
+	let fil2Nd = audCnt.createBiquadFilter();
+	let anl2Nd = audCnt.createAnalyser();
+	let PrG2Nd = audCnt.createGain();
+	
+	cleanNodes = [srceNd, anl1Nd, PrG1Nd];
+	dirtyNodes = [srceNd, mfG1Nd, distNd, mfG2Nd, fil1Nd, bitCNd, fil2Nd, anl2Nd, PrG2Nd];
+	
+	const bitDepth = 4;
+	const gainVals = [1.6, 0.8];
+	
+	dirtyNodes[1].gain.value = gainVals[0];
+	dirtyNodes[2].curve = mkDistCurve(2000);
+	dirtyNodes[3].gain.value = gainVals[1];
+	dirtyNodes[4].type = 'lowpass';
+	dirtyNodes[4].frequency.value = 200;
+	dirtyNodes[5].onaudioprocess = function (e) {
+		var iBuffer = e.inputBuffer.getChannelData(0);
+		var oBuffer = e.outputBuffer.getChannelData(0);
+		for (var i = 0; i < iBuffer.length; i++) {
+			var step = Math.pow(1 / 2, bitDepth);
+			oBuffer[i] = Math.round(iBuffer[i] / step) * step;
 		}
 	};
-	nodes[4].gain.value = 0.01;
-	nodes[5].threshold.setValueAtTime(-10, audCnt.currentTime);
-	nodes[5].ratio.setValueAtTime(4, audCnt.currentTime);
-	nodes[5].attack.setValueAtTime(0.003, audCnt.currentTime);
-	nodes[5].release.setValueAtTime(0.25, audCnt.currentTime);
+	dirtyNodes[6].type = 'lowpass';
+	dirtyNodes[6].frequency.value = 200; 
+	
+	
+	
+	monitorAudioLevelsA();
+	monitorAudioLevelsB();
+	
 	
 	document.removeEventListener("click", hFirstCall);
+}
+
+function monitorAudioLevelsA() {
+	cleanNodes[1].fftSize = 2048;
+	
+	const freqData = new Uint8Array(cleanNodes[1].frequencyBinCount);
+	
+	cleanNodes[1].getByteFrequencyData(freqData);
+	
+	let sum = 0;
+	for (let i = 0; i < freqData.length; i++) {
+		sum += freqData[i];
+	}
+	
+	const avgLevel = sum / freqData.length;
+	const dBLevel = 20 * Math.log10(avgLevel);
+	
+	const maxDBThreshold = 20;
+	const maxGain = 0.8;
+	
+	if (dBLevel > maxDBThreshold) {
+		const desiredGain = Math.pow(10, (maxDBThreshold - dBLevel) / 20);
+		cleanNodes[2].gain.value = Math.min(desiredGain, maxGain);
+	} else {
+		cleanNodes[2].gain.value = maxGain;
+	}
+	
+	requestAnimationFrame(monitorAudioLevelsA);
+}
+
+function monitorAudioLevelsB() {
+	dirtyNodes[7].fftSize = 2048;
+	
+	const freqData = new Uint8Array(dirtyNodes[7].frequencyBinCount);
+	
+	dirtyNodes[7].getByteFrequencyData(freqData);
+	
+	let sum = 0;
+	for (let i = 0; i < freqData.length; i++) {
+		sum += freqData[i];
+	}
+	
+	const avgLevel = sum / freqData.length;
+	const dBLevel = 20 * Math.log10(avgLevel);
+	
+	const maxDBThreshold = 20;
+	const maxGain = 0.8;
+	
+	if (dBLevel > maxDBThreshold) {
+		const desiredGain = Math.pow(10, (maxDBThreshold - dBLevel) / 20);
+		dirtyNodes[8].gain.value = Math.min(desiredGain, maxGain);
+	} else {
+		dirtyNodes[8].gain.value = maxGain;
+	}
+	
+	requestAnimationFrame(monitorAudioLevelsA);
 }
 
 document.addEventListener("click", hFirstCall);
@@ -86,10 +157,12 @@ fetch('quiz-data.json')
 	.then((response) => response.json())
 	.then((muteIntervals) => {
 		const hintLabel = document.getElementById('hint');
+		let curMuting = false;
 		let curSelButton = null;
+		let firstAudioCon = true;
 		let hintTimer;
+		let isMuting = false;
 		let isSecretVideoPlaying = false;
-		let mGain;
 		let sHint;
 		let sRemaining;
 		let sTimerA;
@@ -103,8 +176,8 @@ fetch('quiz-data.json')
 			{'sWord': 'Wendy', 'sID': 'SecretBurger', 'sHint': 'Does she deliver the best burgers around?!', 'sGuessed': false},
 			{'sWord': 'Chex', 'sID': 'SecretChex', 'sHint': 'Gear up, cereal warrior, and vanquish hunger\'s alien invasion. Now with a free CD!', 'sGuessed': false},
 			{'sWord': 'Starburst', 'sID': 'SecretCream', 'sHint': 'Taste the explosive burst of fruity supernovas in every chew.', 'sGuessed': false},
-			{'sWord': 'Chocolate', 'sID': 'SecretDime', 'sHint': 'Unveil the hidden magic of a confectionery delight that captivates with its rich allure.', 'sGuessed': false},
-			{'sWord': 'Jingle Bells', 'sID': 'SecretDoor', 'sHint': 'Joyful notes chime, riding in a winter wonderland!', 'sGuessed': false},
+			{'sWord': 'Chocolate', 'sID': 'SecretDime', 'sHint': 'Savor the velvety bliss born from the depths of nature\'s confectionery.', 'sGuessed': false},
+			{'sWord': 'Jingle Bells', 'sID': 'SecretDoor', 'sHint': 'Joyful notes chime, riding in a winter wonderland.', 'sGuessed': false},
 			{'sWord': 'Drugs', 'sID': 'SecretDrugs', 'sHint': 'It all originated from a TV Campaign! This is your brain on...', 'sGuessed': false},
 			{'sWord': 'Duracell', 'sID': 'SecretDuracell', 'sHint': 'It\'s the battery that lasts, apparently!', 'sGuessed': false},
 			{'sWord': 'Cigar', 'sID': 'SecretHamlet', 'sHint': 'Smoke swirls, shadows deepen... A moment frozen in cinematic allure.', 'sGuessed': false},
@@ -123,7 +196,6 @@ fetch('quiz-data.json')
 			{'sWord': 'Zelda', 'sID': 'SecretZelda', 'sHint': 'Courage, a green tunic, and a legendary quest await.', 'sGuessed': false}
 		];
 		let sVideosBuffer;
-		
 		let currentHint = '';
 		let hintAvailable = false;
 		let hintShown = false;
@@ -338,46 +410,63 @@ fetch('quiz-data.json')
 			const matchRegex = new RegExp('(Welcome)');
 			if (!matchRegex.test(videoPlayer.currentSrc)) {
 				if (!curSelButton.classList.contains('correct-answer') && shouldDistVideo(video.ID, videoPlayer.currentTime)) {
-					if (nodes[0].isConnected || nodes[0].numberOfOutputs > 0) {
-						nodes[0].disconnect();
-						nodes[6].gain.value = mGain;
+					if (cleanNodes[0].isConnected || cleanNodes[0].numberOfOutputs > 0) {
+						for (let i = (cleanNodes.length - 1); i >= 0; i--) {
+							cleanNodes[i].disconnect();
+						}
 						
-						nodes.forEach((node, index) => {
-							if (index < nodes.length - 1) {
-								node.connect(nodes[index + 1]);
+						dirtyNodes.forEach((node, index) => {
+							if (index < dirtyNodes.length - 1) {
+								node.connect(dirtyNodes[index + 1]);
 							} else {
 								node.connect(audCnt.destination);
 							}
 						});
 					}
 				} else {
-					if (!nodes[0].isConnected || nodes[0].numberOfOutputs === 0) {
-						for (let i = (nodes.length - 1); i > 0; i--) {
-							nodes[i].disconnect();
+					if (!cleanNodes[0].isConnected || cleanNodes[0].numberOfOutputs === 0) {
+						for (let i = (dirtyNodes.length - 1); i >= 0; i--) {
+							dirtyNodes[i].disconnect();
 						}
-						nodes[0].connect(audCnt.destination);
+						
+						cleanNodes.forEach((node, index) => {
+							if (index < cleanNodes.length - 1) {
+								node.connect(cleanNodes[index + 1]);
+							} else {
+								node.connect(audCnt.destination);
+							}
+						});
 					}
 				}
 			} else {
 				if (shouldDistVideo('Welcome', videoPlayer.currentTime)) {
-					if (nodes[0].isConnected || nodes[0].numberOfOutputs > 0) {
-						nodes[0].disconnect();
-						nodes[6].gain.value = mGain;
+					if (cleanNodes[0].isConnected || cleanNodes[0].numberOfOutputs > 0) {
+						for (let i = (cleanNodes.length - 1); i >= 0; i--) {
+							cleanNodes[i].disconnect();
+						}
+
 						
-						nodes.forEach((node, index) => {
-							if (index < nodes.length - 1) {
-								node.connect(nodes[index + 1]);
+						dirtyNodes.forEach((node, index) => {
+							if (index < dirtyNodes.length - 1) {
+								node.connect(dirtyNodes[index + 1]);
 							} else {
 								node.connect(audCnt.destination);
 							}
 						});
 					}
 				} else {
-					if (!nodes[0].isConnected || nodes[0].numberOfOutputs === 0) {
-						for (let i = (nodes.length - 1); i > 0; i--) {
-							nodes[i].disconnect();
+					if (!cleanNodes[0].isConnected || cleanNodes[0].numberOfOutputs === 0) {
+						for (let i = (dirtyNodes.length - 1); i >= 0; i--) {
+							dirtyNodes[i].disconnect();
 						}
-						nodes[0].connect(audCnt.destination);
+						
+						cleanNodes.forEach((node, index) => {
+							if (index < cleanNodes.length - 1) {
+								node.connect(cleanNodes[index + 1]);
+							} else {
+								node.connect(audCnt.destination);
+							}
+						});
 					}
 				}
 			}
@@ -390,7 +479,6 @@ fetch('quiz-data.json')
 				const intervals = muteIntervals[videoID];
 				for (const interval of intervals) {
 					if (currentTime >= interval.start && currentTime <= interval.end) {
-						mGain = interval.gain;
 						return true;
 					}
 				}
