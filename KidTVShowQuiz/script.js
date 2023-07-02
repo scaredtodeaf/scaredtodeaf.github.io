@@ -48,7 +48,7 @@ function hFirstCall(){
 	audCnt = new (window.AudioContext || window.webkitAudioContext)();
 	let srceNd = audCnt.createMediaElementSource(videoPlayer);
 	let anl1Nd = audCnt.createAnalyser();
-	let PrG1Nd = audCnt.createGain();
+	let prG1Nd = audCnt.createGain();
 	
 	let mfG1Nd = audCnt.createGain();
 	let distNd = audCnt.createWaveShaper();
@@ -57,10 +57,10 @@ function hFirstCall(){
 	let bitCNd = audCnt.createScriptProcessor(4096, 1, 1);
 	let fil2Nd = audCnt.createBiquadFilter();
 	let anl2Nd = audCnt.createAnalyser();
-	let PrG2Nd = audCnt.createGain();
+	let prG2Nd = audCnt.createGain();
 	
-	cleanNodes = [srceNd, anl1Nd, PrG1Nd];
-	dirtyNodes = [srceNd, mfG1Nd, distNd, mfG2Nd, fil1Nd, bitCNd, fil2Nd, anl2Nd, PrG2Nd];
+	cleanNodes = [srceNd, anl1Nd, prG1Nd];
+	dirtyNodes = [srceNd, mfG1Nd, distNd, mfG2Nd, fil1Nd, bitCNd, fil2Nd, anl2Nd, prG2Nd];
 	
 	const bitDepth = 4;
 	const gainVals = [1.6, 0.8];
@@ -81,11 +81,8 @@ function hFirstCall(){
 	dirtyNodes[6].type = 'lowpass';
 	dirtyNodes[6].frequency.value = 200; 
 	
-	
-	
 	monitorAudioLevelsA();
 	monitorAudioLevelsB();
-	
 	
 	document.removeEventListener("click", hFirstCall);
 }
@@ -157,17 +154,11 @@ fetch('quiz-data.json')
 	.then((response) => response.json())
 	.then((muteIntervals) => {
 		const hintLabel = document.getElementById('hint');
-		let curMuting = false;
 		let curSelButton = null;
-		let firstAudioCon = true;
 		let hintTimer;
-		let isMuting = false;
 		let isSecretVideoPlaying = false;
 		let sHint;
 		let sRemaining;
-		let sTimerA;
-		let sTimerB;
-		let sTimerDone = false;
 		let sVideos = [
 			{'sWord': 'Jam on Toast', 'sID': 'PappiSecretSong', 'sHint': 'It\'s Jamie\'s favourite breakfast treat!', 'sGuessed': false},
 			{'sWord': 'Graham', 'sID': 'SecretBear', 'sHint': 'A cracker which shares its name with a King\'s Quest character!', 'sGuessed': false},
@@ -235,6 +226,24 @@ fetch('quiz-data.json')
 			}
 		}
 		
+		function shuffleArray(iArr) {
+			if (Array.isArray(iArr)) {
+				let cIndex = iArr.length,  rIndex;
+				
+				while (cIndex != 0) {
+					rIndex = Math.floor(Math.random() * cIndex);
+					cIndex--;
+					
+					[iArr[cIndex], iArr[rIndex]] = [
+					iArr[rIndex], iArr[cIndex]];
+				}
+				
+				return iArr;
+			} else {
+				return false;
+			}
+		}
+		
 		function checkAnswer() {
 			const inputValue = prepMatch(answerInput.value);
 			let isMatch = false;
@@ -276,6 +285,10 @@ fetch('quiz-data.json')
 				}
 				
 				if (sRemaining > 0) {
+					if (sRemaining > 1) {
+						sVideosBuffer = shuffleArray(sVideosBuffer);
+					}
+					
 					var sIndex = getRandomIndex(sVideosBuffer);
 					sHint = sVideosBuffer[sIndex];
 					answerFeedback.innerText = `Correct! The TV Show was ${video.Name}! ...Secret Hint: ${sHint}`;
@@ -321,15 +334,18 @@ fetch('quiz-data.json')
 					answerFeedback.style.color = 'gold';
 					SFXHandler(1, 'SecretAns');
 					
-					sTimerA = setTimeout(() => {
-						sTimerDone = true;
-						videoPlayer.src = `QuizVideos/${sID}.webm`;
-						videoPlayer.style.display = 'block';
-						videoPlayer.play();
+					setTimeout(() => {
+						if (isSecretVideoPlaying) {
+							videoPlayer.src = `QuizVideos/${sID}.webm`;
+							videoPlayer.style.display = 'block';
+							videoPlayer.play();
+						}
 					}, 3800);
 					
-					sTimerB = setTimeout(() => {
-						answerFeedback.innerText = ''
+					setTimeout(() => {
+						if (isSecretVideoPlaying) {
+							answerFeedback.innerText = ''
+						}
 					}, 7600);
 				}
 			}
@@ -444,7 +460,6 @@ fetch('quiz-data.json')
 						for (let i = (cleanNodes.length - 1); i >= 0; i--) {
 							cleanNodes[i].disconnect();
 						}
-
 						
 						dirtyNodes.forEach((node, index) => {
 							if (index < dirtyNodes.length - 1) {
@@ -494,12 +509,9 @@ fetch('quiz-data.json')
 			button.hintShown = false;
 			button.currentHint = '';
 			button.addEventListener('click', () => {
+				curSelButton = button;
+				
 				if (isSecretVideoPlaying) {
-					if (sTimerDone = false) {
-						clearTimeout(sTimerA);
-						clearTimeout(sTimerB);
-					}
-					
 					isSecretVideoPlaying = false;
 				}
 				
@@ -545,9 +557,6 @@ fetch('quiz-data.json')
 				if (!button.classList.contains('correct-answer')) {
 					button.classList.add('selected');
 				}
-				
-				curSelButton = button;
-				sTimerDone = false;
 				
 				setTimeout(() => {
 					videoPlayer.play();
