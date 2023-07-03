@@ -41,45 +41,44 @@ function mkDistCurve(amount) {
 	return curve;
 }
 
-let cleanNodes;
-let dirtyNodes;
+let cNodes;
+let dNodes;
 let audCnt;
 function hFirstCall(){
 	audCnt = new (window.AudioContext || window.webkitAudioContext)();
-	let srceNd = audCnt.createMediaElementSource(videoPlayer);
-	let anl1Nd = audCnt.createAnalyser();
-	let prG1Nd = audCnt.createGain();
+	let srcNd = audCnt.createMediaElementSource(videoPlayer);
+	let an1Nd = audCnt.createAnalyser();
+	let pG1Nd = audCnt.createGain();
+	let mG1Nd = audCnt.createGain();
+	let disNd = audCnt.createWaveShaper();
+	let mG2Nd = audCnt.createGain();
+	let fl1Nd = audCnt.createBiquadFilter();
+	let btCNd = audCnt.createScriptProcessor(4096, 1, 1);
+	let fl2Nd = audCnt.createBiquadFilter();
+	let an2Nd = audCnt.createAnalyser();
+	let pG2Nd = audCnt.createGain();
 	
-	let mfG1Nd = audCnt.createGain();
-	let distNd = audCnt.createWaveShaper();
-	let mfG2Nd = audCnt.createGain();
-	let fil1Nd = audCnt.createBiquadFilter();
-	let bitCNd = audCnt.createScriptProcessor(4096, 1, 1);
-	let fil2Nd = audCnt.createBiquadFilter();
-	let anl2Nd = audCnt.createAnalyser();
-	let prG2Nd = audCnt.createGain();
+	cNodes = [srcNd, an1Nd, pG1Nd];
+	dNodes = [srcNd, mG1Nd, disNd, mG2Nd, fl1Nd, btCNd, fl2Nd, an2Nd, pG2Nd];
 	
-	cleanNodes = [srceNd, anl1Nd, prG1Nd];
-	dirtyNodes = [srceNd, mfG1Nd, distNd, mfG2Nd, fil1Nd, bitCNd, fil2Nd, anl2Nd, prG2Nd];
+	const bDepth = 4;
+	const gVals = [1.6, 0.8];
 	
-	const bitDepth = 4;
-	const gainVals = [1.6, 0.8];
-	
-	dirtyNodes[1].gain.value = gainVals[0];
-	dirtyNodes[2].curve = mkDistCurve(2000);
-	dirtyNodes[3].gain.value = gainVals[1];
-	dirtyNodes[4].type = 'lowpass';
-	dirtyNodes[4].frequency.value = 200;
-	dirtyNodes[5].onaudioprocess = function (e) {
-		var iBuffer = e.inputBuffer.getChannelData(0);
-		var oBuffer = e.outputBuffer.getChannelData(0);
-		for (var i = 0; i < iBuffer.length; i++) {
-			var step = Math.pow(1 / 2, bitDepth);
-			oBuffer[i] = Math.round(iBuffer[i] / step) * step;
+	dNodes[1].gain.value = gVals[0];
+	dNodes[2].curve = mkDistCurve(2000);
+	dNodes[3].gain.value = gVals[1];
+	dNodes[4].type = 'lowpass';
+	dNodes[4].frequency.value = 200;
+	dNodes[5].onaudioprocess = function (e) {
+		var iBff = e.inputBuffer.getChannelData(0);
+		var oBff = e.outputBuffer.getChannelData(0);
+		for (var i = 0; i < iBff.length; i++) {
+			var step = Math.pow(1 / 2, bDepth);
+			oBff[i] = Math.round(iBff[i] / step) * step;
 		}
 	};
-	dirtyNodes[6].type = 'lowpass';
-	dirtyNodes[6].frequency.value = 200; 
+	dNodes[6].type = 'lowpass';
+	dNodes[6].frequency.value = 200; 
 	
 	monitorAudioLevelsA();
 	monitorAudioLevelsB();
@@ -88,57 +87,47 @@ function hFirstCall(){
 }
 
 function monitorAudioLevelsA() {
-	cleanNodes[1].fftSize = 2048;
+	cNodes[1].fftSize = 2048;
 	
-	const freqData = new Uint8Array(cleanNodes[1].frequencyBinCount);
+	const freqData = new Uint8Array(cNodes[1].frequencyBinCount);
 	
-	cleanNodes[1].getByteFrequencyData(freqData);
+	cNodes[1].getByteFrequencyData(freqData);
 	
 	let sum = 0;
 	for (let i = 0; i < freqData.length; i++) {
 		sum += freqData[i];
 	}
 	
-	const avgLevel = sum / freqData.length;
-	const dBLevel = 20 * Math.log10(avgLevel);
+	const dBLevel = 20 * Math.log10(sum / freqData.length);
 	
-	const maxDBThreshold = 20;
+	const maxDBThreshold = 25;
 	const maxGain = 0.8;
+	const desGain = Math.pow(10, (maxDBThreshold - dBLevel) / 20);
 	
-	if (dBLevel > maxDBThreshold) {
-		const desiredGain = Math.pow(10, (maxDBThreshold - dBLevel) / 20);
-		cleanNodes[2].gain.value = Math.min(desiredGain, maxGain);
-	} else {
-		cleanNodes[2].gain.value = maxGain;
-	}
+	cNodes[2].gain.value = dBLevel > maxDBThreshold ? Math.min(desGain, maxGain) : maxGain;
 	
 	requestAnimationFrame(monitorAudioLevelsA);
 }
 
 function monitorAudioLevelsB() {
-	dirtyNodes[7].fftSize = 2048;
+	dNodes[7].fftSize = 2048;
 	
-	const freqData = new Uint8Array(dirtyNodes[7].frequencyBinCount);
+	const freqData = new Uint8Array(dNodes[7].frequencyBinCount);
 	
-	dirtyNodes[7].getByteFrequencyData(freqData);
+	dNodes[7].getByteFrequencyData(freqData);
 	
 	let sum = 0;
 	for (let i = 0; i < freqData.length; i++) {
 		sum += freqData[i];
 	}
 	
-	const avgLevel = sum / freqData.length;
-	const dBLevel = 20 * Math.log10(avgLevel);
+	const dBLevel = 20 * Math.log10(sum / freqData.length);
 	
 	const maxDBThreshold = 20;
 	const maxGain = 0.8;
+	const desGain = Math.pow(10, (maxDBThreshold - dBLevel) / 20);
 	
-	if (dBLevel > maxDBThreshold) {
-		const desiredGain = Math.pow(10, (maxDBThreshold - dBLevel) / 20);
-		dirtyNodes[8].gain.value = Math.min(desiredGain, maxGain);
-	} else {
-		dirtyNodes[8].gain.value = maxGain;
-	}
+	dNodes[8].gain.value = dBLevel > maxDBThreshold ? Math.min(desGain, maxGain) : maxGain;
 	
 	requestAnimationFrame(monitorAudioLevelsA);
 }
@@ -156,51 +145,52 @@ fetch('quiz-data.json')
 		const hintLabel = document.getElementById('hint');
 		let curSelButton = null;
 		let hintTimer;
-		let isSecretVideoPlaying = false;
+		let hintTimerActive = false;
+		let isSecretPlay = false;
 		let sHint;
 		let sRemaining;
 		let sVideos = [
-			{'sWord': 'Jam on Toast', 'sID': 'PappiSecretSong', 'sHint': 'It\'s Jamie\'s favourite breakfast treat!', 'sGuessed': false},
-			{'sWord': 'Battletoads', 'sID': 'SecretBattletoad', 'sHint': 'Dive into retro chaos, where pixelated amphibians conquer the Nintendo realm.', 'sGuessed': false},
-			{'sWord': 'Graham', 'sID': 'SecretBear', 'sHint': 'A cracker which shares its name with a King\'s Quest character!', 'sGuessed': false},
-			{'sWord': 'Big Kev', 'sID': 'SecretBigKev', 'sHint': 'Expect the unexpected when a larger-than-life personality sells YOU products!', 'sGuessed': false},
-			{'sWord': 'Bob', 'sID': 'SecretBob', 'sHint': 'If you want some construction work done, he\'s who you call!', 'sGuessed': false},
-			{'sWord': 'Wendy', 'sID': 'SecretBurger', 'sHint': 'Does she deliver the best burgers around?!', 'sGuessed': false},
-			{'sWord': 'Cheetos', 'sID': 'SecretCheetos', 'sHint': 'The irresistible crunch that leaves you with cheesy fingers and a craving for more.', 'sGuessed': false},
-			{'sWord': 'Chex', 'sID': 'SecretChex', 'sHint': 'Gear up, cereal warrior, and vanquish hunger\'s alien invasion. Now with a free CD!', 'sGuessed': false},
-			{'sWord': 'Starburst', 'sID': 'SecretCream', 'sHint': 'Taste the explosive burst of fruity supernovas in every chew.', 'sGuessed': false},
-			{'sWord': 'Chocolate', 'sID': 'SecretDime', 'sHint': 'Savor the velvety bliss born from the depths of nature\'s confectionery.', 'sGuessed': false},
-			{'sWord': 'Jingle Bells', 'sID': 'SecretDoor', 'sHint': 'Joyful notes chime, riding in a winter wonderland.', 'sGuessed': false},
-			{'sWord': 'Drugs', 'sID': 'SecretDrugs', 'sHint': 'It all originated from a TV Campaign! This is your brain on...', 'sGuessed': false},
-			{'sWord': 'Duracell', 'sID': 'SecretDuracell', 'sHint': 'It\'s the battery that lasts, apparently!', 'sGuessed': false},
-			{'sWord': 'Fisher', 'sID': 'SecretFisher', 'sHint': 'The architects of childhood wonder, crafting toys that ignite imagination and foster endless adventures.', 'sGuessed': false},
-			{'sWord': 'Cigar', 'sID': 'SecretHamlet', 'sHint': 'Smoke swirls, shadows deepen... A moment frozen in cinematic allure.', 'sGuessed': false},
-			{'sWord': 'Road Rage', 'sID': 'SecretIdiot', 'sHint': 'The tempestuous symphony of honks, screeches and choice words, where patience meets its highway nemesis.', 'sGuessed': false},
-			{'sWord': 'Jan', 'sID': 'SecretJan', 'sHint': 'When the year bows out, and resolutions begin anew, the shorthand for this month plays its cue.', 'sGuessed': false},
-			{'sWord': 'KFC', 'sID': 'SecretKFC', 'sHint': 'The culinary legend that tantalizes taste buds with a blend of tantalizing herbs and flavors.', 'sGuessed': false},
-			{'sWord': 'McDonalds', 'sID': 'SecretMaccas', 'sHint': 'You can get all these delicious items for a DOLLAR here?!', 'sGuessed': false},
-			{'sWord': 'Milk', 'sID': 'SecretMilk', 'sHint': 'Got cookies? It\'s got your back... Unless you\'re intolerant!', 'sGuessed': false},
-			{'sWord': 'Myst', 'sID': 'SecretMyst', 'sHint': 'Dive into the pages of an enigmatic tome, where imagination weaves intricate riddles and mysteries unfold.', 'sGuessed': false},
-			{'sWord': 'Orange', 'sID': 'SecretOrange', 'sHint': 'In the citrus battleground, one fruit\'s vibrant crown shines brightest, leaving its sour compatriots facing a tangy defeat!', 'sGuessed': false},
-			{'sWord': 'Peperami', 'sID': 'SecretPeperami', 'sHint': 'The carnivorous delight that satisfies your cravings with meaty zeal and a spicy kick.', 'sGuessed': false},
-			{'sWord': 'Pepsiman', 'sID': 'SecretPepsi', 'sHint': 'Unleash your inner hero with a carbonated champion that empowers your every sip!', 'sGuessed': false},
-			{'sWord': 'Pitfall', 'sID': 'SecretPitfall', 'sHint': 'Unearth ancient hazards and test your mettle in a classic quest of hazards and rewards.', 'sGuessed': false},
-			{'sWord': 'Pikachu', 'sID': 'SecretPokemon', 'sHint': 'This character often comes top in \'Pocket Monster\' polls.', 'sGuessed': false},
-			{'sWord': 'Salmon', 'sID': 'SecretSalmon', 'sHint': 'The piscine monarch of the bagel realms, ruling over every delectable bite.', 'sGuessed': false},
-			{'sWord': 'Samboy', 'sID': 'SecretSamboy', 'sHint': 'Embrace the crunch that packs a flavor punch like no other.', 'sGuessed': false},
-			{'sWord': 'Shreddies', 'sID': 'SecretShreddies', 'sHint': 'It\'s the only cereal that\'s \'knitted\'!', 'sGuessed': false},
-			{'sWord': 'Smash', 'sID': 'SecretSmash', 'sHint': 'What does Nintendo and Instant Mashed Potato have in common?!', 'sGuessed': false},
-			{'sWord': 'Mint', 'sID': 'SecretSoft', 'sHint': 'The cool breeze of flavor that sweeps through your palate, leaving a refreshing trail behind.', 'sGuessed': false},
-			{'sWord': 'Sega', 'sID': 'SecretSonic', 'sHint': 'Nintendo\'s arch rivals in the gaming industry, for a while.', 'sGuessed': false},
-			{'sWord': 'Water', 'sID': 'SecretSoaker', 'sHint': 'You want it, you need it? H20 has got it!', 'sGuessed': false},
-			{'sWord': 'Sprite', 'sID': 'SecretSprite', 'sHint': 'Quench your thirst with a sparkling sprite of citrus delight.', 'sGuessed': false},
-			{'sWord': 'Tetris', 'sID': 'SecretTetris', 'sHint': 'Enter a world where order and chaos collide, governed by your strategic moves.', 'sGuessed': false},
-			{'sWord': 'Twix', 'sID': 'SecretTwix', 'sHint': 'Double the pleasure, twice the caramel-coated treasure.', 'sGuessed': false},
-			{'sWord': 'Vegemite', 'sID': 'SecretVegemite', 'sHint': 'The bold essence of Down Under, spreading its savory magic with an acquired taste.', 'sGuessed': false},
-			{'sWord': 'Mickey Mouse', 'sID': 'SecretYazhee', 'sHint': 'This character fronted a big-name studio\'s first foray into animation!', 'sGuessed': false},
-			{'sWord': 'Yogurt', 'sID': 'SecretYop', 'sHint': 'Milk\'s rebellious sibling: It\'s milk gone wild... IT\'S ALIVE!!!', 'sGuessed': false},
-			{'sWord': 'Zelda', 'sID': 'SecretZelda', 'sHint': 'Courage, a green tunic, and a legendary quest await.', 'sGuessed': false}
-		];
+			{'sW': 'Jam on Toast', 'sI': 'PappiSecretSong', 'sH': 'It\'s Jamie\'s favourite breakfast treat!'},
+			{'sW': 'Battletoads', 'sI': 'SecretBattletoads', 'sH': 'Dive into retro chaos, where pixelated amphibians conquer the Nintendo realm.'},
+			{'sW': 'Graham', 'sI': 'SecretBear', 'sH': 'A cracker which shares its name with a King\'s Quest character!'},
+			{'sW': 'Big Kev', 'sI': 'SecretBigKev', 'sH': 'Expect the unexpected when a larger-than-life personality sells YOU products!'},
+			{'sW': 'Bob', 'sI': 'SecretBob', 'sH': 'If you want some construction work done, he\'s who you call!'},
+			{'sW': 'Wendy', 'sI': 'SecretBurger', 'sH': 'Does she deliver the best burgers around?!'},
+			{'sW': 'Cheetos', 'sI': 'SecretCheetos', 'sH': 'The irresistible crunch that leaves you with cheesy fingers and a craving for more.'},
+			{'sW': 'Chex', 'sI': 'SecretChex', 'sH': 'Gear up, cereal warrior, and vanquish hunger\'s alien invasion. Now with a free CD!'},
+			{'sW': 'Starburst', 'sI': 'SecretCream', 'sH': 'Taste the explosive burst of fruity supernovas in every chew.'},
+			{'sW': 'Chocolate', 'sI': 'SecretDime', 'sH': 'Savor the velvety bliss born from the depths of nature\'s confectionery.'},
+			{'sW': 'Jingle Bells', 'sI': 'SecretDoor', 'sH': 'Joyful notes chime, riding in a winter wonderland.'},
+			{'sW': 'Drugs', 'sI': 'SecretDrugs', 'sH': 'It all originated from a TV Campaign! This is your brain on...'},
+			{'sW': 'Duracell', 'sI': 'SecretDuracell', 'sH': 'It\'s the battery that lasts, apparently!'},
+			{'sW': 'Fisher', 'sI': 'SecretFisher', 'sH': 'The architects of childhood wonder, crafting toys that ignite imagination and foster endless adventures.'},
+			{'sW': 'Cigar', 'sI': 'SecretHamlet', 'sH': 'Smoke swirls, shadows deepen... A moment frozen in cinematic allure.'},
+			{'sW': 'Road Rage', 'sI': 'SecretIdiot', 'sH': 'The tempestuous symphony of honks, screeches and choice words, where patience meets its highway nemesis.'},
+			{'sW': 'Jan', 'sI': 'SecretJan', 'sH': 'When the year bows out, and resolutions begin anew, the shorthand for this month plays its cue.'},
+			{'sW': 'KFC', 'sI': 'SecretKFC', 'sH': 'The culinary legend that tantalizes taste buds with a blend of tantalizing herbs and flavors.'},
+			{'sW': 'McDonalds', 'sI': 'SecretMaccas', 'sH': 'You can get all these delicious items for a DOLLAR here?!'},
+			{'sW': 'Milk', 'sI': 'SecretMilk', 'sH': 'Got cookies? It\'s got your back... Unless you\'re intolerant!'},
+			{'sW': 'Myst', 'sI': 'SecretMyst', 'sH': 'Dive into the pages of an enigmatic tome, where imagination weaves intricate riddles and mysteries unfold.'},
+			{'sW': 'Orange', 'sI': 'SecretOrange', 'sH': 'In the citrus battleground, one fruit\'s vibrant crown shines brightest, leaving its sour compatriots facing a tangy defeat!'},
+			{'sW': 'Peperami', 'sI': 'SecretPeperami', 'sH': 'The carnivorous delight that satisfies your cravings with meaty zeal and a spicy kick.'},
+			{'sW': 'Pepsiman', 'sI': 'SecretPepsi', 'sH': 'Unleash your inner hero with a carbonated champion that empowers your every sip!'},
+			{'sW': 'Pitfall', 'sI': 'SecretPitfall', 'sH': 'Unearth ancient hazards and test your mettle in a classic quest of hazards and rewards.'},
+			{'sW': 'Pikachu', 'sI': 'SecretPokemon', 'sH': 'This character often comes top in \'Pocket Monster\' polls.'},
+			{'sW': 'Salmon', 'sI': 'SecretSalmon', 'sH': 'The piscine monarch of the bagel realms, ruling over every delectable bite.'},
+			{'sW': 'Samboy', 'sI': 'SecretSamboy', 'sH': 'Embrace the crunch that packs a flavor punch like no other.'},
+			{'sW': 'Shreddies', 'sI': 'SecretShreddies', 'sH': 'It\'s the only cereal that\'s \'knitted\'!'},
+			{'sW': 'Smash', 'sI': 'SecretSmash', 'sH': 'What does Nintendo and Instant Mashed Potato have in common?!'},
+			{'sW': 'Mint', 'sI': 'SecretSoft', 'sH': 'The cool breeze of flavor that sweeps through your palate, leaving a refreshing trail behind.'},
+			{'sW': 'Sega', 'sI': 'SecretSonic', 'sH': 'Nintendo\'s arch rivals in the gaming industry, for a while.'},
+			{'sW': 'Water', 'sI': 'SecretSoaker', 'sH': 'You want it, you need it? H20 has got it!'},
+			{'sW': 'Sprite', 'sI': 'SecretSprite', 'sH': 'Quench your thirst with a sparkling sprite of citrus delight.'},
+			{'sW': 'Tetris', 'sI': 'SecretTetris', 'sH': 'Enter a world where order and chaos collide, governed by your strategic moves.'},
+			{'sW': 'Twix', 'sI': 'SecretTwix', 'sH': 'Double the pleasure, twice the caramel-coated treasure.'},
+			{'sW': 'Vegemite', 'sI': 'SecretVegemite', 'sH': 'The bold essence of Down Under, spreading its savory magic with an acquired taste.'},
+			{'sW': 'Mickey Mouse', 'sI': 'SecretYazhee', 'sH': 'This character fronted a big-name studio\'s first foray into animation!'},
+			{'sW': 'Yogurt', 'sI': 'SecretYop', 'sH': 'Milk\'s rebellious sibling: It\'s milk gone wild... IT\'S ALIVE!!!'},
+			{'sW': 'Zelda', 'sI': 'SecretZelda', 'sH': 'Courage, a green tunic, and a legendary quest await.'}
+		].map(video => ({ ...video, sG: false }));
 		let sVideosBuffer;
 		let currentHint = '';
 		let hintAvailable = false;
@@ -259,58 +249,63 @@ fetch('quiz-data.json')
 			}
 		}
 		
+		setInterval(function() {
+			playPauseButton.innerText = (videoPlayer.paused) ? 'Play' : 'Pause';
+		}, 100);
+		
+		setInterval(function() {
+			if (!hintTimerActive) {
+				if (hintAvailable && !hintShown) {
+					hintLabel.innerText = 'Hint Available - Click here';
+					hintLabel.addEventListener('click', showHint);
+				} else if (hintShown) {
+					hintLabel.innerText = `Hint: ${currentHint}`;
+				} else {
+					hintLabel.innerText = '';
+					hintLabel.removeEventListener('click', showHint);
+				}
+			}
+		}, 100);
+		
 		function checkAnswer() {
 			const inputValue = prepMatch(answerInput.value);
 			let isMatch = false;
 			let isSecret = false;
 			let sID;
 			
-			for (let i = 0; i < sVideos.length; i++) {
-				const matchRegex = new RegExp(`(${prepMatch(sVideos[i].sWord)})`);
-				
-				if (matchRegex.test(inputValue)) {
-					isSecret = true;
-					sVideos[i].sGuessed = true;
-					sID = sVideos[i].sID;
+			isSecret = sVideos.some(({sW, sI}, i) => {
+				if (new RegExp(`(${prepMatch(sW)})`).test(inputValue)) {
+					sVideos[i].sG = true;
+					sID = sI;
 					saveProgress();
-					break;
+					return true;
 				}
-			}
+			});
 			
-			if (!isSecret) {
-				for (const keyword of video.Keywords) {
-					const matchRegex = new RegExp(`(${prepMatch(keyword)})`);
-					
-					if (matchRegex.test(inputValue)) {
-						isMatch = true;
-						break;
-					}
-				}
+			if (!isSecret && video.Keywords.some(keyword => new RegExp(`(${prepMatch(keyword)})`).test(inputValue))) {
+				isMatch = true;
 			}
 			
 			if (isMatch && !curSelButton.classList.contains('correct-answer')) {
 				sRemaining = 0;
 				sVideosBuffer = [];
 				
-				for (let i = 0; i < sVideos.length; i++) {
-					if (sVideos[i].sGuessed === false) {
-						sVideosBuffer.push(sVideos[i].sHint);
-						sRemaining += 1;
+				sVideos.forEach(({sG, sH}) => {
+					if (!sG) {
+						sVideosBuffer.push(sH);
+						sRemaining++;
 					}
-				}
+				});
 				
 				if (sRemaining > 0) {
 					if (sRemaining > 1) {
-						sVideosBuffer = shuffleArray(sVideosBuffer);
+						shuffleArray(sVideosBuffer);
 					}
 					
-					var sIndex = getRandomIndex(sVideosBuffer);
-					sHint = sVideosBuffer[sIndex];
-					answerFeedback.innerText = `Correct! The TV Show was ${video.Name}! ...Secret Hint: ${sHint}`;
-				} else {
-					answerFeedback.innerText = `Correct! The TV Show was ${video.Name}!`;
+					sHint = sVideosBuffer[getRandomIndex(sVideosBuffer)];
 				}
 				
+				answerFeedback.innerText = `Correct! The TV Show was ${video.Name}${sRemaining > 0 ? `! ...Secret Hint: ${sHint}` : '!'}`;
 				answerFeedback.style.color = 'green';
 				answerInput.value = '';
 				videoPlayer.style.display = 'block';
@@ -325,22 +320,12 @@ fetch('quiz-data.json')
 				hintAvailable = curSelButton.hintAvailable;
 				saveProgress();
 				
-				if (hintAvailable && !hintShown) {
-					hintLabel.innerText = 'Hint Available - Click here';
-					hintLabel.addEventListener('click', showHint);
-				} else if (hintShown) {
-					hintLabel.innerText = `Hint: ${currentHint}`;
-				} else {
-					hintLabel.innerText = '';
-					hintLabel.removeEventListener('click', showHint);
-				}
-				
 				videoPlayer.classList.remove('hidden-video');
 				videoPlayer.currentTime = 0;
 				videoPlayer.play();
 			} else {
 				if (isSecret) {
-					isSecretVideoPlaying = true;
+					isSecretPlay = true;
 					answerInput.disabled = true;
 					answerInput.value = '';
 					videoPlayer.pause();
@@ -350,7 +335,7 @@ fetch('quiz-data.json')
 					SFXHandler(1, 'SecretAns');
 					
 					setTimeout(() => {
-						if (isSecretVideoPlaying) {
+						if (isSecretPlay) {
 							videoPlayer.src = `QuizVideos/${sID}.webm`;
 							videoPlayer.style.display = 'block';
 							videoPlayer.play();
@@ -358,7 +343,7 @@ fetch('quiz-data.json')
 					}, 3800);
 					
 					setTimeout(() => {
-						if (isSecretVideoPlaying) {
+						if (isSecretPlay) {
 							answerFeedback.innerText = ''
 						}
 					}, 7600);
@@ -367,29 +352,23 @@ fetch('quiz-data.json')
 		}
 		
 		function saveProgress() {
-			const progress = [];
-			const buttons = document.querySelectorAll('#button-grid button');
-			
-			for (const button of buttons) {
+			const progress = Array.from(document.querySelectorAll('#button-grid button')).map(button => {
 				const buttonData = {
 					id: button.videoData.ID,
 					hintAvailable: button.hintAvailable,
 					hintShown: button.hintShown,
-					currentHint: button.currentHint
+					currentHint: button.currentHint,
+					isCorrect: button.classList.contains('correct-answer')
 				};
-		
-				if (button.classList.contains('correct-answer')) {
-					buttonData.isCorrect = true;
-				}
-				progress.push(buttonData);
-			}
+				return buttonData;
+			});
 			
-			for (const sVideo of sVideos) {
+			sVideos.forEach(sVideo => {
 				progress.push({
-					id: sVideo.sID,
-					guessed: sVideo.sGuessed
+					id: sVideo.sI,
+					guess: sVideo.sG
 				});
-			}
+			});
 			
 			localStorage.setItem('KidquizProgress', JSON.stringify(progress));
 		}
@@ -401,34 +380,26 @@ fetch('quiz-data.json')
 				const progress = JSON.parse(savedProgress);
 				const buttons = document.querySelectorAll('#button-grid button');
 				
-				for (const button of buttons) {
-					const buttonData = progress.find((data) => data.id === button.videoData.ID);
+				buttons.forEach(button => {
+					const buttonData = progress.find(data => data.id === button.videoData.ID);
 					
 					if (buttonData) {
-						if (buttonData.isCorrect) {
-							button.classList.add('correct-answer');
-							//button.disabled = true;
-							button.style.backgroundColor = 'green';
-							button.innerText = button.videoData.Name;
-						}
-						
+						button.classList.toggle('correct-answer', buttonData.isCorrect);
+						button.style.backgroundColor = buttonData.isCorrect ? 'green' : button.style.backgroundColor;
+						button.innerText = buttonData.isCorrect ? button.videoData.Name : button.innerText;
 						button.hintAvailable = buttonData.hintAvailable;
 						button.hintShown = buttonData.hintShown;
 						button.currentHint = buttonData.currentHint;
 					}
-				}
+				});
 				
-				for (let i = 0; i < sVideos.length; i++) {
-				}
-				
-				
-				for (const sVideo of sVideos) {
-					const sVideoData = progress.find((data) => data.id === sVideo.sID);
+				sVideos.forEach(sVideo => {
+					const sVideoData = progress.find(data => data.id === sVideo.sI);
 					
 					if (sVideoData) {
-						sVideo.sGuessed = sVideoData.guessed;
+						sVideo.sG = sVideoData.guess;
 					}
-				}
+				});
 			}
 		}
 		
@@ -438,82 +409,36 @@ fetch('quiz-data.json')
 		});
 		
 		videoPlayer.addEventListener('timeupdate', () => {
-			const matchRegex = new RegExp('(Welcome)');
-			if (!matchRegex.test(videoPlayer.currentSrc)) {
-				if (!curSelButton.classList.contains('correct-answer') && shouldDistVideo(video.ID, videoPlayer.currentTime)) {
-					if (cleanNodes[0].isConnected || cleanNodes[0].numberOfOutputs > 0) {
-						for (let i = (cleanNodes.length - 1); i >= 0; i--) {
-							cleanNodes[i].disconnect();
-						}
-						
-						dirtyNodes.forEach((node, index) => {
-							if (index < dirtyNodes.length - 1) {
-								node.connect(dirtyNodes[index + 1]);
-							} else {
-								node.connect(audCnt.destination);
-							}
-						});
-					}
-				} else {
-					if (!cleanNodes[0].isConnected || cleanNodes[0].numberOfOutputs === 0) {
-						for (let i = (dirtyNodes.length - 1); i >= 0; i--) {
-							dirtyNodes[i].disconnect();
-						}
-						
-						cleanNodes.forEach((node, index) => {
-							if (index < cleanNodes.length - 1) {
-								node.connect(cleanNodes[index + 1]);
-							} else {
-								node.connect(audCnt.destination);
-							}
-						});
-					}
+			const isWelcomeVideo = /(Welcome)/.test(videoPlayer.currentSrc);
+			
+			if ((!isWelcomeVideo && !curSelButton.classList.contains('correct-answer') && shouldDistVideo(video.ID, videoPlayer.currentTime)) || (isWelcomeVideo && shouldDistVideo('Welcome', videoPlayer.currentTime))) {
+				if (!cNodes[0].isConnected || cNodes[0].numberOfOutputs === 0) {
+					[...cNodes].reverse().forEach(node => node.disconnect());
+					
+					dNodes.forEach((node, index) => {
+						const nextNode = index < dNodes.length - 1 ? dNodes[index + 1] : audCnt.destination;
+						node.connect(nextNode);
+					});
 				}
 			} else {
-				if (shouldDistVideo('Welcome', videoPlayer.currentTime)) {
-					if (cleanNodes[0].isConnected || cleanNodes[0].numberOfOutputs > 0) {
-						for (let i = (cleanNodes.length - 1); i >= 0; i--) {
-							cleanNodes[i].disconnect();
-						}
-						
-						dirtyNodes.forEach((node, index) => {
-							if (index < dirtyNodes.length - 1) {
-								node.connect(dirtyNodes[index + 1]);
-							} else {
-								node.connect(audCnt.destination);
-							}
-						});
-					}
-				} else {
-					if (!cleanNodes[0].isConnected || cleanNodes[0].numberOfOutputs === 0) {
-						for (let i = (dirtyNodes.length - 1); i >= 0; i--) {
-							dirtyNodes[i].disconnect();
-						}
-						
-						cleanNodes.forEach((node, index) => {
-							if (index < cleanNodes.length - 1) {
-								node.connect(cleanNodes[index + 1]);
-							} else {
-								node.connect(audCnt.destination);
-							}
-						});
-					}
+				if (cNodes[0].isConnected || cNodes[0].numberOfOutputs > 0) {
+					[...dNodes].reverse().forEach(node => node.disconnect());
+					
+					cNodes.forEach((node, index) => {
+						const nextNode = index < cNodes.length - 1 ? cNodes[index + 1] : audCnt.destination;
+						node.connect(nextNode);
+					});
 				}
 			}
 		});
 		
-		function shouldDistVideo(videoID, currentTime) {
-			if (isSecretVideoPlaying || muteIntervals[videoID] === undefined) {
-				return false;
-			} else {
-				const intervals = muteIntervals[videoID];
-				for (const interval of intervals) {
-					if (currentTime >= interval.start && currentTime <= interval.end) {
-						return true;
-					}
-				}
+		function shouldDistVideo(videoID, cTime) {
+			if (isSecretPlay || muteIntervals[videoID] === undefined) {
 				return false;
 			}
+			
+			const intervals = muteIntervals[videoID];
+			return intervals.some(interval => cTime >= interval.start && cTime <= interval.end);
 		}
 		
 		for (const [index, videoData] of data.entries()) {
@@ -526,40 +451,24 @@ fetch('quiz-data.json')
 			button.addEventListener('click', () => {
 				curSelButton = button;
 				
-				if (isSecretVideoPlaying) {
-					isSecretVideoPlaying = false;
+				if (isSecretPlay) {
+					isSecretPlay = false;
 				}
 				
 				SFXHandler(0, 'QuizBtn');
 				video = videoData;
 				
-				if (button.classList.contains('correct-answer')) {
-					videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-					videoPlayer.style.display = 'block';
-				} else {
-					videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-					videoPlayer.style.display = 'none';
-				}
+				videoPlayer.src = `QuizVideos/${video.ID}.webm`;
+				videoPlayer.style.display = button.classList.contains('correct-answer') ? 'block' : 'none';
 				
 				answerInput.disabled = false;
 				answerInput.value = '';
 				answerFeedback.innerText = '';
-				playPauseButton.innerText = 'Play';
 				
 				hintAvailable = button.hintAvailable;
 				hintShown = button.hintShown;
 				currentHint = button.currentHint;
 				hintLabel.style.color = '#AAB4BE';
-				
-				if (hintAvailable && !hintShown) {
-					hintLabel.innerText = 'Hint Available - Click here';
-					hintLabel.addEventListener('click', showHint);
-				} else if (hintShown) {
-					hintLabel.innerText = `Hint: ${currentHint}`;
-				} else {
-					hintLabel.innerText = '';
-					hintLabel.removeEventListener('click', showHint);
-				}
 				
 				const buttons = document.querySelectorAll('#button-grid button');
 				for (const button of buttons) {
@@ -575,10 +484,6 @@ fetch('quiz-data.json')
 				
 				setTimeout(() => {
 					videoPlayer.play();
-					
-					if (playPauseButton.innerText = 'Play') {
-						playPauseButton.innerText = 'Pause';
-					}
 				}, 200);
 			});
 			videoButtons.appendChild(button);
@@ -587,20 +492,14 @@ fetch('quiz-data.json')
 		playPauseButton.addEventListener('click', () => {
 			if (videoPlayer.paused) {
 				videoPlayer.play();
-				playPauseButton.innerText = 'Pause';
 			} else {
 				videoPlayer.pause();
-				playPauseButton.innerText = 'Play';
 			}
 		});
 		
 		rewindButton.addEventListener('click', () => {
-			videoPlayer.currentTime = 0;
 			videoPlayer.pause();
-			
-			if (playPauseButton.innerText = 'Pause') {
-				playPauseButton.innerText = 'Play';
-			}
+			videoPlayer.currentTime = 0;
 		});
 		
 		volumeSlider.addEventListener('input', () => {
@@ -608,14 +507,15 @@ fetch('quiz-data.json')
 		});
 		
 		videoPlayer.addEventListener('timeupdate', () => {
-			const matchRegex = new RegExp('(Welcome)');
+			const isWelcomeVideo = /(Welcome)/.test(videoPlayer.currentSrc);
 			
-			if (!matchRegex.test(videoPlayer.currentSrc)) {
+			if (!isWelcomeVideo) {
 				const halfDuration = videoPlayer.duration / 2;
-				if (videoPlayer.currentTime > halfDuration && !hintAvailable && !hintShown && !isSecretVideoPlaying) {
+				
+				if (videoPlayer.currentTime > halfDuration && !hintAvailable && !hintShown && !isSecretPlay) {
 					curSelButton.hintAvailable, hintAvailable = true;
-					
 					clearInterval(hintTimer);
+					hintTimerActive = false;
 					hintLabel.innerText = 'Hint Available - Click here';
 					hintLabel.style.color = '#AAB4BE';
 					hintLabel.addEventListener('click', showHint);
@@ -625,18 +525,21 @@ fetch('quiz-data.json')
 		
 		videoPlayer.addEventListener('play', () => {
 			hintTimer = setInterval(() => {
-				const matchRegex = new RegExp('(Welcome)');
+				const isWelcomeVideo = /(Welcome)/.test(videoPlayer.currentSrc);
 				
-				if (isSecretVideoPlaying || matchRegex.test(videoPlayer.currentSrc)) {
+				if (isSecretPlay || isWelcomeVideo) {
 					hintLabel.innerText = '';
 					clearInterval(hintTimer);
+					hintTimerActive = false;
 				} else {
+					hintTimerActive = true;
 					if (!hintAvailable && !hintShown) {
-						const remainingTime = (videoPlayer.duration / 2) - videoPlayer.currentTime;
-						hintLabel.innerText = `You can click here for the hint in ${Math.ceil(remainingTime)} seconds`;
+						const remainingTime = Math.ceil((videoPlayer.duration / 2) - videoPlayer.currentTime);
+						hintLabel.innerText = `You can click here for the hint in ${remainingTime} seconds`;
 						hintLabel.style.color = '#AAB4BE';
 					} else {
 						clearInterval(hintTimer);
+						hintTimerActive = false;
 					}
 				}
 			}, 1000);
@@ -647,30 +550,18 @@ fetch('quiz-data.json')
 		});
 		
 		videoPlayer.addEventListener('ended', () => {
-			if (!isSecretVideoPlaying) {
-				videoPlayer.currentTime = 0;
-				
-				if (playPauseButton.innerText = 'Pause') {
-					playPauseButton.innerText = 'Play';
-				}
-			} else {
-				isSecretVideoPlaying = false;
+			if (isSecretPlay) {
+				isSecretPlay = false;
 				answerInput.disabled = false;
 				videoPlayer.src = `QuizVideos/${video.ID}.webm`;
-				videoPlayer.currentTime = 0;
-				
-				if (playPauseButton.innerText = 'Pause') {
-					playPauseButton.innerText = 'Play';
-				}
-				
-				if (!curSelButton.classList.contains('correct-answer')) {
-					videoPlayer.style.display = 'none';
-				}
+				videoPlayer.style.display = curSelButton.classList.contains('correct-answer') ? 'block' : 'none';
 			}
+			
+			videoPlayer.currentTime = 0;
 		});
 		
 		function showHint() {
-			if(!isSecretVideoPlaying) {
+			if(!isSecretPlay) {
 				if (!hintShown) {
 					hintShown = true;
 					currentHint = curSelButton.videoData.Hint;
