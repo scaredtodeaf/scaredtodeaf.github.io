@@ -150,7 +150,7 @@ fetch('quiz-data.json')
 		let sHint;
 		let sRemaining;
 		let sVideos = [
-			{'sW': 'Jam on Toast', 'sI': 'PappiSecretSong', 'sH': 'It\'s Jamie\'s favourite breakfast treat!'},
+			{'sW': 'Jam on Toast', 'sI': 'PappiSecretSong', 'sH': 'Jamie LOVES this culinary masterpiece that\'s worth waking up for!'},
 			{'sW': 'Battletoads', 'sI': 'SecretBattletoads', 'sH': 'Dive into retro chaos, where pixelated amphibians conquer the Nintendo realm.'},
 			{'sW': 'Graham', 'sI': 'SecretBear', 'sH': 'A cracker which shares its name with a King\'s Quest character!'},
 			{'sW': 'Big Kev', 'sI': 'SecretBigKev', 'sH': 'Expect the unexpected when a larger-than-life personality sells YOU products!'},
