@@ -133,6 +133,13 @@ function monitorAudioLevelsB() {
 }
 
 document.addEventListener("click", hFirstCall);
+document.addEventListener('mouseup', handleMouseUp);
+
+function handleMouseUp(event) {
+    if (!answerInput.disabled) {
+        answerInput.focus();
+    }
+}
 
 videoPlayer.src = 'QuizVideos/Welcome.webm';
 
@@ -264,18 +271,20 @@ fetch('quiz-data.json')
 		}, 100);
 		
 		setInterval(function() {
-			if (!hintTimerActive) {
-				if (hintAvailable && !hintShown) {
-					hintLabel.innerText = 'Hint Available - Click here';
-					hintLabel.addEventListener('click', showHint);
-				} else if (hintShown) {
-					hintLabel.innerText = `Hint: ${currentHint}`;
-				} else {
-					hintLabel.innerText = '';
-					hintLabel.removeEventListener('click', showHint);
-				}
-			}
-		}, 100);
+            if (!hintTimerActive) {
+                if (!isSecretPlay) {
+                    if (hintAvailable && !hintShown) {
+                        hintLabel.innerText = 'Hint Available - Click here';
+                        hintLabel.addEventListener('click', showHint);
+                    } else if (hintShown) {
+                        hintLabel.innerText = `Hint: ${currentHint}`;
+                    } else {
+                        hintLabel.innerText = '';
+                        hintLabel.removeEventListener('click', showHint);
+                    }
+                }
+            }
+        }, 100);
 		
 		function checkAnswer() {
 			const inputValue = prepMatch(answerInput.value);
