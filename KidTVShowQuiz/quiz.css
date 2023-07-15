@@ -33,19 +33,21 @@ body::-webkit-scrollbar {
 
 #video-player-container {
 	position: relative;
-	padding-bottom: 42.5%; /* 21:9 Aspect Ratio */
 	height: 0;
+	width: 640px;
+	height: 480px;
 	overflow: hidden;
 	margin: 20px auto;
 }
 
-
 #video-player {
 	position: absolute;
-	top: 0;
-	left: 0;
 	width: 100%;
 	height: 100%;
+	object-fit: fill;
+	cursor: none;
+	top: 0;
+	left: 0;
 }
 
 .button-container {
@@ -136,11 +138,6 @@ button:hover {
 
 #play-pause-button:active, #rewind-button:active, #volume-slider:active {
 	cursor: grabbing;
-}
-
-#video-player {
-	pointer-events: none;
-	cursor: none;
 }
 
 #button-grid {

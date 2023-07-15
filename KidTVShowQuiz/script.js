@@ -335,9 +335,7 @@ fetch('quiz-data.json')
 				curSelButton.innerText = curSelButton.videoData.Name;
 				SFXHandler(1, 'RightAns');
 				
-				curSelButton.hintAvailable = true;
-				console.log(curSelButton.hintAvailable);
-				hintAvailable = curSelButton.hintAvailable;
+				[curSelButton.hintAvailable, hintAvailable] = [true, true];
 				saveProgress();
 				
 				videoPlayer.classList.remove('hidden-video');
@@ -533,12 +531,10 @@ fetch('quiz-data.json')
 				const halfDuration = videoPlayer.duration / 2;
 				
 				if (videoPlayer.currentTime > halfDuration && !hintAvailable && !hintShown && !isSecretPlay) {
-					curSelButton.hintAvailable, hintAvailable = true;
+					[curSelButton.hintAvailable, hintAvailable] = [true, true];
 					clearInterval(hintTimer);
+					saveProgress();
 					hintTimerActive = false;
-					hintLabel.innerText = 'Hint Available - Click here';
-					hintLabel.style.color = '#AAB4BE';
-					hintLabel.addEventListener('click', showHint);
 				}
 			}
 		});
