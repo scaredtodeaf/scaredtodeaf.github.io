@@ -1,0 +1,811 @@
+[
+	{
+	"ID":"6123951",
+	"Name":"Elfen Lied",
+	"Hint":"When innocence and darkness collide, a mysterious girl with extraordinary powers becomes the catalyst for a poignant tale of redemption, tragedy, and the unbreakable bonds of humanity.",
+	"Keywords":[
+	   "Elfen Lied"
+	],
+	"StartTime": 25
+ 	},
+	{
+	   "ID":"782191",
+	   "Name":"Fate Stay Night",
+	   "Hint":"Legendary heroes are summoned to vie for the power of the Holy Grail, as fate intertwines their paths and they engage in a grand battle that will determine the course of history.",
+	   "Keywords":[
+		  "Fate Stay Night"
+	   ]
+	},
+	{
+	   "ID":"859120",
+	   "Name":"Tokyo Ghoul",
+	   "Hint":"Step into the dark underbelly of the Big Mikan, where a young man's encounter with the supernatural unveils a haunting transformation, blurring the line between human and the ravenous creatures that dwell in the night.",
+	   "Keywords":[
+		  "Tokyo Ghoul"
+	   ]
+	},
+	{
+	   "ID":"518901345",
+	   "Name":"Cells at Work",
+	   "Hint":"Explore the bustling microcosm within, as tireless cells embark on a remarkable journey, battling pathogens and maintaining the delicate balance of life within the human body.",
+	   "Keywords":[
+		  "Cells at Work"
+	   ]
+	},
+	{
+	   "ID":"6304185",
+	   "Name":"Serial Experiments Lain",
+	   "Hint":"Dive into a surreal digital realm, where the boundaries of reality blur, and a shy girl's journey unfolds through a labyrinth of technology, identity, and existential enigmas.",
+	   "Keywords":[
+		  "Serial Experiments Lain"
+	   ]
+	},
+	{
+	   "ID":"8590123",
+	   "Name":"Love Hina",
+	   "Hint":"In a comedic tale of mishaps and romantic entanglements, a young man finds himself surrounded by a lively group of intriguing individuals, leading to hilarious encounters and unexpected connections.",
+	   "Keywords":[
+		  "Love Hina"
+	   ]
+	},
+	{
+	   "ID":"561666",
+	   "Name":"Chainsaw Man",
+	   "Hint":"Amidst a dark world where danger looms at every corner, a young man with a cutting tool in hand battles nightmarish creatures, grappling with his own demons in a thrilling and visceral journey.",
+	   "Keywords":[
+		  "Chainsaw man"
+	   ]
+	},
+	{
+	   "ID":"10958129",
+	   "Name":"Spy x Family",
+	   "Hint":"A spy, an assassin, and a telepathic prodigy walk into a bar, their extraordinary abilities and hidden identities setting the stage for a hilarious and heartwarming tale of family dynamics!",
+	   "Keywords":[
+		  "Spy x Family"
+	   ]
+	},
+	{
+	   "ID":"5124593",
+	   "Name":"Boruto",
+	   "Hint":"When the flame of determination burns brightly, a new generation rises to carry the legacy of heroes, facing the trials of a hidden power and the forging of their own destinies.",
+	   "Keywords":[
+		  "Boruto"
+	   ]
+	},
+	{
+	   "ID":"931205",
+	   "Name":"Kill La Kill",
+	   "Hint":"Enter a world where fashion becomes a battlefield, and the clash between rebellion and tyranny unveils a high-octane spectacle of action, style, and the quest for justice.",
+	   "Keywords":[
+		  "Kill La Kill"
+	   ]
+	},
+	{
+	   "ID":"59102385",
+	   "Name":"Hunter X Hunter",
+	   "Hint":"In a vast world teeming with mysteries, aspiring hunters embark on a perilous journey, seeking untold treasures and confronting formidable challenges in their pursuit of greatness.",
+	   "Keywords":[
+		  "Hunter X Hunter"
+	   ]
+	},
+	{
+	   "ID":"1905412",
+	   "Name":"Paranoia Agent",
+	   "Hint":"Where people are plagued by fear and uncertainty, a mysterious assailant emerges, triggering a chain of events that delve into the depths of human psyche and collective delusion.",
+	   "Keywords":[
+		  "Paranoia Agent"
+	   ]
+	},
+	{
+	   "ID":"3895412",
+	   "Name":"The Promised Neverland",
+	   "Hint":"In a world cloaked in deceit, a group of determined children unravels the dark secrets that shroud their existence, forging a daring escape and defying their cruel fate.",
+	   "Keywords":[
+		  "The promised neverland",
+		  "Promised neverland"
+	   ]
+	},
+	{
+	   "ID":"92130954",
+	   "Name":"Tengen Toppa Gurren Lagann",
+	   "Hint":"Where the world lives off suppressed dreams, a group of fearless rebels rises from the depths, igniting a monumental battle and propelling their ambitions to unimaginable heights.",
+	   "Keywords":[
+		  "Tengen Toppa Gurren Lagann",
+		  "Gurren Lagann"
+	   ]
+	},
+	{
+	   "ID":"591203",
+	   "Name":"Kakegurui",
+	   "Hint":"Enter a world where the thrill of gambling becomes a way of life, and the high-stakes games unveil the darkest secrets of those who dare to play.",
+	   "Keywords":[
+		  "Kakegurui"
+	   ]
+	},
+	{
+	   "ID":"7455034",
+	   "Name":"Zombie land Saga",
+	   "Hint":"There's a deathly twist of fate as a group of unconventional idols rise from the grave, infusing music, comedy, and undead charm into a world that's craving a new kind of sensation.",
+	   "Keywords":[
+		  "Zombie Land Saga"
+	   ]
+	},
+	{
+	   "ID":"51289052",
+	   "Name":"Shiki",
+	   "Hint":"In a tranquil village gripped by an inexplicable epidemic, darkness descends as a battle between humans and creatures of the night unfolds, blurring the boundaries of life and death.",
+	   "Keywords":[
+		  "Shiki"
+	   ]
+	},
+	{
+	   "ID":"123952",
+	   "Name":"Mirai Nikki",
+	   "Hint":"Through a diary that foretells the future, a twisted game of life and death takes shape, where love becomes a weapon and survival is the ultimate prize.",
+	   "Keywords":[
+		  "Mirai Nikki"
+	   ]
+	},
+	{
+		"ID":"3429842",
+		"Name":"Soul Eater",
+		"Hint":"Weapons become sentient allies, and young warriors strive to collect malevolent souls, treading the fine line between darkness and light in an enthralling supernatural tale.",
+		"Keywords":[
+		   "Soul Eater"
+		]
+	 },
+	{
+	   "ID":"51298051",
+	   "Name":"Another",
+	   "Hint":"In this chilling tale of mystery and horror, a transfer student becomes entangled in a cursed classroom, unraveling a terrifying secret that lurks beneath the surface.",
+	   "Keywords":[
+		  "Another"
+	   ]
+	},
+	{
+	   "ID":"51290158",
+	   "Name":"Sword Art Online",
+	   "Hint":"Bound by virtual reality, players must fight for their lives in a perilous game world, where the line between the digital and the real blurs.",
+	   "Keywords":[
+		  "Sword Art Online"
+	   ]
+	},
+	{
+	   "ID":"0591065",
+	   "Name":"Attack on Titan",
+	   "Hint":"Within the towering walls and on the edge of extinction, humanity's struggle for survival reaches colossal proportions, as relentless giants threaten to devour everything in their path.",
+	   "Keywords":[
+		  "Attack on Titan"
+	   ]
+	},
+	{
+	   "ID":"1908051",
+	   "Name":"Pocket Monsters",
+	   "Hint":"Journey through a captivating realm filled with extraordinary creatures, as aspiring adventurers form unbreakable bonds with fascinating companions, unlocking their true potential in exhilarating encounters.",
+	   "Keywords":[
+		  "Pokemon",
+		  "Pocket Monsters"
+	   ]
+	},
+	{
+	   "ID":"0129583",
+	   "Name":"Mononoke",
+	   "Hint":"Where spirits and ancient curses are in full-swing, a wandering warrior unearths the hidden truths behind malevolent entities, confronting the supernatural with keen insight and unwavering resolve.",
+	   "Keywords":[
+		  "Mononoke"
+	   ]
+	},
+	{
+	   "ID":"6021395",
+	   "Name":"Beastars",
+	   "Hint":"In a world of predator and prey, secrets lurk beneath the surface, unraveling a captivating story of forbidden love and the struggle to find one's true self.",
+	   "Keywords":[
+		  "Beastars"
+	   ]
+	},
+	{
+	   "ID":"158190562",
+	   "Name":"Panty and Stocking With Garterbelt",
+	   "Hint":"In a riotous and irreverent adventure, two angelic sisters with unconventional methods battle supernatural forces and chase earthly desires, leaving chaos and hilarity in their wake.",
+	   "Keywords":[
+		  "Panty and Stocking"
+	   ]
+	},
+	{
+	   "ID":"8753498",
+	   "Name":"Fire Force",
+	   "Hint":"Plagued by infernal flames, a dedicated force of firefighters battles both supernatural blazes and the dark secrets that fuel them, risking everything to bring hope and restore balance.",
+	   "Keywords":[
+		  "Fire Force"
+	   ]
+	},
+	{
+	   "ID":"328910",
+	   "Name":"RWBY",
+	   "Hint":"Amidst a world plagued by darkness, four unlikely heroes rise, wielding unique powers and forging bonds, to confront the forces that threaten their realm.",
+	   "Keywords":[
+		  "RWBY"
+	   ]
+	},
+	{
+	   "ID":"5912038",
+	   "Name":"Junji Ito Collection",
+	   "Hint":"Dive into a chilling anthology of twisted tales crafted by the maestro of horror himself, where the boundaries of reality and the depths of human psyche collide.",
+	   "Keywords":[
+		  "Junji Ito"
+	   ]
+	},
+	{
+	   "ID":"0934238",
+	   "Name":"Samurai Champloo",
+	   "Hint":"Venture into a dynamic fusion of samurai and hip-hop culture, where a trio of misfit warriors embarks on a journey fueled by swordplay, music, and the search for purpose.",
+	   "Keywords":[
+		  "Samurai Champloo"
+	   ]
+	},
+	{
+	   "ID":"981205",
+	   "Name":"Death Note",
+	   "Hint":"In a battle of wits and morality, a brilliant mind wielding a supernatural notebook challenges the boundaries of justice, descending into a treacherous game of life and death.",
+	   "Keywords":[
+		  "Death Note"
+	   ]
+	},
+	{
+	   "ID":"2198051",
+	   "Name":"Bakemonogatari",
+	   "Hint":"Immerse yourself in a captivating narrative where supernatural encounters intertwine with the complexities of human relationships, blurring the lines between reality and illusion.",
+	   "Keywords":[
+		  "Bakemonogatari"
+	   ]
+	},
+	{
+	   "ID":"0128951",
+	   "Name":"Yuri!!! On Ice",
+	   "Hint":"Step onto the ice where dreams unfold, as a talented skater and his devoted coach defy expectations and celebrate the power of love and perseverance.",
+	   "Keywords":[
+		  "Yuri!!! On Ice"
+	   ]
+	},
+	{
+		"ID":"0519232",
+		"Name":"Fullmetal Alchemist Brotherhood",
+		"Hint":"Full of wonder and sacrifice, two brothers embark on an extraordinary journey, seeking the philosopher's stone (or Sorcerer's, if you're American!) and confronting the consequences of their forbidden quest.",
+		"Keywords":[
+		   "Fullmetal alchemist"
+		]
+	 },
+	{
+	   "ID":"643203",
+	   "Name":"Erased",
+	   "Hint":"In a thrilling journey through time, one man's ability to rewrite history becomes his only hope of solving a series of tragic mysteries, and preventing a heart-wrenching tragedy from unfolding.",
+	   "Keywords":[
+		  "Erased"
+	   ]
+	},
+	{
+	   "ID":"1209575",
+	   "Name":"Ace Attorney",
+	   "Hint":"In a gripping courtroom drama where the pursuit of truth takes center stage, a determined, tenacious legal advocate unravels enigmatic cases, wielding evidence and wit to shed light on the shadows of doubt.",
+	   "Keywords":[
+		  "Ace Attorney"
+	   ]
+	},
+	{
+		"ID":"528392",
+		"Name":"Deadman Wonderland",
+		"Hint":"When justice takes a brutal form, a wrongly accused youth fights for survival in a sadistic prison, unveiling the dark conspiracy that binds his fate.",
+		"Keywords":[
+		   "Deadman Wonderland"
+		]
+	 },
+	{
+	   "ID":"2953012",
+	   "Name":"Uncle from another world",
+	   "Hint":"An encounter with an otherworldly family member, turns ordinary lives into extraordinary adventures, blending magic and reality in a whimsical tale.",
+	   "Keywords":[
+		  "Uncle from another world"
+	   ]
+	},
+	{
+	   "ID":"1234895",
+	   "Name":"Jujutsu Kaisen",
+	   "Hint":"Malevolent curses roam, and a gifted hero embraces the dark arts to confront the twisted creatures that threaten to devour humanity.",
+	   "Keywords":[
+		  "Jujustu Kaisen"
+	   ]
+	},
+	{
+	   "ID":"34901285",
+	   "Name":"Fairy Tail",
+	   "Hint":"In a world of magic and adventure, a guild of diverse individuals embarks on epic quests, forging bonds and defying odds as they navigate a realm of wonder and danger.",
+	   "Keywords":[
+		  "Fairy Tail"
+	   ]
+	},
+	{
+	   "ID":"69312",
+	   "Name":"Assassination Classroom",
+	   "Hint":"When the curriculum blends danger and destiny, students strive to end their unusual teacher's reign, all while discovering the true meaning of life and the power of unlikely bonds.",
+	   "Keywords":[
+		  "Assassination Classroom"
+	   ]
+	},
+	{
+	   "ID":"20149151",
+	   "Name":"K: Return of Kings",
+	   "Hint":"In a world where power determines destiny, a king's return sets the stage for an epic battle that will shape the fate of all.",
+	   "Keywords":[
+		  "K"
+	   ]
+	},
+	{
+	   "ID":"198501",
+	   "Name":"Afro Samurai",
+	   "Hint":"In a gritty and stylized realm of vengeance, a lone warrior embarks on a blood-soaked quest for retribution, his sword carving a path through the shadows of an unforgiving world.",
+	   "Keywords":[
+		  "Afro Samurai"
+	   ]
+	},
+	{
+	   "ID":"5129056",
+	   "Name":"Steins;Gate",
+	   "Hint":"Immerse yourself in a captivating tale where time itself becomes a playground for science, adventure, and the delicate balance between cause and effect.",
+	   "Keywords":[
+		  "Steins;Gate"
+	   ]
+	},
+	{
+	   "ID":"159238",
+	   "Name":"Cyberpunk Edgerunners",
+	   "Hint":"In a dystopian metropolis where chaos reigns, rebels rise against a tyrannical regime, straddling the line between survival and revolution in a world of cybernetic enhancements and high-tech intrigue.",
+	   "Keywords":[
+		  "Cyberpunk Edgerunners"
+	   ]
+	},
+	{
+	   "ID":"1289052",
+	   "Name":"Bakugan Battle Bralwers",
+	   "Hint":"As strategic duels between extraordinary beings unfold, a young brawlers harness their skills and forge unbreakable bonds, aiming to become champions of the titular battles.",
+	   "Keywords":[
+		  "Bakugan"
+	   ]
+	},
+	{
+	   "ID":"1295034",
+	   "Name":"Black Clover",
+	   "Hint":"Where magic is everything, a young boy born without powers sets out to prove that with unwavering determination, even the powerless can rise to become the greatest sorcerer of all.",
+	   "Keywords":[
+		  "Black Clover"
+	   ]
+	},
+	{
+	   "ID":"1290941",
+	   "Name":"Black Butler",
+	   "Hint":"Where darkness and sophistication are at the forefront, a butler with a shadowy past serves his master, unraveling secrets and confronting the demons that dwell within their intertwining lives.",
+	   "Keywords":[
+		  "Black Butler"
+	   ]
+	},
+	{
+	   "ID":"12052",
+	   "Name":"K-On",
+	   "Hint":"Join a group of spirited high school girls as they embark on a musical journey filled with friendship, laughter, and the pursuit of their rock 'n' roll dreams.",
+	   "Keywords":[
+		  "K-On"
+	   ]
+	},
+	{
+	   "ID":"902158",
+	   "Name":"High School of the Dead",
+	   "Hint":"In a world overrun by the undead, a group of high school students fight for survival, battling hordes of relentless zombies in a desperate bid to stay alive.",
+	   "Keywords":[
+		  "High school of the dead"
+	   ]
+	},
+	{
+	   "ID":"5891203",
+	   "Name":"Re Zero",
+	   "Hint":"Trapped in an endless cycle of death and rebirth, a young man grapples with harrowing challenges, testing his resilience and unraveling the mysteries that bind his fate.",
+	   "Keywords":[
+		  "Re Zero"
+	   ]
+	},
+	{
+	   "ID":"198519025",
+	   "Name":"Death Parade",
+	   "Hint":"Between life and the afterlife, souls face intricate games that reveal their true nature, unraveling the enigmatic judgments of death itself.",
+	   "Keywords":[
+		  "Death Parade"
+	   ]
+	},
+	{
+	   "ID":"984024",
+	   "Name":"Naruto Shippuden",
+	   "Hint":"In a realm of ancient arts and turbulent conflicts, a young ninja embarks on a transformative journey, navigating trials of loyalty, redemption, and self-discovery that shape the course of destiny",
+	   "Keywords":[
+		  "Naruto Shippuden"
+	   ]
+	},
+	{
+	   "ID":"481290",
+	   "Name":"Code Geass",
+	   "Hint":"Amidst a struggle for power and rebellion, a strategic genius emerges, wielding a mysterious power that could shape the fate of nations.",
+	   "Keywords":[
+		  "Code Geass"
+	   ]
+	},
+	{
+	   "ID":"54128905",
+	   "Name":"Scarlet Nexus",
+	   "Hint":"Unleash your psychic prowess in a futuristic world overrun by mysterious creatures, as you join an elite group of warriors to uncover the truth behind the enigmatic psionic powers and the chilling mysteries that lie within.",
+	   "Keywords":[
+		  "Scarlet Nexus"
+	   ]
+	},
+	{
+	   "ID":"15890156",
+	   "Name":"Hellsing",
+	   "Hint":"In a world teetering on the edge of chaos, a legendary vampire hunter and his lethal allies wage a fierce battle against the undead, protecting humanity from the shadows.",
+	   "Keywords":[
+		  "Hellsing"
+	   ]
+	},
+	{
+	   "ID":"9025185",
+	   "Name":"Ergo Proxy",
+	   "Hint":"Explore a desolate world where existential questions unravel, and the search for truth intertwines with a dark and mysterious destiny!",
+	   "Keywords":[
+		  "Ergo Proxy"
+	   ]
+	},
+	{
+	   "ID":"29086221",
+	   "Name":"Monster",
+	   "Hint":"A brilliant doctor delves into the darkest corners of humanity, pursuing a sinister killer and confronting the depths of his own morality.",
+	   "Keywords":[
+		  "Monster"
+	   ]
+	},
+	{
+	   "ID":"0519235",
+	   "Name":"Lucky Star",
+	   "Hint":"Join a quirky group of friends as they navigate the hilarious ups and downs of everyday life, sprinkling their adventures with laughter and a touch of whimsy.",
+	   "Keywords":[
+		  "Lucky Star"
+	   ]
+	},
+	{
+	   "ID":"0123052",
+	   "Name":"Drifters",
+	   "Hint":"Prepare for an otherworldly clash, where historical figures from different eras are drawn into a merciless battle that blurs the boundaries of time.",
+	   "Keywords":[
+		  "Drifters"
+	   ]
+	},
+	{
+	   "ID":"1304195",
+	   "Name":"A Silent Voice",
+	   "Hint":"In this heartfelt tale, a silent connection speaks volumes, reminding us that words aren't always needed to understand the language of compassion.",
+	   "Keywords":[
+		  "A Silent Voice"
+	   ]
+	},
+	{
+	   "ID":"2398154",
+	   "Name":"Danmachi",
+	   "Hint":"A young adventurer ventures into treacherous dungeons, braving monstrous foes and uncovering hidden truths, driven by the desire to become a legend.",
+	   "Keywords":[
+		  "Danmachi",
+		  "Is It Wrong to Try to Pick Up Girls in a Dungeon?"
+	   ]
+	},
+	{
+	   "ID":"745632",
+	   "Name":"Sailor Moon Crystal",
+	   "Hint":"Embark on a celestial journey where a group of magical guardians, guided by the luminous beacon above, unite to protect love, justice, and the harmony of the universe from the forces of darkness.",
+	   "Keywords":[
+		  "Sailor Moon"
+	   ]
+	},
+	{
+	   "ID":"890343",
+	   "Name":"Blood+",
+	   "Hint":"Amidst a world of vampires and shadows, a young woman embraces her destiny, confronting ancient enemies and discovering the true power of the 'juice' they crave!",
+	   "Keywords":[
+		  "Blood+"
+	   ]
+	},
+	{
+	   "ID":"1230415",
+	   "Name":"Your Name",
+	   "Hint":"Two souls, separated by time and fate, find themselves bound by an extraordinary cosmic thread. Brace yourself for a story that defies the limits of distance and captures the essence of destiny!",
+	   "Keywords":[
+		  "Your Name",
+		  "Kimi No Na Wa"
+	   ]
+	},
+	{
+	   "ID":"9130415",
+	   "Name":"Corpse Party: Tortured Souls",
+	   "Hint":"It's time for a chilling descent into a twisted realm, where vengeful spirits and a cursed school unleash a harrowing journey of survival, where no soul is safe from the horrors that lurk within",
+	   "Keywords":[
+		  "Corpse Party"
+	   ]
+	},
+	{
+	   "ID":"5019238",
+	   "Name":"Cowboy Bebop",
+	   "Hint":"In a futuristic world, a group of eclectic bounty hunters chase their own pasts while exploring the vast reaches of space, their destinies intertwined amidst thrilling adventures.",
+	   "Keywords":[
+		  "Cowboy Bebop"
+	   ]
+	},
+	{
+	   "ID":"123908451",
+	   "Name":"Angel Beats!",
+	   "Hint":"Amidst an enigmatic afterlife, a group of lost souls forms an unconventional battlefront, seeking closure, rediscovering purpose, and challenging the mysteries that bind them.",
+	   "Keywords":[
+		  "Angel Beats!"
+	   ]
+	},
+	{
+	   "ID":"6420934",
+	   "Name":"Mieruko-chan",
+	   "Hint":"When the supernatural lurks just beyond the ordinary, a young girl with a unique ability sees terrifying apparitions, balancing fear and humor as the line between reality and the paranormal blurs.",
+	   "Keywords":[
+		  "Mieruko-chan"
+	   ]
+	},
+	{
+	   "ID":"046293",
+	   "Name":"Made in Abyss",
+	   "Hint":"Journey into the uncharted depths of an awe-inspiring chasm, where danger and wonder coexist, and the resilience of explorers is tested when every step forward brings both revelation and peril.",
+	   "Keywords":[
+		  "Made in Abyss"
+	   ]
+	},
+	{
+	   "ID":"031495",
+	   "Name":"Danganronpa the animation",
+	   "Hint":"Step into a twisted game of life and death, where hope and despair collide in a high-stakes battle of wits, as a group of students are trapped in a sinister experiment that tests their every decision and reveals their darkest secrets.",
+	   "Keywords":[
+		  "Danganronpa"
+	   ]
+	},
+	{
+	   "ID":"01290523",
+	   "Name":"Psycho Pass",
+	   "Hint":"In a dystopian society governed by a merciless system, a group of enforcers confronts the darkness that resides within both criminals and themselves, questioning the thin line between justice and tyranny.",
+	   "Keywords":[
+		  "Psycho Pass"
+	   ]
+	},
+	{
+	   "ID":"981230",
+	   "Name":"Darker than black",
+	   "Hint":"In a world cloaked in mystery and supernatural anomalies, enigmatic individuals harness extraordinary abilities, walking a fine line between light and darkness.",
+	   "Keywords":[
+		  "Darker than black"
+	   ]
+	},
+	{
+	   "ID":"01951653",
+	   "Name":"Ghost in the Shell Stand Alone Complex",
+	   "Hint":"In a technologically advanced future, an elite task force tackles cybercrime and grapples with questions of identity, blurring the lines between humanity and artificial intelligence.",
+	   "Keywords":[
+		  "Ghost in the Shell"
+	   ]
+	},
+	{
+	   "ID":"912380",
+	   "Name":"Beserk",
+	   "Hint":"In a dark realm of relentless chaos and vengeance, a lone warrior wields a cursed blade, embarking on a treacherous journey of bloodshed and redemption.",
+	   "Keywords":[
+		  "Beserk"
+	   ]
+	},
+	{
+	   "ID":"9853290",
+	   "Name":"Gintama",
+	   "Hint":"Set in a comically bizarre era, a group of eccentric individuals navigate a world of samurais, aliens, and unexpected hilarity, blending irreverent humor with heartfelt moments.",
+	   "Keywords":[
+		  "Gintama"
+	   ]
+	},
+	{
+	   "ID":"0213905",
+	   "Name":"No Game No Life",
+	   "Hint":"Where everything is determined through games, two brilliant siblings unleash their strategic prowess to challenge the boundaries of reality and claim their place among the gods of gaming.",
+	   "Keywords":[
+		  "No Game No Life"
+	   ]
+	},
+	{
+	   "ID":"2941205",
+	   "Name":"Trigun",
+	   "Hint":"In a vast frontier of chaos and conflict, a lone gunslinger with a mysterious past walks a path of redemption, blending bullets and compassion in a captivating tale of honor and survival.",
+	   "Keywords":[
+		  "Trigun"
+	   ]
+	},
+	{
+	   "ID":"0192359",
+	   "Name":"Food Wars! Shokugeki no Soma",
+	   "Hint":"Culinary prowess becomes a battleground of intense flavor battles, as aspiring chefs push their skills to the limit, igniting taste sensations that transcend the ordinary.",
+	   "Keywords":[
+		  "Food Wars!"
+	   ]
+	},
+	{
+	   "ID":"1239045",
+	   "Name":"Hirugashi: When they cry",
+	   "Hint":"Within a seemingly peaceful village, dark secrets and mysteries unfold, plunging its inhabitants into a whirlwind of paranoia, tragedy, and the desperate search for truth.",
+	   "Keywords":[
+		  "Hirugashi",
+		  "When they cry"
+	   ]
+	},
+	{
+	   "ID":"5901238",
+	   "Name":"Durarara!!",
+	   "Hint":"In the labyrinthine streets of a bustling city, a vibrant cast of characters collide, weaving a tapestry of interconnected lives, secrets, and urban tales.",
+	   "Keywords":[
+		  "Durarara"
+	   ]
+	},
+	{
+	   "ID":"1205530",
+	   "Name":"One Punch Man",
+	   "Hint":"Where people are overrun by villains, a remarkably powerful hero blessed with unparalleled strength faces a comical struggle to find a worthy opponent, challenging the limits of his own extraordinary abilities.",
+	   "Keywords":[
+		  "One Punch Man"
+	   ]
+	},
+	{
+	   "ID":"2145801",
+	   "Name":"Madoka Magica",
+	   "Hint":"The whimsy of magical girls conceals a dark and haunting truth, as a group of young heroines confront the weight of their destinies and the price of their wishes!",
+	   "Keywords":[
+		  "Madoka Magica"
+	   ]
+	},
+	{
+	   "ID":"2134515",
+	   "Name":"That time i got reincarnated as a slime",
+	   "Hint":"Experience a moment where a chance encounter sparks a remarkable transformation, leading to a remarkable journey of self-discovery and extraordinary destinies.",
+	   "Keywords":[
+		  "That time i got reincarnated as a slime"
+	   ]
+	},
+	{
+	   "ID":"4819205",
+	   "Name":"One Piece",
+	   "Hint":"Prepare to embark on an epic voyage where a treasure worth risking everything for awaits, and the bonds of friendship are as unbreakable as the ocean itself.",
+	   "Keywords":[
+		  "One Piece"
+	   ]
+	},
+	{
+	   "ID":"158190561",
+	   "Name":"Claymore",
+	   "Hint":"Where darkness looms and sinister creatures roam, a band of formidable warriors with extraordinary abilities rise to protect the fragile balance between humanity and the unknown.",
+	   "Keywords":[
+		  "Claymore"
+	   ]
+	},
+	{
+	   "ID":"512566",
+	   "Name":"Mob Psycho 100",
+	   "Hint":"Join a seemingly ordinary boy with extraordinary psychic powers as he navigates the chaotic realms of ghosts, spirits, and self-discovery, proving that true strength lies within.",
+	   "Keywords":[
+		  "Mob Psycho"
+	   ]
+	},
+	{
+	   "ID":"438902",
+	   "Name":"Initial D",
+	   "Hint":"In the depths of underground racing, a skilled driver pushes the limits of speed and skill, mastering the art of the drift and leaving rivals in the dust.",
+	   "Keywords":[
+		  "Initial D"
+	   ]
+	},
+	{
+	   "ID":"834194",
+	   "Name":"Jojo's Bizarre Adventure",
+	   "Hint":"In a world where the extraordinary becomes the norm, prepare for a mind-bending odyssey filled with flamboyant characters, intense battles, and a touch of the bizarre",
+	   "Keywords":[
+		  "Jojo's Bizarre adventure"
+	   ]
+	},
+	{
+	   "ID":"283914",
+	   "Name":"Mashle",
+	   "Hint":"Where reality is governed by magic and spellcasting is the norm, a prodigious wizard breaks the mold, relying solely on physical might to overcome challenges and rewrite the rules of sorcery.",
+	   "Keywords":[
+		  "Mashle"
+	   ]
+	},
+	{
+	   "ID":"5382906",
+	   "Name":"Devil May Cry",
+	   "Hint":"Plagued by demonic forces, a relentless warrior battles the darkness that lurks, unleashing stylish action and uncovering enigmatic secrets along the way.",
+	   "Keywords":[
+		  "Devil May Cry"
+	   ]
+	},
+	{
+	   "ID":"1205934",
+	   "Name":"My Hero Academia",
+	   "Hint":"Imagine a place where young dreamers harness extraordinary abilities to protect the world. It's a hero's journey like no other!",
+	   "Keywords":[
+		  "My Hero Academia"
+	   ]
+	},
+	{
+	   "ID":"6432142",
+	   "Name":"Neon Evangelon Genesis",
+	   "Hint":"In a world on the brink of annihilation, young pilots pilot mechas to protect what remains, as existential questions are juxtaposed with epic battles.",
+	   "Keywords":[
+		  "Neon Evangelon Genesis"
+	   ]
+	},
+	{
+	   "ID":"6934053",
+	   "Name":"Parasyte Kiseijuu",
+	   "Hint":"Within a chilling coexistence of humans and otherworldly creatures, a symbiotic bond blurs the line between friend and foe, unraveling a haunting tale of survival and self-discovery.",
+	   "Keywords":[
+		  "Parasyte"
+	   ]
+	},
+	{
+	   "ID":"5187095",
+	   "Name":"Dragonball Super",
+	   "Hint":"Where power and epic clashes is the status quo, warriors from across realms unleash awe-inspiring abilities, engaging in battles that transcend time and space.",
+	   "Keywords":[
+		  "Dragonball Super"
+	   ]
+	},
+	{
+	   "ID":"1205912",
+	   "Name":"The Seven Deadly Sins",
+	   "Hint":"Amidst a realm of temptation and forbidden desires, a clash between powerful entities tests the boundaries of morality, unraveling a gripping tale of dark allure and redemption.",
+	   "Keywords":[
+		  "The Seven Deadly Sins"
+	   ]
+	},
+	{
+	   "ID":"9213804",
+	   "Name":"Gantz",
+	   "Hint":"Caught in a deadly game of survival, unsuspecting individuals are thrust into relentless battles against menacing creatures, questioning the boundaries of life, death, and their own humanity.",
+	   "Keywords":[
+		  "Gantz"
+	   ]
+	},
+	{
+	   "ID":"3951056",
+	   "Name":"Kaguya-Sama Love is war",
+	   "Hint":"Love becomes a battlefield where strategic minds clash, as two hearts refuse to surrender in a charming war of affection.",
+	   "Keywords":[
+		  "Kaguya-Sama",
+		  "Love is war"
+	   ]
+	},
+	{
+	   "ID":"564938",
+	   "Name":"A Certain Scientific Railgun",
+	   "Hint":"A young girl with an electrifying power must navigate the complexities of friendship, rivalry, and the moral dilemmas that arise in a city shaped by scientific marvels.",
+	   "Keywords":[
+		  "Railgun",
+		  "A Certain Scientific Railgun"
+	   ]
+	},
+	{
+		"ID":"581920561",
+		"Name":"Bleach",
+		"Hint":"A determined young warrior battles malevolent spirits, donning the mantle of a protector and striving to cleanse a world tainted by darkness.",
+		"Keywords":[
+		   "Bleach"
+		]
+	 }
+ ]
